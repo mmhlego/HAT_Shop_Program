@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginAnchor" prefHeight="500.0" prefWidth="450.0" styleClass="anchor-pane" stylesheets="@Register.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPage.Controller.Register.ThirdRegisterPage">
+   <children>
+      <JFXTextField id="title" alignment="CENTER" editable="false" focusTraversable="false" layoutX="158.0" layoutY="14.0" prefHeight="50.0" prefWidth="150.0" text="اطلاعات حساب" AnchorPane.bottomAnchor="368.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="15.0">
+         <font>
+            <Font name="B Koodak Bold" size="25.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </JFXTextField>
+      <TextField fx:id="username" alignment="CENTER" layoutX="50.0" layoutY="172.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="225.0" styleClass="fields" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="50.0">
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+         <font>
+            <Font name="B Koodak Bold" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="password" alignment="CENTER" layoutX="50.0" layoutY="250.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="225.0" styleClass="fields" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="50.0">
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+         <font>
+            <Font name="B Koodak Bold" size="18.0" />
+         </font>
+      </TextField>
+      <Label alignment="CENTER" layoutX="300.0" layoutY="172.0" prefHeight="50.0" prefWidth="100.0" styleClass="tags" text="نام کاربری:" AnchorPane.bottomAnchor="278.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font name="B Koodak Bold" size="19.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="nextStep" layoutX="199.0" layoutY="345.0" prefHeight="50.0" ripplerFill="#c41085" text="مرحله بعدی" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <Label alignment="CENTER" layoutX="300.0" layoutY="250.0" prefHeight="50.0" prefWidth="100.0" styleClass="tags" text="رمز عبور:" AnchorPane.bottomAnchor="200.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font name="B Koodak Bold" size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="passwordRepeat" alignment="CENTER" layoutX="50.0" layoutY="330.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="225.0" styleClass="fields">
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+         <font>
+            <Font name="B Koodak Bold" size="18.0" />
+         </font>
+      </TextField>
+      <Label alignment="CENTER" layoutX="295.0" layoutY="330.0" prefHeight="50.0" prefWidth="111.0" styleClass="tags" text="تکرار رمز عبور:" AnchorPane.bottomAnchor="120.0">
+         <font>
+            <Font name="B Koodak Bold" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="backBTN" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <image>
+            <Image url="@../icons8_multiply_30px.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
