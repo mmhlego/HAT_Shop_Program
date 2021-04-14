@@ -1,5 +1,5 @@
 package DataController;
 
-public class MainSender {
+public class MailSender {
 
 }
