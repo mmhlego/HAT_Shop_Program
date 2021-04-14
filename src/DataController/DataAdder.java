@@ -17,8 +17,8 @@ public class DataAdder {
             ps.setString(5, Phone);
             ps.setString(6, Email);
             ps.setString(7, Address);
-            ps.setString(8, Long.toString(Value));
-            ps.setString(9, Integer.toString(AccountMode));
+            ps.setLong(8, Value);
+            ps.setInt(9, AccountMode);
             ps.setString(10, ID);
 
             ps.executeUpdate();
@@ -36,7 +36,7 @@ public class DataAdder {
             ps.setString(2, LastName);
             ps.setString(3, Username);
             ps.setString(4, Encoder.encode(Password));
-            ps.setString(5, Integer.toString(Mode));
+            ps.setInt(5, Mode);
             ps.setString(6, Phone);
             ps.setString(7, Email);
             ps.setString(8, ID);
@@ -75,10 +75,10 @@ public class DataAdder {
             ps.setString(1, Name);
             ps.setString(2, Description);
             ps.setString(3, Details);
-            ps.setString(4, Long.toString(Price));
-            ps.setString(5, Integer.toString(Percentage));
+            ps.setLong(4, Price);
+            ps.setInt(5, Percentage);
             ps.setString(6, Category);
-            ps.setString(7, Integer.toString(Amount));
+            ps.setInt(7, Amount);
             ps.setString(8, ID);
 
             ps.executeUpdate();
@@ -86,4 +86,5 @@ public class DataAdder {
             e.printStackTrace();
         }
     }
+
 }
