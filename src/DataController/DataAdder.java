@@ -60,8 +60,6 @@ public class DataAdder {
             ps.setString(6, Email);
 
             ps.executeUpdate();
-
-            System.out.println("Added");
         } catch (Exception e) {
             e.printStackTrace();
         }
