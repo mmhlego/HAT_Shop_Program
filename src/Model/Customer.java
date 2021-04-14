@@ -5,6 +5,10 @@ public class Customer extends User {
     public long Value;
     public String ID;
 
+    public static String GenerateID() {
+        return "";
+    }
+
     public static int ModeToInt(CustomerMode u) {
         switch (u) {
         case REGULAR:
