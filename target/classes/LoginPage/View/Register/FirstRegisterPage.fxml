@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="loginAnchor" prefHeight="500.0" prefWidth="450.0" styleClass="anchor-pane" stylesheets="@Register.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPage.Controller.Register.FirstRegisterPage">
    <children>
-      <JFXTextField id="title" alignment="CENTER" editable="false" focusTraversable="false" layoutX="158.0" layoutY="14.0" prefHeight="50.0" prefWidth="150.0" text="ایجاد حساب" AnchorPane.bottomAnchor="368.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="15.0">
+      <JFXTextField id="title" alignment="CENTER" editable="false" focusTraversable="false" layoutX="158.0" layoutY="14.0" prefHeight="50.0" prefWidth="150.0" text="ایجاد حساب" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="39.0">
          <font>
             <Font name="B Koodak Bold" size="25.0" />
          </font>
@@ -21,7 +21,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </JFXTextField>
-      <TextField fx:id="phoneNumber" alignment="CENTER" layoutX="25.0" layoutY="122.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="225.0" styleClass="fields" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="190.0">
+      <TextField fx:id="phoneNumber" alignment="CENTER" layoutX="25.0" layoutY="122.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="225.0" styleClass="fields" AnchorPane.bottomAnchor="285.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="175.0">
          <padding>
             <Insets left="15.0" right="15.0" />
          </padding>
@@ -29,7 +29,7 @@
             <Font name="B Koodak Bold" size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="OTP" alignment="CENTER" layoutX="25.0" layoutY="218.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="225.0" styleClass="fields" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="290.0">
+      <TextField fx:id="OTP" alignment="CENTER" layoutX="25.0" layoutY="218.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="225.0" styleClass="fields" AnchorPane.bottomAnchor="185.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="175.0">
          <padding>
             <Insets left="15.0" right="15.0" />
          </padding>
@@ -37,7 +37,7 @@
             <Font name="B Koodak Bold" size="18.0" />
          </font>
       </TextField>
-      <Label alignment="CENTER" layoutX="263.0" layoutY="122.0" prefHeight="50.0" prefWidth="100.0" styleClass="tags" text="شماره تلفن:" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="190.0">
+      <Label alignment="CENTER" layoutX="263.0" layoutY="122.0" prefHeight="50.0" prefWidth="100.0" styleClass="tags" text="شماره تلفن:" AnchorPane.bottomAnchor="285.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="50.0">
          <font>
             <Font name="B Koodak Bold" size="19.0" />
          </font>
@@ -47,7 +47,7 @@
             <Font name="B Koodak Bold" size="20.0" />
          </font>
       </JFXButton>
-      <Label alignment="CENTER" layoutX="275.0" layoutY="290.0" prefHeight="50.0" prefWidth="100.0" styleClass="tags" text="کد ارسال شده:" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="290.0">
+      <Label alignment="CENTER" layoutX="275.0" layoutY="290.0" prefHeight="50.0" prefWidth="100.0" styleClass="tags" text="کد ارسال شده:" AnchorPane.bottomAnchor="185.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="50.0">
          <font>
             <Font name="B Koodak Bold" size="19.0" />
          </font>
