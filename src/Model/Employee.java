@@ -4,6 +4,10 @@ public class Employee extends User {
     public EmployeeMode Mode;
     public String ID;
 
+    public static String GenerateID() {
+        return "";
+    }
+
     public static int ModeToInt(EmployeeMode u) {
         switch (u) {
         case ASSISTANT:

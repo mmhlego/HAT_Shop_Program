@@ -1,6 +1,6 @@
 package Model;
 
-public class Manager extends User {
+public class Transaction {
 
     public static String GenerateID() {
         return "";
