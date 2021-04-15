@@ -16,9 +16,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class Login implements Initializable {
@@ -41,12 +44,26 @@ public class Login implements Initializable {
 	@FXML
 	private ImageView plusImage;
 
-	private final double duration = 2;
+	private final double duration = 0.5;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		plusImage.setCursor(Cursor.HAND);
 		plusImage.setOnMouseClicked(e -> registerPageAnimation());
+
+		enterBTN.setOnAction(e -> {
+			try {
+				((Stage) enterBTN.getScene().getWindow()).close();
+				FXMLLoader loader = new FXMLLoader(
+						getClass().getResource("../../CommonPages/Visual/MainStructure.fxml"));
+				Scene scene = new Scene(loader.load());
+				Stage stage = new Stage(StageStyle.TRANSPARENT);
+				stage.setScene(scene);
+				stage.show();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		});
 
 	}
 
@@ -71,7 +88,7 @@ public class Login implements Initializable {
 
 	private void secondTransition() {
 		TranslateTransition translate = new TranslateTransition(Duration.millis(100), registerAnchor);
-		translate.setByY(-92);
+		translate.setByY(-52);
 		translate.setCycleCount(1);
 		translate.play();
 		translate.setOnFinished(i -> {
@@ -131,6 +148,7 @@ public class Login implements Initializable {
 		timeline.getKeyFrames().add(keyFrame);
 		timeline.play();
 		timeline.setOnFinished(e -> {
+			registerAnchor.getChildren().clear();
 			registerAnchor.getChildren().add(register);
 			registerAnchor.getParent().setStyle("-fx-background-radius:20;");
 			AnchorPane pane = (AnchorPane) registerAnchor.getParent();
