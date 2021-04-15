@@ -14,7 +14,7 @@
                <children>
                   <ImageView fx:id="menuImg" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../icons/icons8_squared_menu_64px.png" />
+                        <Image url="@../../pictures/icons/menu.png" />
                      </image>
                   </ImageView>
                </children>
@@ -24,7 +24,7 @@
          <children>
             <ImageView fx:id="img" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../icons/icons8_exit_64px.png" />
+                  <Image url="@../../pictures/icons/exit.png" />
                </image></ImageView>
          </children>
       </VBox>
