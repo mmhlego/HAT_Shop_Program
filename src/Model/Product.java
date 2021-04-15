@@ -1,7 +1,6 @@
 package Model;
 
 public class Product {
-
     private String Name, Description, Details, Category, ID;
     private long Price;
     private int Percentage, Amount;
