@@ -1,6 +1,8 @@
 package DataController;
 
 import java.sql.*;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class DBConnector {
 
@@ -28,6 +30,28 @@ public class DBConnector {
         Results = stmt.executeQuery(Command);
 
         return Results;
+    }
+
+    // public static boolean CheckConnection() {
+
+    // }
+    
+    public static void CreateTimer() {
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                if (Connect()) {
+                    System.out.println("Connected");
+                    CreateTimer();
+                } else {
+                    System.out.println("Network Error");
+                    CreateTimer();
+                }
+
+            }
+        };
+        timer.schedule(task, 1000);
     }
 
 }

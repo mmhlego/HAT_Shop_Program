@@ -16,6 +16,21 @@ public class ProductChecker {
         return ConvertToArrayList(r);
     }
 
+    private static ArrayList<Product> ConvertToArrayList(ResultSet r) {
+        ArrayList<Product> temp = new ArrayList<Product>();
+        try {
+            while (r.next()) {
+                Product P = new Product(r.getString(1), r.getString(2), r.getString(3), r.getLong(4), r.getInt(5),
+                        r.getString(6), r.getInt(7), r.getString(8));
+
+                temp.add(P);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return temp;
+    }
+
     public static Product GetProduct(String ID) {
         ResultSet r = null;
         try {
@@ -24,6 +39,17 @@ public class ProductChecker {
             e.printStackTrace();
         }
         return ConvertToProduct(r);
+    }
+
+    private static Product ConvertToProduct(ResultSet r) {
+        try {
+            r.next();
+            return new Product(r.getString(1), r.getString(2), r.getString(3), r.getLong(4), r.getInt(5),
+                    r.getString(6), r.getInt(7), r.getString(8));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static ArrayList<Product> LoadCategoryProducts(String Category) {
@@ -47,32 +73,6 @@ public class ProductChecker {
             e.printStackTrace();
         }
         return 0;
-    }
-
-    private static ArrayList<Product> ConvertToArrayList(ResultSet r) {
-        ArrayList<Product> temp = new ArrayList<Product>();
-        try {
-            while (r.next()) {
-                Product P = new Product(r.getString(1), r.getString(2), r.getString(3), r.getLong(4), r.getInt(5),
-                        r.getString(6), r.getInt(7), r.getString(8));
-
-                temp.add(P);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return temp;
-    }
-
-    private static Product ConvertToProduct(ResultSet r) {
-        try {
-            r.next();
-            return new Product(r.getString(1), r.getString(2), r.getString(3), r.getLong(4), r.getInt(5),
-                    r.getString(6), r.getInt(7), r.getString(8));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
 }
