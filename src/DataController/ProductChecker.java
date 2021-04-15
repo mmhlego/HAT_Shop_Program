@@ -13,10 +13,20 @@ public class ProductChecker {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ConvertToArrayList(r);
+        return ConvertToProductsArrayList(r);
     }
 
-    private static ArrayList<Product> ConvertToArrayList(ResultSet r) {
+    public static ArrayList<Product> LoadCategoryProducts(String Category) {
+        ResultSet r = null;
+        try {
+            r = DBConnector.RunCommand("Select * From Products WHERE Category=" + "\'" + Category + "\'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ConvertToProductsArrayList(r);
+    }
+    
+    private static ArrayList<Product> ConvertToProductsArrayList(ResultSet r) {
         ArrayList<Product> temp = new ArrayList<Product>();
         try {
             while (r.next()) {
@@ -52,14 +62,26 @@ public class ProductChecker {
         return null;
     }
 
-    public static ArrayList<Product> LoadCategoryProducts(String Category) {
+    public static ArrayList<String> GetCategoriesName() {
         ResultSet r = null;
         try {
-            r = DBConnector.RunCommand("Select * From Products WHERE Category=" + "\'" + Category + "\'");
+            r = DBConnector.RunCommand("SELECT DISTINCT Category FROM Products");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ConvertToArrayList(r);
+        return ConvertToStringArrayList(r);
+    }
+
+    private static ArrayList<String> ConvertToStringArrayList(ResultSet r) {
+        ArrayList<String> temp = new ArrayList<String>();
+        try {
+            while (r.next()) {
+                temp.add(r.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return temp;
     }
 
     public static int GetProductAmount(String ID) {
@@ -75,4 +97,5 @@ public class ProductChecker {
         return 0;
     }
 
+    
 }

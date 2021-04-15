@@ -1,5 +1,8 @@
 import DataController.DBConnector;
+import DataController.DataAdder;
 import DataController.DataChecker;
+import DataController.SMSSender;
+import SampleCreator.Creator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,6 +13,14 @@ import javafx.stage.StageStyle;
 public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
+
+		/*DBConnector.Connect();
+		DataAdder.AddEmployee("MohammadMahdi", "Hejazi", "M.M.H", "M.M.H Lego",0 , "09146501380", "mmhlego@gmail.com",
+				"E-00001");
+		DataAdder.AddEmployee("Kamyab", "Tabani", "CyberGhost", "HAT_Cyber", 0 , "09394397528", "K.tabani82@gmail.com" ,
+				"E-00002" );
+		DataAdder.AddEmployee("Pouya", "Afraz", "Pouya", "VLB", 0, "09148303766", "Pouyaafraz@gmail.com", "E-00003");*/
+
 	}
 
 	@Override

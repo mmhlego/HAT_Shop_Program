@@ -2,15 +2,30 @@ package DataController;
 
 import java.util.Random;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class SMSSender {
     private static String OTP;
 
-    public static void SendSMS(String phone, String OTP) {
-        createRandomOTP();
-        MailSender.SendEmail("mmhlegoautosmssender@gmail.com", phone, OTP);
+    public static void SendSMS(String phone, String Text) {
+        // MailSender.SendEmail("mmhlegoautosmssender@gmail.com", phone, OTP);
+        Alert(AlertType.INFORMATION, Text);
     }
 
-    private static void createRandomOTP() {
+    private static void Alert(AlertType AlertType, String Content) {
+        Alert alert = new Alert(AlertType);
+        alert.setHeaderText(null);
+        alert.setContentText(Content);
+        alert.show();
+    }
+
+    public static void SendOTP(String Phonenumber) {
+        CreateRandomOTP();
+        SendSMS(Phonenumber, "رمز یک بار مصرف شما : " + OTP);
+    }
+
+    private static void CreateRandomOTP() {
         String temp = "";
         Random random = new Random(System.currentTimeMillis());
 
@@ -18,7 +33,7 @@ public class SMSSender {
             temp += Integer.toString(random.nextInt(10));
         }
 
-        setOTP(temp);
+        SetOTP(temp);
     }
 
     public static boolean CheckkOTP(String input) {
@@ -32,7 +47,7 @@ public class SMSSender {
         return OTP;
     }
 
-    public static void setOTP(String oTP) {
+    public static void SetOTP(String oTP) {
         OTP = oTP;
     }
 }
