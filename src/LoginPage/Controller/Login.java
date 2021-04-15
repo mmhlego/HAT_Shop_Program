@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import DataController.DataChecker;
+import Model.Limitter;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -17,7 +19,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -48,23 +52,36 @@ public class Login implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		Limitter.Limit(usernameField, 20, false);
+		Limitter.Limit(passwordField, 20, false);
 		plusImage.setCursor(Cursor.HAND);
 		plusImage.setOnMouseClicked(e -> registerPageAnimation());
 
 		enterBTN.setOnAction(e -> {
-			try {
-				((Stage) enterBTN.getScene().getWindow()).close();
-				FXMLLoader loader = new FXMLLoader(
-						getClass().getResource("../../CommonPages/Visual/MainStructure.fxml"));
-				Scene scene = new Scene(loader.load());
-				Stage stage = new Stage(StageStyle.TRANSPARENT);
-				stage.setScene(scene);
-				stage.show();
-			} catch (IOException ex) {
-				ex.printStackTrace();
+			if (DataChecker.CheckLogin(usernameField.getText(), passwordField.getText())) {
+				try {
+					((Stage) enterBTN.getScene().getWindow()).close();
+					FXMLLoader loader = new FXMLLoader(
+							getClass().getResource("../../CommonPages/Visual/MainStructure.fxml"));
+					Scene scene = new Scene(loader.load());
+					Stage stage = new Stage(StageStyle.TRANSPARENT);
+					stage.setScene(scene);
+					stage.show();
+				} catch (IOException ex) {
+				}
+			} else {
+				Alert(AlertType.ERROR, "نام کاربری یا پسورد اشتباه است !");
 			}
+
 		});
 
+	}
+
+	private void Alert(AlertType AlertType , String Content) {
+		Alert alert = new Alert(AlertType);
+		alert.setHeaderText(null);
+		alert.setContentText(Content);
+		alert.show();
 	}
 
 	private void registerPageAnimation() {

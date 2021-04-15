@@ -43,8 +43,8 @@ public class Employee extends User {
         }
         return null;
     }
-}
 
-enum EmployeeMode {
-    ASSISTANT, ACCOUNTANT, QUALITYCONTROL, REGULAR, SUPPLIER, STOREKEEPER
+    public enum EmployeeMode {
+        ASSISTANT, ACCOUNTANT, QUALITYCONTROL, REGULAR, SUPPLIER, STOREKEEPER
+    }
 }

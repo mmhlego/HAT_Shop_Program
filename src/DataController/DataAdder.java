@@ -2,6 +2,8 @@ package DataController;
 
 import java.sql.*;
 
+import Model.Product;
+
 public class DataAdder {
 
     public static void AddCustomer(String FirstName, String LastName, String Username, String Password, String Phone,
@@ -83,6 +85,10 @@ public class DataAdder {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void AddProduct(Product P) {
+            AddProduct(P.Name, P.Description, P.Details, P.Price, P.Percentage, P.Category, P.Amount, P.ID);
     }
 
 }

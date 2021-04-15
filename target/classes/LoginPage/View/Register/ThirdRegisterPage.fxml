@@ -37,21 +37,6 @@
             <Font name="B Koodak Bold" size="18.0" />
          </font>
       </TextField>
-      <Label alignment="CENTER" layoutX="300.0" layoutY="172.0" prefHeight="50.0" prefWidth="100.0" styleClass="tags" text="نام کاربری:" AnchorPane.bottomAnchor="325.0" AnchorPane.rightAnchor="50.0">
-         <font>
-            <Font name="B Koodak Bold" size="19.0" />
-         </font>
-      </Label>
-      <JFXButton fx:id="nextStep" layoutX="199.0" layoutY="345.0" prefHeight="50.0" ripplerFill="#c41085" text="مرحله بعدی" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
-         <font>
-            <Font name="B Koodak Bold" size="20.0" />
-         </font>
-      </JFXButton>
-      <Label alignment="CENTER" layoutX="301.0" layoutY="210.0" prefHeight="50.0" prefWidth="100.0" styleClass="tags" text="رمز عبور:" AnchorPane.bottomAnchor="240.0" AnchorPane.rightAnchor="49.0">
-         <font>
-            <Font name="B Koodak Bold" size="19.0" />
-         </font>
-      </Label>
       <TextField fx:id="passwordRepeat" alignment="CENTER" layoutX="50.0" layoutY="305.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="50.0" prefWidth="225.0" styleClass="fields" AnchorPane.bottomAnchor="155.0">
          <padding>
             <Insets left="15.0" right="15.0" />
@@ -60,6 +45,21 @@
             <Font name="B Koodak Bold" size="18.0" />
          </font>
       </TextField>
+      <JFXButton fx:id="nextStep" layoutX="199.0" layoutY="345.0" prefHeight="50.0" ripplerFill="#c41085" text="مرحله بعدی" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <Label alignment="CENTER" layoutX="300.0" layoutY="172.0" prefHeight="50.0" prefWidth="100.0" styleClass="tags" text="نام کاربری:" AnchorPane.bottomAnchor="325.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font name="B Koodak Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="301.0" layoutY="210.0" prefHeight="50.0" prefWidth="100.0" styleClass="tags" text="رمز عبور:" AnchorPane.bottomAnchor="240.0" AnchorPane.rightAnchor="49.0">
+         <font>
+            <Font name="B Koodak Bold" size="19.0" />
+         </font>
+      </Label>
       <Label alignment="CENTER" layoutX="295.0" layoutY="305.0" prefHeight="50.0" prefWidth="111.0" styleClass="tags" text="تکرار رمز عبور:" AnchorPane.bottomAnchor="155.0">
          <font>
             <Font name="B Koodak Bold" size="19.0" />

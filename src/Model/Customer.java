@@ -36,8 +36,8 @@ public class Customer extends User {
         }
         return null;
     }
-}
 
-enum CustomerMode {
-    REGULAR, PREMIUM, REGULARBANNED, PREMIUMBANNED
+    public enum CustomerMode {
+        REGULAR, PREMIUM, REGULARBANNED, PREMIUMBANNED
+    }
 }

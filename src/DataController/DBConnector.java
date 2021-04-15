@@ -32,21 +32,17 @@ public class DBConnector {
         return Results;
     }
 
-    // public static boolean CheckConnection() {
-
-    // }
-    
-    public static void CreateTimer() {
+    public static void CheckConnection() {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 if (Connect()) {
                     System.out.println("Connected");
-                    CreateTimer();
+                    CheckConnection();
                 } else {
                     System.out.println("Network Error");
-                    CreateTimer();
+                    CheckConnection();
                 }
 
             }
