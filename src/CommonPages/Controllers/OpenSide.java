@@ -1,11 +1,16 @@
 package CommonPages.Controllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-public class OpenSide {
+public class OpenSide implements Initializable {
 
 	@FXML
 	private AnchorPane SideBarPanel;
@@ -17,10 +22,32 @@ public class OpenSide {
 	private VBox SideBar;
 
 	@FXML
+	private Label menuLBL;
+
+	@FXML
 	private VBox SideBar1;
+
+	public Label getMenuLBL() {
+		return menuLBL;
+	}
+
+	public void setMenuLBL(Label menuLBL) {
+		this.menuLBL = menuLBL;
+	}
+
+	public Label getExitLBL() {
+		return exitLBL;
+	}
+
+	public void setExitLBL(Label exitLBL) {
+		this.exitLBL = exitLBL;
+	}
 
 	@FXML
 	private VBox exit;
+
+	@FXML
+	private Label exitLBL;
 
 	@FXML
 	private VBox imageBox;
@@ -82,6 +109,12 @@ public class OpenSide {
 
 	public void setImg(ImageView img) {
 		this.img = img;
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
