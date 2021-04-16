@@ -7,9 +7,11 @@ import com.jfoenix.controls.JFXButton;
 
 import DataController.DataChecker;
 import Model.*;
+import javafx.application.Platform;
 import javafx.fxml.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.Cursor;
 import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -38,6 +40,8 @@ public class ThirdRegisterPage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        backBTN.setCursor(Cursor.HAND);
+        backBTN.setOnMouseClicked(e -> Platform.exit());
         Limitter.Limit(username, 15, false);
         Limitter.Limit(password, 15, false);
         Limitter.Limit(passwordRepeat, 15, false);
@@ -69,7 +73,6 @@ public class ThirdRegisterPage implements Initializable {
         } else {
             return true;
         }
-
     }
 
     private void Alert(AlertType AlertType, String Content) {

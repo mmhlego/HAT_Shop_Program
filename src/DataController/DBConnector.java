@@ -4,6 +4,11 @@ import java.sql.*;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.*;
+
 public class DBConnector {
 
     private static ResultSet Results;
@@ -32,17 +37,24 @@ public class DBConnector {
         return Results;
     }
 
-    public static void CheckConnection() {
+    public static void CheckConnection(AnchorPane CurrentPage) {
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 if (Connect()) {
                     System.out.println("Connected");
-                    CheckConnection();
+                    CheckConnection(CurrentPage);
                 } else {
-                    System.out.println("Network Error");
-                    CheckConnection();
+                    System.out.println("disConnected");
+                    // FXMLLoader loader;
+                    // try {
+                    //     loader = new FXMLLoader(new File("src\\CommonPages\\Visual\\LoadingPage.fxml").toURI().toURL());
+                    //     CurrentPage.getChildren().add(loader.load());
+                    // } catch (IOException e1) {
+                    //     e1.printStackTrace();
+                    // }
+                    CheckConnection(CurrentPage);
                 }
 
             }

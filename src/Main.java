@@ -33,7 +33,6 @@ public class Main extends Application {
 					e.printStackTrace();
 				}
 				System.out.println(DBConnector.Connect());
-				System.out.println(DataChecker.GetAmountOf("Manager"));
 			}
 		});
 

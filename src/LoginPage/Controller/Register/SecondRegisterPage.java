@@ -5,10 +5,12 @@ import java.util.*;
 import com.jfoenix.controls.JFXButton;
 import DataController.*;
 import Model.*;
+import javafx.application.Platform;
 import javafx.fxml.*;
 import java.io.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.Cursor;
 import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -37,6 +39,8 @@ public class SecondRegisterPage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        backBTN.setCursor(Cursor.HAND);
+        backBTN.setOnMouseClicked(e -> Platform.exit());
         Limitter.Limit(phoneNumber, 11, true);
         Limitter.Limit(OTP, 6, true);
         phoneNumber.setText(FirstRegisterPage.Phone);
@@ -50,7 +54,7 @@ public class SecondRegisterPage implements Initializable {
 
         check.setOnAction((e) -> {
             if (OTP.getText().equals(SMSSender.getOTP())) {
-                UserPhone = OTP.getText();
+                UserPhone = phoneNumber.getText();
                 FXMLLoader loader;
                 try {
                     loader = new FXMLLoader(

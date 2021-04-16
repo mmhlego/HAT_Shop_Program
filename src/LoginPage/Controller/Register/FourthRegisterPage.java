@@ -3,7 +3,10 @@ package LoginPage.Controller.Register;
 import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
+
+import javafx.application.Platform;
 import javafx.fxml.*;
+import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import java.io.*;
@@ -31,6 +34,8 @@ public class FourthRegisterPage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        backBTN.setCursor(Cursor.HAND);
+        backBTN.setOnMouseClicked(e -> Platform.exit());
         nextStep.setOnAction((e) -> {
             if (!IsAllFieldsComplete(firstName, lastName)) {
                 Alert(AlertType.ERROR, "بعضی از فیلد ها خالی هستند");
@@ -49,8 +54,8 @@ public class FourthRegisterPage implements Initializable {
         });
     }
 
-    public static boolean IsAllFieldsComplete(TextField FirstName, TextField Lastname) {
-        if (FirstName.getText().equals("") || Lastname.getText().equals("")) {
+    public static boolean IsAllFieldsComplete(TextField Firstname, TextField LastName) {
+        if (Firstname.getText().equals("") || LastName.getText().equals("")) {
             return false;
         } else {
             return true;
