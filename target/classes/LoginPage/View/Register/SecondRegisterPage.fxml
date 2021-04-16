@@ -57,7 +57,7 @@
             <Font name="B Koodak Bold" size="19.0" />
          </font>
       </Label>
-      <ImageView fx:id="backBTN" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+      <ImageView fx:id="backBTN" fitHeight="30.0" fitWidth="30.0" layoutX="395.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="395.0" AnchorPane.topAnchor="14.0">
          <image>
             <Image url="@../icons8_multiply_30px.png" />
          </image>

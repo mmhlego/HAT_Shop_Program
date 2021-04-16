@@ -1,5 +1,4 @@
 import DataController.DBConnector;
-import DataController.DataChecker;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,7 +9,7 @@ import javafx.stage.StageStyle;
 public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
-
+		// 8.0.171
 		/*DBConnector.Connect();
 		DataAdder.AddEmployee("MohammadMahdi", "Hejazi", "M.M.H", "M.M.H Lego",0 , "09146501380", "mmhlego@gmail.com",
 				"E-00001");

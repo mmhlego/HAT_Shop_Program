@@ -46,7 +46,7 @@ public class DBConnector {
                     System.out.println("Connected");
                     CheckConnection(CurrentPage);
                 } else {
-                    System.out.println("disConnected");
+                    System.out.println("Connecting to database ...");
                     // FXMLLoader loader;
                     // try {
                     //     loader = new FXMLLoader(new File("src\\CommonPages\\Visual\\LoadingPage.fxml").toURI().toURL());
