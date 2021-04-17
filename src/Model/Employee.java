@@ -1,11 +1,13 @@
 package Model;
 
+import DataController.CustomUUID;
+
 public class Employee extends User {
     public EmployeeMode Mode;
     public String ID;
 
-    public static String GenerateID() {
-        return "";
+    public static String GenerateID(EmployeeMode mode) {
+        return "HE-" + Integer.toString(ModeToInt(mode)) + CustomUUID.Create(6);
     }
 
     public static int ModeToInt(EmployeeMode u) {
@@ -19,9 +21,9 @@ public class Employee extends User {
         case REGULAR:
             return 3;
         case SUPPLIER:
-            return 3;
+            return 4;
         case STOREKEEPER:
-            return 3;
+            return 5;
         }
         return -1;
     }

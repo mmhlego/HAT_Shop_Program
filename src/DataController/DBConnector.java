@@ -3,11 +3,7 @@ package DataController;
 import java.sql.*;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
-
-import java.io.*;
 
 public class DBConnector {
 

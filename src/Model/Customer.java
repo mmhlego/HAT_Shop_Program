@@ -1,12 +1,14 @@
 package Model;
 
+import DataController.CustomUUID;
+
 public class Customer extends User {
     public CustomerMode Mode;
     public long Value;
     public String ID;
 
     public static String GenerateID() {
-        return "";
+        return "HC-" + CustomUUID.Create(10);
     }
 
     public static int ModeToInt(CustomerMode u) {
