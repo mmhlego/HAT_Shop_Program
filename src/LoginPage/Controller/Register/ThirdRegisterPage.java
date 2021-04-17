@@ -44,7 +44,7 @@ public class ThirdRegisterPage implements Initializable {
         //!PasswordChecker.CheckStrength(PasswordChecker.Strength(password.getText())) Progressbar
 
         backBTN.setCursor(Cursor.HAND);
-        backBTN.setOnMouseClicked(e -> Platform.exit());
+        backBTN.setOnMouseClicked(e -> System.exit(0));
         Limitter.Limit(username, 15, false);
         Limitter.Limit(password, 15, false);
         Limitter.Limit(passwordRepeat, 15, false);

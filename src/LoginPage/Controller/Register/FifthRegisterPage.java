@@ -45,7 +45,7 @@ public class FifthRegisterPage implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         backBTN.setCursor(Cursor.HAND);
-        backBTN.setOnMouseClicked(e -> Platform.exit());
+        backBTN.setOnMouseClicked(e -> System.exit(0));
         phoneField.setText(SecondRegisterPage.UserPhone);
         registerBTN.setOnAction((e) -> {
             if (!IsAllFieldsComplete(emailField, addressField)) {

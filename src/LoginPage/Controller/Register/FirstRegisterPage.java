@@ -38,7 +38,7 @@ public class FirstRegisterPage implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		Limitter.Limit(phoneNumber, 11, true);
 		backBTN.setCursor(Cursor.HAND);
-		backBTN.setOnMouseClicked(e -> Platform.exit());
+		backBTN.setOnMouseClicked(e -> System.exit(0));
 
 		sendOTP.setOnAction((e) -> {
 			if (phoneNumber.getText().length() == 11 && phoneNumber.getText().substring(0, 2).equals("09")) {
