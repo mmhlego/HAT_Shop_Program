@@ -25,13 +25,13 @@ public class ProductChecker {
         }
         return ConvertToProductsArrayList(r);
     }
-    
+
     private static ArrayList<Product> ConvertToProductsArrayList(ResultSet r) {
         ArrayList<Product> temp = new ArrayList<Product>();
         try {
             while (r.next()) {
-                Product P = new Product(r.getString(1), r.getString(2), r.getString(3), r.getLong(4), r.getInt(5),
-                        r.getString(6), r.getInt(7), r.getString(8));
+                Product P = new Product(r.getString(1), r.getString(2), Product.ParseToArray(r.getString(3)),
+                        r.getLong(4), r.getInt(5), r.getString(6), r.getInt(7), r.getString(8));
 
                 temp.add(P);
             }
@@ -54,8 +54,8 @@ public class ProductChecker {
     private static Product ConvertToProduct(ResultSet r) {
         try {
             r.next();
-            return new Product(r.getString(1), r.getString(2), r.getString(3), r.getLong(4), r.getInt(5),
-                    r.getString(6), r.getInt(7), r.getString(8));
+            return new Product(r.getString(1), r.getString(2), Product.ParseToArray(r.getString(3)), r.getLong(4),
+                    r.getInt(5), r.getString(6), r.getInt(7), r.getString(8));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -97,5 +97,4 @@ public class ProductChecker {
         return 0;
     }
 
-    
 }

@@ -1,7 +1,7 @@
 package DataController;
 
 import java.sql.*;
-
+import java.util.Arrays;
 import Model.Product;
 
 public class DataAdder {
@@ -67,14 +67,14 @@ public class DataAdder {
         }
     }
 
-    public static void AddProduct(String Name, String Description, String Details, long Price, int Percentage,
+    public static void AddProduct(String Name, String Description, String[][] Details, long Price, int Percentage,
             String Category, int Amount, String ID) {
         try {
             PreparedStatement ps = DBConnector.Con.prepareStatement(
                     "INSERT INTO `Products`(`Name`, `Description`, `Details`, `Price`, `Percentage`, `Category`, `Amount`, `ID`) VALUES (?,?,?,?,?,?,?,?)");
             ps.setString(1, Name);
             ps.setString(2, Description);
-            ps.setString(3, Details);
+            ps.setString(3, Arrays.deepToString(Details));
             ps.setLong(4, Price);
             ps.setInt(5, Percentage);
             ps.setString(6, Category);
@@ -88,7 +88,7 @@ public class DataAdder {
     }
 
     public static void AddProduct(Product P) {
-            AddProduct(P.Name, P.Description, P.Details, P.Price, P.Percentage, P.Category, P.Amount, P.ID);
+        AddProduct(P.Name, P.Description, P.Details, P.Price, P.Percentage, P.Category, P.Amount, P.ID);
     }
 
 }
