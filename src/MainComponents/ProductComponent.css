@@ -1,0 +1,21 @@
+.root{
+	-fx-background-radius:20;
+	-fx-background-color:white;
+}
+
+.offer{
+	-fx-text-fill:#ff394e;
+	-jfx-focus-color:#ff394e;
+	-jfx-unfocus-color:#ff394e;
+}
+
+.discount{
+	-fx-background-color:#ef394e;
+	-fx-background-radius:50%;
+}
+
+.add{
+	-fx-text-fill:white;
+	-fx-background-color:#769FCD;
+	-fx-background-radius:0 0 20 20;
+}
