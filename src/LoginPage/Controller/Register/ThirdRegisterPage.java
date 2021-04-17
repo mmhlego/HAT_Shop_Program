@@ -36,10 +36,13 @@ public class ThirdRegisterPage implements Initializable {
     @FXML
     private ImageView backBTN;
 
-    public static String UserUsername , UserPassword;
+    public static String UserUsername, UserPassword;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+        //!PasswordChecker.CheckStrength(PasswordChecker.Strength(password.getText())) Progressbar
+
         backBTN.setCursor(Cursor.HAND);
         backBTN.setOnMouseClicked(e -> Platform.exit());
         Limitter.Limit(username, 15, false);
@@ -48,8 +51,10 @@ public class ThirdRegisterPage implements Initializable {
         nextStep.setOnAction((e) -> {
             if (!IsAllFieldsComplete(username, password, passwordRepeat)) {
                 Alert(AlertType.ERROR, "بعضی از فیلد ها خالی هستند");
-            }else if (!password.getText().equals(passwordRepeat.getText())){
+            } else if (!password.getText().equals(passwordRepeat.getText())) {
                 Alert(AlertType.ERROR, "پسورد ها مطابقت ندارند");
+            } else if (PasswordChecker.CheckStrength(PasswordChecker.Strength(password.getText())) == 0) {
+                Alert(AlertType.ERROR, "رمز عبور باید حداقل 8 کاراکتر و ترکیبی از ارقام و حروف باشد");
             } else if (DataChecker.UsernameExists(username.getText())) {
                 Alert(AlertType.ERROR, "این نام کاربری موجود است نام کاربری دیگری انتخاب نمایید");
             } else {

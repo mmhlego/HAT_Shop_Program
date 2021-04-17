@@ -9,7 +9,7 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		//launch(args);
+		launch(args);
 		// 8.0.171
 		/*DBConnector.Connect();
 		DataAdder.AddEmployee("MohammadMahdi", "Hejazi", "M.M.H", "M.M.H Lego",0 , "09146501380", "mmhlego@gmail.com",
@@ -18,9 +18,9 @@ public class Main extends Application {
 				"E-00002" );
 		DataAdder.AddEmployee("Pouya", "Afraz", "Pouya", "VLB", 0, "09148303766", "Pouyaafraz@gmail.com", "E-00003");*/
 
-		for (int i = 0; i < 100; i++) {
-			System.out.println(Transaction.GenerateID());
-		}
+		// for (int i = 0; i < 100; i++) {
+		// 	System.out.println(Transaction.GenerateID());
+		// }
 	}
 
 	@Override

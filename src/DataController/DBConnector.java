@@ -43,13 +43,6 @@ public class DBConnector {
                     CheckConnection(CurrentPage);
                 } else {
                     System.out.println("Connecting to database ...");
-                    // FXMLLoader loader;
-                    // try {
-                    //     loader = new FXMLLoader(new File("src\\CommonPages\\Visual\\LoadingPage.fxml").toURI().toURL());
-                    //     CurrentPage.getChildren().add(loader.load());
-                    // } catch (IOException e1) {
-                    //     e1.printStackTrace();
-                    // }
                     CheckConnection(CurrentPage);
                 }
 

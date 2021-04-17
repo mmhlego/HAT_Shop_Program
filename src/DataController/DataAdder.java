@@ -1,8 +1,10 @@
 package DataController;
 
 import java.sql.*;
-import java.util.Arrays;
-import Model.Product;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.*;
+import Model.*;
 
 public class DataAdder {
 
@@ -89,6 +91,55 @@ public class DataAdder {
 
     public static void AddProduct(Product P) {
         AddProduct(P.Name, P.Description, P.Details, P.Price, P.Percentage, P.Category, P.Amount, P.ID);
+    }
+
+    public static void AddShipping(String ID, int Status, long Fee, LocalDate date) {
+        try {
+            PreparedStatement ps = DBConnector.Con
+                    .prepareStatement("INSERT INTO `Shipping`(`OrderID`, `Status`, `Fee`, `Date`) VALUES (?,?,?,?)");
+            ps.setString(1, ID);
+            ps.setInt(2, Status);
+            ps.setLong(3, Fee);
+            ps.setDate(4, Date.valueOf(date));
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void AddTransaction(String FromID, long Amount, LocalDate date, String ID) {
+        try {
+            PreparedStatement ps = DBConnector.Con
+                    .prepareStatement("INSERT INTO `Transactions`(`FromID`, `Amount`, `Date`, `ID`) VALUES (?,?,?,?)");
+            ps.setString(1, FromID);
+            ps.setLong(2, Amount);
+            ps.setDate(3, Date.valueOf(date));
+            ps.setString(4, ID);
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void AddOrder(String OwnerID, int Status, String Products, String Amounts, long TotalValue,
+            String OrderID) {
+        try {
+            PreparedStatement ps = DBConnector.Con.prepareStatement(
+                    "INSERT INTO `Orders`(`OwnerID`, `Status`, `Products`, `Amounts`, `TotalValue`, `OrderID`) VALUES (?,?,?,?,?,?)");
+            ps.setString(1, OwnerID);
+            ps.setInt(2, Status);
+            ps.setString(3, Products);
+            ps.setString(4, Amounts);
+            ps.setLong(5, TotalValue);
+            ps.setString(6, OrderID);
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
