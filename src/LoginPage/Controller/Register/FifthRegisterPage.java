@@ -6,7 +6,6 @@ import com.jfoenix.controls.JFXButton;
 import DataController.DataAdder;
 import Model.*;
 import Model.Customer.CustomerMode;
-import javafx.application.Platform;
 import javafx.fxml.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
