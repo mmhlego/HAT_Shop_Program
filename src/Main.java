@@ -28,6 +28,10 @@ public class Main extends Application {
 		//		} catch (Exception e) {
 		//
 		//		}
+
+		// for (int i = 0; i < 100; i++) {
+		// 	System.out.println(Transaction.GenerateID());
+		// }
 	}
 
 	@Override

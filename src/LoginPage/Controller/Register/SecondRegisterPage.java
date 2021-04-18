@@ -40,7 +40,7 @@ public class SecondRegisterPage implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         backBTN.setCursor(Cursor.HAND);
-        backBTN.setOnMouseClicked(e -> Platform.exit());
+        backBTN.setOnMouseClicked(e -> System.exit(0));
         Limitter.Limit(phoneNumber, 11, true);
         Limitter.Limit(OTP, 6, true);
         phoneNumber.setText(FirstRegisterPage.Phone);
