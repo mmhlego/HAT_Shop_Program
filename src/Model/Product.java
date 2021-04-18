@@ -8,6 +8,9 @@ public class Product {
     public long Price;
     public int Percentage, Amount;
 
+    public static final String PHONE = "Phone", ACCESSORIES = "PhoneAccessories", COMPUTER = "Computer", BOOK = "Book",
+            SUPERMARKET = "SuperMarket";
+
     public Product(String name, String description, String[][] details, long price, int percentage, String category,
             int amount, String id) {
         Name = name;

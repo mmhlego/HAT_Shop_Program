@@ -4,8 +4,6 @@ import Model.Product;
 
 public class ProductCreator {
 
-    String[] Categories = {};
-
     public static void Create() {
         new Product("Asus zenbook FC430", "this is a good laptop",
                 Product.ParseToArray("[[CPU,Core i7],[ram,8GB],[display,ips],[display,ips]]"), 0, 0, "Laptop", 0,
