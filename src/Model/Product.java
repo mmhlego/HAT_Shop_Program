@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Arrays;
+
 import DataController.CustomUUID;
 
 public class Product {
@@ -23,8 +25,13 @@ public class Product {
         ID = id;
     }
 
+    public static String toString(Product P) {
+        return (P.Name + "\n" + P.Description + "\n" + P.Category + "\n" + P.ID + "\n"
+                + Arrays.deepToString(P.Details) + "\n" + P.Price + "\n" + P.Percentage + "\n" + P.Amount);
+    }
+
     public static String GenerateID() {
-        //hat product - id
+        // hat product - id
         return "HP-" + CustomUUID.Create(12);
     }
 
