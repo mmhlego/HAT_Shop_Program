@@ -7,7 +7,6 @@ import com.jfoenix.controls.JFXButton;
 
 import DataController.DataChecker;
 import Model.*;
-import javafx.application.Platform;
 import javafx.fxml.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;

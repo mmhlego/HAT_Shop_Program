@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import DataController.SMSSender;
 import Model.Limitter;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

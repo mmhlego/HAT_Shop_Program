@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="MainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" styleClass="root" stylesheets="@CustomerMainPage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.CustomerMainPage">
+<AnchorPane fx:id="MainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" styleClass="root" stylesheets="@CustomerMainPage.css" xmlns="http://javafx.com/javafx/8.0.127" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.CustomerMainPage">
    <children>
       <AnchorPane layoutX="7.0" layoutY="8.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="1080.0" styleClass="menu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -21,7 +21,7 @@
             </Label>
             <TextField fx:id="searchBar" focusTraversable="false" layoutX="51.0" layoutY="16.0" prefHeight="45.0" prefWidth="454.0" promptText="جستجو در دیجی هت ..." styleClass="search">
                <font>
-                  <Font name="2  Koodak Bold" size="20.0" />
+                  <Font name="B Kamran Bold" size="20.0" />
                </font>
             </TextField>
             <ImageView fx:id="searchBTN" fitHeight="35.0" fitWidth="37.0" layoutX="458.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
@@ -38,7 +38,7 @@
          <children>
             <Label alignment="CENTER" layoutX="924.0" layoutY="8.0" prefHeight="162.0" prefWidth="123.0" text="پیشنهادات شگفت انگیز" textFill="WHITE" wrapText="true" AnchorPane.topAnchor="0.0">
                <font>
-                  <Font name="2  Kamran Bold" size="40.0" />
+                  <Font name="B Kamran Bold" size="40.0" />
                </font>
             </Label>
             <ImageView fitHeight="138.0" fitWidth="200.0" layoutX="886.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
@@ -62,7 +62,7 @@
                <children>
                   <Label alignment="CENTER" layoutX="26.0" layoutY="14.0" prefHeight="75.0" prefWidth="150.0" text="گوشی موبایل">
                      <font>
-                        <Font name="2  Kamran" size="25.0" />
+                        <Font name="B Kamran Bold" size="25.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="142.0" fitWidth="166.0" layoutX="30.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
@@ -79,7 +79,7 @@
                <children>
                   <Label alignment="CENTER" layoutX="25.0" layoutY="14.0" prefHeight="75.0" prefWidth="150.0" text="لوازم جانبی موبایل">
                      <font>
-                        <Font name="2  Kamran" size="25.0" />
+                        <Font name="B Kamran Bold" size="25.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
@@ -95,7 +95,7 @@
                <children>
                   <Label alignment="CENTER" layoutX="25.0" layoutY="14.0" prefHeight="75.0" prefWidth="150.0" text="کامپیوتر و لپ تاپ">
                      <font>
-                        <Font name="2  Kamran" size="25.0" />
+                        <Font name="B Kamran Bold" size="25.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
@@ -112,7 +112,7 @@
                <children>
                   <Label alignment="CENTER" layoutX="25.0" layoutY="14.0" prefHeight="75.0" prefWidth="150.0" text="کتاب و لوازم التحریر">
                      <font>
-                        <Font name="2  Kamran" size="25.0" />
+                        <Font name="B Kamran Bold" size="25.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="142.0" fitWidth="134.0" layoutX="33.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
@@ -129,7 +129,7 @@
                <children>
                   <Label alignment="CENTER" layoutX="25.0" layoutY="14.0" prefHeight="75.0" prefWidth="150.0" text="کالاهای سوپرمارکتی">
                      <font>
-                        <Font name="2  Kamran" size="25.0" />
+                        <Font name="B Kamran Bold" size="25.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">

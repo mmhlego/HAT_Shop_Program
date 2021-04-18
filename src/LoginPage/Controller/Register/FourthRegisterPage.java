@@ -3,8 +3,6 @@ package LoginPage.Controller.Register;
 import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
-
-import javafx.application.Platform;
 import javafx.fxml.*;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;

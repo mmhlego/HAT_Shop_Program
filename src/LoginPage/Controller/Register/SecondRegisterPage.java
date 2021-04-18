@@ -5,7 +5,6 @@ import java.util.*;
 import com.jfoenix.controls.JFXButton;
 import DataController.*;
 import Model.*;
-import javafx.application.Platform;
 import javafx.fxml.*;
 import java.io.*;
 import javafx.scene.control.TextField;
