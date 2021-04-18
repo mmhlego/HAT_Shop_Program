@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="230.0" styleClass="root" stylesheets="@ProductComponent.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXTextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="23.0" layoutY="2.0" styleClass="offer" text="پیشنهاد شگفت انگیز" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="B Koodak Bold" size="12.0" />
+         </font></JFXTextField>
+      <VBox alignment="CENTER" layoutY="36.0" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" styleClass="img">
+               <image>
+                  <Image url="@119840736.jpg" />
+               </image></ImageView>
+         </children>
+      </VBox>
+      <Label alignment="CENTER" layoutY="150.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="103.0" styleClass="name" text="نام" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font name="B Koodak Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="70.0" layoutY="203.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="103.0" styleClass="price" text="11000" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="20.0">
+         <font>
+            <Font name="B Koodak Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </Label>
+      <Label layoutX="-1.0" layoutY="203.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="32.0" prefWidth="102.0" text="تومان" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="140.0">
+         <font>
+            <Font name="B Koodak Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </Label>
+      <Label alignment="CENTER" layoutX="21.0" layoutY="182.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="49.0" styleClass="discount" text="15%" AnchorPane.leftAnchor="21.0">
+         <font>
+            <Font name="B Koodak Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="101.0" layoutY="278.0" prefHeight="40.0" prefWidth="230.0" styleClass="add" text="افزودن به سبد" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font name="B Koodak Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
