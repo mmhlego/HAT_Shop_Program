@@ -12,7 +12,8 @@ public class DBConnector {
 
     public static boolean Connect() {
         try {
-            Con = DriverManager.getConnection("jdbc:mysql://freedb.tech/freedbtech_hatshopsystem",
+            Con = DriverManager.getConnection(
+                    "jdbc:mysql://freedb.tech/freedbtech_hatshopsystem?characterEncoding=UTF-8",
                     "freedbtech_hatusername", "hatpassword");
 
             if (Con != null) {

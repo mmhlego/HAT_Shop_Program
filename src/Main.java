@@ -1,3 +1,5 @@
+import java.sql.PreparedStatement;
+import com.mysql.cj.xdevapi.Statement;
 import DataController.DBConnector;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +10,15 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		launch(args);
+		System.out.println(DBConnector.Connect());
+		try {
+			PreparedStatement st = DBConnector.Con.prepareStatement("INSERT INTO `Sample`(`sample`) VALUES ('محمد')");
+			st.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		//launch(args);
 		// 8.0.171
 		/*DBConnector.Connect();
 		DataAdder.AddEmployee("MohammadMahdi", "Hejazi", "M.M.H", "M.M.H Lego",0 , "09146501380", "mmhlego@gmail.com",
