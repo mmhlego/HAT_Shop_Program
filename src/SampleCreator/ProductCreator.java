@@ -85,127 +85,127 @@ public class ProductCreator {
 
         Product P20 = new Product("ACER Nitro 5", "لپ تاپ ایسر مدل nitro5-55-70uz از سری لپ تاپ های گیمینگ، طراحی و مهندسی شرکت ایسر و در دسته‌بندی گیمینگ، جزء لپ‌تاپ‌های بالارده محسوب شرکت ایسر قرار می‌گیرد.",
                 Product.ParseToArray("[[ظرفیت حافظه RAM : ,16 گیگابایت],[ظرفیت حافظه داخلی : , یک ترابایت و 256 گیگابایت],[[سازنده پردازنده گرافیکی : ,NVIDIA],[اندازه صفحه نمایش : ,15.6 اینچ]]"), 36250000,
-                12, Product.COMPUTER, 20, Product.GenerateID());
+                12, Product.COMPUTER, 20, Product.GenerateID());                                                                                                              
 
-        Product P21 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.ACCESSORIES, amount, Product.GenerateID());
+        Product P21 = new Product(" Apple Watch Milanese Loop", "ساعت هوشمند اپل سری 6 مدل Milanese Loop 44mm یکی دیگر از شاهکارهای شرکت اپل است که به سلامتی افراد توجه بیش‌ازپیش کرده است.ساعت هوشمند اپل سری 6 مدل Milanese Loop 44mm از ساعت‌های هوشمند زیبای این برند است که با طیف گسترده‌ای از کیس‌ها و بندهای جدید ارائه می‌شود",
+                Product.ParseToArray("[[مناسب برای : ,آقایان و خانم‌ها],[صفحه نمایش رنگی : ,بله ],[قابلیت نصب سیم کارت : ,ندارد],[صفحه نمایش لمسی : ,بله]]"), 27499000,
+                1, Product.ACCESSORIES, 20, Product.GenerateID());
 
-        Product P22 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.ACCESSORIES, amount, Product.GenerateID());
+        Product P22 = new Product("Gaming Set", "کیف 50Cal پلاستیکی با کیفیت بالا، تمام سخت افزار را می توان به درستی و با خیال راحت ذخیره کردو به شما اجازه می دهد تا به راحتی به مقصد خود منتقل و حمل کنید! پکیج کامل Epicgear DeFiant 50 CAL gaming case برای ارائه حداکثر تحرک تجهیزات بازی طراحی شده است.",
+                Product.ParseToArray("[[همراه با ماوس : ,بله],[نوع اتصال : ,باسیم],[نوع رابط : ,پورت USB],[چراغ‌ پس زمینه صفحه کلید : ,دارد]]"), 14000000,
+                50, Product.ACCESSORIES, 20, Product.GenerateID());
 
-        Product P23 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.ACCESSORIES, amount, Product.GenerateID());
+        Product P23 = new Product("Hard External", "یکی از بهترین و گران ترین هارد اکسترنال های موجود در بازار است که در سال اخیر فروش بسیار زیادی داشته است",
+                Product.ParseToArray("[[ظرفیت : ,20 ترابایت],[نوع اتصال : ,باسیم],[نوع رابط : ,Thunderbolt 2],[مقاوم در برابر آب : ,خیر]]"), 109500000,
+                25, Product.ACCESSORIES, 20, Product.GenerateID());
 
-        Product P24 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.ACCESSORIES, amount, Product.GenerateID());
+        Product P24 = new Product("Printer LaserJet Enterprise", "یکی از پر فروش ترین پرینتر های موجود در ایران که از زمان عرضه به بازار بیش از صد میلیون فروش رسیده است",
+                Product.ParseToArray("[[نوع چاپ : ,تک رنگ],[اسکنر : ,دارد],[کپی : ,دارد],[فکس : ,دارد]]"), 123060000,
+                8, Product.ACCESSORIES, 20, Product.GenerateID());
 
-        Product P25 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.ACCESSORIES, amount, Product.GenerateID());
+        Product P25 = new Product("PlayStation 5", "جدید ترین و محبوب ترین محصول شرکن سونی که سال قبل به بازار عرضه شد . این کنسول بازی کیفیت فوق العاده بالایی دارد و از مهمترین قابلیت های آن میتوان به ساپورت گیم های پلی استیشن 4 اشاره کرد",
+                Product.ParseToArray("[[تعداد دسته : ,2],[بازی : ,ندارد]]"), 34700730,
+                0, Product.ACCESSORIES, 20, Product.GenerateID());
 
-        Product P26 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.ACCESSORIES, amount, Product.GenerateID());
+        Product P26 = new Product("Laptop Bag", "کیف محکم و مقاوم برای لپ تاپ",
+                Product.ParseToArray("[[مناسب برای لپ تاپ های : ,15 تا 17 اینچی]]"), 5000000,
+                0, Product.ACCESSORIES, 20, Product.GenerateID());
 
-        Product P27 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.ACCESSORIES, amount, Product.GenerateID());
+        Product P27 = new Product("ROG Strix Cooler", "سری خنک کننده های مایع ROG Strix LC ایسوس،زیبایی و کارایی در کنار یکدیگر باهم دارند. واترکولرهای یکپارچه ایسوس ROG Strix LC بالاترین سطح کارایی را ارائه داده و بدون نگرانی مصرف کنندگان از بابت تعادل دمای پردازنده نگرانی خواهد بود.",
+                Product.ParseToArray("[[ : نوع خنک‌ کننده,آبی],[نورپردازی LED : ,دارد],[تعداد لوله‌ها : ,2],[تعداد فن‌ها : ,2]]"), 7980000,
+                2, Product.ACCESSORIES, 20, Product.GenerateID());
 
-        Product P28 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.ACCESSORIES, amount, Product.GenerateID());
+        Product P28 = new Product("Graphics Card TUF", "با قاطعیت می توان گفت قدرتمند ترین کارت گرافیکی موجود در بازار است",
+                Product.ParseToArray("[[رابط اتصال : ,PCI Express 4.0],[HDMI : ,2],[فضای نصب مورد نیاز : ,دو اسلات],[نوع حافظه : ,GDDR6X]]"), 100000000,
+                9, Product.ACCESSORIES, 20, Product.GenerateID());
 
-        Product P29 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.ACCESSORIES, amount, Product.GenerateID());
+        Product P29 = new Product("Philips Monitor", "مانیتور مدل BDM4350UC دارای رزولوشن 4K یا Ultra HD است که با 3840  پیکسل افقی و 2160 پیکسل عمودی، تصاویر را طبیعیتر و با جزئیات بیشتری جلوه میدهد. نوع پنل آن IPS است و از تکنولوژی پیشرفتهای استفاده میکند که به شما زاویه دید عریض 178/178 درجه میدهد.",
+                Product.ParseToArray("[[بلندگو  : ,دارد],[نوع پنل : ,IPS],[نور پس‌زمینه : ,WLED],[رزولوشن : ,2160 × 3840 پیکسل]]"), 21200000,
+                0, Product.ACCESSORIES, 20, Product.GenerateID());
 
-        Product P30 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.ACCESSORIES, amount, Product.GenerateID());
+        Product P30 = new Product("Nimbus Wireless Game Controller", "استیل سریز یکی از معتبر ترین برند های لوازم جانبی مخصوص بازی میباشد که در اروپا شروع به کار کرده و تمرکز خودش رو بر راحتی و کاربرپسند بودن محصولات خود گذاشته است و محصولات خود را به دست کاربران در سرتاسر جهان رسانده است .",
+                Product.ParseToArray("[[نوع اتصال : ,بی‌سیم],[رابط : ,بلوتوث]"), 3990000,
+                5, Product.ACCESSORIES, 20, Product.GenerateID());
 
         Product P31 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, amount, Product.GenerateID());
+                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
 
         Product P32 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, amount, Product.GenerateID());
+                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
 
         Product P33 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, amount, Product.GenerateID());
+                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
 
         Product P34 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, amount, Product.GenerateID());
+                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
 
         Product P35 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, amount, Product.GenerateID());
+                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
 
         Product P36 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, amount, Product.GenerateID());
+                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
 
         Product P37 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, amount, Product.GenerateID());
+                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
 
         Product P38 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, amount, Product.GenerateID());
+                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
 
         Product P39 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, amount, Product.GenerateID());
+                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
 
         Product P40 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, amount, Product.GenerateID());
+                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
 
         Product P41 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, amount, Product.GenerateID());
+                percentage, Product.BOOK, 20, Product.GenerateID());
 
         Product P42 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, amount, Product.GenerateID());
+                percentage, Product.BOOK, 20, Product.GenerateID());
 
         Product P43 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, amount, Product.GenerateID());
+                percentage, Product.BOOK, 20, Product.GenerateID());
 
         Product P44 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, amount, Product.GenerateID());
+                percentage, Product.BOOK, 20, Product.GenerateID());
 
         Product P45 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, amount, Product.GenerateID());
+                percentage, Product.BOOK, 20, Product.GenerateID());
 
         Product P46 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, amount, Product.GenerateID());
+                percentage, Product.BOOK, 20, Product.GenerateID());
 
         Product P47 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, amount, Product.GenerateID());
+                percentage, Product.BOOK, 20, Product.GenerateID());
 
         Product P48 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, amount, Product.GenerateID());
+                percentage, Product.BOOK, 20, Product.GenerateID());
 
         Product P49 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, amount, Product.GenerateID());
+                percentage, Product.BOOK, 20, Product.GenerateID());
 
         Product P50 = new Product("  ", "  ",
                 Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, amount, Product.GenerateID());
+                percentage, Product.BOOK, 20, Product.GenerateID());
 
     }
 }
