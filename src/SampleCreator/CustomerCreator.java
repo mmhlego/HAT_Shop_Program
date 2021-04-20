@@ -33,10 +33,12 @@ public class CustomerCreator {
 			}
 			String id = Customer.GenerateID();
 			String phoneNumber = phoneNumber();
+			int s = random.nextInt(2);
 			// System.out.println(firstName + " " + lastName + " " + phoneNumber);
 			DataAdder.AddCustomer(firstName, lastName, firstName + random.nextInt(9999),
 					firstName + lastName + random.nextInt(9999), "0914" + phoneNumber,
-					firstName + " " + lastName + "@gmail.com", "Tabriz", 0, random.nextInt(1), id);
+					firstName + " " + lastName + "@gmail.com", "Tabriz", 0, s, id);
+			orderMaker(id, s);
 			// DataAdder.AddOrder(OwnerID, Status, Products, Amounts, TotalValue, OrderID);
 		}
 		return true;
