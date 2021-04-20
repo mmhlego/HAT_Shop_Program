@@ -127,85 +127,85 @@ public class ProductCreator {
                 Product.ParseToArray("[[نوع اتصال : ,بی‌سیم],[رابط : ,بلوتوث]"), 3990000,
                 5, Product.ACCESSORIES, 20, Product.GenerateID());
 
-        Product P31 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
+        Product P31 = new Product("Milk", "شیر کم چرب میهن",
+                Product.ParseToArray("[[طعم : ,ساده],[مناسب برای : ,خانواده]]"), 12600,
+                0, Product.SUPERMARKET, 20, Product.GenerateID());
 
-        Product P32 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
+        Product P32 = new Product("Cheese Powder", "پودر پنیر پارمسان کاله",
+                Product.ParseToArray("[[میزان چربی : ,نسبتا چرب],[شکل پنیر : ,رنده شده]]"), 25480,
+                0, Product.SUPERMARKET, 20, Product.GenerateID());
 
-        Product P33 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
+        Product P33 = new Product("Frozen fillele", "فيله منجمد سی بس ايناس",
+                Product.ParseToArray("[]"), 148500,
+                0, Product.SUPERMARKET, 20, Product.GenerateID());
 
-        Product P34 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
+        Product P34 = new Product("Cucumber", "خیار میوری",
+                Product.ParseToArray("[[ارگانیک : ,خیر]]"), 9900,
+                0, Product.SUPERMARKET, 20, Product.GenerateID());
 
-        Product P35 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
+        Product P35 = new Product("Onion", "پياز سفيد ميوري",
+                Product.ParseToArray("[]"), 11000,
+                0, Product.SUPERMARKET, 20, Product.GenerateID());
 
-        Product P36 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
+        Product P36 = new Product("Carrot", "هويج ميوري",
+                Product.ParseToArray("[[ارگانیک : ,خیر]]"), 9900,
+                0, Product.SUPERMARKET, 20, Product.GenerateID());
 
-        Product P37 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
+        Product P37 = new Product("Banana", "موز درجه یک",
+                Product.ParseToArray("[[ارگانیک : ,خیر]]"), 47000,
+                0, Product.SUPERMARKET, 20, Product.GenerateID());
 
-        Product P38 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
+        Product P38 = new Product("Macaroni", "ماکارونی پیکولی زر ماکارون",
+                Product.ParseToArray("[[فرم : ,پیچی],[ارگانیک : ,خیر]]"), 6600,
+                0, Product.SUPERMARKET, 20, Product.GenerateID());
 
-        Product P39 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
+        Product P39 = new Product("Whipped Cream", "پودر خامه کیک و شیرینی پزی کاکائویی",
+                Product.ParseToArray("[[تراریخته : ,خیر]]"), 22100,
+                0, Product.SUPERMARKET, 20, Product.GenerateID());
 
-        Product P40 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.SUPERMARKET, 20, Product.GenerateID());
+        Product P40 = new Product("Tomato Paste", "رب گوجه فرنگی بیژن",
+                Product.ParseToArray("[[محدوده وزن : ,بیشتر از 500 گرم],[در آسان باز شو : ,دارد]]"), 15400,
+                0, Product.SUPERMARKET, 20, Product.GenerateID());
 
-        Product P41 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, 20, Product.GenerateID());
+        Product P41 = new Product("Learn Python", "نرم افزار آموزش شرکت پرند",
+                Product.ParseToArray("[[نوع دیسک : DVD9],[تعداد دیسک : ,2]]"), 110000,
+                10, Product.BOOK, 20, Product.GenerateID());
 
-        Product P42 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, 20, Product.GenerateID());
+        Product P42 = new Product("Learn HTML,CSS", "نرم افزار آموزش شرکت پرند",
+                Product.ParseToArray("[[نوع دیسک : ,DVD9],[تعداد دیسک : ,2]]"), 110000,
+                7, Product.BOOK, 20, Product.GenerateID());
 
-        Product P43 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, 20, Product.GenerateID());
+        Product P43 = new Product("Learn C++", "نرم افزار آموزش شرکت پرند",
+                Product.ParseToArray("[[نوع دیسک : ,DVD9],[تعداد دیسک : ,2]]"), 96000,
+                9, Product.BOOK, 20, Product.GenerateID());
 
-        Product P44 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, 20, Product.GenerateID());
+        Product P44 = new Product("Learn Android", "نرم افزار آموزش شرکت پرند",
+                Product.ParseToArray("[[نوع دیسک : ,DVD9],[تعداد دیسک : ,2]]"), 96000,
+                10, Product.BOOK, 20, Product.GenerateID());
 
-        Product P45 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, 20, Product.GenerateID());
+        Product P45 = new Product("Learn Java", "نرم افزار آموزش شرکت پرند",
+                Product.ParseToArray("[[نوع دیسک : ,DVD9],[تعداد دیسک : ,2]]"), 96000,
+                0, Product.BOOK, 20, Product.GenerateID());
 
-        Product P46 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, 20, Product.GenerateID());
+        Product P46 = new Product("Learn PHP", "نرم افزار آموزش شرکت پرند",
+                Product.ParseToArray("[[نوع دیسک : ,DVD9],[تعداد دیسک : ,2]]"), 96000,
+                5, Product.BOOK, 20, Product.GenerateID());
 
-        Product P47 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, 20, Product.GenerateID());
+        Product P47 = new Product("Learn Visual C#", "نرم افزار آموزش شرکت پرند",
+                Product.ParseToArray("[[نوع دیسک : ,DVD9],[تعداد دیسک : ,2]]"), 110000,
+                30, Product.BOOK, 20, Product.GenerateID());
 
-        Product P48 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, 20, Product.GenerateID());
+        Product P48 = new Product("IELTS English", "نرم افزار آموزش زبان انگلیسی نشر درنا",
+                Product.ParseToArray("[[نوع دیسک : ,DVD],[تعداد دیسک : ,4]]"), 115000,
+                49, Product.BOOK, 20, Product.GenerateID());
 
-        Product P49 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, 20, Product.GenerateID());
+        Product P49 = new Product("Nosrat English", "بسته آموزش سریع مکالمه زبان انگلیسی نصرت نشر نصرت",
+                Product.ParseToArray("[[نوع دیسک : ,DVD],[تعداد دیسک : ,1]]"), 52500,
+                0, Product.BOOK, 20, Product.GenerateID());
 
-        Product P50 = new Product("  ", "  ",
-                Product.ParseToArray("[[detail1,value1],[detail2,value2],[detail3,value3],[detail4,value4]]"), price,
-                percentage, Product.BOOK, 20, Product.GenerateID());
+        Product P50 = new Product("Rosseta Stone", "آموزش زبان انگلیسی رزتااستون جامع نشر نیاز",
+                Product.ParseToArray("[[نوع دیسک : ,DVD],[تعداد دیسک : ,2]]"), 230000,
+                0, Product.BOOK, 20, Product.GenerateID());
 
     }
 }

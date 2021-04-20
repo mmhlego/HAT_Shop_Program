@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.ProductInformationPage">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1200.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;">
+         <children>
+            <AnchorPane layoutX="705.0" layoutY="25.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
+               <children>
+                  <ImageView fx:id="ProductIMG" fitHeight="340.0" fitWidth="340.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="25.0" prefHeight="350.0" prefWidth="655.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
+               <children>
+                  <Button fx:id="BuyBTN" layoutX="25.0" layoutY="275.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="605.0" style="-fx-background-color: #769FCD; -fx-background-radius: 5;" text="خرید کالا" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="150.0" fitWidth="162.0" layoutX="78.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="ProductNameLBL" alignment="CENTER" layoutX="25.0" layoutY="10.0" minHeight="35.0" prefWidth="605.0" style="-fx-border-color: #769FCD; -fx-border-width: 0 0 2 0;" text="نام کالا" textFill="#1c7ce2">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="491.0" layoutY="58.0" prefHeight="60.0" prefWidth="140.0" text="قیمت :">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="491.0" layoutY="118.0" prefHeight="60.0" prefWidth="140.0" text="دسته بندی کالا :">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="491.0" layoutY="178.0" prefHeight="60.0" prefWidth="140.0" text="شناسه کالا :">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="ProductPriceLBL" alignment="CENTER" layoutX="351.0" layoutY="58.0" prefHeight="60.0" prefWidth="140.0" text="-">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="ProductCategoryLBL" alignment="CENTER" layoutX="351.0" layoutY="118.0" prefHeight="60.0" prefWidth="140.0" text="-">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="ProductIDLBL" alignment="CENTER" layoutX="351.0" layoutY="178.0" prefHeight="60.0" prefWidth="140.0" text="-">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="SpecialIMG" fitHeight="80.0" fitWidth="80.0" layoutX="67.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="SpecialTXT" alignment="CENTER" layoutX="67.0" layoutY="175.0" prefHeight="40.0" prefWidth="80.0" text="پیشنهاد ویژه" textFill="RED">
+                     <font>
+                        <Font name="B Kamran" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="400.0" prefHeight="450.0" prefWidth="1030.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
+               <children>
+                  <JFXTextArea fx:id="ProductDescriptionTXT" editable="false" focusTraversable="false" layoutX="20.0" layoutY="20.0" maxWidth="990.0" minWidth="990.0" prefWidth="990.0" unFocusColor="#769fcd" />
+                  <TableView fx:id="ProductDetailsTable" layoutX="265.0" layoutY="225.0" prefHeight="200.0" prefWidth="500.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5;" stylesheets="@ProductInformationPage.css">
+                    <columns>
+                      <TableColumn id="Col2" editable="false" prefWidth="255.46664428710938" sortable="false" text="اطلاعات" />
+                      <TableColumn id="Col1" editable="false" minWidth="0.0" prefWidth="250.13330078125" sortable="false" text="مشخصه" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="SimilarProductsAnchor" layoutX="25.0" layoutY="875.0" prefHeight="300.0" prefWidth="1030.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
+               <children>
+                  <Button fx:id="LoadMoreBTN" layoutX="1.0" layoutY="1.0" mnemonicParsing="false" prefHeight="298.0" prefWidth="150.0" style="-fx-background-radius: 5 0 0 5; -fx-background-color: linear-gradient(to right ,#ffffff ,#ffffff00);" textFill="#008cff">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Label disable="true" focusTraversable="false" layoutX="31.0" layoutY="138.0" text="نشان دادن بیشتر..." textFill="#0082d2">
+                     <font>
+                        <Font name="B Kamran Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>
