@@ -55,7 +55,7 @@ public class FifthRegisterPage implements Initializable {
                 DataAdder.AddCustomer(FourthRegisterPage.UserFirstName, FourthRegisterPage.UserLastName,
                         ThirdRegisterPage.UserUsername, ThirdRegisterPage.UserPassword, SecondRegisterPage.UserPhone,
                         FifthRegisterPage.UserEmail, FifthRegisterPage.UserAddress, 0,
-                        Customer.ModeToInt(CustomerMode.REGULAR), Customer.GenerateID());
+                        CustomerMode.ModeToInt(CustomerMode.REGULAR), Customer.GenerateID());
                 try {
                     ((Stage) registerBTN.getScene().getWindow()).close();
                     FXMLLoader loader = new FXMLLoader(

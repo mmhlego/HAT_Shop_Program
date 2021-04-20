@@ -6,10 +6,10 @@ import Model.*;
 
 public class ProductChecker {
 
-    public static ArrayList<Product> LoadALlProducts() {
+    public static ArrayList<Product> LoadAllProducts() {
         ResultSet r = null;
         try {
-            r = DBConnector.RunCommand("Select * From Products");
+            r = DBConnector.RunCommand("Select * From `Products`");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -28,6 +28,7 @@ public class ProductChecker {
 
     private static ArrayList<Product> ConvertToProductsArrayList(ResultSet r) {
         ArrayList<Product> temp = new ArrayList<Product>();
+
         try {
             while (r.next()) {
                 Product P = new Product(r.getString(1), r.getString(2), Product.ParseToArray(r.getString(3)),
@@ -38,6 +39,7 @@ public class ProductChecker {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return temp;
     }
 
@@ -96,5 +98,4 @@ public class ProductChecker {
         }
         return 0;
     }
-
 }

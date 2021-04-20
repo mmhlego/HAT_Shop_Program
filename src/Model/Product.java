@@ -27,6 +27,10 @@ public class Product {
         return (p.Price * amount * (100 - p.Percentage)) / 100;
     }
 
+    public long getTotalValue(int amount) {
+        return (Price * amount * (100 - Percentage)) / 100;
+    }
+
     public static String GenerateID() {
         // hat product - id
         return "HP-" + CustomUUID.Create(12);
@@ -50,5 +54,12 @@ public class Product {
             return s.substring(1, s.length());
         }
         return s;
+    }
+
+    public boolean equals(Product p) {
+        if (this.ID.equals(p.ID)) {
+            return true;
+        }
+        return false;
     }
 }

@@ -123,15 +123,22 @@ public class DataAdder {
         }
     }
 
-    public static void AddOrder(String OwnerID, int Status, String Products, String Amounts, long TotalValue,
-            String OrderID) {
+    public static void AddOrder(Order o) {
+
+        o.PrintDetails();
+
+        //AddOrder(o.OwnerID, OrderStatus.ModeToInt(o.Status), o.GetProductIDs(), o.Amounts, o.TotalValue, o.OrderID);
+    }
+
+    public static void AddOrder(String OwnerID, int Status, ArrayList<String> ProductIDs, ArrayList<Integer> Amounts,
+            long TotalValue, String OrderID) {
         try {
             PreparedStatement ps = DBConnector.Con.prepareStatement(
                     "INSERT INTO `Orders`(`OwnerID`, `Status`, `Products`, `Amounts`, `TotalValue`, `OrderID`) VALUES (?,?,?,?,?,?)");
             ps.setString(1, OwnerID);
             ps.setInt(2, Status);
-            ps.setString(3, Products);
-            ps.setString(4, Amounts);
+            ps.setString(3, Arrays.toString(ProductIDs.toArray()));
+            ps.setString(4, Arrays.toString(Amounts.toArray()));
             ps.setLong(5, TotalValue);
             ps.setString(6, OrderID);
 
@@ -142,4 +149,10 @@ public class DataAdder {
         }
     }
 
+    public static void AddCustomer(Customer c) {
+
+        c.PrintDetails();
+
+        //AddCustomer(c.FirstName, c.LastName, c.Username, c.Passeord, c.Phone, c.Email, c.Address, c.Value,CustomerMode.ModeToInt(c.Mode), c.ID);
+    }
 }

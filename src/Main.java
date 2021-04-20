@@ -8,53 +8,10 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		//System.out.println(DBConnector.Connect());
-		//try {
-		//	PreparedStatement st = DBConnector.Con.prepareStatement("INSERT INTO `Sample`(`sample`) VALUES ('محمد')");
-		//	st.executeUpdate();
-		//} catch (Exception e) {
-		//	e.printStackTrace();
-		//}
-
-		launch(args);
-
-		System.out.println(DBConnector.Connect());
-		try {
-			// PreparedStatement st = DBConnector.Con.prepareStatement("INSERT INTO
-			// `Sample`(`sample`) VALUES ('محمد')");
-			// st.executeUpdate();
-			// CustomerCreator creator = new CustomerCreator();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
 		// launch(args);
-		// 8.0.171
-		/*
-		 * DBConnector.Connect(); DataAdder.AddEmployee("MohammadMahdi", "Hejazi",
-		 * "M.M.H", "M.M.H Lego",0 , "09146501380", "mmhlego@gmail.com", "E-00001");
-		 * DataAdder.AddEmployee("Kamyab", "Tabani", "CyberGhost", "HAT_Cyber", 0 ,
-		 * "09394397528", "K.tabani82@gmail.com" , "E-00002" );
-		 * DataAdder.AddEmployee("Pouya", "Afraz", "Pouya", "VLB", 0, "09148303766",
-		 * "Pouyaafraz@gmail.com", "E-00003");
-		 */
-		// try {
-		// DBConnector.Connect();
-		// DataAdder.AddCustomer("محمد", "حجازی", "mmh", "mmh", "0", "0", "0", 0, 0,
-		// "0");
-		// ResultSet r = DBConnector.RunCommand("SELECT * FROM Customers");
-		// System.out.println(1);
-		// while (r.next()) {
-		// System.out.println(r.getString(1));
-		// }
-		// System.out.println(2);
-		// } catch (Exception e) {
-		//
-		// }
 
-		// for (int i = 0; i < 100; i++) {
-		// System.out.println(Transaction.GenerateID());
-		// }
+		DBConnector.Connect();
+		SampleCreator.CustomerCreator.CustomerAdder(1);
 	}
 
 	@Override
