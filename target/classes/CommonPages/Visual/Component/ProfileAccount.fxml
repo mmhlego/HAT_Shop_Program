@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="310.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CommonPages.Controllers.Component.ProfileAccount">
+   <children>
+      <Label alignment="CENTER" layoutX="155.0" prefHeight="35.0" prefWidth="155.0" text="نام کاربری :" textFill="#6887c5">
+         <font>
+            <Font name="B Koodak Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="UsernameLBL" alignment="CENTER" prefHeight="35.0" prefWidth="155.0" text="-" textFill="#6887c5">
+         <font>
+            <Font name="B Koodak Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="154.0" layoutY="35.0" prefHeight="35.0" prefWidth="155.0" text="نوع اکانت :" textFill="#6887c5">
+         <font>
+            <Font name="B Koodak Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="ModeLBL" alignment="CENTER" layoutX="-1.0" layoutY="35.0" prefHeight="35.0" prefWidth="155.0" text="-" textFill="#6887c5">
+         <font>
+            <Font name="B Koodak Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="155.0" layoutY="70.0" prefHeight="35.0" prefWidth="155.0" text="آیدی :" textFill="#6887c5">
+         <font>
+            <Font name="B Koodak Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="IDLBL" alignment="CENTER" layoutY="70.0" prefHeight="35.0" prefWidth="155.0" text="-" textFill="#6887c5">
+         <font>
+            <Font name="B Koodak Bold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
