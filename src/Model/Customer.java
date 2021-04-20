@@ -1,11 +1,14 @@
 package Model;
 
+import java.util.ArrayList;
+
 import DataController.CustomUUID;
 
 public class Customer extends User {
 	public CustomerMode Mode;
 	public long Value;
 	public String ID;
+	ArrayList<Order> orders = new ArrayList<>();
 
 	public Customer(String firstName, String lastName, String username, String passeord, String phone, String email,
 			CustomerMode mode, long value, String iD) {
