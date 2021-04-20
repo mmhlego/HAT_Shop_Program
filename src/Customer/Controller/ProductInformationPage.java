@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
@@ -30,9 +31,19 @@ public class ProductInformationPage implements Initializable {
     @FXML
     private Label SpecialTXT;
     @FXML
+    private Group AddToCartGroup;
+    @FXML
+    private Button AddToCartBTN;
+    @FXML
+    private Button IncreaseBTN;
+    @FXML
+    private Label SelectedAmountLBL;
+    @FXML
+    private Button DecreaseBTN;
+    @FXML
     private JFXTextArea ProductDescriptionTXT;
     @FXML
-    private TableView<?> ProductDetailsTable;
+    private TableView<String> ProductDetailsTable;
     @FXML
     private AnchorPane SimilarProductsAnchor;
     @FXML
@@ -102,6 +113,46 @@ public class ProductInformationPage implements Initializable {
         SpecialTXT = specialTXT;
     }
 
+    public Group getAddToCartGroup() {
+        return AddToCartGroup;
+    }
+
+    public void setAddToCartGroup(Group addToCartGroup) {
+        AddToCartGroup = addToCartGroup;
+    }
+
+    public Button getAddToCartBTN() {
+        return AddToCartBTN;
+    }
+
+    public void setAddToCartBTN(Button addToCartBTN) {
+        AddToCartBTN = addToCartBTN;
+    }
+
+    public Button getIncreaseBTN() {
+        return IncreaseBTN;
+    }
+
+    public void setIncreaseBTN(Button increaseBTN) {
+        IncreaseBTN = increaseBTN;
+    }
+
+    public Label getSelectedAmountLBL() {
+        return SelectedAmountLBL;
+    }
+
+    public void setSelectedAmountLBL(Label selectedAmountLBL) {
+        SelectedAmountLBL = selectedAmountLBL;
+    }
+
+    public Button getDecreaseBTN() {
+        return DecreaseBTN;
+    }
+
+    public void setDecreaseBTN(Button decreaseBTN) {
+        DecreaseBTN = decreaseBTN;
+    }
+
     public JFXTextArea getProductDescriptionTXT() {
         return ProductDescriptionTXT;
     }
@@ -110,11 +161,11 @@ public class ProductInformationPage implements Initializable {
         ProductDescriptionTXT = productDescriptionTXT;
     }
 
-    public TableView<?> getProductDetailsTable() {
+    public TableView<String> getProductDetailsTable() {
         return ProductDetailsTable;
     }
 
-    public void setProductDetailsTable(TableView<?> productDetailsTable) {
+    public void setProductDetailsTable(TableView<String> productDetailsTable) {
         ProductDetailsTable = productDetailsTable;
     }
 
@@ -136,6 +187,8 @@ public class ProductInformationPage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // TODO Auto-generated method stub
 
     }
+
 }
