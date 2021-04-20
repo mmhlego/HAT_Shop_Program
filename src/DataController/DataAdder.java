@@ -108,6 +108,10 @@ public class DataAdder {
         }
     }
 
+    public static void AddShipping(Shipping SH) {
+        AddShipping(SH.ID, SH.Status, SH.Fee, SH.Date);
+    }
+
     public static void AddTransaction(String FromID, long Amount, LocalDate date, String ID) {
         try {
             PreparedStatement ps = DBConnector.Con
@@ -121,6 +125,10 @@ public class DataAdder {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void AddTransaction(Transaction T) {
+        AddTransaction(T.FromID, T.Amount, T.Date, T.ID);
     }
 
     public static void AddOrder(String OwnerID, int Status, String Products, String Amounts, long TotalValue,
