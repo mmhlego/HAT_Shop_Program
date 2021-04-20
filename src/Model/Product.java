@@ -38,6 +38,7 @@ public class Product {
     public static String[][] ParseToArray(String s) {
         String[] all = s.split(",");
         int len = all.length;
+
         String[][] ans = new String[len / 2][2];
 
         for (int i = 0; i < len; i++) {
