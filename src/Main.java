@@ -9,9 +9,9 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		// launch(args);
-		DBConnector.Connect();
-		System.out.println(DataChecker.CheckLogin("cyberGhost", "HAT_Cyber"));
+		launch(args);
+		// DBConnector.Connect();
+		// System.out.println(DataChecker.CheckLogin("CyberGhost", "HAT_Cyber"));
 		// 8.0.171
 	}
 
