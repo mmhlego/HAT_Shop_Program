@@ -7,13 +7,14 @@ public class DataChecker {
     public static boolean CheckLogin(String Username, String Password) {
         try {
             ResultSet r = DBConnector
-                    .RunCommand("SELECT Password FROM `Customers` WHERE Username=\'" + Username
-            + "\' UNION (SELECT Password FROM `Employees` WHERE Username=\'" + Username
-            + "\') UNION (SELECT Password FROM `Manager` WHERE Username=\'" + Username + "\')");
+                    .RunCommand("SELECT Username,Password FROM `Customers` WHERE Username=\'" + Username
+            + "\' UNION (SELECT Username,Password FROM `Employees` WHERE Username=\'" + Username
+            + "\') UNION (SELECT Username ,Password FROM `Manager` WHERE Username=\'" + Username + "\')");
 
             if (r.next()) {
-                String password = r.getString(1);
-                if (password.equals(Encoder.encode(Password))) {
+                String username = r.getString(1);
+                String password = r.getString(2);
+                if (password.equals(Encoder.encode(Password)) && username.equals(Username)) {
                     return true;
                 }
             }

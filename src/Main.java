@@ -14,6 +14,8 @@ public class Main extends Application {
 		//SampleCreator.CustomerCreator.CustomerAdder(1);
 
 		//System.out.println(DataChecker.CheckLogin("cyberGhost", "HAT_Cyber"));
+		// DBConnector.Connect();
+		// System.out.println(DataChecker.CheckLogin("CyberGhost", "HAT_Cyber"));
 		// 8.0.171
 	}
 
