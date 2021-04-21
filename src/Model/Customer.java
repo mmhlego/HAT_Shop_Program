@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+
 import DataController.CustomUUID;
 
 public class Customer extends User {
@@ -55,7 +56,7 @@ public class Customer extends User {
 	}
 
 	public void PrintDetails() {
-		System.out.println("====================================");
+		System.out.println("================================Customer===============================================");
 		System.out.println("F name : " + FirstName);
 		System.out.println("L name : " + LastName);
 		System.out.println("Username : " + Username);

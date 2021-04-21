@@ -59,7 +59,7 @@ public class Order {
 	public void addProduct(Product p, int amount) {
 		for (int i = 0; i < Products.size(); i++) {
 			if (Products.get(i).equals(p)) {
-				//Amounts.get(i)=Amounts.get(i)+amount;
+				// Amounts.get(i)=Amounts.get(i)+amount;
 				Amounts.set(i, Amounts.get(i) + amount);
 				return;
 			}
@@ -72,7 +72,7 @@ public class Order {
 	}
 
 	public void PrintDetails() {
-		System.out.println("====================================");
+		System.out.println("==================Order================");
 		System.out.println("owner: " + OwnerID);
 		System.out.println("Status: " + OrderStatus.ModeToInt(Status));
 		System.out.println("" + GetProductIDs());

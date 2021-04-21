@@ -26,4 +26,12 @@ public class Transaction {
 
 		return "HT-" + date + id;
 	}
+
+	public void printDetails() {
+		System.out.println("===========transactions===================");
+		System.out.println("from id = " + FromID);
+		System.out.println("total value =" + Amount);
+		System.out.println("date = " + Date);
+		System.out.println("id =" + ID);
+	}
 }
