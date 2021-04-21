@@ -1,6 +1,7 @@
 package Customer.Controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -8,6 +9,9 @@ public class CustomerMainPage {
 
 	@FXML
 	private AnchorPane MainPanel;
+
+	@FXML
+	private TextField searchBar;
 
 	@FXML
 	private ImageView searchBTN;
@@ -36,6 +40,14 @@ public class CustomerMainPage {
 
 	public void setMainPanel(AnchorPane mainPanel) {
 		MainPanel = mainPanel;
+	}
+
+	public TextField getSearchBar() {
+		return searchBar;
+	}
+
+	public void setSearchBar(TextField searchBar) {
+		this.searchBar = searchBar;
 	}
 
 	public ImageView getSearchBTN() {
