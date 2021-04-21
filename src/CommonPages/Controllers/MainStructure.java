@@ -45,7 +45,7 @@ public class MainStructure implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../Visual/OpenSide.fxml"));
-		FXMLLoader loader2 = new FXMLLoader(this.getClass().getResource("../../Customer/CustomerMainPage.fxml"));
+		FXMLLoader loader2 = new FXMLLoader(this.getClass().getResource("../../Customer/Visual/CustomerMainPage.fxml"));
 		try {
 			MainPanel.getChildren().add(loader2.load());
 		} catch (IOException e1) {

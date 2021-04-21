@@ -9,19 +9,18 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		// launch(args);
+		launch(args);
 
-		DBConnector.Connect();
-		SampleCreator.CustomerCreator.CustomerAdder(1);
+		//DBConnector.Connect();
+		//SampleCreator.CustomerCreator.CustomerAdder(1);
 
-		System.out.println(DataChecker.CheckLogin("cyberGhost", "HAT_Cyber"));
+		//System.out.println(DataChecker.CheckLogin("cyberGhost", "HAT_Cyber"));
 		// 8.0.171
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Thread thread = new Thread(new Runnable() {
-
 			@Override
 			public void run() {
 				try {
