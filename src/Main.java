@@ -10,8 +10,9 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		// launch(args);
 		long start = System.currentTimeMillis();
-		DBConnector.Connect();
-		SampleCreator.CustomerCreator.CustomerAdder(100);
+		/*
+		 * DBConnector.Connect(); SampleCreator.CustomerCreator.CustomerAdder(100);
+		 */
 
 		// System.out.println(DataChecker.CheckLogin("cyberGhost", "HAT_Cyber"));
 		System.out.println(System.currentTimeMillis() - start);

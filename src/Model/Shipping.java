@@ -21,6 +21,39 @@ public class Shipping {
 		ID = id;
 	}
 
+	public enum ShippingMode {
+		PROVED, CLEARANCE, DELIVERYTOSENDER, CUSTOMERRECEIVED;
+
+		public static double ModeToInt(ShippingMode u) {
+			switch (u) {
+			case PROVED:
+				return 0;
+			case CLEARANCE:
+				return 1 / 4;
+			case DELIVERYTOSENDER:
+				return 3 / 4;
+			case CUSTOMERRECEIVED:
+				return 1;
+			}
+			return -1;
+		}
+
+		public static ShippingMode IntToMode(double u) {
+			if (u == 0) {
+				return ShippingMode.PROVED;
+			} else if (u == 1 / 4) {
+				return ShippingMode.CLEARANCE;
+			} else if (u == 3 / 4) {
+				return ShippingMode.DELIVERYTOSENDER;
+			} else if (u == 1) {
+				return ShippingMode.CUSTOMERRECEIVED;
+			} else {
+				return null;
+			}
+
+		}
+	}
+
 	public static long generateFee(int amount, CustomerMode mode) {
 		return (mode.equals(CustomerMode.REGULAR)) ? amount * 3500 : 0;
 	}
