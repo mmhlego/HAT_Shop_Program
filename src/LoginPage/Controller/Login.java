@@ -1,5 +1,6 @@
 package LoginPage.Controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -60,12 +61,13 @@ public class Login implements Initializable {
 				try {
 					((Stage) enterBTN.getScene().getWindow()).close();
 					FXMLLoader loader = new FXMLLoader(
-							getClass().getResource("../../CommonPages/Visual/MainStructure.fxml"));
+							new File("src/CommonPages/Visual/MainStructure.fxml").toURI().toURL());
 					Scene scene = new Scene(loader.load());
 					Stage stage = new Stage(StageStyle.TRANSPARENT);
 					stage.setScene(scene);
 					stage.show();
 				} catch (IOException ex) {
+					ex.printStackTrace();
 				}
 			} else {
 				Alert(AlertType.ERROR, "نام کاربری یا پسورد اشتباه است !");
@@ -75,7 +77,7 @@ public class Login implements Initializable {
 
 	}
 
-	private void Alert(AlertType AlertType , String Content) {
+	private void Alert(AlertType AlertType, String Content) {
 		Alert alert = new Alert(AlertType);
 		alert.setHeaderText(null);
 		alert.setContentText(Content);

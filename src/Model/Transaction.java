@@ -7,17 +7,16 @@ import java.time.format.DateTimeFormatter;
 import DataController.CustomUUID;
 
 public class Transaction {
-	String FromId;
-	long value;
-	LocalDate date;
-	String id;
+	public String FromID, ID;
+	public long Amount;
+	public LocalDate Date;
 
-	public Transaction(String fromId, long value, LocalDate date, String id) {
+	public Transaction(String fromId, long amount, LocalDate date, String id) {
 		super();
-		FromId = fromId;
-		this.value = value;
-		this.date = date;
-		this.id = id;
+		FromID = fromId;
+		this.Amount = amount;
+		this.Date = date;
+		this.ID = id;
 	}
 
 	public static String GenerateID() {

@@ -1,4 +1,5 @@
 import DataController.DBConnector;
+import DataController.DataChecker;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,6 +13,9 @@ public class Main extends Application {
 
 		DBConnector.Connect();
 		SampleCreator.CustomerCreator.CustomerAdder(1);
+
+		System.out.println(DataChecker.CheckLogin("cyberGhost", "HAT_Cyber"));
+		// 8.0.171
 	}
 
 	@Override

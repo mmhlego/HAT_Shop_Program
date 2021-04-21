@@ -7,10 +7,10 @@ import java.time.format.DateTimeFormatter;
 import DataController.CustomUUID;
 
 public class Shipping {
-	private String orderId;
-	private int status;
-	long fee;
-	LocalDate date;
+	public String orderId;
+	public int status;
+	public long fee;
+	public LocalDate date;
 
 	public Shipping(String orderId, int status, long fee, LocalDate date) {
 		super();

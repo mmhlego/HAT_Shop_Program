@@ -108,6 +108,10 @@ public class DataAdder {
         }
     }
 
+    public static void AddShipping(Shipping SH) {
+        AddShipping(SH.ID, SH.Status, SH.Fee, SH.Date);
+    }
+
     public static void AddTransaction(String FromID, long Amount, LocalDate date, String ID) {
         try {
             PreparedStatement ps = DBConnector.Con
@@ -128,6 +132,10 @@ public class DataAdder {
         o.PrintDetails();
 
         //AddOrder(o.OwnerID, OrderStatus.ModeToInt(o.Status), o.GetProductIDs(), o.Amounts, o.TotalValue, o.OrderID);
+    }
+
+    public static void AddTransaction(Transaction T) {
+        AddTransaction(T.FromID, T.Amount, T.Date, T.ID);
     }
 
     public static void AddOrder(String OwnerID, int Status, ArrayList<String> ProductIDs, ArrayList<Integer> Amounts,
