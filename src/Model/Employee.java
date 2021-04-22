@@ -19,17 +19,17 @@ public class Employee extends User {
 
 	public static int ModeToInt(EmployeeMode u) {
 		switch (u) {
-		case ASSISTANT:
+		case ASSISTANT:// 3
 			return 0;
-		case ACCOUNTANT:
+		case ACCOUNTANT:// 5
 			return 1;
-		case QUALITYCONTROL:
+		case QUALITYCONTROL:// 5
 			return 2;
-		case REGULAR:
+		case REGULAR:// 10
 			return 3;
-		case SUPPLIER:
+		case SUPPLIER:// 8
 			return 4;
-		case STOREKEEPER:
+		case STOREKEEPER:// 7
 			return 5;
 		}
 		return -1;
@@ -51,6 +51,17 @@ public class Employee extends User {
 			return EmployeeMode.STOREKEEPER;
 		}
 		return null;
+	}
+
+	public void printDetails() {
+		System.out.println("==============Employee mode: " + Mode + "================");
+		System.out.println("first name = " + FirstName);
+		System.out.println("last name = " + LastName);
+		System.out.println("username = " + Username);
+		System.out.println("password = " + Password);
+		System.out.println("phone = " + Phone);
+		System.out.println("id = " + ID);
+
 	}
 
 	public enum EmployeeMode {

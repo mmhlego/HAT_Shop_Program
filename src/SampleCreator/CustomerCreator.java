@@ -1,20 +1,24 @@
 package SampleCreator;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
+
 import DataController.DataAdder;
 import DataController.ProductChecker;
 import Model.Customer;
-import Model.Order;
-import Model.Product;
 import Model.Customer.CustomerMode;
+import Model.Order;
 import Model.Order.OrderStatus;
+import Model.Product;
+import Model.Shipping;
+import Model.Transaction;
 
 public class CustomerCreator {
 	private static ArrayList<Product> allProducts = new ArrayList<Product>();
+	private static Random random = new Random(System.currentTimeMillis());
 
 	public static void CustomerAdder(int count) {
-		Random random = new Random(System.currentTimeMillis());
 
 		allProducts = ProductChecker.LoadAllProducts();
 
@@ -35,30 +39,61 @@ public class CustomerCreator {
 
 			Customer c = new Customer(firstName, lastName, "Customer" + Integer.toString(i),
 					"Customer" + Integer.toString(i), GeneratePhoneNumber(),
-					RandomMail("Customer" + Integer.toString(i)), "Tabriz", mode, 0, id);
+					RandomMail("Customer" + Integer.toString(i)), randAdress(), mode, 0, id);
 
-			//.PrintDetails
+			// .PrintDetails
 
 			// System.out.println(firstName + " " + lastName + " " + phoneNumber);
+			System.out.println(i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i
+					+ "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i
+					+ "\t" + i);
 			DataAdder.AddCustomer(c);
 
 			if (random.nextBoolean()) {
-				Order o = OrderMaker(id, OrderStatus.PENDING, random.nextInt(3) + 1);
+				Order o = OrderMaker(id, OrderStatus.PENDING, random.nextInt(3) + 1, Order.GenerateID());
 				DataAdder.AddOrder(o);
 			}
-
-			for (i = 0; i < random.nextInt(5); i++) {
-				Order o = OrderMaker(id, OrderStatus.FINISHED, random.nextInt(5) + 1);
+			Shipping shipping;
+			if (random.nextBoolean()) {
+				String orderId = Order.GenerateID();
+				int amount = random.nextInt(3) + 1;
+				Order o = OrderMaker(id, OrderStatus.SENDING, amount, orderId);
 				DataAdder.AddOrder(o);
+				long fee = Shipping.generateFee(amount, mode);
+				LocalDate localDate = LocalDate.of(2010 + random.nextInt(11) + 1, random.nextInt(12) + 1,
+						random.nextInt(28) + 1);
+				shipping = new Shipping(orderId, 0, fee, localDate, Shipping.GenerateID());
+				DataAdder.AddShipping(shipping);
+				DataAdder.AddTransaction(new Transaction(id, o.TotalValue + fee, localDate, orderId));
+			}
+
+			for (int j = 0; j < random.nextInt(5); j++) {
+				String orderId = Order.GenerateID();
+				int amount = random.nextInt(5) + 1;
+				Order o = OrderMaker(id, OrderStatus.FINISHED, amount, orderId);
+				DataAdder.AddOrder(o);
+				long fee = Shipping.generateFee(amount, mode);
+				LocalDate localDate = LocalDate.of(2010 + random.nextInt(11), random.nextInt(12) + 1,
+						random.nextInt(28) + 1);
+				shipping = new Shipping(orderId, 1, fee, localDate, Shipping.GenerateID());
+				DataAdder.AddShipping(shipping);
+				DataAdder.AddTransaction(new Transaction(id, o.TotalValue + fee, localDate, orderId));
 			}
 
 			// DataAdder.AddOrder(OwnerID, Status, Products, Amounts, TotalValue, OrderID);
 		}
 	}
 
+	public static String randAdress() {
+		String[] regions = { "Zafaranieh", "Sahand", "Abresan", "Shahnaz", "Maralan" };
+		String[] alleys = { "Shargi", "Gharbi" };
+
+		return "Tabriz, " + regions[random.nextInt(regions.length)] + ", " + Integer.toString(random.nextInt(20))
+				+ "om " + alleys[random.nextInt(2)] + ", Pelak" + Integer.toString(random.nextInt(60));
+	}
+
 	private static String RandomMail(String s) {
 		String mail = s;
-		Random random = new Random(System.currentTimeMillis());
 
 		String[] prov = { "@gmail.com", "@yahoo.com", "@hotmail.com", "@outlook.com" };
 		mail += prov[random.nextInt(prov.length)];
@@ -84,7 +119,6 @@ public class CustomerCreator {
 
 	private static String GeneratePhoneNumber() {
 		String phoneNumber = "09";
-		Random random = new Random(System.currentTimeMillis());
 
 		for (int i = 0; i < 9; i++) {
 			phoneNumber += Integer.toString(random.nextInt(10));
@@ -93,17 +127,17 @@ public class CustomerCreator {
 		return phoneNumber;
 	}
 
-	private static Order OrderMaker(String id, OrderStatus status, int productCount) {
-		Order o = new Order(id, Order.GenerateID(), status);
+	static long total = 0;
 
-		Random random = new Random(System.currentTimeMillis());
+	private static Order OrderMaker(String id, OrderStatus status, int productCount, String orderId) {
+		Order o = new Order(id, orderId, status);
 
 		int len = allProducts.size();
 
 		for (int i = 0; i < productCount; i++) {
 			Product p = allProducts.get(random.nextInt(len));
 			int amount = 1 + random.nextInt(5);
-
+			total += Product.getTotalValue(p, amount);
 			o.addProduct(p, amount);
 		}
 
