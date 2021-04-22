@@ -8,7 +8,7 @@
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1140.0" style="-fx-background-color: #00000050;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CommonPages.Controllers.LoadingPage">
    <children>
       <ProgressIndicator prefHeight="115.0" prefWidth="1140.0" />
-      <Label fx:id="connectLBL" alignment="CENTER" contentDisplay="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="139.0" prefWidth="177.0" text="در حال اتصال ..." textAlignment="CENTER">
+      <Label fx:id="connectLBL" alignment="CENTER" contentDisplay="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="139.0" prefWidth="204.0" text="در حال اتصال ..." textAlignment="CENTER">
          <font>
             <Font name="2  Mehr Bold" size="30.0" />
          </font>

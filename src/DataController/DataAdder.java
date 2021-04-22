@@ -31,6 +31,12 @@ public class DataAdder {
         }
     }
 
+    public static void AddCustomer(Customer c) {
+        c.PrintDetails();
+        // AddCustomer(c.FirstName, c.LastName, c.Username, c.Passeord, c.Phone,
+        // c.Email, c.Address, c.Value,CustomerMode.ModeToInt(c.Mode), c.ID);
+    }
+    
     public static void AddEmployee(String FirstName, String LastName, String Username, String Password, int Mode,
             String Phone, String Email, String ID) {
         try {
@@ -127,13 +133,6 @@ public class DataAdder {
         }
     }
 
-    public static void AddOrder(Order o) {
-
-        o.PrintDetails();
-
-        //AddOrder(o.OwnerID, OrderStatus.ModeToInt(o.Status), o.GetProductIDs(), o.Amounts, o.TotalValue, o.OrderID);
-    }
-
     public static void AddTransaction(Transaction T) {
         AddTransaction(T.FromID, T.Amount, T.Date, T.ID);
     }
@@ -157,10 +156,12 @@ public class DataAdder {
         }
     }
 
-    public static void AddCustomer(Customer c) {
+    public static void AddOrder(Order o) {
 
-        c.PrintDetails();
+        o.PrintDetails();
 
-        //AddCustomer(c.FirstName, c.LastName, c.Username, c.Passeord, c.Phone, c.Email, c.Address, c.Value,CustomerMode.ModeToInt(c.Mode), c.ID);
+        // AddOrder(o.OwnerID, OrderStatus.ModeToInt(o.Status), o.GetProductIDs(),
+        // o.Amounts, o.TotalValue, o.OrderID);
     }
+
 }

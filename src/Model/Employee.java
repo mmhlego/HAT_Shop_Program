@@ -6,11 +6,11 @@ public class Employee extends User {
 	public EmployeeMode Mode;
 	public String ID;
 
-	public Employee(String firstName, String lastName, String username, String passeord, String phone, String email,
-			EmployeeMode mode, String iD) {
+	public Employee(String firstName, String lastName, String username, String passeord, EmployeeMode mode , String phone, String email
+			, String id) {
 		super(firstName, lastName, username, passeord, phone, email);
 		Mode = mode;
-		ID = iD;
+		ID = id;
 	}
 
 	public static String GenerateID(EmployeeMode mode) {
