@@ -10,9 +10,9 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
 
-		System.out.println(DBConnector.Connect());
+		// System.out.println(DBConnector.Connect());
 
-		//launch(args);
+		launch(args);
 		/*
 		 * DBConnector.Connect(); Random random = new Random(); ArrayList<Product>
 		 * products = ProductChecker.LoadAllProducts(); int productSize =

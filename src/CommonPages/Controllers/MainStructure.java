@@ -1,5 +1,6 @@
 package CommonPages.Controllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,9 +40,11 @@ public class MainStructure implements Initializable {
 
 	OpenSide sideBarController;
 	Parent root;
+	static AnchorPane main;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		main = MainPanel;
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../Visual/OpenSide.fxml"));
 		FXMLLoader loader2 = new FXMLLoader(this.getClass().getResource("../../Customer/Visual/CustomerMainPage.fxml"));
 
@@ -93,6 +96,18 @@ public class MainStructure implements Initializable {
 			e.printStackTrace();
 		}
 
+	}
+
+	public static Object addPage(String url) {
+		Object Controller = null;
+		try {
+			FXMLLoader loader = new FXMLLoader(new File(url).toURI().toURL());
+			main.getChildren().add(loader.load());
+			Controller = loader.getController();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Controller;
 	}
 
 	private void sideClickAction(String fxml) {
