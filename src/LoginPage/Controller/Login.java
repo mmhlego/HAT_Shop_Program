@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 
 import DataController.*;
-import Model.Limitter;
+import Model.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -29,6 +29,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class Login implements Initializable {
+
 
 	@FXML
 	private AnchorPane loginAnchor;
@@ -52,7 +53,7 @@ public class Login implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		DBConnector.CheckConnection(loginAnchor);
+		// DBConnector.CheckConnection(loginAnchor);
 		Limitter.Limit(usernameField, 20, false);
 		Limitter.Limit(passwordField, 20, false);
 		plusImage.setCursor(Cursor.HAND);
@@ -61,6 +62,13 @@ public class Login implements Initializable {
 		enterBTN.setOnAction(e -> {
 			if (DataChecker.CheckLogin(usernameField.getText(), passwordField.getText())) {
 				// UserGetter.setCurrentUser(DBConnector.GetCustomer(usernameField.getText()));
+				if (DataChecker.GetRole(usernameField.getText()).equals("Customer")){
+					UserGetter.setCurrentUser(DBConnector.GetCustomer(usernameField.getText()));
+				}else if(DataChecker.GetRole(usernameField.getText()).equals("Employee")){
+					UserGetter.setCurrentUser(DBConnector.GetEmployee(usernameField.getText()));
+				} else if (DataChecker.GetRole(usernameField.getText()).equals("Manager")) {
+					UserGetter.setCurrentUser(DBConnector.GetManager(usernameField.getText()));
+				}
 				try {
 					((Stage) enterBTN.getScene().getWindow()).close();
 					FXMLLoader loader = new FXMLLoader(

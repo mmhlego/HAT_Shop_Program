@@ -1,4 +1,6 @@
 import DataController.DBConnector;
+import DataController.DataChecker;
+import DataController.UserGetter;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,11 +10,13 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		long start = System.currentTimeMillis();
+		// long start = System.currentTimeMillis();
 
-		System.out.println(DBConnector.Connect());
+		// System.out.println(DBConnector.Connect());
+		// System.out.println(DataChecker.GetRole("Customer0"));
+		
+		launch(args);
 
-		//launch(args);
 		/*
 		 * DBConnector.Connect(); Random random = new Random(); ArrayList<Product>
 		 * products = ProductChecker.LoadAllProducts(); int productSize =
@@ -23,7 +27,7 @@ public class Main extends Application {
 		 */
 
 		// System.out.println(DataChecker.CheckLogin("cyberGhost", "HAT_Cyber"));
-		PrintEstimatedTime(start);
+		// PrintEstimatedTime(start);
 	}
 
 	private static void PrintEstimatedTime(long start) {

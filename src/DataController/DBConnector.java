@@ -16,9 +16,12 @@ public class DBConnector {
 
     public static boolean Connect() {
         try {
+            // Con = DriverManager.getConnection(
+            //         "jdbc:mysql://freedb.tech/freedbtech_hatshopsystem?characterEncoding=UTF-8",
+            //         "freedbtech_hatusername", "hatpassword");
             Con = DriverManager.getConnection(
-                    "jdbc:mysql://freedb.tech/freedbtech_hatshopsystem?characterEncoding=UTF-8",
-                    "freedbtech_hatusername", "hatpassword");
+                    "jdbc:mysql://sql3.freesqldatabase.com/sql3407743?characterEncoding=UTF-8", "sql3407743",
+                    "RLyeK4eFrm");
 
             if (Con != null) {
                 return true;
@@ -132,4 +135,32 @@ public class DBConnector {
         }
         return null;
     }
+
+    public static ResultSet GetOrdersDB() {
+        try {
+            return RunCommand("SELECT * FROM Orders");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResultSet GetShippingsDB() {
+        try {
+            return RunCommand("SELECT * FROM Shipping");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ResultSet GetTransactionsDB() {
+        try {
+            return RunCommand("SELECT * FROM Transactions");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
