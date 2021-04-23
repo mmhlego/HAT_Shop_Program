@@ -23,7 +23,17 @@ public class Main extends Application {
 		 */
 
 		// System.out.println(DataChecker.CheckLogin("cyberGhost", "HAT_Cyber"));
-		System.out.println(System.currentTimeMillis() - start);
+		PrintEstimatedTime(start);
+	}
+
+	private static void PrintEstimatedTime(long start) {
+		long time = System.currentTimeMillis() - start;
+		System.out.println("\n=====================================================================================\n");
+		System.out.println("Program run time information:");
+		System.out.println("\t- " + (time / 1000) / 60 + " Minutes");
+		System.out.println("\t- " + (time / 1000) % 60 + " Seconds");
+		System.out.println("\t- " + time % 1000 + " Milliseconds");
+		System.out.println("\n=====================================================================================\n");
 	}
 
 	@Override
