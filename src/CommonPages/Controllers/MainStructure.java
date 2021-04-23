@@ -1,7 +1,5 @@
 package CommonPages.Controllers;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
@@ -41,11 +38,13 @@ public class MainStructure implements Initializable {
 	private ImageView img;
 
 	OpenSide sideBarController;
+	Parent root;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../Visual/OpenSide.fxml"));
 		FXMLLoader loader2 = new FXMLLoader(this.getClass().getResource("../../Customer/Visual/CustomerMainPage.fxml"));
+
 		try {
 			MainPanel.getChildren().add(loader2.load());
 		} catch (IOException e1) {
@@ -54,7 +53,7 @@ public class MainStructure implements Initializable {
 		menu.setCursor(Cursor.HAND);
 		imageBox.setCursor(Cursor.HAND);
 		try {
-			Parent root = loader.load();
+			root = loader.load();
 			sideBarController = loader.getController();
 			MainPanel.getChildren().add(root);
 			root.setTranslateX(1080);
@@ -71,20 +70,22 @@ public class MainStructure implements Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
+		AddButton("../../Customer/Visual/ProductsViewer.fxml", "All Products");
 	}
 
 	private void AddButton(String fxml, String name) {
 		try {
 			FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../Visual/Component/SidePic.fxml"));
 			VBox root = loader.load();
-			((ImageView) root.getChildren().get(0))
-					.setImage(new Image(new FileInputStream(new File("../../pictures/" + fxml + ".png"))));
+			// ((ImageView) root.getChildren().get(0))
+			// .setImage(new Image(new FileInputStream(new File("../../pictures/" + fxml +
+			// ".png"))));
 			SideBar.getChildren().add(root);
 
 			Label label = new Label(name);
 			label.setPrefHeight(60);
 			label.setPrefWidth(190);
+			System.out.println(sideBarController);
 			sideBarController.getSideBar().getChildren().add(label);
 			root.setOnMouseClicked(e -> sideClickAction(fxml));
 			label.setOnMouseClicked(e -> sideClickAction(fxml));
@@ -96,11 +97,13 @@ public class MainStructure implements Initializable {
 
 	private void sideClickAction(String fxml) {
 		try {
-			FXMLLoader loader = new FXMLLoader(new File(fxml).toURI().toURL());
-			if (MainPanel.getChildren().size() >= 2) {
-				MainPanel.getChildren().remove(MainPanel.getChildren().size() - 1);
-			}
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+			/*
+			 * if (MainPanel.getChildren().size() >= 2) {
+			 * MainPanel.getChildren().remove(MainPanel.getChildren().size() - 1); }
+			 */
 			MainPanel.getChildren().add(loader.load());
+			root.toFront();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

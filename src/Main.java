@@ -8,7 +8,6 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		// launch(args);
 		long start = System.currentTimeMillis();
 
 		launch(args);
@@ -48,5 +47,6 @@ public class Main extends Application {
 		primaryStage.initStyle(StageStyle.TRANSPARENT);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+
 	}
 }
