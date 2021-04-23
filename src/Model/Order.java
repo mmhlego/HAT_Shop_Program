@@ -3,7 +3,6 @@ package Model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
 import DataController.CustomUUID;
 
 public class Order {
@@ -13,17 +12,32 @@ public class Order {
 	public ArrayList<Integer> Amounts;
 	public long TotalValue;
 
-	public Order(String ownerID, OrderStatus status, ArrayList<Product> products,
-			ArrayList<Integer> amounts , String orderID) {
-		super();
+	public Order(String ownerID, OrderStatus status, ArrayList<Product> products, ArrayList<Integer> amounts,
+			String orderID) {
+		this(ownerID, status, products, amounts, 0, orderID);
+
+		CalculateTotalValue();
+	}
+
+	public Order(String ownerID, OrderStatus status, ArrayList<Product> products, ArrayList<Integer> amounts,
+			long value, String orderID) {
 		OwnerID = ownerID;
 		OrderID = orderID;
 		Status = status;
 		Products = products;
 		Amounts = amounts;
-		TotalValue = 0;
+		TotalValue = value;
+	}
 
-		CalculateTotalValue();
+	public static ArrayList<Product> GetIDsProducts(String productIDs) {
+		ArrayList<Product> temp;
+		ArrayList<Product> allProducts;
+
+		return null;
+	}
+
+	public static ArrayList<Integer> GetIDsAmounts(String amounts) {
+		return null;
 	}
 
 	public ArrayList<String> GetProductIDs() {

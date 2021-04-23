@@ -12,42 +12,49 @@ public class EmployeeCreator {
 
 	public EmployeeCreator() {
 		ArrayList<Employee> employees = new ArrayList<>();
-		employees.add(new Employee("Pouya", "Afraz", "pouya", "pouya", "09222855759", "pouyaafraz@gmail.com",
-				EmployeeMode.ASSISTANT, Employee.GenerateID(EmployeeMode.ASSISTANT)));
-		employees.add(new Employee("Mohammad", "Hejazi", "mmhlego", "mmhlego", "09146501380", "mmhlego@gmail.com",
-				EmployeeMode.ASSISTANT, Employee.GenerateID(EmployeeMode.ASSISTANT)));
-		employees.add(new Employee("Kamyab", "Tabani", "CyberGhost", "HAT_Cyber", "09146559128", "k.tabani82@gmail.com",
-				EmployeeMode.ASSISTANT, Employee.GenerateID(EmployeeMode.ASSISTANT)));
+		employees.add(new Employee("Pouya", "Afraz", "pouya", "pouya", EmployeeMode.ASSISTANT, "09222855759",
+				"pouyaafraz@gmail.com", Employee.GenerateID(EmployeeMode.ASSISTANT)));
+
+		employees.add(new Employee("Mohammad", "Hejazi", "mmhlego", "mmhlego", EmployeeMode.ASSISTANT, "09146501380",
+				"mmhlego@gmail.com", Employee.GenerateID(EmployeeMode.ASSISTANT)));
+
+		employees.add(new Employee("Kamyab", "Tabani", "CyberGhost", "HAT_Cyber", EmployeeMode.ASSISTANT, "09146559128",
+				"k.tabani82@gmail.com", Employee.GenerateID(EmployeeMode.ASSISTANT)));
+
 		for (int i = 0; i < 4; i++) {
 			String[] name = randomName();
 			employees.add(new Employee(name[0], name[1], "ACCOUNTANT" + (i + 1), "ACCOUNTANT" + (i + 1),
-					GeneratePhoneNumber(), RandomMail("ACCOUNTANT" + (i + 1)), EmployeeMode.ACCOUNTANT,
+					EmployeeMode.ACCOUNTANT, GeneratePhoneNumber(), RandomMail("ACCOUNTANT" + (i + 1)),
 					Employee.GenerateID(EmployeeMode.ACCOUNTANT)));
 		}
+
 		for (int i = 0; i < 5; i++) {
 			String[] name = randomName();
 			employees.add(new Employee(name[0], name[1], "QUALITYCONTROL" + (i + 1), "QUALITYCONTROL" + (i + 1),
-					GeneratePhoneNumber(), RandomMail("QUALITYCONTROL" + (i + 1)), EmployeeMode.QUALITYCONTROL,
+					EmployeeMode.QUALITYCONTROL, GeneratePhoneNumber(), RandomMail("QUALITYCONTROL" + (i + 1)),
 					Employee.GenerateID(EmployeeMode.QUALITYCONTROL)));
 		}
+
 		for (int i = 0; i < 8; i++) {
 			String[] name = randomName();
-			employees.add(new Employee(name[0], name[1], "REGULAR" + (i + 1), "REGULAR" + (i + 1),
-					GeneratePhoneNumber(), RandomMail("REGULAR" + (i + 1)), EmployeeMode.REGULAR,
-					Employee.GenerateID(EmployeeMode.REGULAR)));
+			employees.add(new Employee(name[0], name[1], "REGULAR" + (i + 1), "REGULAR" + (i + 1), EmployeeMode.REGULAR,
+					GeneratePhoneNumber(), RandomMail("REGULAR" + (i + 1)), Employee.GenerateID(EmployeeMode.REGULAR)));
 		}
+
 		for (int i = 0; i < 5; i++) {
 			String[] name = randomName();
 			employees.add(new Employee(name[0], name[1], "SUPPLIER" + (i + 1), "SUPPLIER" + (i + 1),
-					GeneratePhoneNumber(), RandomMail("SUPPLIER" + (i + 1)), EmployeeMode.SUPPLIER,
+					EmployeeMode.SUPPLIER, GeneratePhoneNumber(), RandomMail("SUPPLIER" + (i + 1)),
 					Employee.GenerateID(EmployeeMode.SUPPLIER)));
 		}
+
 		for (int i = 0; i < 5; i++) {
 			String[] name = randomName();
 			employees.add(new Employee(name[0], name[1], "STOREKEEPER" + (i + 1), "STOREKEEPER" + (i + 1),
-					GeneratePhoneNumber(), RandomMail("STOREKEEPER" + (i + 1)), EmployeeMode.STOREKEEPER,
+					EmployeeMode.STOREKEEPER, GeneratePhoneNumber(), RandomMail("STOREKEEPER" + (i + 1)),
 					Employee.GenerateID(EmployeeMode.STOREKEEPER)));
 		}
+
 		int j = 1;
 		for (Employee employee : employees) {
 			System.out.println("----------------------------Employee number: " + (j) + "-----------------------------");

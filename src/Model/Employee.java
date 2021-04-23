@@ -6,9 +6,9 @@ public class Employee extends User {
 	public EmployeeMode Mode;
 	public String ID;
 
-	public Employee(String firstName, String lastName, String username, String passeord, EmployeeMode mode , String phone, String email
-			, String id) {
-		super(firstName, lastName, username, passeord, phone, email);
+	public Employee(String firstName, String lastName, String username, String password, EmployeeMode mode,
+			String phone, String email, String id) {
+		super(firstName, lastName, username, password, phone, email);
 		Mode = mode;
 		ID = id;
 	}

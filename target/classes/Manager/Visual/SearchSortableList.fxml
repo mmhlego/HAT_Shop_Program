@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="25.0" layoutY="25.0" prefHeight="80.0" prefWidth="1030.0" style="-fx-background-color: white; -fx-border-color: #769FCD; -fx-background-radius: 10; -fx-border-radius: 10;" />
+      <AnchorPane layoutX="25.0" layoutY="130.0" prefHeight="545.0" prefWidth="1030.0" style="-fx-background-color: white; -fx-border-color: #769FCD; -fx-background-radius: 10; -fx-border-radius: 10;" />
+      <ScrollPane hbarPolicy="NEVER" layoutX="25.0" layoutY="130.0" prefHeight="545.0" prefWidth="1030.0" style="-fx-background-color: white; -fx-border-color: #769FCD; -fx-border-radius: 10; -fx-background-radius: 10;">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="1030.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-radius: 10;" />
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
