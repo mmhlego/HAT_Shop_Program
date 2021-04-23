@@ -11,6 +11,7 @@ public class Main extends Application {
 		// launch(args);
 		long start = System.currentTimeMillis();
 
+		launch(args);
 		/*
 		 * DBConnector.Connect(); Random random = new Random(); ArrayList<Product>
 		 * products = ProductChecker.LoadAllProducts(); int productSize =
@@ -22,12 +23,11 @@ public class Main extends Application {
 
 		// System.out.println(DataChecker.CheckLogin("cyberGhost", "HAT_Cyber"));
 		System.out.println(System.currentTimeMillis() - start);
-
-		// 8.0.171
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		DBConnector.stage = primaryStage;
 		Thread thread = new Thread(new Runnable() {
 			@Override
 			public void run() {

@@ -11,7 +11,7 @@ public class Customer extends User {
 	ArrayList<Order> orders = new ArrayList<>();
 
 	public Customer(String firstName, String lastName, String username, String passeord, String phone, String email,
-			String address, CustomerMode mode, long value, String iD) {
+			String address, long value, CustomerMode mode,  String iD) {
 		super(firstName, lastName, username, passeord, phone, email);
 		Mode = mode;
 		Address = address;

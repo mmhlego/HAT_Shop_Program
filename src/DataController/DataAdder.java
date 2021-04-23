@@ -6,11 +6,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-
 import Model.Customer;
-import Model.Customer.CustomerMode;
 import Model.Order;
-import Model.Order.OrderStatus;
 import Model.Product;
 import Model.Shipping;
 import Model.Transaction;
@@ -38,6 +35,12 @@ public class DataAdder {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void AddCustomer(Customer c) {
+		c.PrintDetails();
+		// AddCustomer(c.FirstName, c.LastName, c.Username, c.Passeord, c.Phone,
+		// c.Email, c.Address, c.Value,CustomerMode.ModeToInt(c.Mode), c.ID);
 	}
 
 	public static void AddEmployee(String FirstName, String LastName, String Username, String Password, int Mode,
@@ -102,15 +105,14 @@ public class DataAdder {
 		AddProduct(P.Name, P.Description, P.Details, P.Price, P.Percentage, P.Category, P.Amount, P.ID);
 	}
 
-	public static void AddShipping(String orderId, int Status, long Fee, LocalDate date, String id) {
+	public static void AddShipping(String ID, int Status, long Fee, LocalDate date) {
 		try {
-			PreparedStatement ps = DBConnector.Con.prepareStatement(
-					"INSERT INTO `Shipping` (`OrderID`, `Status`, `Fee`, `Date`,`ShippingID`) VALUES (?,?,?,?,?)");
-			ps.setString(1, orderId);
+			PreparedStatement ps = DBConnector.Con
+					.prepareStatement("INSERT INTO `Shipping`(`OrderID`, `Status`, `Fee`, `Date`) VALUES (?,?,?,?)");
+			ps.setString(1, ID);
 			ps.setInt(2, Status);
 			ps.setLong(3, Fee);
 			ps.setDate(4, Date.valueOf(date));
-			ps.setString(5, id);
 
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -119,16 +121,13 @@ public class DataAdder {
 	}
 
 	public static void AddShipping(Shipping SH) {
-		// System.out.println(SH.ID);
-		AddShipping(SH.OrderId, SH.Status, SH.Fee, SH.Date, SH.ID);
-
-		// SH.printDetails();
+		AddShipping(SH.ID, SH.Status, SH.Fee, SH.Date);
 	}
 
 	public static void AddTransaction(String FromID, long Amount, LocalDate date, String ID) {
 		try {
 			PreparedStatement ps = DBConnector.Con
-					.prepareStatement("INSERT INTO `Transactions`(`FromID`, `Value`, `Date`, `ID`) VALUES (?,?,?,?)");
+					.prepareStatement("INSERT INTO `Transactions`(`FromID`, `Amount`, `Date`, `ID`) VALUES (?,?,?,?)");
 			ps.setString(1, FromID);
 			ps.setLong(2, Amount);
 			ps.setDate(3, Date.valueOf(date));
@@ -140,16 +139,8 @@ public class DataAdder {
 		}
 	}
 
-	public static void AddOrder(Order o) {
-
-		// o.PrintDetails();
-
-		AddOrder(o.OwnerID, OrderStatus.ModeToInt(o.Status), o.GetProductIDs(), o.Amounts, o.TotalValue, o.OrderID);
-	}
-
 	public static void AddTransaction(Transaction T) {
 		AddTransaction(T.FromID, T.Amount, T.Date, T.ID);
-		// T.printDetails();
 	}
 
 	public static void AddOrder(String OwnerID, int Status, ArrayList<String> ProductIDs, ArrayList<Integer> Amounts,
@@ -171,11 +162,12 @@ public class DataAdder {
 		}
 	}
 
-	public static void AddCustomer(Customer c) {
+	public static void AddOrder(Order o) {
 
-		// c.PrintDetails();
+		o.PrintDetails();
 
-		AddCustomer(c.FirstName, c.LastName, c.Username, c.Password, c.Phone, c.Email, c.Address, c.Value,
-				CustomerMode.ModeToInt(c.Mode), c.ID);
+		// AddOrder(o.OwnerID, OrderStatus.ModeToInt(o.Status), o.GetProductIDs(),
+		// o.Amounts, o.TotalValue, o.OrderID);
 	}
+
 }

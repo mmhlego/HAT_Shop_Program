@@ -13,8 +13,8 @@ public class Order {
 	public ArrayList<Integer> Amounts;
 	public long TotalValue;
 
-	public Order(String ownerID, String orderID, OrderStatus status, ArrayList<Product> products,
-			ArrayList<Integer> amounts) {
+	public Order(String ownerID, OrderStatus status, ArrayList<Product> products,
+			ArrayList<Integer> amounts , String orderID) {
 		super();
 		OwnerID = ownerID;
 		OrderID = orderID;

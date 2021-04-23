@@ -5,7 +5,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
-import DataController.DataChecker;
+
+import DataController.*;
 import Model.Limitter;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -51,6 +52,7 @@ public class Login implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		DBConnector.CheckConnection(loginAnchor);
 		Limitter.Limit(usernameField, 20, false);
 		Limitter.Limit(passwordField, 20, false);
 		plusImage.setCursor(Cursor.HAND);
@@ -58,6 +60,7 @@ public class Login implements Initializable {
 
 		enterBTN.setOnAction(e -> {
 			if (DataChecker.CheckLogin(usernameField.getText(), passwordField.getText())) {
+				// UserGetter.setCurrentUser(DBConnector.GetCustomer(usernameField.getText()));
 				try {
 					((Stage) enterBTN.getScene().getWindow()).close();
 					FXMLLoader loader = new FXMLLoader(
