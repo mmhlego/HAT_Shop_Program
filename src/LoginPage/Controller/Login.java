@@ -1,12 +1,10 @@
 package LoginPage.Controller;
 import Controller.UserController;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
-
 import DataController.*;
 import Model.*;
 import javafx.animation.KeyFrame;
@@ -24,6 +22,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -60,10 +59,27 @@ public class Login implements Initializable {
 		plusImage.setCursor(Cursor.HAND);
 		plusImage.setOnMouseClicked(e -> registerPageAnimation());
 
+		usernameField.getParent().setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.ENTER) {
+
+			}
+		});
+
+		passwordField.getParent().setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.ENTER) {
+				LoginToAccount();
+			}
+		});
+
 		enterBTN.setOnAction(e -> {
-			if (DataChecker.CheckLogin(usernameField.getText(), passwordField.getText())) {
+			LoginToAccount();
+		});
+	}
+
+	private void LoginToAccount(){
+		if (DataChecker.CheckLogin(usernameField.getText(), passwordField.getText())) {
 				// UserGetter.setCurrentUser(DBConnector.GetCustomer(usernameField.getText()));
-				UserController.SetCurrentUser(usernameField.getText());
+				// UserController.SetCurrentUser(usernameField.getText());
 				try {
 					((Stage) enterBTN.getScene().getWindow()).close();
 					FXMLLoader loader = new FXMLLoader(
@@ -78,9 +94,6 @@ public class Login implements Initializable {
 			} else {
 				Alert(AlertType.ERROR, "نام کاربری یا پسورد اشتباه است !");
 			}
-
-		});
-
 	}
 
 	private void Alert(AlertType AlertType, String Content) {
