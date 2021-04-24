@@ -1,4 +1,5 @@
 package LoginPage.Controller;
+import Controller.UserController;
 
 import java.io.File;
 import java.io.IOException;
@@ -62,13 +63,7 @@ public class Login implements Initializable {
 		enterBTN.setOnAction(e -> {
 			if (DataChecker.CheckLogin(usernameField.getText(), passwordField.getText())) {
 				// UserGetter.setCurrentUser(DBConnector.GetCustomer(usernameField.getText()));
-				if (DataChecker.GetRole(usernameField.getText()).equals("Customer")){
-					UserGetter.setCurrentUser(DBConnector.GetCustomer(usernameField.getText()));
-				}else if(DataChecker.GetRole(usernameField.getText()).equals("Employee")){
-					UserGetter.setCurrentUser(DBConnector.GetEmployee(usernameField.getText()));
-				} else if (DataChecker.GetRole(usernameField.getText()).equals("Manager")) {
-					UserGetter.setCurrentUser(DBConnector.GetManager(usernameField.getText()));
-				}
+				UserController.SetCurrentUser(usernameField.getText());
 				try {
 					((Stage) enterBTN.getScene().getWindow()).close();
 					FXMLLoader loader = new FXMLLoader(

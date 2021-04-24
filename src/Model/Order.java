@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import DataController.CustomUUID;
+import DataController.ProductChecker;
 
 public class Order {
 	public String OwnerID, OrderID;
@@ -30,14 +31,20 @@ public class Order {
 	}
 
 	public static ArrayList<Product> GetIDsProducts(String productIDs) {
-		ArrayList<Product> temp;
-		ArrayList<Product> allProducts;
-
-		return null;
+		ArrayList<Product> temp = new ArrayList<Product>();
+		String[] IDs = productIDs.replace("[", "").replace("]", "").replace(" ", "").split(",");
+		for (String id : IDs) {
+			temp.add(ProductChecker.GetProduct(id));
+		}
+		return temp;
 	}
 
 	public static ArrayList<Integer> GetIDsAmounts(String amounts) {
-		return null;
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		for (String Amount : amounts.replace("[", "").replace("]", "").replace(" ", "").split(",")) {
+			temp.add(Integer.parseInt(Amount));
+		}
+		return temp;
 	}
 
 	public ArrayList<String> GetProductIDs() {

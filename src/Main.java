@@ -1,4 +1,5 @@
 import DataController.DBConnector;
+import SampleCreator.ProductCreator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

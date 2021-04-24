@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1140.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/8s:fx="http://javafx.com/fxml/1" fx:controller="CommonPages.Controllers.MainStructure">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1140.0" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CommonPages.Controllers.MainStructure">
    <children>
       <AnchorPane fx:id="MainPanel" layoutX="87.0" layoutY="75.0" prefWidth="1080.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="0.0" />
       <VBox fx:id="SideBar" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="sideBar" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="1080.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
