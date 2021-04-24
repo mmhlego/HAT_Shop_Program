@@ -46,18 +46,24 @@ public class ProductChecker {
     public static Product GetProduct(String ID) {
         ResultSet r = null;
         try {
-            r = DBConnector.RunCommand("SELECT * FROM Products WHERE ID =" + "\'" + ID + "\'");
+            r = DBConnector.RunCommand("SELECT * FROM `Products` WHERE ID =\'" + ID + "\'");
+
+            //System.out.println("SELECT * FROM `Products` WHERE ID =\'" + ID + "\'");
+            //System.out.println("\'" + ID + "\' => " + r.next());
+
+            return ConvertToProduct(r);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return ConvertToProduct(r);
+        return null;
     }
 
     private static Product ConvertToProduct(ResultSet r) {
         try {
-            r.next();
-            return new Product(r.getString(1), r.getString(2), Product.ParseToArray(r.getString(3)), r.getLong(4),
-                    r.getInt(5), r.getString(6), r.getInt(7), r.getString(8));
+            if (r.next()) {
+                return new Product(r.getString(1), r.getString(2), Product.ParseToArray(r.getString(3)), r.getLong(4),
+                        r.getInt(5), r.getString(6), r.getInt(7), r.getString(8));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

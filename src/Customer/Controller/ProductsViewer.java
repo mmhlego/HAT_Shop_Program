@@ -50,6 +50,8 @@ public class ProductsViewer implements Initializable {
 	private JFXSlider MaxPriceSlider;
 	@FXML
 	private Label MaxPriceLBL;
+	@FXML
+	private JFXCheckBox OnlyAmazingToggle;
 
 	public AnchorPane getProductsPanel() {
 		return ProductsPanel;

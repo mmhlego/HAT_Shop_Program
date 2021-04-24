@@ -38,9 +38,8 @@ public class DataAdder {
 	}
 
 	public static void AddCustomer(Customer c) {
-		c.PrintDetails();
-		// AddCustomer(c.FirstName, c.LastName, c.Username, c.Passeord, c.Phone,
-		// c.Email, c.Address, c.Value,CustomerMode.ModeToInt(c.Mode), c.ID);
+		AddCustomer(c.FirstName, c.LastName, c.Username, c.Password, c.Phone, c.Email, c.Address, c.Value,
+				Customer.CustomerMode.ModeToInt(c.Mode), c.ID);
 	}
 
 	public static void AddEmployee(String FirstName, String LastName, String Username, String Password, int Mode,
@@ -105,14 +104,15 @@ public class DataAdder {
 		AddProduct(P.Name, P.Description, P.Details, P.Price, P.Percentage, P.Category, P.Amount, P.ID);
 	}
 
-	public static void AddShipping(String ID, int Status, long Fee, LocalDate date) {
+	public static void AddShipping(String ID, int Status, long Fee, LocalDate date, String shippingID) {
 		try {
-			PreparedStatement ps = DBConnector.Con
-					.prepareStatement("INSERT INTO `Shipping`(`OrderID`, `Status`, `Fee`, `Date`) VALUES (?,?,?,?)");
+			PreparedStatement ps = DBConnector.Con.prepareStatement(
+					"INSERT INTO `Shipping`(`OrderID`, `Status`, `Fee`, `Date` , `ShippingID`) VALUES (?,?,?,?,?)");
 			ps.setString(1, ID);
 			ps.setInt(2, Status);
 			ps.setLong(3, Fee);
 			ps.setDate(4, Date.valueOf(date));
+			ps.setString(5, shippingID);
 
 			ps.executeUpdate();
 		} catch (SQLException e) {
@@ -121,15 +121,15 @@ public class DataAdder {
 	}
 
 	public static void AddShipping(Shipping SH) {
-		AddShipping(SH.ID, SH.Status, SH.Fee, SH.Date);
+		AddShipping(SH.ID, SH.Status, SH.Fee, SH.Date, SH.ID);
 	}
 
-	public static void AddTransaction(String FromID, long Amount, LocalDate date, String ID) {
+	public static void AddTransaction(String FromID, long Value, LocalDate date, String ID) {
 		try {
 			PreparedStatement ps = DBConnector.Con
-					.prepareStatement("INSERT INTO `Transactions`(`FromID`, `Amount`, `Date`, `ID`) VALUES (?,?,?,?)");
+					.prepareStatement("INSERT INTO `Transactions`(`FromID`, `Value`, `Date`, `ID`) VALUES (?,?,?,?)");
 			ps.setString(1, FromID);
-			ps.setLong(2, Amount);
+			ps.setLong(2, Value);
 			ps.setDate(3, Date.valueOf(date));
 			ps.setString(4, ID);
 
@@ -163,11 +163,8 @@ public class DataAdder {
 	}
 
 	public static void AddOrder(Order o) {
-
-		o.PrintDetails();
-
-		// AddOrder(o.OwnerID, OrderStatus.ModeToInt(o.Status), o.GetProductIDs(),
-		// o.Amounts, o.TotalValue, o.OrderID);
+		AddOrder(o.OwnerID, Order.OrderStatus.ModeToInt(o.Status), o.GetProductIDs(), o.Amounts, o.TotalValue,
+				o.OrderID);
 	}
 
 }

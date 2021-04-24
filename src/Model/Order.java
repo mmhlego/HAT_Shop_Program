@@ -34,7 +34,8 @@ public class Order {
 		ArrayList<Product> temp = new ArrayList<Product>();
 		String[] IDs = productIDs.replace("[", "").replace("]", "").replace(" ", "").split(",");
 		for (String id : IDs) {
-			temp.add(ProductChecker.GetProduct(id));
+			//temp.add(ProductChecker.GetProduct(id));
+			ProductChecker.GetProduct(id);
 		}
 		return temp;
 	}

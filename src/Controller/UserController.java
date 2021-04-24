@@ -19,16 +19,38 @@ public class UserController {
     }
 
     public static void SetCurrentUser(String Username) {
-        if (!UserGetter.GetCustomer(Username).equals(null)) {
-            Mode = UserMode.Customer;
+
+        try {
             customer = UserGetter.GetCustomer(Username);
-        } else if (!UserGetter.GetEmployee(Username).equals(null)) {
-            Mode = UserMode.Employee;
-            employee = UserGetter.GetEmployee(Username);
-        } else if (!UserGetter.GetManager(Username).equals(null)) {
-            Mode = UserMode.Manager;
-            manager = UserGetter.GetManager(Username);
+            Mode = UserMode.Customer;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+        try {
+            employee = UserGetter.GetEmployee(Username);
+            Mode = UserMode.Employee;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            manager = UserGetter.GetManager(Username);
+            Mode = UserMode.Manager;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //if (!UserGetter.GetCustomer(Username).equals(null)) {
+        //    Mode = UserMode.Customer;
+        //    customer = UserGetter.GetCustomer(Username);
+        //} else if (!UserGetter.GetEmployee(Username).equals(null)) {
+        //    Mode = UserMode.Employee;
+        //    employee = UserGetter.GetEmployee(Username);
+        //} else if (!UserGetter.GetManager(Username).equals(null)) {
+        //    Mode = UserMode.Manager;
+        //    manager = UserGetter.GetManager(Username);
+        //}
         LoadUserFullData();
     }
 
@@ -39,8 +61,8 @@ public class UserController {
             AllTransactions = UserGetter.ConvertTransactionToArrayList(UserGetter.GetTransactionsDB(customer.ID));
         } else {
             AllOrders = UserGetter.ConvertOrderToArrayList(UserGetter.GetOrdersDB());
-            AllShippings = UserGetter.ConvertShippingToArrayList(UserGetter.GetShippingsDB());
-            AllTransactions = UserGetter.ConvertTransactionToArrayList(UserGetter.GetTransactionsDB());
+            //AllShippings = UserGetter.ConvertShippingToArrayList(UserGetter.GetShippingsDB());
+            //AllTransactions = UserGetter.ConvertTransactionToArrayList(UserGetter.GetTransactionsDB());
         }
     }
 

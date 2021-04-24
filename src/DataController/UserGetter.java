@@ -10,10 +10,12 @@ public class UserGetter {
     public static ArrayList<Order> ConvertOrderToArrayList(ResultSet r) {
         ArrayList<Order> temp = new ArrayList<Order>();
         try {
+            int count = 0;
             while (r.next()) {
                 Order o = new Order(r.getString(1), OrderStatus.IntToMode(r.getInt(2)),
                         Order.GetIDsProducts(r.getString(3)), Order.GetIDsAmounts(r.getString(4)), r.getLong(5),
                         r.getString(6));
+                System.out.println("Order #" + count++);
                 temp.add(o);
             }
         } catch (SQLException e) {
