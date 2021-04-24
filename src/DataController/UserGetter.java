@@ -90,5 +90,4 @@ public class UserGetter {
     public static ArrayList<Transaction> getTransactions() {
         return AllTransactions;
     }
-
 }

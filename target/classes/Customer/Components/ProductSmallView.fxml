@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="250.0" maxWidth="200.0" minHeight="250.0" minWidth="180.0" prefHeight="250.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.ProductSmallView">
+<AnchorPane maxHeight="250.0" maxWidth="200.0" minHeight="250.0" minWidth="180.0" prefHeight="250.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-background-color: white; -fx-border-color: #6887C5; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.ProductSmallView">
    <children>
       <Button fx:id="BuyButton" layoutY="220.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0 0 10 10;" text="خرید کالا" textFill="WHITE" />
       <Label fx:id="SpecialEvents" alignment="CENTER" layoutX="11.0" prefHeight="30.0" prefWidth="180.0" style="-fx-border-width: 0 0 1 0; -fx-border-color: #769FCD;" text="Label" textFill="#769fcd" visible="false" />

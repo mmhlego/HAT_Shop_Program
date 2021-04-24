@@ -81,11 +81,15 @@ public class MainStructure implements Initializable {
 		menu.setCursor(Cursor.HAND);
 		imageBox.setCursor(Cursor.HAND);
 
+		AddButton("../../CommonPages/Visual/Profile.fxml", "پروفایل", "profile", true);
+
 		if (UserController.Mode.equals(UserController.UserMode.Customer)) {
-			AddButton("../../CommonPages/Visual/Profile.fxml", "پروفایل", "profile", true);
 			AddButton("../../Customer/Visual/ProductsViewer.fxml", "تمام محصولات", "AllProducts", false);
-			AddButton("../../CommonPages/Visual/Settings.fxml", "تنضیمات", "Settings", true);
+			AddButton("../../Customer/Visual/Cart.fxml", "سبد خرید", "cart", false);
+			AddButton("../../Customer/Visual/OrderHistory.fxml", "تاریخچه خرید", "OrderHistory", false);
 		}
+
+		AddButton("../../CommonPages/Visual/Settings.fxml", "تنضیمات", "Settings", true);
 	}
 
 	private void AddButton(String fxml, String name, String Image, boolean overlay) {
