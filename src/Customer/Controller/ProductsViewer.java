@@ -2,7 +2,6 @@ package Customer.Controller;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -160,11 +159,11 @@ public class ProductsViewer implements Initializable {
 	}
 
 	private void search() {
-		ArrayList<Product> products = ProductChecker.LoadAllProducts();
+		ArrayList<Product> products = filter();
 		ArrayList<Product> searchResult = new ArrayList<>();
 		String searchText = SearchTXF.getText();
 		if (searchText.isEmpty()) {
-			addProducts(ProductChecker.LoadAllProducts());
+			addProducts(filter());
 		} else {
 			for (Product product : products) {
 				if (product.Name.contains(searchText) || product.Description.contains(searchText)
@@ -174,13 +173,12 @@ public class ProductsViewer implements Initializable {
 			}
 			addProducts(searchResult);
 		}
-		filter();
 
 	}
 
 	int size = ProductChecker.LoadAllProducts().size();
 
-	private void filter() {
+	private ArrayList<Product> filter() {
 		ArrayList<Product> products = ProductChecker.LoadAllProducts();
 		ArrayList<Product> filteredProducts = new ArrayList<>();
 		for (int i = 0; i < size; i++) {
@@ -221,7 +219,10 @@ public class ProductsViewer implements Initializable {
 			// }
 
 		}
+
 		addProducts(filteredProducts);
+		search();
+		return filteredProducts;
 	}
 
 	private void addProducts(ArrayList<Product> products) {
@@ -243,15 +244,16 @@ public class ProductsViewer implements Initializable {
 
 					Image image;
 
-					/*try {
-						image = new Image(new FileInputStream(new File(
-								"src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")));
-					} catch (FileNotFoundException e) {
-						System.out.println(
-								"Cannot find Product Images/" + product.Category + "/" + product.Name + ".jpg");
-					
-						image = new Image(new FileInputStream(new File("src/pictures/Product Images/Product.png")));
-					}*/
+					/*
+					 * try { image = new Image(new FileInputStream(new File(
+					 * "src/pictures/Product Images/" + product.Category + "/" + product.Name +
+					 * ".jpg"))); } catch (FileNotFoundException e) { System.out.println(
+					 * "Cannot find Product Images/" + product.Category + "/" + product.Name +
+					 * ".jpg");
+					 * 
+					 * image = new Image(new FileInputStream(new
+					 * File("src/pictures/Product Images/Product.png"))); }
+					 */
 
 					if (new File("src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")
 							.exists()) {
@@ -265,6 +267,8 @@ public class ProductsViewer implements Initializable {
 					s.getProductName().setText(product.Name);
 					s.getProductPrice().setText(String.valueOf(product.Price));
 					p.setOnMouseClicked(e -> buyPage(product, image));
+					ProductSmallView smallView = loader.getController();
+					smallView.getBuyButton().setOnAction(e -> buyPage(product, image));
 					ProductsPanel.getChildren().add(p);
 					ProductsPanel.setPrefHeight(((double) ((int) (i / 3)) * 275));
 				}

@@ -7,22 +7,11 @@ import javafx.stage.*;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		//long start = System.currentTimeMillis();
-
-		// System.out.println(DBConnector.Connect());
+		long start = System.currentTimeMillis();
 
 		launch(args);
-		/*
-		 * DBConnector.Connect(); Random random = new Random(); ArrayList<Product>
-		 * products = ProductChecker.LoadAllProducts(); int productSize =
-		 * products.size(); Order sample = new Order("owner id", "order id",
-		 * OrderStatus.PENDING); for (int i = 0; i < 50; i++) { Product p =
-		 * products.get(random.nextInt(productSize)); int count = random.nextInt(5) + 1;
-		 * sample.addProduct(p, count); sample.PrintDetails(); }
-		 */
 
-		// System.out.println(DataChecker.CheckLogin("cyberGhost", "HAT_Cyber"));
-		//PrintEstimatedTime(start);
+		PrintEstimatedTime(start);
 	}
 
 	private static void PrintEstimatedTime(long start) {
