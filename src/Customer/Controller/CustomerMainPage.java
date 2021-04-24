@@ -1,11 +1,25 @@
 package Customer.Controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.ResourceBundle;
+
+import CommonPages.Controllers.MainStructure;
+import DataController.ProductChecker;
+import Model.Product;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class CustomerMainPage {
+public class CustomerMainPage implements Initializable {
 
 	@FXML
 	private AnchorPane MainPanel;
@@ -33,6 +47,17 @@ public class CustomerMainPage {
 
 	@FXML
 	private AnchorPane supermarket;
+
+	@FXML
+	private AnchorPane SpecialAnchor;
+
+	public AnchorPane getSpecialAnchor() {
+		return SpecialAnchor;
+	}
+
+	public void setSpecialAnchor(AnchorPane specialAnchor) {
+		SpecialAnchor = specialAnchor;
+	}
 
 	public AnchorPane getMainPanel() {
 		return MainPanel;
@@ -106,4 +131,126 @@ public class CustomerMainPage {
 		this.supermarket = supermarket;
 	}
 
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+		supermarket.setOnMouseClicked(e -> {
+			ProductsViewer controller = (ProductsViewer) MainStructure
+					.addPage("src/Customer/Visual/ProductsViewer.fxml");
+			controller.getPhoneCategoryToggle().selectedProperty().setValue(false);
+			controller.getBookCategoryToggle().selectedProperty().setValue(false);
+			controller.getComputerCategoryToggle().selectedProperty().setValue(false);
+			controller.getAccessoriesCategoryToggle().selectedProperty().setValue(false);
+			controller.filter();
+		});
+
+		books.setOnMouseClicked(e -> {
+			ProductsViewer controller = (ProductsViewer) MainStructure
+					.addPage("src/Customer/Visual/ProductsViewer.fxml");
+			controller.getPhoneCategoryToggle().selectedProperty().setValue(false);
+			controller.getSuperMarketCategoryToggle().selectedProperty().setValue(false);
+			controller.getComputerCategoryToggle().selectedProperty().setValue(false);
+			controller.getAccessoriesCategoryToggle().selectedProperty().setValue(false);
+			controller.filter();
+		});
+
+		accessories.setOnMouseClicked(e -> {
+			ProductsViewer controller = (ProductsViewer) MainStructure
+					.addPage("src/Customer/Visual/ProductsViewer.fxml");
+			controller.getPhoneCategoryToggle().selectedProperty().setValue(false);
+			controller.getSuperMarketCategoryToggle().selectedProperty().setValue(false);
+			controller.getComputerCategoryToggle().selectedProperty().setValue(false);
+			controller.getBookCategoryToggle().selectedProperty().setValue(false);
+			controller.filter();
+		});
+
+		phones.setOnMouseClicked(e -> {
+			ProductsViewer controller = (ProductsViewer) MainStructure
+					.addPage("src/Customer/Visual/ProductsViewer.fxml");
+			controller.getBookCategoryToggle().selectedProperty().setValue(false);
+			controller.getSuperMarketCategoryToggle().selectedProperty().setValue(false);
+			controller.getComputerCategoryToggle().selectedProperty().setValue(false);
+			controller.getAccessoriesCategoryToggle().selectedProperty().setValue(false);
+			controller.filter();
+		});
+
+		pc.setOnMouseClicked(e -> {
+			ProductsViewer controller = (ProductsViewer) MainStructure
+					.addPage("src/Customer/Visual/ProductsViewer.fxml");
+			controller.getPhoneCategoryToggle().selectedProperty().setValue(false);
+			controller.getSuperMarketCategoryToggle().selectedProperty().setValue(false);
+			controller.getBookCategoryToggle().selectedProperty().setValue(false);
+			controller.getAccessoriesCategoryToggle().selectedProperty().setValue(false);
+			controller.filter();
+		});
+		try {
+			addSpecialProducts();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+
+	static Random random = new Random(System.currentTimeMillis());
+
+	private void addSpecialProducts() throws Exception {
+		FXMLLoader l = new FXMLLoader(getClass().getResource("../Visual/ProductsViewer.fxml"));
+		l.load();
+		ProductsViewer viewer = l.getController();
+
+		ArrayList<Product> specialProduct = new ArrayList<>();
+		for (int i = 0; i < 3; i++) {
+			specialProduct.add(ProductChecker.GetSpecialProducts()
+					.get(random.nextInt(ProductChecker.GetSpecialProducts().size())));
+		}
+		int i = 0;
+		for (Product product : specialProduct) {
+			try {
+				if (!product.equals(new Product())) {
+
+					FXMLLoader loader = new FXMLLoader(
+							this.getClass().getResource("../Components/ProductSmallView.fxml"));
+					;
+					Parent p = loader.load();
+					ProductSmallView s = loader.getController();
+					AnchorPane.setTopAnchor(p, ((double) 25));
+					AnchorPane.setLeftAnchor(p, ((double) (i) * 240 + 150));
+
+					Image image;
+
+					/*
+					 * try { image = new Image(new FileInputStream(new File(
+					 * "src/pictures/Product Images/" + product.Category + "/" + product.Name +
+					 * ".jpg"))); } catch (FileNotFoundException e) { System.out.println(
+					 * "Cannot find Product Images/" + product.Category + "/" + product.Name +
+					 * ".jpg");
+					 * 
+					 * image = new Image(new FileInputStream(new
+					 * File("src/pictures/Product Images/Product.png"))); }
+					 */
+
+					if (new File("src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")
+							.exists()) {
+						image = new Image(new FileInputStream(new File(
+								"src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")));
+					} else {
+						image = new Image(new FileInputStream(new File("src/pictures/Product Images/Product.png")));
+					}
+
+					s.getProductImage().setImage(image);
+					s.getProductName().setText(product.Name);
+					s.getProductPrice().setText(String.valueOf(product.Price));
+					p.setOnMouseClicked(e -> viewer.buyPage(product, image));
+					ProductSmallView smallView = loader.getController();
+					smallView.getBuyButton().setOnAction(e -> viewer.buyPage(product, image));
+					SpecialAnchor.getChildren().add(p);
+
+				}
+				i++;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	}
 }

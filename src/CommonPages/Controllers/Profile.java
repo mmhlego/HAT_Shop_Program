@@ -33,8 +33,20 @@ public class Profile implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		loadPage("../Visual/Component/ProfilePersonal.fxml");
+		ProfilePersonal p = (ProfilePersonal) loadPage("../Visual/Component/ProfilePersonal.fxml");
 		goAnimation(PersonalBTN);
+		backAnimation(AccountBTN);
+		backAnimation(ContactBTN);
+		if (UserController.Mode.equals(UserMode.Customer)) {
+			p.getFirstNameLBL().setText(UserController.customer.FirstName);
+			p.getLastNameLBL().setText(UserController.customer.LastName);
+		} else if (UserController.Mode.equals(UserMode.Employee)) {
+			p.getFirstNameLBL().setText(UserController.employee.FirstName);
+			p.getLastNameLBL().setText(UserController.employee.LastName);
+		} else if (UserController.Mode.equals(UserMode.Manager)) {
+			p.getFirstNameLBL().setText(UserController.manager.FirstName);
+			p.getLastNameLBL().setText(UserController.manager.LastName);
+		}
 		PersonalBTN.setOnAction(e -> {
 			ProfilePersonal personal = (ProfilePersonal) loadPage("../Visual/Component/ProfilePersonal.fxml");
 			goAnimation(PersonalBTN);
