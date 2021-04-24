@@ -59,11 +59,11 @@ public class UserController {
             AllOrders = UserGetter.ConvertOrderToArrayList(UserGetter.GetOrdersDB(customer.ID));
             AllShippings = UserGetter.ConvertShippingToArrayList(UserGetter.GetShippingsDB(customer.ID));
             AllTransactions = UserGetter.ConvertTransactionToArrayList(UserGetter.GetTransactionsDB(customer.ID));
-        } else {
+        } /*else {
             AllOrders = UserGetter.ConvertOrderToArrayList(UserGetter.GetOrdersDB());
-            //AllShippings = UserGetter.ConvertShippingToArrayList(UserGetter.GetShippingsDB());
-            //AllTransactions = UserGetter.ConvertTransactionToArrayList(UserGetter.GetTransactionsDB());
-        }
+            AllShippings = UserGetter.ConvertShippingToArrayList(UserGetter.GetShippingsDB());
+            AllTransactions = UserGetter.ConvertTransactionToArrayList(UserGetter.GetTransactionsDB());
+          }*/
     }
 
     public static ArrayList<Order> getOrders() {
