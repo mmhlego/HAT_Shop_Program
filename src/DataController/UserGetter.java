@@ -8,6 +8,9 @@ import Model.Order.OrderStatus;
 public class UserGetter {
 
     private static User CurrentUser;
+    public static Manager manager;
+    public static Employee employee;
+    public static Customer customer;
     private static ArrayList<Order> AllOrders = new ArrayList<Order>();
     private static ArrayList<Shipping> AllShippings = new ArrayList<Shipping>();
     private static ArrayList<Transaction> AllTransactions = new ArrayList<Transaction>();
@@ -18,13 +21,19 @@ public class UserGetter {
 
     public static void setCurrentUser(User u) {
         CurrentUser = u;
-        LoadUserFullData();
+        LoadUserFullData(CurrentUser);
     }
 
-    private static void LoadUserFullData() {
-        //AllOrders = ConvertOrderToArrayList(DBConnector.GetOrdersDB(CurrentUser.));
-        //AllShippings = ConvertShippingToArrayList(DBConnector.GetShippingsDB(CurrentUser.));
-        //AllTransactions = ConvertTransactionToArrayList(DBConnector.GetTransactionsDB(CurrentUser.));
+    private static void LoadUserFullData(User u) {
+        if (u.equals(customer)) {
+            AllOrders = ConvertOrderToArrayList(DBConnector.GetOrdersDB(customer.ID));
+            AllShippings = ConvertShippingToArrayList(DBConnector.GetShippingsDB(customer.ID));
+            AllTransactions = ConvertTransactionToArrayList(DBConnector.GetTransactionsDB(customer.ID));
+        } else {
+            AllOrders = ConvertOrderToArrayList(DBConnector.GetOrdersDB());
+            AllShippings = ConvertShippingToArrayList(DBConnector.GetShippingsDB());
+            AllTransactions = ConvertTransactionToArrayList(DBConnector.GetTransactionsDB());
+        }
     }
 
     private static ArrayList<Order> ConvertOrderToArrayList(ResultSet r) {

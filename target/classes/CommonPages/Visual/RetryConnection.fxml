@@ -4,7 +4,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<Label alignment="CENTER" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #B9D7EA; -fx-background-radius: 0 0 10 10;" text="در حال اتصال ..." xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Label alignment="CENTER" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #B9D7EA; -fx-background-radius: 0 0 10 10;" text="در حال اتصال ..." xmlns="http://javafx.com/javafx//8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <font>
       <Font name="B Koodak Bold" size="16.0" />
    </font>
