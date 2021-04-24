@@ -1,4 +1,5 @@
 package DataController;
+
 import java.sql.*;
 import java.util.*;
 import Model.*;
@@ -16,15 +17,18 @@ public class DBConnector {
 
     public static boolean Connect() {
         try {
+            //Con = DriverManager.getConnection(
+            //        "jdbc:mysql://freedb.tech/freedbtech_hatshopsystem?characterEncoding=UTF-8",
+            //        "freedbtech_hatusername", "hatpassword");
             Con = DriverManager.getConnection(
-                    "jdbc:mysql://freedb.tech/freedbtech_hatshopsystem?characterEncoding=UTF-8",
-                    "freedbtech_hatusername", "hatpassword");
+                    "jdbc:mysql://sql3.freesqldatabase.com/sql3407743?characterEncoding=UTF-8", "sql3407743",
+                    "RLyeK4eFrm");
 
             if (Con != null) {
                 return true;
             }
         } catch (Exception e) {
-
+            System.out.println("Connection Failed");
         }
         return false;
     }
@@ -114,7 +118,7 @@ public class DBConnector {
         }
         return null;
     }
-    
+
     public static ResultSet GetShippingsDB(String OrderID) {
         try {
             return RunCommand("SELECT * FROM Shipping WHERE OrderID=" + "\'" + OrderID + "\'");
@@ -123,7 +127,7 @@ public class DBConnector {
         }
         return null;
     }
-    
+
     public static ResultSet GetTransactionsDB(String FromID) {
         try {
             return RunCommand("SELECT * FROM Transactions WHERE FromID=" + "\'" + FromID + "\'");
