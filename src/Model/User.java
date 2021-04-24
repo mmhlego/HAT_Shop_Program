@@ -17,5 +17,4 @@ public class User {
 		Phone = phone;
 		Email = email;
 	}
-
 }

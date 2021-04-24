@@ -53,25 +53,4 @@ public class DataChecker {
         return -1;
     }
 
-    public static String GetRole(String Username) {
-        try {
-            ResultSet C = DBConnector
-                    .RunCommand("SELECT AccountMode FROM Customers WHERE Username =" + "\'" + Username + "\'");
-            ResultSet E = DBConnector
-                    .RunCommand("SELECT Mode FROM Employees WHERE Username =" + "\'" + Username + "\'");
-            ResultSet M = DBConnector
-                    .RunCommand("SELECT * FROM Manager WHERE Username =" + "\'" + Username + "\'");
-            if (C.next()) {
-                return "Customer";
-            } else if (E.next()) {
-                return "Employee";
-            } else if (M.next()) {
-                return "Manager";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "No Such User !";
-    }
-
 }

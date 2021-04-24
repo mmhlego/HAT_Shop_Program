@@ -98,4 +98,39 @@ public class ProductChecker {
         }
         return 0;
     }
+
+    public static boolean SpecialProduct(String ID) {
+        try {
+            ResultSet r = DBConnector
+                    .RunCommand("SELECT Percentage , Amount FROM Products WHERE ID =" + "\'" + ID + "\'");
+            r.next();
+            int Percentage = r.getInt(1);
+            int Amount = r.getInt(2);
+            if (Percentage >= 20 || Amount <= 15) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean ProductLowAmount(String ID) {
+        if (GetProductAmount(ID) <= 5) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static ArrayList<Product> GetSpecialProducts() {
+        try {
+            ResultSet r = DBConnector.RunCommand("SELECT * FROM Products WHERE Percentage >=20 OR Amount <=15");
+            return ConvertToProductsArrayList(r);
+        } catch (Exception e) {
+            System.out.println("No Special Products Found (Product Checker)");
+        }
+        return new ArrayList<Product>();
+    }
+
 }

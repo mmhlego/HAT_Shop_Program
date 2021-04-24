@@ -7,10 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXSlider;
-
 import CommonPages.Controllers.MainStructure;
 import DataController.ProductChecker;
 import Model.Product;
