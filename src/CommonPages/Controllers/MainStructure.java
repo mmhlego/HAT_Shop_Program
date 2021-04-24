@@ -1,23 +1,15 @@
 package CommonPages.Controllers;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
-import java.util.ResourceBundle;
-
+import java.util.*;
 import Controller.UserController;
 import javafx.animation.TranslateTransition;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Cursor;
-import javafx.scene.Parent;
+import javafx.fxml.*;
+import javafx.scene.*;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.*;
+import javafx.scene.layout.*;
 import javafx.util.Duration;
 
 public class MainStructure implements Initializable {

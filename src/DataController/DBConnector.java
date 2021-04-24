@@ -1,22 +1,15 @@
 package DataController;
 
 import java.io.File;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.Timer;
-import java.util.TimerTask;
-import Model.Customer;
-import Model.Employee;
-import Model.Manager;
+import java.sql.*;
+import java.util.*;
+import Model.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import javafx.stage.*;
 
 public class DBConnector {
-
     private static ResultSet Results;
     public static Connection Con;
     public static Stage stage;
