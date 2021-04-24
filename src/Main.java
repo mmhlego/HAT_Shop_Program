@@ -8,10 +8,10 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		//long start = System.currentTimeMillis();
+		long start = System.currentTimeMillis();
 
 		// System.out.println(DBConnector.Connect());
-
+		// DBConnector.Connect();
 		launch(args);
 		/*
 		 * DBConnector.Connect(); Random random = new Random(); ArrayList<Product>
@@ -23,7 +23,7 @@ public class Main extends Application {
 		 */
 
 		// System.out.println(DataChecker.CheckLogin("cyberGhost", "HAT_Cyber"));
-		//PrintEstimatedTime(start);
+		PrintEstimatedTime(start);
 	}
 
 	private static void PrintEstimatedTime(long start) {
