@@ -131,7 +131,8 @@ public class ProductChecker {
 
     public static ArrayList<Product> GetSpecialProducts() {
         try {
-            ResultSet r = DBConnector.RunCommand("SELECT * FROM Products WHERE Percentage >=20 OR Amount <=15");
+            ResultSet r = DBConnector
+                    .RunCommand("SELECT * FROM Products WHERE (Percentage >=20 OR Amount <=15) AND Amount>0");
             return ConvertToProductsArrayList(r);
         } catch (Exception e) {
             System.out.println("No Special Products Found (Product Checker)");
