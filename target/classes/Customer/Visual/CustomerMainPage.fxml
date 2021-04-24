@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="MainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" styleClass="root" stylesheets="@CustomerMainPage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.CustomerMainPage">
+<AnchorPane fx:id="MainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" styleClass="root" stylesheets="@CustomerMainPage.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.CustomerMainPage">
    <children>
-      <AnchorPane layoutX="7.0" layoutY="8.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="1080.0" styleClass="menu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="7.0" layoutY="8.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="1080.0" styleClass="menu" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" layoutX="1022.0" layoutY="12.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="59.0" prefWidth="100.0" styleClass="logo" text="Digi HAT" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="8.0">
                <font>
@@ -32,7 +32,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="225.0" layoutY="101.0" prefHeight="300.0" prefWidth="200.0" styleClass="box" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+      <AnchorPane prefHeight="300.0" prefWidth="200.0" styleClass="box" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" layoutX="924.0" layoutY="8.0" prefHeight="162.0" prefWidth="123.0" text="پیشنهادات شگفت انگیز" textFill="WHITE" wrapText="true" AnchorPane.topAnchor="0.0">
                <font>
@@ -54,7 +54,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="400.0">
+      <AnchorPane layoutY="300.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="325.0">
          <children>
             <AnchorPane id="first" fx:id="phones" layoutX="25.0" layoutY="25.0" prefHeight="250.0" prefWidth="186.0" styleClass="categories">
                <children>
@@ -143,5 +143,10 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Label layoutY="650.0" prefHeight="50.0" prefWidth="1080.0" style="-fx-alignment: center; -fx-background-color: #B9D7EA;" text="Powered By H. A. T.">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -1,193 +1,214 @@
 package Customer.Controller;
 
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class ProductInformationPage implements Initializable {
-    @FXML
-    private ImageView ProductIMG;
-    @FXML
-    private Button BuyBTN;
-    @FXML
-    private Label ProductNameLBL;
-    @FXML
-    private Label ProductPriceLBL;
-    @FXML
-    private Label ProductCategoryLBL;
-    @FXML
-    private Label ProductIDLBL;
-    @FXML
-    private ImageView SpecialIMG;
-    @FXML
-    private Label SpecialTXT;
-    @FXML
-    private Group AddToCartGroup;
-    @FXML
-    private Button AddToCartBTN;
-    @FXML
-    private Button IncreaseBTN;
-    @FXML
-    private Label SelectedAmountLBL;
-    @FXML
-    private Button DecreaseBTN;
-    @FXML
-    private JFXTextArea ProductDescriptionTXT;
-    @FXML
-    private TableView<String> ProductDetailsTable;
-    @FXML
-    private AnchorPane SimilarProductsAnchor;
-    @FXML
-    private Button LoadMoreBTN;
+	@FXML
+	private ImageView ProductIMG;
+	@FXML
+	private Button BuyBTN;
+	@FXML
+	private Label ProductNameLBL;
+	@FXML
+	private Label ProductPriceLBL;
+	@FXML
+	private Label ProductCategoryLBL;
+	@FXML
+	private Label ProductIDLBL;
+	@FXML
+	private ImageView SpecialIMG;
+	@FXML
+	private Label SpecialTXT;
+	@FXML
+	private Group AddToCartGroup;
+	@FXML
+	private Button AddToCartBTN;
+	@FXML
+	private Button IncreaseBTN;
+	@FXML
+	private Label SelectedAmountLBL;
+	@FXML
+	private Button DecreaseBTN;
+	@FXML
+	private JFXTextArea ProductDescriptionTXT;
+	@FXML
+	private TableView<Map<String, Object>> ProductDetailsTable;
+	@FXML
+	private AnchorPane SimilarProductsAnchor;
+	@FXML
+	private Button LoadMoreBTN;
+	@FXML
+	private TableColumn<Map, String> InformationColumn;
+	@FXML
+	private TableColumn<Map, String> MColumn;
 
-    public ImageView getProductIMG() {
-        return ProductIMG;
-    }
+	public TableView<Map<String, Object>> getProductDetailsTable() {
+		return ProductDetailsTable;
+	}
 
-    public void setProductIMG(ImageView productIMG) {
-        ProductIMG = productIMG;
-    }
+	public void setProductDetailsTable(TableView<Map<String, Object>> productDetailsTable) {
+		ProductDetailsTable = productDetailsTable;
+	}
 
-    public Button getBuyBTN() {
-        return BuyBTN;
-    }
+	public TableColumn<Map, String> getInformationColumn() {
+		return InformationColumn;
+	}
 
-    public void setBuyBTN(Button buyBTN) {
-        BuyBTN = buyBTN;
-    }
+	public void setInformationColumn(TableColumn<Map, String> informationColumn) {
+		InformationColumn = informationColumn;
+	}
 
-    public Label getProductNameLBL() {
-        return ProductNameLBL;
-    }
+	public TableColumn<Map, String> getMColumn() {
+		return MColumn;
+	}
 
-    public void setProductNameLBL(Label productNameLBL) {
-        ProductNameLBL = productNameLBL;
-    }
+	public void setMColumn(TableColumn<Map, String> mColumn) {
+		MColumn = mColumn;
+	}
 
-    public Label getProductPriceLBL() {
-        return ProductPriceLBL;
-    }
+	public ImageView getProductIMG() {
+		return ProductIMG;
+	}
 
-    public void setProductPriceLBL(Label productPriceLBL) {
-        ProductPriceLBL = productPriceLBL;
-    }
+	public void setProductIMG(ImageView productIMG) {
+		ProductIMG = productIMG;
+	}
 
-    public Label getProductCategoryLBL() {
-        return ProductCategoryLBL;
-    }
+	public Button getBuyBTN() {
+		return BuyBTN;
+	}
 
-    public void setProductCategoryLBL(Label productCategoryLBL) {
-        ProductCategoryLBL = productCategoryLBL;
-    }
+	public void setBuyBTN(Button buyBTN) {
+		BuyBTN = buyBTN;
+	}
 
-    public Label getProductIDLBL() {
-        return ProductIDLBL;
-    }
+	public Label getProductNameLBL() {
+		return ProductNameLBL;
+	}
 
-    public void setProductIDLBL(Label productIDLBL) {
-        ProductIDLBL = productIDLBL;
-    }
+	public void setProductNameLBL(Label productNameLBL) {
+		ProductNameLBL = productNameLBL;
+	}
 
-    public ImageView getSpecialIMG() {
-        return SpecialIMG;
-    }
+	public Label getProductPriceLBL() {
+		return ProductPriceLBL;
+	}
 
-    public void setSpecialIMG(ImageView specialIMG) {
-        SpecialIMG = specialIMG;
-    }
+	public void setProductPriceLBL(Label productPriceLBL) {
+		ProductPriceLBL = productPriceLBL;
+	}
 
-    public Label getSpecialTXT() {
-        return SpecialTXT;
-    }
+	public Label getProductCategoryLBL() {
+		return ProductCategoryLBL;
+	}
 
-    public void setSpecialTXT(Label specialTXT) {
-        SpecialTXT = specialTXT;
-    }
+	public void setProductCategoryLBL(Label productCategoryLBL) {
+		ProductCategoryLBL = productCategoryLBL;
+	}
 
-    public Group getAddToCartGroup() {
-        return AddToCartGroup;
-    }
+	public Label getProductIDLBL() {
+		return ProductIDLBL;
+	}
 
-    public void setAddToCartGroup(Group addToCartGroup) {
-        AddToCartGroup = addToCartGroup;
-    }
+	public void setProductIDLBL(Label productIDLBL) {
+		ProductIDLBL = productIDLBL;
+	}
 
-    public Button getAddToCartBTN() {
-        return AddToCartBTN;
-    }
+	public ImageView getSpecialIMG() {
+		return SpecialIMG;
+	}
 
-    public void setAddToCartBTN(Button addToCartBTN) {
-        AddToCartBTN = addToCartBTN;
-    }
+	public void setSpecialIMG(ImageView specialIMG) {
+		SpecialIMG = specialIMG;
+	}
 
-    public Button getIncreaseBTN() {
-        return IncreaseBTN;
-    }
+	public Label getSpecialTXT() {
+		return SpecialTXT;
+	}
 
-    public void setIncreaseBTN(Button increaseBTN) {
-        IncreaseBTN = increaseBTN;
-    }
+	public void setSpecialTXT(Label specialTXT) {
+		SpecialTXT = specialTXT;
+	}
 
-    public Label getSelectedAmountLBL() {
-        return SelectedAmountLBL;
-    }
+	public Group getAddToCartGroup() {
+		return AddToCartGroup;
+	}
 
-    public void setSelectedAmountLBL(Label selectedAmountLBL) {
-        SelectedAmountLBL = selectedAmountLBL;
-    }
+	public void setAddToCartGroup(Group addToCartGroup) {
+		AddToCartGroup = addToCartGroup;
+	}
 
-    public Button getDecreaseBTN() {
-        return DecreaseBTN;
-    }
+	public Button getAddToCartBTN() {
+		return AddToCartBTN;
+	}
 
-    public void setDecreaseBTN(Button decreaseBTN) {
-        DecreaseBTN = decreaseBTN;
-    }
+	public void setAddToCartBTN(Button addToCartBTN) {
+		AddToCartBTN = addToCartBTN;
+	}
 
-    public JFXTextArea getProductDescriptionTXT() {
-        return ProductDescriptionTXT;
-    }
+	public Button getIncreaseBTN() {
+		return IncreaseBTN;
+	}
 
-    public void setProductDescriptionTXT(JFXTextArea productDescriptionTXT) {
-        ProductDescriptionTXT = productDescriptionTXT;
-    }
+	public void setIncreaseBTN(Button increaseBTN) {
+		IncreaseBTN = increaseBTN;
+	}
 
-    public TableView<String> getProductDetailsTable() {
-        return ProductDetailsTable;
-    }
+	public Label getSelectedAmountLBL() {
+		return SelectedAmountLBL;
+	}
 
-    public void setProductDetailsTable(TableView<String> productDetailsTable) {
-        ProductDetailsTable = productDetailsTable;
-    }
+	public void setSelectedAmountLBL(Label selectedAmountLBL) {
+		SelectedAmountLBL = selectedAmountLBL;
+	}
 
-    public AnchorPane getSimilarProductsAnchor() {
-        return SimilarProductsAnchor;
-    }
+	public Button getDecreaseBTN() {
+		return DecreaseBTN;
+	}
 
-    public void setSimilarProductsAnchor(AnchorPane similarProductsAnchor) {
-        SimilarProductsAnchor = similarProductsAnchor;
-    }
+	public void setDecreaseBTN(Button decreaseBTN) {
+		DecreaseBTN = decreaseBTN;
+	}
 
-    public Button getLoadMoreBTN() {
-        return LoadMoreBTN;
-    }
+	public JFXTextArea getProductDescriptionTXT() {
+		return ProductDescriptionTXT;
+	}
 
-    public void setLoadMoreBTN(Button loadMoreBTN) {
-        LoadMoreBTN = loadMoreBTN;
-    }
+	public void setProductDescriptionTXT(JFXTextArea productDescriptionTXT) {
+		ProductDescriptionTXT = productDescriptionTXT;
+	}
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+	public AnchorPane getSimilarProductsAnchor() {
+		return SimilarProductsAnchor;
+	}
 
-    }
+	public void setSimilarProductsAnchor(AnchorPane similarProductsAnchor) {
+		SimilarProductsAnchor = similarProductsAnchor;
+	}
+
+	public Button getLoadMoreBTN() {
+		return LoadMoreBTN;
+	}
+
+	public void setLoadMoreBTN(Button loadMoreBTN) {
+		LoadMoreBTN = loadMoreBTN;
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+	}
 
 }

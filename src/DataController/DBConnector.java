@@ -1,11 +1,17 @@
 package DataController;
 
-import java.sql.*;
-import java.util.*;
-import Model.*;
-import java.io.*;
-import javafx.fxml.*;
-import javafx.scene.*;
+import java.io.File;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Timer;
+import java.util.TimerTask;
+import Model.Customer;
+import Model.Employee;
+import Model.Manager;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -17,10 +23,6 @@ public class DBConnector {
 
     public static boolean Connect() {
         try {
-            //Con = DriverManager.getConnection(
-            //        "jdbc:mysql://freedb.tech/freedbtech_hatshopsystem?characterEncoding=UTF-8",
-            //        "freedbtech_hatusername", "hatpassword");
-
             Con = DriverManager.getConnection(
                     "jdbc:mysql://sql3.freesqldatabase.com/sql3407743?characterEncoding=UTF-8", "sql3407743",
                     "RLyeK4eFrm");
@@ -29,7 +31,7 @@ public class DBConnector {
                 return true;
             }
         } catch (Exception e) {
-            System.out.println("Connection Failed");
+
         }
         return false;
     }
@@ -164,5 +166,4 @@ public class DBConnector {
         }
         return null;
     }
-
 }

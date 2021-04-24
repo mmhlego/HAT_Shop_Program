@@ -5,13 +5,18 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXSlider;
 
+import CommonPages.Controllers.MainStructure;
 import DataController.ProductChecker;
 import Model.Product;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,6 +24,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 
@@ -176,60 +182,54 @@ public class ProductsViewer implements Initializable {
 
 	private void filter() {
 		ArrayList<Product> products = ProductChecker.LoadAllProducts();
+		ArrayList<Product> filteredProducts = new ArrayList<>();
 		for (int i = 0; i < size; i++) {
 			Product product = products.get(i);
-			if (!BookCategoryToggle.isSelected()) {
-				if (product.Category.equals(Product.BOOK)) {
-					System.out.println(products.size());
-					product = new Product();
-				}
-			}
-			if (!ComputerCategoryToggle.isSelected()) {
-				if (product.Category.equals(Product.COMPUTER)) {
-					System.out.println(products.size());
-					product = new Product();
-				}
-			}
-			if (!AccessoriesCategoryToggle.isSelected()) {
-				if (product.Category.equals(Product.ACCESSORIES)) {
-					System.out.println(products.size());
-					product = new Product();
-				}
-			}
-			if (!PhoneCategoryToggle.isSelected()) {
-				if (product.Category.equals(Product.PHONE)) {
-					System.out.println(products.size());
-					product = new Product();
-				}
-			}
-			if (!SuperMarketCategoryToggle.isSelected()) {
-				System.out.println(products.size());
-				if (product.Category.equals(Product.SUPERMARKET)) {
-					product = new Product();
+			// if (OnlyAvailableToggle.isSelected()) {
+			if (product.Amount >= 0 || !OnlyAvailableToggle.isSelected()) {
+				switch (product.Category) {
+				case Product.ACCESSORIES:
+					if (AccessoriesCategoryToggle.isSelected()) {
+						filteredProducts.add(product);
+					}
+					break;
+				case Product.BOOK:
+					if (BookCategoryToggle.isSelected()) {
+						filteredProducts.add(product);
+					}
+					break;
+				case Product.COMPUTER:
+					if (ComputerCategoryToggle.isSelected()) {
+						filteredProducts.add(product);
+					}
+					break;
+				case Product.PHONE:
+					if (PhoneCategoryToggle.isSelected()) {
+						filteredProducts.add(product);
+						System.out.println("ProductsViewer.filter()");
+					}
+					break;
+				case Product.SUPERMARKET:
+					if (SuperMarketCategoryToggle.isSelected()) {
+						filteredProducts.add(product);
+					}
+					break;
+
 				}
 			}
 
-			if (OnlyAvailableToggle.isSelected()) {
-				System.out.println(products.size());
-				if (product.Amount <= 0) {
-					product = new Product();
-				}
-			}
-			System.out.println("ProductsViewer.filter()");
-
-			/*
-			 * if (product.Amount>Double.parseDouble(MaxPriceLBL.getText())) {
-			 * products.remove(product); }
-			 */
+			// }
 
 		}
-		addProducts(products);
+		addProducts(filteredProducts);
 	}
 
 	private void addProducts(ArrayList<Product> products) {
+		System.out.println(products.size());
 		try {
 			int i = 0;
 			ProductsPanel.getChildren().clear();
+			ProductsPanel.setPrefHeight(((double) ((int) (i / 3)) * 275));
 			for (Product product : products) {
 				if (!product.equals(new Product())) {
 
@@ -240,14 +240,31 @@ public class ProductsViewer implements Initializable {
 					ProductSmallView s = loader.getController();
 					AnchorPane.setTopAnchor(p, ((double) ((int) (i / 3)) * 275));
 					AnchorPane.setLeftAnchor(p, ((double) (i % 3) * 239 + 14));
-					try {
-						s.getProductImage().setImage(new Image(new FileInputStream(new File(
-								"src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg"))));
-					} catch (FileNotFoundException e) {
 
+					Image image;
+
+					/*try {
+						image = new Image(new FileInputStream(new File(
+								"src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")));
+					} catch (FileNotFoundException e) {
+						System.out.println(
+								"Cannot find Product Images/" + product.Category + "/" + product.Name + ".jpg");
+					
+						image = new Image(new FileInputStream(new File("src/pictures/Product Images/Product.png")));
+					}*/
+
+					if (new File("src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")
+							.exists()) {
+						image = new Image(new FileInputStream(new File(
+								"src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")));
+					} else {
+						image = new Image(new FileInputStream(new File("src/pictures/Product Images/Product.png")));
 					}
+
+					s.getProductImage().setImage(image);
 					s.getProductName().setText(product.Name);
 					s.getProductPrice().setText(String.valueOf(product.Price));
+					p.setOnMouseClicked(e -> buyPage(product, image));
 					ProductsPanel.getChildren().add(p);
 					ProductsPanel.setPrefHeight(((double) ((int) (i / 3)) * 275));
 				}
@@ -258,6 +275,32 @@ public class ProductsViewer implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void buyPage(Product p, Image image) {
+		ProductInformationPage c = (ProductInformationPage) MainStructure
+				.addPage("src/Customer/Visual/ProductInformationPage.fxml");
+		c.getBuyBTN().setOnAction(e -> {
+			c.getBuyBTN().setVisible(false);
+			c.getAddToCartGroup().setVisible(true);
+		});
+		c.getProductCategoryLBL().setText(p.Category);
+		c.getProductDescriptionTXT().setText(p.Description);
+		c.getProductIDLBL().setText(p.ID);
+		c.getProductIMG().setImage(image);
+		c.getProductNameLBL().setText(p.Name);
+		c.getProductPriceLBL().setText(String.valueOf(p.Price));
+		ObservableList<Map<String, Object>> items = FXCollections.<Map<String, Object>>observableArrayList();
+		for (int j = 0; j < p.Details.length; j++) {
+			Map<String, Object> item = new HashMap<>();
+			item.put("firstrow", p.Details[j][0]);
+			item.put("secondrow", p.Details[j][1]);
+			items.add(item);
+		}
+		c.getMColumn().setCellValueFactory(new MapValueFactory<String>("firstrow"));
+		c.getInformationColumn().setCellValueFactory(new MapValueFactory<String>("secondrow"));
+		c.getProductDetailsTable().setItems(items);
 
 	}
+
 }

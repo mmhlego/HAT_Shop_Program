@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="loginAnchor" prefHeight="500.0" prefWidth="450.0" styleClass="anchor-pane" stylesheets="@Register.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPage.Controller.Register.ThirdRegisterPage">
+<AnchorPane fx:id="loginAnchor" prefHeight="500.0" prefWidth="450.0" styleClass="anchor-pane" stylesheets="@Register.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginPage.Controller.Register.ThirdRegisterPage">
    <children>
       <JFXTextField id="title" alignment="CENTER" editable="false" focusTraversable="false" layoutX="158.0" layoutY="14.0" prefHeight="50.0" prefWidth="150.0" text="اطلاعات حساب" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="39.0">
          <font>

@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx//8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.ProductInformationPage">
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.ProductInformationPage">
   <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1200.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1150.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;">
          <children>
             <AnchorPane layoutX="705.0" layoutY="25.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
                <children>
@@ -91,18 +91,24 @@
                   </Group>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="25.0" layoutY="400.0" prefHeight="450.0" prefWidth="1030.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
+            <AnchorPane layoutX="25.0" layoutY="400.0" prefHeight="400.0" prefWidth="1030.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
                <children>
-                  <JFXTextArea fx:id="ProductDescriptionTXT" editable="false" focusTraversable="false" layoutX="20.0" layoutY="20.0" maxWidth="990.0" minWidth="990.0" prefWidth="990.0" unFocusColor="#769fcd" />
-                  <TableView fx:id="ProductDetailsTable" layoutX="265.0" layoutY="225.0" prefHeight="200.0" prefWidth="500.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5;" stylesheets="@ProductInformationPage.css">
+                  <JFXTextArea fx:id="ProductDescriptionTXT" editable="false" focusTraversable="false" layoutX="20.0" layoutY="25.0" maxWidth="990.0" minWidth="990.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="990.0" unFocusColor="#769fcd">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font></JFXTextArea>
+                  <TableView fx:id="ProductDetailsTable" layoutX="265.0" layoutY="175.0" prefHeight="200.0" prefWidth="500.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5;" stylesheets="@ProductInformationPage.css">
                     <columns>
-                      <TableColumn id="Col2" editable="false" prefWidth="255.46664428710938" sortable="false" text="اطلاعات" />
-                      <TableColumn id="Col1" editable="false" minWidth="0.0" prefWidth="250.13330078125" sortable="false" text="مشخصه" />
+                      <TableColumn id="Col2" fx:id="InformationColumn" editable="false" prefWidth="255.46664428710938" sortable="false" style="-fx-alingment: center;" text="اطلاعات" />
+                      <TableColumn id="Col1" fx:id="MColumn" editable="false" minWidth="0.0" prefWidth="250.13330078125" sortable="false" style="-fx-alingment: center;" text="مشخصه" />
                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="SimilarProductsAnchor" layoutX="25.0" layoutY="875.0" prefHeight="300.0" prefWidth="1030.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
+            <AnchorPane fx:id="SimilarProductsAnchor" layoutX="25.0" layoutY="825.0" prefHeight="300.0" prefWidth="1030.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
                <children>
                   <Button fx:id="LoadMoreBTN" layoutX="1.0" layoutY="1.0" mnemonicParsing="false" prefHeight="298.0" prefWidth="150.0" style="-fx-background-radius: 5 0 0 5; -fx-background-color: linear-gradient(to right ,#ffffff ,#ffffff00);" textFill="#008cff">
                      <font>

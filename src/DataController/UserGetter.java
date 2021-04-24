@@ -25,7 +25,7 @@ public class UserGetter {
     }
 
     private static void LoadUserFullData(User u) {
-        if (u.equals(customer)) {
+        if (u instanceof Customer) {
             AllOrders = ConvertOrderToArrayList(DBConnector.GetOrdersDB(customer.ID));
             AllShippings = ConvertShippingToArrayList(DBConnector.GetShippingsDB(customer.ID));
             AllTransactions = ConvertTransactionToArrayList(DBConnector.GetTransactionsDB(customer.ID));
