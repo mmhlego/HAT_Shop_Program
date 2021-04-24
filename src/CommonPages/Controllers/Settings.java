@@ -1,5 +1,6 @@
 package CommonPages.Controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,6 +28,13 @@ public class Settings implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		FXMLLoader loaders = new FXMLLoader(getClass().getResource("../Visual/Component/SettingsPersonalization.fxml"));
+		try {
+			ContentPane.setContent(loaders.load());
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		buttonsAnimation(PersonalizationBTN);
 		PersonalizationBTN.setOnAction(e -> {
 			try {
 				FXMLLoader loader = new FXMLLoader(
