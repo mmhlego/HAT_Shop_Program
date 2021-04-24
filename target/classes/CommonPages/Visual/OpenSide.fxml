@@ -16,9 +16,9 @@
                <children>
                   <VBox fx:id="SideBar" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="190.0" styleClass="sideBar">
                      <children>
-                        <Label fx:id="menuLBL" alignment="CENTER" prefHeight="60.0" prefWidth="190.0" text="منو" textFill="#8c0990">
+                        <Label fx:id="menuLBL" alignment="CENTER" prefHeight="60.0" prefWidth="190.0" text="منو" textFill="WHITE">
                            <font>
-                              <Font name="B Koodak Bold" size="30.0" />
+                              <Font name="B Koodak Bold" size="20.0" />
                            </font>
                         </Label>
                      </children></VBox>
@@ -29,9 +29,9 @@
                <children>
                   <VBox fx:id="exit" alignment="CENTER" prefHeight="60.0" prefWidth="190.0" styleClass="exit">
                      <children>
-                        <Label fx:id="exitLBL" alignment="CENTER" prefHeight="60.0" prefWidth="190.0" text="خروج" textFill="#8c0990">
+                        <Label fx:id="exitLBL" alignment="CENTER" prefHeight="60.0" prefWidth="190.0" text="خروج" textFill="WHITE">
                            <font>
-                              <Font name="B Koodak Bold" size="30.0" />
+                              <Font name="B Koodak Bold" size="20.0" />
                            </font>
                         </Label>
                      </children></VBox>

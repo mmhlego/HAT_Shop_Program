@@ -60,31 +60,40 @@
                   </JFXCheckBox>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="25.0" layoutY="324.0" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #769FCD;">
+            <Button fx:id="FilterBTN" layoutX="25.0" layoutY="588.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10;" text="فیلتر کن" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="25.0" layoutY="324.0" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #D6E6F2; -fx-background-radius: 10 10 0 0; -fx-border-radius: 10 10 0 0; -fx-border-color: #769FCD;" text="محدوده قیمت">
+               <font>
+                  <Font name="B Koodak Bold" size="20.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="25.0" layoutY="363.0" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 0 0 10 10; -fx-border-radius: 0 0 10 10; -fx-border-color: #769FCD;">
                <children>
-                  <JFXCheckBox fx:id="OnlyAvailableToggle" checkedColor="#769fcd" layoutX="15.0" layoutY="10.0" prefHeight="20.0" prefWidth="220.0" style="-fx-alignment: center;" text="فقط کالاهای موجود" textAlignment="CENTER">
+                  <JFXSlider fx:id="MaxPriceSlider" layoutX="20.0" layoutY="15.0" prefHeight="20.0" prefWidth="210.0" styleClass="Slider" />
+                  <Label fx:id="MaxPriceLBL" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="40.0" prefHeight="20.0" prefWidth="200.0" text="100000 تومان" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="25.0" layoutY="523.0" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #769FCD;">
+               <children>
+                  <JFXCheckBox fx:id="OnlyAmazingToggle" checkedColor="#769fcd" layoutX="15.0" layoutY="10.0" prefHeight="20.0" prefWidth="220.0" style="-fx-alignment: center;" text="کالاهای شگفت انگیز" textAlignment="CENTER">
                      <font>
                         <Font name="B Nazanin" size="14.0" />
                      </font>
                   </JFXCheckBox>
                </children>
             </AnchorPane>
-            <Button fx:id="FilterBTN" layoutX="25.0" layoutY="588.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10;" text="فیلتر کن" textAlignment="CENTER" textFill="WHITE">
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="50.0" layoutY="483.0" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #769FCD;">
+         <children>
+            <JFXCheckBox fx:id="OnlyAvailableToggle" checkedColor="#769fcd" layoutX="15.0" layoutY="10.0" prefHeight="20.0" prefWidth="220.0" style="-fx-alignment: center;" text="فقط کالاهای موجود" textAlignment="CENTER">
                <font>
-                  <Font name="B Koodak Bold" size="16.0" />
+                  <Font name="B Nazanin" size="14.0" />
                </font>
-            </Button>
-            <Label alignment="CENTER" layoutX="25.0" layoutY="389.0" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #D6E6F2; -fx-background-radius: 10 10 0 0; -fx-border-radius: 10 10 0 0; -fx-border-color: #769FCD;" text="محدوده قیمت">
-               <font>
-                  <Font name="B Koodak Bold" size="20.0" />
-               </font>
-            </Label>
-            <AnchorPane layoutX="25.0" layoutY="428.0" prefHeight="70.0" prefWidth="250.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 0 0 10 10; -fx-border-radius: 0 0 10 10; -fx-border-color: #769FCD;">
-               <children>
-                  <JFXSlider fx:id="MaxPriceSlider" layoutX="20.0" layoutY="15.0" prefHeight="20.0" prefWidth="210.0" styleClass="Slider" />
-                  <Label fx:id="MaxPriceLBL" alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="40.0" prefHeight="20.0" prefWidth="200.0" text="100000 تومان" />
-               </children>
-            </AnchorPane>
+            </JFXCheckBox>
          </children>
       </AnchorPane>
    </children>

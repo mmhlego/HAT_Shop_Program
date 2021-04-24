@@ -6,7 +6,7 @@ import java.util.*;
 
 public class UserController {
 
-    public static UserMode Mode = UserMode.Customer;
+    public static UserMode Mode = null;
     public static Manager manager = null;
     public static Employee employee = null;
     public static Customer customer = null;
@@ -21,36 +21,34 @@ public class UserController {
     public static void SetCurrentUser(String Username) {
 
         try {
-            customer = UserGetter.GetCustomer(Username);
-            Mode = UserMode.Customer;
+            if (!UserGetter.GetCustomer(Username).equals(null)) {
+                customer = UserGetter.GetCustomer(Username);
+                Mode = UserMode.Customer;
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            //System.out.println("not customer");
         }
 
         try {
-            employee = UserGetter.GetEmployee(Username);
-            Mode = UserMode.Employee;
+            if (!UserGetter.GetEmployee(Username).equals(null)) {
+                employee = UserGetter.GetEmployee(Username);
+                Mode = UserMode.Employee;
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            //System.out.println("not employee");
         }
 
         try {
-            manager = UserGetter.GetManager(Username);
-            Mode = UserMode.Manager;
+            if (!UserGetter.GetManager(Username).equals(null)) {
+                manager = UserGetter.GetManager(Username);
+                Mode = UserMode.Manager;
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            //System.out.println("not manager");
         }
 
-        //if (!UserGetter.GetCustomer(Username).equals(null)) {
-        //    Mode = UserMode.Customer;
-        //    customer = UserGetter.GetCustomer(Username);
-        //} else if (!UserGetter.GetEmployee(Username).equals(null)) {
-        //    Mode = UserMode.Employee;
-        //    employee = UserGetter.GetEmployee(Username);
-        //} else if (!UserGetter.GetManager(Username).equals(null)) {
-        //    Mode = UserMode.Manager;
-        //    manager = UserGetter.GetManager(Username);
-        //}
+        System.out.println("User mode : " + Mode.toString());
+
         LoadUserFullData();
     }
 

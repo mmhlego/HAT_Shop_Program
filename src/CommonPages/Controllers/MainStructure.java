@@ -41,7 +41,7 @@ public class MainStructure implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		main = MainPanel;
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../Visual/OpenSide.fxml"));
-		FXMLLoader loader2 = new FXMLLoader(this.getClass().getResource("../../Customer/Visual/CustomerMainPage.fxml"));
+		FXMLLoader loader2;
 
 		try {
 			root = loader.load();
@@ -63,12 +63,6 @@ public class MainStructure implements Initializable {
 			e.printStackTrace();
 		}
 
-		try {
-			MainPanel.getChildren().add(loader2.load());
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-
 		root.toFront();
 		menu.setCursor(Cursor.HAND);
 		imageBox.setCursor(Cursor.HAND);
@@ -76,12 +70,25 @@ public class MainStructure implements Initializable {
 		AddButton("../../CommonPages/Visual/Profile.fxml", "پروفایل", "profile", true);
 
 		if (UserController.Mode.equals(UserController.UserMode.Customer)) {
+			loader2 = new FXMLLoader(this.getClass().getResource("../../Customer/Visual/MainPage.fxml"));
+
 			AddButton("../../Customer/Visual/ProductsViewer.fxml", "تمام محصولات", "AllProducts", false);
 			AddButton("../../Customer/Visual/Cart.fxml", "سبد خرید", "cart", false);
 			AddButton("../../Customer/Visual/OrderHistory.fxml", "تاریخچه خرید", "OrderHistory", false);
+		} else if (UserController.Mode.equals(UserController.UserMode.Manager)) {
+			loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/MainPage.fxml"));
+
+		} else {
+			loader2 = new FXMLLoader(this.getClass().getResource("../../Employee/Visual/MainPage.fxml"));
 		}
 
 		AddButton("../../CommonPages/Visual/Settings.fxml", "تنضیمات", "Settings", true);
+
+		try {
+			MainPanel.getChildren().add(loader2.load());
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 	}
 
 	private void AddButton(String fxml, String name, String Image, boolean overlay) {
@@ -100,6 +107,8 @@ public class MainStructure implements Initializable {
 			SideBar.getChildren().add(root);
 
 			Label label = new Label(name);
+			label.setStyle(
+					"-fx-alignment:center; -fx-font-family: 'B Koodak'; -fx-font-size: 20px; -fx-text-fill: white;");
 			label.setPrefHeight(60);
 			label.setPrefWidth(190);
 

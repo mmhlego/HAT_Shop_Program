@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;" stylesheets="@AllProducts.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.ProductsViewer">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;" stylesheets="@AllProducts.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.ProductsViewer">
    <children>
       <ScrollPane hbarPolicy="NEVER" layoutX="350.0" layoutY="25.0" prefHeight="650.0" prefWidth="725.0" style="-fx-border-color: #F7FBFC; -fx-background-color: #F7FBFC;">
         <content>

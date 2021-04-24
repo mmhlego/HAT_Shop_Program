@@ -1,4 +1,5 @@
 package LoginPage.Controller;
+
 import Controller.UserController;
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +30,6 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class Login implements Initializable {
-
 
 	@FXML
 	private AnchorPane loginAnchor;
@@ -76,24 +76,25 @@ public class Login implements Initializable {
 		});
 	}
 
-	private void LoginToAccount(){
+	private void LoginToAccount() {
 		if (DataChecker.CheckLogin(usernameField.getText(), passwordField.getText())) {
-				// UserGetter.setCurrentUser(DBConnector.GetCustomer(usernameField.getText()));
-				// UserController.SetCurrentUser(usernameField.getText());
-				try {
-					((Stage) enterBTN.getScene().getWindow()).close();
-					FXMLLoader loader = new FXMLLoader(
-							new File("src/CommonPages/Visual/MainStructure.fxml").toURI().toURL());
-					Scene scene = new Scene(loader.load());
-					Stage stage = new Stage(StageStyle.TRANSPARENT);
-					stage.setScene(scene);
-					stage.show();
-				} catch (IOException ex) {
-					ex.printStackTrace();
-				}
-			} else {
-				Alert(AlertType.ERROR, "نام کاربری یا پسورد اشتباه است !");
+			// UserGetter.setCurrentUser(DBConnector.GetCustomer(usernameField.getText()));
+			UserController.SetCurrentUser(usernameField.getText());
+
+			try {
+				((Stage) enterBTN.getScene().getWindow()).close();
+				FXMLLoader loader = new FXMLLoader(
+						new File("src/CommonPages/Visual/MainStructure.fxml").toURI().toURL());
+				Scene scene = new Scene(loader.load());
+				Stage stage = new Stage(StageStyle.TRANSPARENT);
+				stage.setScene(scene);
+				stage.show();
+			} catch (IOException ex) {
+				ex.printStackTrace();
 			}
+		} else {
+			Alert(AlertType.ERROR, "نام کاربری یا پسورد اشتباه است !");
+		}
 	}
 
 	private void Alert(AlertType AlertType, String Content) {
