@@ -165,6 +165,16 @@ public class ProductsViewer implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		MaxPriceSlider.setMin(ProductChecker.GetMinValue() / 10000);
+		MaxPriceSlider.setMax(ProductChecker.GetMaxValue() / 10000);
+		MaxPriceSlider.setValue(ProductChecker.GetMaxValue() / 10000);
+		MaxPriceLBL.setText(String.valueOf((long) MaxPriceSlider.getValue() * 10000) + " تومان");
+		MaxPriceSlider.setOnMouseDragged(e -> {
+			MaxPriceLBL.setText(String.valueOf((long) MaxPriceSlider.getValue() * 10000) + " تومان");
+		});
+		MaxPriceSlider.setOnMouseClicked(e -> {
+			MaxPriceLBL.setText(String.valueOf((long) MaxPriceSlider.getValue() * 10000) + " تومان");
+		});
 		AllProducts = ProductChecker.LoadAllProducts();
 		SpecialProduct = ProductChecker.GetSpecialProducts();
 		addProducts(AllProducts);
@@ -237,35 +247,40 @@ public class ProductsViewer implements Initializable {
 	public void filter() {
 		FilteredProducts.clear();
 		int size = (!OnlyAmazingToggle.isSelected()) ? AllProducts.size() : SpecialProduct.size();
+
 		for (int i = 0; i < size; i++) {
 			Product product = (!OnlyAmazingToggle.isSelected()) ? AllProducts.get(i) : SpecialProduct.get(i);
-			if (product.Amount >= 0 || !OnlyAvailableToggle.isSelected()) {
-				switch (product.Category) {
-				case Product.ACCESSORIES:
-					if (AccessoriesCategoryToggle.isSelected()) {
-						FilteredProducts.add(product);
+
+			if (product.Price <= (MaxPriceSlider.getValue() * 10000)) {
+
+				if (product.Amount >= 0 || !OnlyAvailableToggle.isSelected()) {
+					switch (product.Category) {
+					case Product.ACCESSORIES:
+						if (AccessoriesCategoryToggle.isSelected()) {
+							FilteredProducts.add(product);
+						}
+						break;
+					case Product.BOOK:
+						if (BookCategoryToggle.isSelected()) {
+							FilteredProducts.add(product);
+						}
+						break;
+					case Product.COMPUTER:
+						if (ComputerCategoryToggle.isSelected()) {
+							FilteredProducts.add(product);
+						}
+						break;
+					case Product.PHONE:
+						if (PhoneCategoryToggle.isSelected()) {
+							FilteredProducts.add(product);
+						}
+						break;
+					case Product.SUPERMARKET:
+						if (SuperMarketCategoryToggle.isSelected()) {
+							FilteredProducts.add(product);
+						}
+						break;
 					}
-					break;
-				case Product.BOOK:
-					if (BookCategoryToggle.isSelected()) {
-						FilteredProducts.add(product);
-					}
-					break;
-				case Product.COMPUTER:
-					if (ComputerCategoryToggle.isSelected()) {
-						FilteredProducts.add(product);
-					}
-					break;
-				case Product.PHONE:
-					if (PhoneCategoryToggle.isSelected()) {
-						FilteredProducts.add(product);
-					}
-					break;
-				case Product.SUPERMARKET:
-					if (SuperMarketCategoryToggle.isSelected()) {
-						FilteredProducts.add(product);
-					}
-					break;
 				}
 			}
 		}
