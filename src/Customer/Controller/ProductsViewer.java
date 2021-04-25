@@ -8,10 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXSlider;
-
 import CommonPages.Controllers.MainStructure;
 import DataController.ProductChecker;
 import Model.Product;
@@ -168,6 +166,9 @@ public class ProductsViewer implements Initializable {
 		AllProducts = ProductChecker.LoadAllProducts();
 		SpecialProduct = ProductChecker.GetSpecialProducts();
 		addProducts(AllProducts);
+
+		MaxPriceSlider.setMin(10000);
+		MaxPriceSlider.setMax(230000000);
 
 		FilterBTN.setOnAction(e -> filter());
 		SearchBTN.setOnAction(e -> filter());

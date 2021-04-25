@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -110,16 +111,21 @@
             </AnchorPane>
             <AnchorPane fx:id="SimilarProductsAnchor" layoutX="25.0" layoutY="825.0" prefHeight="300.0" prefWidth="1030.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
                <children>
-                  <Button fx:id="LoadMoreBTN" layoutX="1.0" layoutY="1.0" mnemonicParsing="false" prefHeight="298.0" prefWidth="150.0" style="-fx-background-radius: 5 0 0 5; -fx-background-color: linear-gradient(to right ,#ffffff ,#ffffff00);" textFill="#008cff">
+                  <Button fx:id="LoadMoreBTN" layoutX="1.0" layoutY="1.0" mnemonicParsing="false" prefHeight="298.0" prefWidth="150.0" style="-fx-background-radius: 5 0 0 5; -fx-background-color: linear-gradient(to right ,#ffffff ,rgba(255,255,255,0.95),#ffffff00);">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="B Kamran Bold" size="20.0" />
                      </font>
+                     <graphic>
+                        <Label disable="true" focusTraversable="false" text="نشان دادن بیشتر...">
+                           <font>
+                              <Font name="B Koodak Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Label disable="true" focusTraversable="false" layoutX="31.0" layoutY="138.0" text="نشان دادن بیشتر..." textFill="#0082d2">
-                     <font>
-                        <Font name="B Kamran Bold" size="18.0" />
-                     </font>
-                  </Label>
                </children></AnchorPane>
             <AnchorPane layoutY="840.0" prefHeight="270.0" prefWidth="26.0" style="-fx-background-color: #F7FBFC; -fx-border-color: #769FCD; -fx-border-width: 0 1 0 0;" />
          </children></AnchorPane>
