@@ -6,9 +6,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.ResourceBundle;
+
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXSlider;
+
 import CommonPages.Controllers.MainStructure;
 import DataController.ProductChecker;
 import Model.Product;
@@ -178,7 +181,7 @@ public class ProductsViewer implements Initializable {
 
 	int size = ProductChecker.LoadAllProducts().size();
 
-	private ArrayList<Product> filter() {
+	public ArrayList<Product> filter() {
 		ArrayList<Product> products = ProductChecker.LoadAllProducts();
 		ArrayList<Product> filteredProducts = new ArrayList<>();
 		for (int i = 0; i < size; i++) {
@@ -219,9 +222,9 @@ public class ProductsViewer implements Initializable {
 			// }
 
 		}
-
+		SearchTXF.setText("");
 		addProducts(filteredProducts);
-		search();
+		// search();
 		return filteredProducts;
 	}
 
@@ -281,7 +284,7 @@ public class ProductsViewer implements Initializable {
 		}
 	}
 
-	private void buyPage(Product p, Image image) {
+	public void buyPage(Product p, Image image) {
 		ProductInformationPage c = (ProductInformationPage) MainStructure
 				.addPage("src/Customer/Visual/ProductInformationPage.fxml");
 		c.getBuyBTN().setOnAction(e -> {
@@ -304,6 +307,74 @@ public class ProductsViewer implements Initializable {
 		c.getMColumn().setCellValueFactory(new MapValueFactory<String>("firstrow"));
 		c.getInformationColumn().setCellValueFactory(new MapValueFactory<String>("secondrow"));
 		c.getProductDetailsTable().setItems(items);
+		c.getSpecialTXT().setVisible(false);
+		showSpecialProduct(c.getSimilarProductsAnchor());
+		for (Product product : ProductChecker.GetSpecialProducts()) {
+			if (p.equals(product)) {
+				c.getSpecialTXT().setVisible(true);
+				break;
+			}
+		}
+		c.getLoadMoreBTN().toFront();
+
+	}
+
+	static Random random = new Random(System.currentTimeMillis());
+
+	private void showSpecialProduct(AnchorPane pane) {
+		ArrayList<Product> specialProduct = new ArrayList<>();
+		for (int i = 0; i < 5; i++) {
+			specialProduct.add(ProductChecker.GetSpecialProducts()
+					.get(random.nextInt(ProductChecker.GetSpecialProducts().size())));
+		}
+		int i = 0;
+		for (Product product : specialProduct) {
+			try {
+				if (!product.equals(new Product())) {
+
+					FXMLLoader loader = new FXMLLoader(
+							this.getClass().getResource("../Components/ProductSmallView.fxml"));
+					;
+					Parent p = loader.load();
+					ProductSmallView s = loader.getController();
+					AnchorPane.setTopAnchor(p, ((double) 25));
+					AnchorPane.setLeftAnchor(p, ((double) (i) * 225 + 25 - 120));
+
+					Image image;
+
+					/*
+					 * try { image = new Image(new FileInputStream(new File(
+					 * "src/pictures/Product Images/" + product.Category + "/" + product.Name +
+					 * ".jpg"))); } catch (FileNotFoundException e) { System.out.println(
+					 * "Cannot find Product Images/" + product.Category + "/" + product.Name +
+					 * ".jpg");
+					 * 
+					 * image = new Image(new FileInputStream(new
+					 * File("src/pictures/Product Images/Product.png"))); }
+					 */
+
+					if (new File("src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")
+							.exists()) {
+						image = new Image(new FileInputStream(new File(
+								"src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")));
+					} else {
+						image = new Image(new FileInputStream(new File("src/pictures/Product Images/Product.png")));
+					}
+
+					s.getProductImage().setImage(image);
+					s.getProductName().setText(product.Name);
+					s.getProductPrice().setText(String.valueOf(product.Price));
+					p.setOnMouseClicked(e -> buyPage(product, image));
+					ProductSmallView smallView = loader.getController();
+					smallView.getBuyButton().setOnAction(e -> buyPage(product, image));
+					pane.getChildren().add(p);
+
+				}
+				i++;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
 	}
 

@@ -44,7 +44,7 @@ public class FirstPage implements Initializable, Runnable {
 		transition.setNode(label);
 		transition.setCycleCount(1);
 		transition.setInterpolator(Interpolator.EASE_BOTH);
-		transition.setDuration(Duration.millis(1000.0 * amount / 400));
+		transition.setDuration(Duration.millis(1000.0 * amount / 500));
 		transition.play();
 		transition.setOnFinished(e -> {
 			if (label.equals(engilshLBL)) {
