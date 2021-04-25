@@ -30,24 +30,20 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class Login implements Initializable {
-
 	@FXML
 	private AnchorPane loginAnchor;
-
 	@FXML
 	private TextField usernameField;
-
 	@FXML
 	private TextField passwordField;
-
 	@FXML
 	private JFXButton enterBTN;
-
 	@FXML
 	private AnchorPane registerAnchor;
-
 	@FXML
 	private ImageView plusImage;
+	@FXML
+	private ImageView CloseBTN;
 
 	private final double duration = 0.5;
 
@@ -59,12 +55,6 @@ public class Login implements Initializable {
 		plusImage.setCursor(Cursor.HAND);
 		plusImage.setOnMouseClicked(e -> registerPageAnimation());
 
-		usernameField.getParent().setOnKeyPressed(e -> {
-			if (e.getCode() == KeyCode.ENTER) {
-
-			}
-		});
-
 		passwordField.getParent().setOnKeyPressed(e -> {
 			if (e.getCode() == KeyCode.ENTER) {
 				LoginToAccount();
@@ -74,6 +64,8 @@ public class Login implements Initializable {
 		enterBTN.setOnAction(e -> {
 			LoginToAccount();
 		});
+
+		CloseBTN.setOnMouseClicked(e -> System.exit(0));
 	}
 
 	private void LoginToAccount() {
