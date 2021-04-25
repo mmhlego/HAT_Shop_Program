@@ -137,4 +137,25 @@ public class ProductChecker {
         return new ArrayList<Product>();
     }
 
+    public static long GetMaxValue() {
+        try {
+            ResultSet r = DBConnector.RunCommand("SELECT MAX(Price)FROM Products");
+            r.next();
+            return r.getLong(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static long GetMinValue() {
+        try {
+            ResultSet r = DBConnector.RunCommand("SELECT MIN(Price)FROM Products");
+            r.next();
+            return r.getLong(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }

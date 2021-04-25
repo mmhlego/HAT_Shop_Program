@@ -3,6 +3,8 @@ package LoginPage.Controller.Register;
 import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
+
+import Controller.UserController;
 import DataController.DataAdder;
 import Model.*;
 import Model.Customer.CustomerMode;
@@ -56,6 +58,7 @@ public class FifthRegisterPage implements Initializable {
                         ThirdRegisterPage.UserUsername, ThirdRegisterPage.UserPassword, SecondRegisterPage.UserPhone,
                         FifthRegisterPage.UserEmail, FifthRegisterPage.UserAddress, 0,
                         CustomerMode.ModeToInt(CustomerMode.REGULAR), Customer.GenerateID());
+                        UserController.SetCurrentUser(ThirdRegisterPage.UserUsername);
                 try {
                     ((Stage) registerBTN.getScene().getWindow()).close();
                     FXMLLoader loader = new FXMLLoader(
