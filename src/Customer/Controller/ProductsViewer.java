@@ -309,7 +309,7 @@ public class ProductsViewer implements Initializable {
 
 					FXMLLoader loader = new FXMLLoader(
 							this.getClass().getResource("../Components/ProductSmallView.fxml"));
-					;
+
 					Parent p = loader.load();
 					ProductSmallView s = loader.getController();
 					AnchorPane.setTopAnchor(p, ((double) 25));
@@ -340,5 +340,4 @@ public class ProductsViewer implements Initializable {
 		}
 
 	}
-
 }
