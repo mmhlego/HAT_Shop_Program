@@ -1,4 +1,5 @@
 import DataController.DBConnector;
+import DataController.UserUpdator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -7,11 +8,13 @@ import javafx.stage.*;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		long start = System.currentTimeMillis();
+		// long start = System.currentTimeMillis();
 
-		launch(args);
+		// launch(args);
 
-		PrintEstimatedTime(start);
+		// PrintEstimatedTime(start);
+		DBConnector.Connect();
+		UserUpdator.Update();
 	}
 
 	private static void PrintEstimatedTime(long start) {
