@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
-
 import CommonPages.Controllers.MainStructure;
 import DataController.ProductChecker;
 import Model.Product;
@@ -19,35 +18,25 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class CustomerMainPage implements Initializable {
-
+public class MainPage implements Initializable {
 	@FXML
 	private AnchorPane MainPanel;
-
 	@FXML
 	private TextField searchBar;
-
 	@FXML
 	private ImageView searchBTN;
-
 	@FXML
 	private ImageView nextBTN;
-
 	@FXML
 	private AnchorPane phones;
-
 	@FXML
 	private AnchorPane accessories;
-
 	@FXML
 	private AnchorPane pc;
-
 	@FXML
 	private AnchorPane books;
-
 	@FXML
 	private AnchorPane supermarket;
-
 	@FXML
 	private AnchorPane SpecialAnchor;
 
@@ -244,7 +233,6 @@ public class CustomerMainPage implements Initializable {
 					ProductSmallView smallView = loader.getController();
 					smallView.getBuyButton().setOnAction(e -> viewer.buyPage(product, image));
 					SpecialAnchor.getChildren().add(p);
-
 				}
 				i++;
 			} catch (Exception e) {
