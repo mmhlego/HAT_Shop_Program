@@ -13,22 +13,16 @@ import javafx.scene.layout.*;
 import javafx.util.Duration;
 
 public class MainStructure implements Initializable {
-
 	@FXML
 	private AnchorPane MainPanel;
-
 	@FXML
 	private VBox SideBar;
-
 	@FXML
 	private VBox menu;
-
 	@FXML
 	private ImageView menuImg;
-
 	@FXML
 	private VBox imageBox;
-
 	@FXML
 	private ImageView img;
 

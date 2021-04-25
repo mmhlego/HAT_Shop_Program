@@ -121,6 +121,7 @@
                      </font>
                   </Label>
                </children></AnchorPane>
+            <AnchorPane layoutY="840.0" prefHeight="270.0" prefWidth="26.0" style="-fx-background-color: #F7FBFC; -fx-border-color: #769FCD; -fx-border-width: 0 1 0 0;" />
          </children></AnchorPane>
   </content>
 </ScrollPane>

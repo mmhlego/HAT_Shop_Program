@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 public class Profile implements Initializable {
@@ -30,6 +31,8 @@ public class Profile implements Initializable {
 	private Button AccountBTN;
 	@FXML
 	private ScrollPane ContentPane;
+	@FXML
+	private ImageView BackBTN;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -47,6 +50,7 @@ public class Profile implements Initializable {
 			p.getFirstNameLBL().setText(UserController.manager.FirstName);
 			p.getLastNameLBL().setText(UserController.manager.LastName);
 		}
+
 		PersonalBTN.setOnAction(e -> {
 			ProfilePersonal personal = (ProfilePersonal) loadPage("../Visual/Component/ProfilePersonal.fxml");
 			goAnimation(PersonalBTN);

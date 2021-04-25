@@ -32,7 +32,7 @@ public class Main extends Application {
 			public void run() {
 				try {
 					Thread.sleep(1000);
-					System.out.println("Start Connecting ...");
+					System.out.println("Connecting ...");
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

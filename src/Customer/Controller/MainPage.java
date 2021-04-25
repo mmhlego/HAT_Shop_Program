@@ -175,7 +175,6 @@ public class MainPage implements Initializable {
 		try {
 			addSpecialProducts();
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	}
@@ -183,11 +182,8 @@ public class MainPage implements Initializable {
 	static Random random = new Random(System.currentTimeMillis());
 
 	private void addSpecialProducts() throws Exception {
-		FXMLLoader l = new FXMLLoader(getClass().getResource("../Visual/ProductsViewer.fxml"));
-		l.load();
-		ProductsViewer viewer = l.getController();
 
-		ArrayList<Product> specialProduct = new ArrayList<>();
+		ArrayList<Product> specialProduct = new ArrayList<Product>();
 		for (int i = 0; i < 3; i++) {
 			specialProduct.add(ProductChecker.GetSpecialProducts()
 					.get(random.nextInt(ProductChecker.GetSpecialProducts().size())));
@@ -199,25 +195,13 @@ public class MainPage implements Initializable {
 
 					FXMLLoader loader = new FXMLLoader(
 							this.getClass().getResource("../Components/ProductSmallView.fxml"));
-					;
+
 					Parent p = loader.load();
 					ProductSmallView s = loader.getController();
 					AnchorPane.setTopAnchor(p, ((double) 25));
 					AnchorPane.setLeftAnchor(p, ((double) (i) * 240 + 150));
 
 					Image image;
-
-					/*
-					 * try { image = new Image(new FileInputStream(new File(
-					 * "src/pictures/Product Images/" + product.Category + "/" + product.Name +
-					 * ".jpg"))); } catch (FileNotFoundException e) { System.out.println(
-					 * "Cannot find Product Images/" + product.Category + "/" + product.Name +
-					 * ".jpg");
-					 * 
-					 * image = new Image(new FileInputStream(new
-					 * File("src/pictures/Product Images/Product.png"))); }
-					 */
-
 					if (new File("src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")
 							.exists()) {
 						image = new Image(new FileInputStream(new File(
@@ -229,9 +213,9 @@ public class MainPage implements Initializable {
 					s.getProductImage().setImage(image);
 					s.getProductName().setText(product.Name);
 					s.getProductPrice().setText(String.valueOf(product.Price));
-					p.setOnMouseClicked(e -> viewer.buyPage(product, image));
+					p.setOnMouseClicked(e -> ShowProduct(product, image));
 					ProductSmallView smallView = loader.getController();
-					smallView.getBuyButton().setOnAction(e -> viewer.buyPage(product, image));
+					smallView.getBuyButton().setOnAction(e -> ShowProduct(product, image));
 					SpecialAnchor.getChildren().add(p);
 				}
 				i++;
@@ -239,6 +223,16 @@ public class MainPage implements Initializable {
 				e.printStackTrace();
 			}
 		}
+	}
 
+	private void ShowProduct(Product product, Image image) {
+		try {
+			FXMLLoader l = new FXMLLoader(getClass().getResource("../Visual/ProductsViewer.fxml"));
+			l.load();
+			ProductsViewer viewer = l.getController();
+			viewer.buyPage(product, image);
+		} catch (Exception er) {
+			er.printStackTrace();
+		}
 	}
 }

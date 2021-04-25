@@ -54,7 +54,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="300.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="325.0">
+      <AnchorPane layoutY="295.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="320.0">
          <children>
             <AnchorPane id="first" fx:id="phones" layoutX="25.0" layoutY="25.0" prefHeight="250.0" prefWidth="186.0" styleClass="categories">
                <children>
@@ -143,7 +143,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Label layoutY="650.0" prefHeight="50.0" prefWidth="1080.0" style="-fx-alignment: center; -fx-background-color: #B9D7EA;" text="Powered By H. A. T.">
+      <Label layoutY="640.0" prefHeight="60.0" prefWidth="1080.0" style="-fx-alignment: center; -fx-background-color: #B9D7EA;" text="Powered By H. A. T.">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>

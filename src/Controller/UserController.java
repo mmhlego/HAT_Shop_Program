@@ -26,7 +26,6 @@ public class UserController {
                 Mode = UserMode.Customer;
             }
         } catch (Exception e) {
-            //System.out.println("not customer");
         }
 
         try {
@@ -35,7 +34,6 @@ public class UserController {
                 Mode = UserMode.Employee;
             }
         } catch (Exception e) {
-            //System.out.println("not employee");
         }
 
         try {
@@ -44,7 +42,6 @@ public class UserController {
                 Mode = UserMode.Manager;
             }
         } catch (Exception e) {
-            //System.out.println("not manager");
         }
 
         System.out.println("User mode : " + Mode.toString());

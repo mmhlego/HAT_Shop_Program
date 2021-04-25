@@ -48,9 +48,6 @@ public class ProductChecker {
         try {
             r = DBConnector.RunCommand("SELECT * FROM `Products` WHERE ID =\'" + ID + "\'");
 
-            //System.out.println("SELECT * FROM `Products` WHERE ID =\'" + ID + "\'");
-            //System.out.println("\'" + ID + "\' => " + r.next());
-
             return ConvertToProduct(r);
         } catch (Exception e) {
             e.printStackTrace();

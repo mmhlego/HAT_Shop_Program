@@ -63,15 +63,15 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <ImageView fx:id="CloseBTN" fitHeight="30.0" fitWidth="30.0" layoutX="395.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@BlueClose.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fx:id="CloseBTN" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" x="445.0" y="5.0">
-         <image>
-            <Image url="@../../pictures/icons/Close.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
    </children>
 </AnchorPane>
