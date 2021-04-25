@@ -121,7 +121,7 @@ public class DataAdder {
 	}
 
 	public static void AddShipping(Shipping SH) {
-		AddShipping(SH.ID, SH.Status, SH.Fee, SH.Date, SH.ID);
+		AddShipping(SH.OrderId, SH.Status, SH.Fee, SH.Date, SH.ID);
 	}
 
 	public static void AddTransaction(String FromID, long Value, LocalDate date, String ID) {
