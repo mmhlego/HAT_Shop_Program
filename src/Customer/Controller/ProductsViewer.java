@@ -57,7 +57,7 @@ public class ProductsViewer implements Initializable {
 	private JFXCheckBox OnlyAmazingToggle;
 
 	ArrayList<Product> AllProducts, FilteredProducts = new ArrayList<Product>(),
-			ShowingProducts = new ArrayList<Product>();
+			ShowingProducts = new ArrayList<Product>(), SpecialProduct = new ArrayList<>();
 
 	public AnchorPane getProductsPanel() {
 		return ProductsPanel;
@@ -81,6 +81,14 @@ public class ProductsViewer implements Initializable {
 
 	public void setSearchBTN(Button searchBTN) {
 		SearchBTN = searchBTN;
+	}
+
+	public JFXCheckBox getOnlyAmazingToggle() {
+		return OnlyAmazingToggle;
+	}
+
+	public void setOnlyAmazingToggle(JFXCheckBox onlyAmazingToggle) {
+		OnlyAmazingToggle = onlyAmazingToggle;
 	}
 
 	public JFXCheckBox getPhoneCategoryToggle() {
@@ -158,6 +166,7 @@ public class ProductsViewer implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		AllProducts = ProductChecker.LoadAllProducts();
+		SpecialProduct = ProductChecker.GetSpecialProducts();
 		addProducts(AllProducts);
 
 		FilterBTN.setOnAction(e -> filter());
@@ -194,8 +203,14 @@ public class ProductsViewer implements Initializable {
 					controller.getProductPrice().setText(String.valueOf(product.Price));
 					p.setOnMouseClicked(e -> buyPage(product, image));
 					controller.getBuyButton().setOnAction(e -> buyPage(product, image));
+					for (Product spProduct : SpecialProduct) {
+						if (product.equals(spProduct)) {
+							controller.getSpecialEvents().setText("کالای شگفت انگیز");
+							controller.getSpecialEvents().setVisible(true);
+						}
+					}
 					ProductsPanel.getChildren().add(p);
-					ProductsPanel.setPrefHeight(((double) ((int) (i / 3)) * 275));
+					ProductsPanel.setPrefHeight(((double) ((int) ((i + 3) / 3)) * 275));
 				}
 				i++;
 			}
@@ -219,13 +234,11 @@ public class ProductsViewer implements Initializable {
 		addProducts(ShowingProducts);
 	}
 
-	int size = ProductChecker.LoadAllProducts().size();
-
 	public void filter() {
 		FilteredProducts.clear();
-
+		int size = (!OnlyAmazingToggle.isSelected()) ? AllProducts.size() : SpecialProduct.size();
 		for (int i = 0; i < size; i++) {
-			Product product = AllProducts.get(i);
+			Product product = (!OnlyAmazingToggle.isSelected()) ? AllProducts.get(i) : SpecialProduct.get(i);
 			if (product.Amount >= 0 || !OnlyAvailableToggle.isSelected()) {
 				switch (product.Category) {
 				case Product.ACCESSORIES:
@@ -294,7 +307,7 @@ public class ProductsViewer implements Initializable {
 		c.getLoadMoreBTN().toFront();
 	}
 
-	static Random random = new Random(System.currentTimeMillis());
+	Random random = new Random();
 
 	private void showSpecialProduct(AnchorPane pane) {
 		ArrayList<Product> specialProduct = new ArrayList<>();
@@ -327,6 +340,8 @@ public class ProductsViewer implements Initializable {
 					s.getProductImage().setImage(image);
 					s.getProductName().setText(product.Name);
 					s.getProductPrice().setText(String.valueOf(product.Price));
+					s.getSpecialEvents().setText("کالای شگفت انگیز");
+					s.getSpecialEvents().setVisible(true);
 					p.setOnMouseClicked(e -> buyPage(product, image));
 					ProductSmallView smallView = loader.getController();
 					smallView.getBuyButton().setOnAction(e -> buyPage(product, image));
