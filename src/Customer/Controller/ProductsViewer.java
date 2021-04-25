@@ -8,8 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.ResourceBundle;
+
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXSlider;
+
 import CommonPages.Controllers.MainStructure;
 import DataController.ProductChecker;
 import Model.Product;
@@ -53,6 +55,7 @@ public class ProductsViewer implements Initializable {
 	private Label MaxPriceLBL;
 	@FXML
 	private JFXCheckBox OnlyAmazingToggle;
+	private boolean special = false;
 
 	ArrayList<Product> AllProducts, FilteredProducts = new ArrayList<Product>(),
 			ShowingProducts = new ArrayList<Product>(), SpecialProduct = new ArrayList<>();
@@ -218,6 +221,7 @@ public class ProductsViewer implements Initializable {
 						if (product.equals(spProduct)) {
 							controller.getSpecialEvents().setText("کالای شگفت انگیز");
 							controller.getSpecialEvents().setVisible(true);
+							special = true;
 						}
 					}
 					ProductsPanel.getChildren().add(p);
@@ -314,13 +318,16 @@ public class ProductsViewer implements Initializable {
 		c.getProductDetailsTable().setItems(items);
 		c.getSpecialTXT().setVisible(false);
 		showSpecialProduct(c.getSimilarProductsAnchor());
-		for (Product product : ProductChecker.GetSpecialProducts()) {
-			if (p.equals(product)) {
-				c.getSpecialTXT().setVisible(true);
-				break;
-			}
+		if (special) {
+			c.getSpecialTXT().setVisible(true);
 		}
 		c.getLoadMoreBTN().toFront();
+		c.getLoadMoreBTN().setOnAction(e -> {
+			ProductsViewer controller = (ProductsViewer) MainStructure
+					.addPage("src/Customer/Visual/ProductsViewer.fxml");
+			controller.getOnlyAmazingToggle().selectedProperty().setValue(true);
+			controller.filter();
+		});
 	}
 
 	Random random = new Random();
