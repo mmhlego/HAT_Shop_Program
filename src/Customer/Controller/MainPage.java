@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
+
 import CommonPages.Controllers.MainStructure;
 import DataController.ProductChecker;
 import Model.Product;
@@ -122,6 +123,12 @@ public class MainPage implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		nextBTN.setOnMouseClicked(e -> {
+			ProductsViewer controller = (ProductsViewer) MainStructure
+					.addPage("src/Customer/Visual/ProductsViewer.fxml");
+			controller.getOnlyAmazingToggle().selectedProperty().setValue(true);
+			controller.filter();
+		});
 
 		supermarket.setOnMouseClicked(e -> {
 			ProductsViewer controller = (ProductsViewer) MainStructure
