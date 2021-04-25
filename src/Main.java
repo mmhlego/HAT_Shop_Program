@@ -10,11 +10,9 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		// long start = System.currentTimeMillis();
 
-		// launch(args);
+		launch(args);
 
 		// PrintEstimatedTime(start);
-		DBConnector.Connect();
-		UserUpdator.Update();
 	}
 
 	private static void PrintEstimatedTime(long start) {
@@ -39,7 +37,10 @@ public class Main extends Application {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				System.out.println(DBConnector.Connect());
+
+				if (DBConnector.Connect()) {
+					UserUpdator.Update();
+				}
 			}
 		});
 
