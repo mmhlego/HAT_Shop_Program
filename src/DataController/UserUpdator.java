@@ -26,7 +26,6 @@ public class UserUpdator {
                             + date + "\'" + " AND Status=0");
             ps.executeUpdate();
             ps2.executeUpdate();
-            System.out.println("Updated");
         } catch (Exception e) {
             e.printStackTrace();
         }
