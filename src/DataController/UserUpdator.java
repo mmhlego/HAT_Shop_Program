@@ -30,4 +30,22 @@ public class UserUpdator {
             e.printStackTrace();
         }
     }
+
+    public static void UpdateValue(String Username, long Amount) {
+        try {
+            ResultSet r = DBConnector
+                    .RunCommand("SELECT Value FROM Customers WHERE Username=" + "\'" + Username + "\'");
+            r.next();
+            long CurrentValue = r.getLong(1);
+            long NewValue = CurrentValue + Amount;
+            PreparedStatement ps = DBConnector.Con.prepareStatement("UPDATE Customers SET Value=" + "\'" + NewValue
+                    + "\'" + "WHERE Username=" + "\'" + Username + "\'");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

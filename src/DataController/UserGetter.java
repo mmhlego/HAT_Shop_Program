@@ -3,6 +3,7 @@ package DataController;
 import java.sql.*;
 import java.util.*;
 import Model.*;
+import Model.Customer.CustomerMode;
 import Model.Order.OrderStatus;
 
 public class UserGetter {
@@ -45,6 +46,21 @@ public class UserGetter {
                 Transaction t = new Transaction(r.getString(1), r.getLong(2), r.getDate(3).toLocalDate(),
                         r.getString(4));
                 temp.add(t);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return temp;
+    }
+
+    public static ArrayList<Customer> ConvertCustomersToArrayList(ResultSet r) {
+        ArrayList<Customer> temp = new ArrayList<Customer>();
+        try {
+            while (r.next()) {
+                Customer c = new Customer(r.getString(1), r.getString(2), r.getString(3) ,
+                        r.getString(4) ,  r.getString(5) ,  r.getString(6) ,  r.getString(7) , r.getLong(8) , CustomerMode.IntToMode(
+                                r.getInt(9)) , r.getString(10));
+                temp.add(c);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -106,6 +122,15 @@ public class UserGetter {
         return null;
     }
 
+    public static ResultSet GetCustomersDB() {
+        try {
+            return DBConnector.RunCommand("SELECT * FROM Customers");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static Customer GetCustomer(String Username) {
         try {
             ResultSet r = DBConnector.RunCommand("SELECT * FROM Customers WHERE Username=" + "\'" + Username + "\'");
@@ -145,4 +170,5 @@ public class UserGetter {
         }
         return null;
     }
+
 }

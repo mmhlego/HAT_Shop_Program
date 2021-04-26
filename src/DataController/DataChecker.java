@@ -53,4 +53,18 @@ public class DataChecker {
         return -1;
     }
 
+    public static boolean IsBanned(String Username) {
+        try {
+            ResultSet r = DBConnector
+                    .RunCommand("SELECT AccountMode FROM Customers WHERE Username=" + "\'" + Username + "\'");
+            r.next();
+            int Mode = r.getInt(1);
+            if (Mode == 2 || Mode == 3) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

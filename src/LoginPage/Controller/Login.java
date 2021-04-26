@@ -69,10 +69,12 @@ public class Login implements Initializable {
 	}
 
 	private void LoginToAccount() {
-		if (DataChecker.CheckLogin(usernameField.getText(), passwordField.getText())) {
-			// UserGetter.setCurrentUser(DBConnector.GetCustomer(usernameField.getText()));
+		if (!DataChecker.CheckLogin(usernameField.getText(), passwordField.getText())) {
+			Alert(AlertType.ERROR, "نام کاربری یا پسورد اشتباه است !");
+		} else if (DataChecker.IsBanned(usernameField.getText())) {
+			Alert(AlertType.ERROR, "حساب کاربری شما مسدود شده است !");
+		} else {
 			UserController.SetCurrentUser(usernameField.getText());
-
 			try {
 				((Stage) enterBTN.getScene().getWindow()).close();
 				FXMLLoader loader = new FXMLLoader(
@@ -84,8 +86,6 @@ public class Login implements Initializable {
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}
-		} else {
-			Alert(AlertType.ERROR, "نام کاربری یا پسورد اشتباه است !");
 		}
 	}
 

@@ -1,4 +1,5 @@
 import DataController.DBConnector;
+import DataController.DataChecker;
 import DataController.ProductChecker;
 import DataController.UserUpdator;
 import javafx.application.Application;
