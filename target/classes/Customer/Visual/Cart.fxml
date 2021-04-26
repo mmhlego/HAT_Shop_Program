@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.Cart">
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.Cart">
    <content>
       <VBox maxWidth="1080.0" minHeight="696.0" minWidth="1080.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;">
          <children>
-            <VBox fx:id="ProductsListPanel" maxWidth="1030.0" minHeight="100.0" prefWidth="1030.0">
+            <VBox fx:id="ProductsListPanel" alignment="TOP_CENTER" maxWidth="1030.0" minHeight="100.0" prefWidth="1030.0" spacing="30.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

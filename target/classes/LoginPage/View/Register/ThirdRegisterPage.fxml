@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -70,5 +71,6 @@
             <Image url="@../icons8_multiply_30px.png" />
          </image>
       </ImageView>
+      <JFXProgressBar fx:id="PasswordStrengthProgress" layoutX="75.0" layoutY="260.0" prefHeight="4.0" prefWidth="175.0" progress="0.0" />
    </children>
 </AnchorPane>
