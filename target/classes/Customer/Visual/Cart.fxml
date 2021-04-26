@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" />
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.Cart">
+   <content>
+      <VBox maxWidth="1080.0" minHeight="696.0" minWidth="1080.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;">
+         <children>
+            <VBox fx:id="ProductsListPanel" maxWidth="1030.0" minHeight="100.0" prefWidth="1030.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <AnchorPane prefHeight="150.0" prefWidth="1030.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #769FCD;">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+               <children>
+                  <Label alignment="CENTER" layoutX="520.0" layoutY="80.0" prefHeight="40.0" prefWidth="100.0" text="تاریخ ارسال" textFill="#4085cf">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="FinalizeOrderBTN" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: #769FCD;" text="ادامه فرآیند خرید" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="SumOfDiscountsLBL" alignment="CENTER" layoutX="740.0" layoutY="55.0" prefHeight="40.0" prefWidth="150.0" text="-" textFill="#4085cf">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="520.0" layoutY="30.0" prefHeight="40.0" prefWidth="100.0" text="هزینه ارسال" textFill="#4085cf">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="SumOfPricesLBL" alignment="CENTER" layoutX="740.0" layoutY="10.0" prefHeight="40.0" prefWidth="150.0" text="-" textFill="#4085cf">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="FinalPriceLBL" alignment="CENTER" layoutX="740.0" layoutY="100.0" prefHeight="40.0" prefWidth="150.0" text="-" textFill="#4085cf">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="900.0" layoutY="55.0" prefHeight="40.0" prefWidth="100.0" text="مجموع تخفیف ها" textFill="#4085cf">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="900.0" layoutY="10.0" prefHeight="40.0" prefWidth="100.0" text="قیمت کالاها" textFill="#4085cf">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="900.0" layoutY="100.0" prefHeight="40.0" prefWidth="100.0" text="جمع سبد خرید" textFill="#4085cf">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="740.0" layoutY="99.0" prefWidth="270.0" style="-fx-background-color: #769FCD;" />
+                  <Label fx:id="ShippingDateLBL" alignment="CENTER" layoutX="410.0" layoutY="80.0" prefHeight="40.0" prefWidth="100.0" text="-" textFill="#4085cf">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="ShippingFeeLBL" alignment="CENTER" layoutX="410.0" layoutY="30.0" prefHeight="40.0" prefWidth="100.0" text="-" textFill="#4085cf">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+         <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane>
