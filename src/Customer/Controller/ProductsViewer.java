@@ -8,8 +8,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.ResourceBundle;
+
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXSlider;
+
 import CommonPages.Controllers.MainStructure;
 import DataController.ProductChecker;
 import Model.Product;
@@ -53,6 +55,7 @@ public class ProductsViewer implements Initializable {
 	private Label MaxPriceLBL;
 	@FXML
 	private JFXCheckBox OnlyAmazingToggle;
+	private boolean special = false;
 
 	ArrayList<Product> AllProducts, FilteredProducts = new ArrayList<Product>(),
 			ShowingProducts = new ArrayList<Product>(), SpecialProduct = new ArrayList<>();
@@ -163,6 +166,16 @@ public class ProductsViewer implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		MaxPriceSlider.setMin(ProductChecker.GetMinValue() / 10000);
+		MaxPriceSlider.setMax(ProductChecker.GetMaxValue() / 10000);
+		MaxPriceSlider.setValue(ProductChecker.GetMaxValue() / 10000);
+		MaxPriceLBL.setText(String.valueOf((long) MaxPriceSlider.getValue() * 10000) + " تومان");
+		MaxPriceSlider.setOnMouseDragged(e -> {
+			MaxPriceLBL.setText(String.valueOf((long) MaxPriceSlider.getValue() * 10000) + " تومان");
+		});
+		MaxPriceSlider.setOnMouseClicked(e -> {
+			MaxPriceLBL.setText(String.valueOf((long) MaxPriceSlider.getValue() * 10000) + " تومان");
+		});
 		AllProducts = ProductChecker.LoadAllProducts();
 		SpecialProduct = ProductChecker.GetSpecialProducts();
 		addProducts(AllProducts);
@@ -208,6 +221,7 @@ public class ProductsViewer implements Initializable {
 						if (product.equals(spProduct)) {
 							controller.getSpecialEvents().setText("کالای شگفت انگیز");
 							controller.getSpecialEvents().setVisible(true);
+							special = true;
 						}
 					}
 					ProductsPanel.getChildren().add(p);
@@ -238,35 +252,40 @@ public class ProductsViewer implements Initializable {
 	public void filter() {
 		FilteredProducts.clear();
 		int size = (!OnlyAmazingToggle.isSelected()) ? AllProducts.size() : SpecialProduct.size();
+
 		for (int i = 0; i < size; i++) {
 			Product product = (!OnlyAmazingToggle.isSelected()) ? AllProducts.get(i) : SpecialProduct.get(i);
-			if (product.Amount >= 0 || !OnlyAvailableToggle.isSelected()) {
-				switch (product.Category) {
-				case Product.ACCESSORIES:
-					if (AccessoriesCategoryToggle.isSelected()) {
-						FilteredProducts.add(product);
+
+			if (product.Price <= (MaxPriceSlider.getValue() * 10000)) {
+
+				if (product.Amount >= 0 || !OnlyAvailableToggle.isSelected()) {
+					switch (product.Category) {
+					case Product.ACCESSORIES:
+						if (AccessoriesCategoryToggle.isSelected()) {
+							FilteredProducts.add(product);
+						}
+						break;
+					case Product.BOOK:
+						if (BookCategoryToggle.isSelected()) {
+							FilteredProducts.add(product);
+						}
+						break;
+					case Product.COMPUTER:
+						if (ComputerCategoryToggle.isSelected()) {
+							FilteredProducts.add(product);
+						}
+						break;
+					case Product.PHONE:
+						if (PhoneCategoryToggle.isSelected()) {
+							FilteredProducts.add(product);
+						}
+						break;
+					case Product.SUPERMARKET:
+						if (SuperMarketCategoryToggle.isSelected()) {
+							FilteredProducts.add(product);
+						}
+						break;
 					}
-					break;
-				case Product.BOOK:
-					if (BookCategoryToggle.isSelected()) {
-						FilteredProducts.add(product);
-					}
-					break;
-				case Product.COMPUTER:
-					if (ComputerCategoryToggle.isSelected()) {
-						FilteredProducts.add(product);
-					}
-					break;
-				case Product.PHONE:
-					if (PhoneCategoryToggle.isSelected()) {
-						FilteredProducts.add(product);
-					}
-					break;
-				case Product.SUPERMARKET:
-					if (SuperMarketCategoryToggle.isSelected()) {
-						FilteredProducts.add(product);
-					}
-					break;
 				}
 			}
 		}
@@ -299,13 +318,16 @@ public class ProductsViewer implements Initializable {
 		c.getProductDetailsTable().setItems(items);
 		c.getSpecialTXT().setVisible(false);
 		showSpecialProduct(c.getSimilarProductsAnchor());
-		for (Product product : ProductChecker.GetSpecialProducts()) {
-			if (p.equals(product)) {
-				c.getSpecialTXT().setVisible(true);
-				break;
-			}
+		if (special) {
+			c.getSpecialTXT().setVisible(true);
 		}
 		c.getLoadMoreBTN().toFront();
+		c.getLoadMoreBTN().setOnAction(e -> {
+			ProductsViewer controller = (ProductsViewer) MainStructure
+					.addPage("src/Customer/Visual/ProductsViewer.fxml");
+			controller.getOnlyAmazingToggle().selectedProperty().setValue(true);
+			controller.filter();
+		});
 	}
 
 	Random random = new Random();

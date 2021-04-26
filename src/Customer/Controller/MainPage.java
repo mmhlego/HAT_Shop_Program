@@ -216,7 +216,7 @@ public class MainPage implements Initializable {
 					} else {
 						image = new Image(new FileInputStream(new File("src/pictures/Product Images/Product.png")));
 					}
-
+					s.getSpecialEvents().setVisible(true);
 					s.getProductImage().setImage(image);
 					s.getProductName().setText(product.Name);
 					s.getProductPrice().setText(String.valueOf(product.Price));

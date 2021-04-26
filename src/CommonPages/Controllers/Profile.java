@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 public class Profile implements Initializable {
@@ -36,6 +37,10 @@ public class Profile implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		BackBTN.setOnMouseClicked(e -> {
+			((AnchorPane) ((AnchorPane) ((AnchorPane) BackBTN.getParent()).getParent()).getParent()).getChildren()
+					.remove((((AnchorPane) ((AnchorPane) BackBTN.getParent()).getParent())));
+		});
 		ProfilePersonal p = (ProfilePersonal) loadPage("../Visual/Component/ProfilePersonal.fxml");
 		goAnimation(PersonalBTN);
 		backAnimation(AccountBTN);

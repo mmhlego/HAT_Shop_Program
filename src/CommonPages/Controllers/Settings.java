@@ -3,13 +3,17 @@ package CommonPages.Controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.animation.*;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 public class Settings implements Initializable {
@@ -21,10 +25,15 @@ public class Settings implements Initializable {
 	private ScrollPane ContentPane;
 	@FXML
 	private ImageView BackBTN;
+
 	// 769FCD//
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		BackBTN.setOnMouseClicked(e -> {
+			((AnchorPane) ((AnchorPane) ((AnchorPane) BackBTN.getParent()).getParent()).getParent()).getChildren()
+					.remove((((AnchorPane) ((AnchorPane) BackBTN.getParent()).getParent())));
+		});
 		FXMLLoader loaders = new FXMLLoader(getClass().getResource("../Visual/Component/SettingsPersonalization.fxml"));
 		try {
 			ContentPane.setContent(loaders.load());
