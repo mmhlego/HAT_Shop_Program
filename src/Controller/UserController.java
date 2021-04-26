@@ -10,9 +10,10 @@ public class UserController {
     public static Manager manager = null;
     public static Employee employee = null;
     public static Customer customer = null;
-    private static ArrayList<Order> AllOrders = new ArrayList<Order>();
-    private static ArrayList<Shipping> AllShippings = new ArrayList<Shipping>();
-    private static ArrayList<Transaction> AllTransactions = new ArrayList<Transaction>();
+    public static Order Cart = null;
+    public static ArrayList<Order> AllOrders = new ArrayList<Order>();
+    public static ArrayList<Shipping> AllShippings = new ArrayList<Shipping>();
+    public static ArrayList<Transaction> AllTransactions = new ArrayList<Transaction>();
 
     public static enum UserMode {
         Customer, Employee, Manager;
@@ -51,6 +52,7 @@ public class UserController {
 
     private static void LoadUserFullData() {
         if (Mode.equals(UserMode.Customer)) {
+            Cart = UserGetter.GetCartDB(customer.ID);
             AllOrders = UserGetter.ConvertOrderToArrayList(UserGetter.GetOrdersDB(customer.ID));
             AllShippings = UserGetter.ConvertShippingToArrayList(UserGetter.GetShippingsDB(customer.ID));
             AllTransactions = UserGetter.ConvertTransactionToArrayList(UserGetter.GetTransactionsDB(customer.ID));

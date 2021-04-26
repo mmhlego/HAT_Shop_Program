@@ -57,9 +57,9 @@ public class UserGetter {
         ArrayList<Customer> temp = new ArrayList<Customer>();
         try {
             while (r.next()) {
-                Customer c = new Customer(r.getString(1), r.getString(2), r.getString(3) ,
-                        r.getString(4) ,  r.getString(5) ,  r.getString(6) ,  r.getString(7) , r.getLong(8) , CustomerMode.IntToMode(
-                                r.getInt(9)) , r.getString(10));
+                Customer c = new Customer(r.getString(1), r.getString(2), r.getString(3), r.getString(4),
+                        r.getString(5), r.getString(6), r.getString(7), r.getLong(8),
+                        CustomerMode.IntToMode(r.getInt(9)), r.getString(10));
                 temp.add(c);
             }
         } catch (SQLException e) {
@@ -70,7 +70,8 @@ public class UserGetter {
 
     public static ResultSet GetOrdersDB(String OwnerID) {
         try {
-            return DBConnector.RunCommand("SELECT * FROM Orders WHERE OwnerID=" + "\'" + OwnerID + "\'");
+            return DBConnector
+                    .RunCommand("SELECT * FROM Orders WHERE OwnerID=" + "\'" + OwnerID + "\'" + " AND Status > 0");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -89,6 +90,19 @@ public class UserGetter {
     public static ResultSet GetTransactionsDB(String FromID) {
         try {
             return DBConnector.RunCommand("SELECT * FROM Transactions WHERE FromID=" + "\'" + FromID + "\'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static Order GetCartDB(String OwnerID) {
+        try {
+            ResultSet r = DBConnector
+                    .RunCommand("SELECT * FROM Orders WHERE OwnerID=" + "\'" + OwnerID + "\'" + " AND Status = 0");
+            r.next();
+            return new Order(r.getString(1), OrderStatus.IntToMode(r.getInt(2)), Order.GetIDsProducts(r.getString(3)),
+                    Order.GetIDsAmounts(r.getString(4)), r.getLong(5), r.getString(6));
         } catch (Exception e) {
             e.printStackTrace();
         }
