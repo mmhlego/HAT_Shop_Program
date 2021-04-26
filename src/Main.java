@@ -1,6 +1,4 @@
 import DataController.DBConnector;
-import DataController.DataChecker;
-import DataController.ProductChecker;
 import DataController.UserUpdator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,9 +9,7 @@ import javafx.stage.*;
 public class Main extends Application {
 	public static void main(String[] args) {
 		// long start = System.currentTimeMillis();
-
 		launch(args);
-	
 		// PrintEstimatedTime(start);
 	}
 
