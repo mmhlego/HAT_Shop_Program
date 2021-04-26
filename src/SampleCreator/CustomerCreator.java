@@ -37,6 +37,10 @@ public class CustomerCreator {
 			String id = Customer.GenerateID();
 			CustomerMode mode = (random.nextBoolean()) ? CustomerMode.REGULAR : CustomerMode.PREMIUM;
 
+			if (random.nextInt(20) == 0) {
+				mode = CustomerMode.IntToMode(CustomerMode.ModeToInt(mode) + 2);
+			}
+
 			Customer c = new Customer(firstName, lastName, "Customer" + Integer.toString(i),
 					"Customer" + Integer.toString(i), GeneratePhoneNumber(),
 					RandomMail("Customer" + Integer.toString(i)), "Tabriz", 0, mode, id);
@@ -52,7 +56,11 @@ public class CustomerCreator {
 			if (random.nextBoolean()) {
 				Order o = OrderMaker(id, OrderStatus.PENDING, random.nextInt(3) + 1, Order.GenerateID());
 				DataAdder.AddOrder(o);
+			} else {
+				Order o = new Order(id, Order.GenerateID(), OrderStatus.PENDING);
+				DataAdder.AddOrder(o);
 			}
+
 			Shipping shipping;
 			if (random.nextBoolean()) {
 				String orderId = Order.GenerateID();
@@ -60,7 +68,7 @@ public class CustomerCreator {
 				Order o = OrderMaker(id, OrderStatus.SENDING, amount, orderId);
 				DataAdder.AddOrder(o);
 				long fee = Shipping.generateFee(amount, mode);
-				LocalDate localDate = LocalDate.of(2010 + random.nextInt(11) + 1, random.nextInt(12) + 1,
+				LocalDate localDate = LocalDate.of(2016 + random.nextInt(6), random.nextInt(12) + 1,
 						random.nextInt(28) + 1);
 				shipping = new Shipping(orderId, 0, fee, localDate, Shipping.GenerateID());
 				DataAdder.AddShipping(shipping);

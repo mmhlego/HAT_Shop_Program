@@ -8,9 +8,13 @@ import javafx.stage.*;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		// long start = System.currentTimeMillis();
-		launch(args);
-		// PrintEstimatedTime(start);
+		long start = System.currentTimeMillis();
+		//launch(args);
+
+		DBConnector.Connect();
+		SampleCreator.CustomerCreator.CustomerAdder(100);
+
+		PrintEstimatedTime(start);
 	}
 
 	private static void PrintEstimatedTime(long start) {
