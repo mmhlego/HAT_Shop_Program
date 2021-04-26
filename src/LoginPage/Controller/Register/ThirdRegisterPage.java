@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXProgressBar;
 
 import DataController.DataChecker;
 import Model.*;
@@ -16,30 +17,26 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class ThirdRegisterPage implements Initializable {
-
     @FXML
     private AnchorPane loginAnchor;
-
     @FXML
     private TextField username;
-
     @FXML
     private TextField password;
-
     @FXML
     private TextField passwordRepeat;
-
     @FXML
     private JFXButton nextStep;
-
     @FXML
     private ImageView backBTN;
+    @FXML
+    private JFXProgressBar PasswordStrengthProgress;
 
     public static String UserUsername, UserPassword;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
         //!PasswordChecker.CheckStrength(PasswordChecker.Strength(password.getText())) Progressbar
 
         backBTN.setCursor(Cursor.HAND);
