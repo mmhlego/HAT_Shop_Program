@@ -1,6 +1,7 @@
 package LoginPage.Controller.Register;
 
 import java.io.*;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
@@ -37,13 +38,57 @@ public class ThirdRegisterPage implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        //!PasswordChecker.CheckStrength(PasswordChecker.Strength(password.getText())) Progressbar
+        password.setOnKeyReleased((e) -> {
+            int Strength = PasswordChecker.CheckStrength(PasswordChecker.Strength(password.getText()));
+            System.out.println(Strength);
+
+            if (Strength == 0) {
+                PasswordStrengthProgress.getStylesheets().clear();
+                try {
+                    PasswordStrengthProgress.getStylesheets()
+                            .add(new File("src/LoginPage/View/Register/ColorChanger/Status0.css").toURI().toURL().toExternalForm());
+                } catch (MalformedURLException e1) {
+                    e1.printStackTrace();
+                }
+                PasswordStrengthProgress.setProgress(0.25);
+            } else if (Strength == 1) {
+                PasswordStrengthProgress.getStylesheets().clear();
+                try {
+                    PasswordStrengthProgress.getStylesheets()
+                            .add(new File("src/LoginPage/View/Register/ColorChanger/Status1.css").toURI().toURL()
+                                    .toExternalForm());
+                } catch (MalformedURLException e1) {
+                    e1.printStackTrace();
+                }
+                PasswordStrengthProgress.setProgress(0.5);
+            } else if (Strength == 2) {
+                PasswordStrengthProgress.getStylesheets().clear();
+                try {
+                    PasswordStrengthProgress.getStylesheets()
+                            .add(new File("src/LoginPage/View/Register/ColorChanger/Status2.css").toURI().toURL()
+                                    .toExternalForm());
+                } catch (MalformedURLException e1) {
+                    e1.printStackTrace();
+                }
+                PasswordStrengthProgress.setProgress(0.75);
+            } else {
+                PasswordStrengthProgress.getStylesheets().clear();
+                try {
+                    PasswordStrengthProgress.getStylesheets()
+                            .add(new File("src/LoginPage/View/Register/ColorChanger/Status3.css").toURI().toURL()
+                                    .toExternalForm());
+                } catch (MalformedURLException e1) {
+                    e1.printStackTrace();
+                }
+                PasswordStrengthProgress.setProgress(1);
+            }
+        });
 
         backBTN.setCursor(Cursor.HAND);
         backBTN.setOnMouseClicked(e -> System.exit(0));
         Limitter.Limit(username, 15, false);
-        Limitter.Limit(password, 15, false);
-        Limitter.Limit(passwordRepeat, 15, false);
+        // Limitter.Limit(password, 15, false);
+        // Limitter.Limit(passwordRepeat, 15, false);
         nextStep.setOnAction((e) -> {
             if (!IsAllFieldsComplete(username, password, passwordRepeat)) {
                 Alert(AlertType.ERROR, "بعضی از فیلد ها خالی هستند");
