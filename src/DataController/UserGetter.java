@@ -96,15 +96,13 @@ public class UserGetter {
         return null;
     }
 
-    public static Order GetCartDB(String OwnerID){
+    public static Order GetCartDB(String OwnerID) {
         try {
-            ResultSet r =  DBConnector
-                    .RunCommand("SELECT * FROM Orders WHERE OwnerID=" + "\'" + OwnerID + "\'" + " AND Status == 0");
-                    r.next();
-                    return new Order(r.getString(1), OrderStatus
-                            .IntToMode(r.getInt(2)), Order.GetIDsProducts(r.getString(3)),
-                            Order.GetIDsAmounts(r.getString(4)), r.getLong(5),
-                            r.getString(6));
+            ResultSet r = DBConnector
+                    .RunCommand("SELECT * FROM Orders WHERE OwnerID=" + "\'" + OwnerID + "\'" + " AND Status = 0");
+            r.next();
+            return new Order(r.getString(1), OrderStatus.IntToMode(r.getInt(2)), Order.GetIDsProducts(r.getString(3)),
+                    Order.GetIDsAmounts(r.getString(4)), r.getLong(5), r.getString(6));
         } catch (Exception e) {
             e.printStackTrace();
         }
