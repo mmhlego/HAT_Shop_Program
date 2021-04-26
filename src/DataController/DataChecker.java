@@ -59,7 +59,7 @@ public class DataChecker {
                     .RunCommand("SELECT AccountMode FROM Customers WHERE Username=" + "\'" + Username + "\'");
             r.next();
             int Mode = r.getInt(1);
-            if (Mode == 2) {
+            if (Mode == 2 || Mode == 3) {
                 return true;
             }
         } catch (Exception e) {
