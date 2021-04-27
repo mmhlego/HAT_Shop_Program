@@ -14,61 +14,52 @@ import javafx.scene.layout.AnchorPane;
 import Model.*;
 
 public class Payment implements Initializable {
-    //@FXML
-    //private AnchorPane CaptchaPanel;
-    //@FXML
-    //private TextField CardNumberTF;
-    //@FXML
-    //private TextField AmountTF;
-    //@FXML
-    //private TextField OTPTF;
-    //@FXML
-    //private TextField CVV2TF;
-    //@FXML
-    //private TextField MonthTF;
-    //@FXML
-    //private TextField YearTF;
-    //@FXML
-    //private TextField CaptchaTF;
-    //@FXML
-    //private Button RequestOTP;
-    //@FXML
-    //private Button ChangeCaptcha;
-    //@FXML
-    //private Button Proceed;
-
     @FXML
     private TextField CardNumberTF;
+
     @FXML
     private AnchorPane CaptchaPanel;
+
     @FXML
     private TextField CVV2TF;
+
     @FXML
     private TextField YearTF;
+
     @FXML
     private TextField MonthTF;
+
     @FXML
     private TextField PhoneTF;
+
     @FXML
     private JFXButton RequestOTP;
+
     @FXML
     private TextField OTPTF;
+
     @FXML
     private JFXButton ChangeCaptcha;
+
     @FXML
     private TextField CaptchaTF;
+
     @FXML
     private JFXButton CancelBTN;
+
     @FXML
     private JFXButton ProceedBTN;
+
     @FXML
     private Label TransactionIDLBL;
+
     @FXML
-    private Label AmountTF;
+    private Label AmountLBL;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         LimitTextFieldPassToNext();
+        AmountLBL.setText("500000");
         RequestOTP.setOnAction((e) -> {
             SMSSender.SendOTP(UserController.customer.Phone);
         });
@@ -77,7 +68,7 @@ public class Payment implements Initializable {
                 Alert(AlertType.ERROR, "بعضی از فیلد ها کامل نیستند !");
             } else if (!SMSSender.getOTP().equals(OTPTF.getText())) {
                 Alert(AlertType.ERROR, "رمز یک بار مصرف درست نیست !");
-            } else if (!Captcha.captchaResult.equals(CaptchaTF.getText())) {
+            }else if (!Captcha.captchaResult.equals(CaptchaTF.getText())) {
                 Alert(AlertType.ERROR, "حروف تصویر نادرست است !");
             } else {
                 UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
@@ -87,7 +78,7 @@ public class Payment implements Initializable {
     }
 
     private long GetAmount() {
-        return Long.parseLong(AmountTF.getText().split(" ")[0]);
+        return Long.parseLong(AmountLBL.getText().split(" ")[0]);
     }
 
     private void LimitTextFieldPassToNext() {
@@ -100,7 +91,7 @@ public class Payment implements Initializable {
 
     private boolean IsAllFieldsComplete() {
         if (CardNumberTF.getText().length() == 16 && OTPTF.getText().length() == 6 && CVV2TF.getText().length() == 5
-                && MonthTF.getText().length() == 2 && YearTF.getText().length() == 2 && !AmountTF.getText().equals("")
+                && MonthTF.getText().length() == 2 && YearTF.getText().length() == 2
                 && !CaptchaTF.getText().equals("")) {
             return true;
         } else {

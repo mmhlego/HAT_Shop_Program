@@ -26,14 +26,14 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="585.0" layoutY="25.0" prefHeight="405.0" prefWidth="530.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: white; -fx-border-color: #6887C5;">
+      <AnchorPane layoutX="585.0" layoutY="25.0" prefHeight="460.0" prefWidth="530.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: white; -fx-border-color: #6887C5;">
          <children>
             <TextField fx:id="CardNumberTF" alignment="CENTER" layoutX="70.0" layoutY="65.0" prefHeight="35.0" prefWidth="260.0" style="-fx-border-color: #769FCD; -fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: #F7FBFC;">
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
             </TextField>
-            <AnchorPane fx:id="CaptchaPanel" layoutX="115.0" layoutY="285.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #D6E6F2;" />
+            <AnchorPane fx:id="CaptchaPanel" layoutX="115.0" layoutY="395.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #D6E6F2;" />
             <Label alignment="CENTER" layoutX="350.0" layoutY="65.0" prefHeight="35.0" prefWidth="110.0" text="شماره کارت :" textFill="#769fcd">
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
@@ -79,7 +79,17 @@
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
             </Label>
-            <JFXButton fx:id="RequestOTP" layoutX="70.0" layoutY="230.0" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10 0 0 10;" text="درخواست" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="350.0" layoutY="230.0" prefHeight="35.0" prefWidth="110.0" text="شماره تلفن :" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="PhoneTF" alignment="CENTER" layoutX="70.0" layoutY="230.0" prefHeight="35.0" prefWidth="260.0" style="-fx-border-color: #769FCD; -fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: #F7FBFC;">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </TextField>
+            <JFXButton fx:id="RequestOTP" layoutX="70.0" layoutY="285.0" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10 0 0 10;" text="درخواست" textFill="WHITE">
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
@@ -87,17 +97,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <Label alignment="CENTER" layoutX="350.0" layoutY="230.0" prefHeight="35.0" prefWidth="110.0" text="رمز پویا :" textFill="#769fcd">
+            <Label alignment="CENTER" layoutX="350.0" layoutY="285.0" prefHeight="35.0" prefWidth="110.0" text="رمز پویا :" textFill="#769fcd">
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="OTPTF" alignment="CENTER" layoutX="180.0" layoutY="230.0" prefHeight="35.0" prefWidth="150.0" style="-fx-border-color: #769FCD; -fx-border-radius: 0 10 10 0; -fx-background-radius: 0 10 10 0; -fx-background-color: #F7FBFC;">
+            <TextField fx:id="OTPTF" alignment="CENTER" layoutX="180.0" layoutY="285.0" prefHeight="35.0" prefWidth="150.0" style="-fx-border-color: #769FCD; -fx-border-radius: 0 10 10 0; -fx-background-radius: 0 10 10 0; -fx-background-color: #F7FBFC;">
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
             </TextField>
-            <JFXButton fx:id="ChangeCaptcha" alignment="CENTER_RIGHT" layoutX="70.0" layoutY="345.0" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10 0 0 10;" text="    تعویض" textFill="WHITE">
+            <JFXButton fx:id="ChangeCaptcha" alignment="CENTER_RIGHT" layoutX="70.0" layoutY="340.0" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10 0 0 10;" text="    تعویض" textFill="WHITE">
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
@@ -105,17 +115,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <Label alignment="CENTER" layoutX="350.0" layoutY="345.0" prefHeight="35.0" prefWidth="110.0" text="کد امنیتی :" textFill="#769fcd">
+            <Label alignment="CENTER" layoutX="350.0" layoutY="340.0" prefHeight="35.0" prefWidth="110.0" text="کد امنیتی :" textFill="#769fcd">
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="CaptchaTF" alignment="CENTER" layoutX="180.0" layoutY="345.0" prefHeight="35.0" prefWidth="150.0" style="-fx-border-color: #769FCD; -fx-border-radius: 0 10 10 0; -fx-background-radius: 0 10 10 0; -fx-background-color: #F7FBFC;">
+            <TextField fx:id="CaptchaTF" alignment="CENTER" layoutX="180.0" layoutY="340.0" prefHeight="35.0" prefWidth="150.0" style="-fx-border-color: #769FCD; -fx-border-radius: 0 10 10 0; -fx-background-radius: 0 10 10 0; -fx-background-color: #F7FBFC;">
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
             </TextField>
-            <ImageView disable="true" fitHeight="30.0" fitWidth="30.0" layoutX="75.0" layoutY="347.5" pickOnBounds="true" preserveRatio="true">
+            <ImageView disable="true" fitHeight="30.0" fitWidth="30.0" layoutX="75.0" layoutY="342.5" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../pictures/icons/Refresh.png" />
                </image>
@@ -152,24 +162,24 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="585.0" layoutY="455.0" prefHeight="125.0" prefWidth="530.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: white; -fx-border-color: #6887C5;">
+      <AnchorPane layoutX="585.0" layoutY="510.0" prefHeight="70.0" prefWidth="530.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: white; -fx-border-color: #6887C5;">
          <children>
-            <Label fx:id="TransactionIDLBL" alignment="CENTER" layoutX="15.0" layoutY="62.0" prefHeight="45.0" prefWidth="250.0" text="-" textFill="#769fcd">
+            <Label fx:id="TransactionIDLBL" alignment="CENTER" layoutX="20.0" layoutY="15.0" prefHeight="40.0" prefWidth="110.0" text="-" textFill="#769fcd">
                <font>
                   <Font name="B Koodak Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="15.0" layoutY="17.0" prefHeight="45.0" prefWidth="250.0" style="-fx-border-color: #6887C5; -fx-border-width: 0 0 1 0;" text="شناسه پرداخت :" textFill="#769fcd">
+            <Label alignment="CENTER" layoutX="130.0" layoutY="15.0" prefHeight="40.0" prefWidth="110.0" text="شناسه پرداخت :" textFill="#769fcd">
                <font>
                   <Font name="B Koodak Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="AmountLBL" alignment="CENTER" layoutX="265.0" layoutY="62.0" prefHeight="45.0" prefWidth="250.0" style="-fx-border-color: #6887C5; -fx-border-width: 0 0 0 1;" text="-" textFill="#769fcd">
+            <Label fx:id="AmountLBL" alignment="CENTER" layoutX="295.0" layoutY="15.0" prefHeight="40.0" prefWidth="110.0" text="-" textFill="#769fcd">
                <font>
                   <Font name="B Koodak Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="265.0" layoutY="17.0" prefHeight="45.0" prefWidth="250.0" style="-fx-border-color: #6887C5; -fx-border-width: 0 0 1 1;" text="مبلغ پرداخت :" textFill="#769fcd">
+            <Label alignment="CENTER" layoutX="405.0" layoutY="15.0" prefHeight="40.0" prefWidth="110.0" text="مبلغ پرداخت :" textFill="#769fcd">
                <font>
                   <Font name="B Koodak Bold" size="18.0" />
                </font>

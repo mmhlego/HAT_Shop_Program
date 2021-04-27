@@ -9,7 +9,7 @@ import javafx.stage.*;
 public class Main extends Application {
 	public static void main(String[] args) {
 		//long start = System.currentTimeMillis();
-
+		DBConnector.Connect();
 		launch(args);
 
 		//PrintEstimatedTime(start);
@@ -45,7 +45,8 @@ public class Main extends Application {
 		});
 
 		thread.start();
-		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("LoginPage/View/FirstPage.fxml"));
+		// FXMLLoader loader = new FXMLLoader(this.getClass().getResource("LoginPage/View/FirstPage.fxml"));
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Customer/Visual/Payment.fxml"));
 		Scene scene = new Scene(loader.load());
 		scene.setFill(Color.TRANSPARENT);
 		primaryStage.initStyle(StageStyle.TRANSPARENT);
