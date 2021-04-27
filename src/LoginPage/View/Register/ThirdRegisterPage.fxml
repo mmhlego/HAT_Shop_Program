@@ -71,6 +71,6 @@
             <Image url="@../icons8_multiply_30px.png" />
          </image>
       </ImageView>
-      <JFXProgressBar fx:id="PasswordStrengthProgress" layoutX="75.0" layoutY="260.0" prefHeight="4.0" prefWidth="175.0" progress="0.0" />
+      <JFXProgressBar id="PasswordStrength" fx:id="PasswordStrengthProgress" layoutX="75.0" layoutY="260.0" prefHeight="4.0" prefWidth="175.0" progress="0.0" />
    </children>
 </AnchorPane>
