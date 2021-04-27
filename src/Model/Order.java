@@ -33,6 +33,9 @@ public class Order {
 
 	public static ArrayList<Product> GetIDsProducts(String productIDs) {
 		ArrayList<Product> temp = new ArrayList<Product>();
+		if (productIDs.equals("[]")) {
+			return temp;
+		}
 		String[] IDs = productIDs.replace("[", "").replace("]", "").replace(" ", "").split(",");
 		for (String id : IDs) {
 			temp.add(ProductChecker.GetProduct(id));
@@ -42,6 +45,9 @@ public class Order {
 
 	public static ArrayList<Integer> GetIDsAmounts(String amounts) {
 		ArrayList<Integer> temp = new ArrayList<Integer>();
+		if (amounts.equals("[]")) {
+			return temp;
+		}
 		for (String Amount : amounts.replace("[", "").replace("]", "").replace(" ", "").split(",")) {
 			temp.add(Integer.parseInt(Amount));
 		}
