@@ -33,7 +33,7 @@ public class Cart implements Initializable {
 	@FXML
 	private VBox ProductsListPanel;
 	@FXML
-	private Button FinalizeOrderBTN;
+	private Button PayOrderFromPaymentBTN;
 	@FXML
 	private Label SumOfDiscountsLBL;
 	@FXML
@@ -44,6 +44,9 @@ public class Cart implements Initializable {
 	private Label ShippingDateLBL;
 	@FXML
 	private Label ShippingFeeLBL;
+	@FXML
+	private Button PayOrderFromValueBTN;
+
 	private boolean special = false;
 	Order Order;
 

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.Cart">
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.Cart">
    <content>
       <VBox maxWidth="1080.0" minHeight="696.0" minWidth="1080.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;">
          <children>
@@ -23,14 +23,14 @@
                   <Insets top="25.0" />
                </VBox.margin>
                <children>
-                  <Label alignment="CENTER" layoutX="520.0" layoutY="80.0" prefHeight="40.0" prefWidth="100.0" text="تاریخ ارسال" textFill="#4085cf">
+                  <Label alignment="CENTER" layoutX="578.0" layoutY="80.0" prefHeight="40.0" prefWidth="100.0" text="تاریخ ارسال" textFill="#4085cf">
                      <font>
                         <Font name="B Koodak Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="FinalizeOrderBTN" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="200.0" style="-fx-background-color: #769FCD;" text="ادامه فرآیند خرید" textFill="WHITE">
+                  <Button fx:id="PayOrderFromPaymentBTN" layoutX="15.0" layoutY="60.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="190.0" style="-fx-background-color: #769FCD;" text="از طریق درگاه بانکی" textFill="WHITE">
                      <font>
-                        <Font name="B Koodak Bold" size="18.0" />
+                        <Font name="B Koodak Bold" size="20.0" />
                      </font>
                   </Button>
                   <Label fx:id="SumOfDiscountsLBL" alignment="CENTER" layoutX="740.0" layoutY="55.0" prefHeight="40.0" prefWidth="150.0" text="-" textFill="#4085cf">
@@ -38,7 +38,7 @@
                         <Font name="B Koodak Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="520.0" layoutY="30.0" prefHeight="40.0" prefWidth="100.0" text="هزینه ارسال" textFill="#4085cf">
+                  <Label alignment="CENTER" layoutX="578.0" layoutY="30.0" prefHeight="40.0" prefWidth="100.0" text="هزینه ارسال" textFill="#4085cf">
                      <font>
                         <Font name="B Koodak Bold" size="16.0" />
                      </font>
@@ -69,12 +69,22 @@
                      </font>
                   </Label>
                   <Separator layoutX="740.0" layoutY="99.0" prefWidth="270.0" style="-fx-background-color: #769FCD;" />
-                  <Label fx:id="ShippingDateLBL" alignment="CENTER" layoutX="410.0" layoutY="80.0" prefHeight="40.0" prefWidth="100.0" text="-" textFill="#4085cf">
+                  <Label fx:id="ShippingDateLBL" alignment="CENTER" layoutX="468.0" layoutY="80.0" prefHeight="40.0" prefWidth="100.0" text="-" textFill="#4085cf">
                      <font>
                         <Font name="B Koodak Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="ShippingFeeLBL" alignment="CENTER" layoutX="410.0" layoutY="30.0" prefHeight="40.0" prefWidth="100.0" text="-" textFill="#4085cf">
+                  <Label fx:id="ShippingFeeLBL" alignment="CENTER" layoutX="468.0" layoutY="30.0" prefHeight="40.0" prefWidth="100.0" text="-" textFill="#4085cf">
+                     <font>
+                        <Font name="B Koodak Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="PayOrderFromValueBTN" layoutX="220.0" layoutY="60.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="190.0" style="-fx-background-color: #769FCD;" text=" از طریق اعتبار حساب" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Label alignment="CENTER" layoutX="15.0" layoutY="10.0" prefHeight="35.0" prefWidth="395.0" style="-fx-border-color: #6887C5; -fx-border-width: 0 0 1 0;" text="هزینه ارسال" textFill="#4085cf">
                      <font>
                         <Font name="B Koodak Bold" size="16.0" />
                      </font>
