@@ -13,7 +13,6 @@ import java.util.ResourceBundle;
 import CommonPages.Controllers.MainStructure;
 import Controller.UserController;
 import DataController.ProductChecker;
-import Model.Order;
 import Model.Product;
 import Model.Shipping;
 import javafx.collections.FXCollections;
@@ -45,18 +44,14 @@ public class Cart implements Initializable {
 	@FXML
 	private Label ShippingFeeLBL;
 	private boolean special = false;
-	Order Order;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			Order = UserController.Cart;
-			if (Order.equals(null)) {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/CartEmpty.fxml"));
-				Parent parent = loader.load();
-				ProductsListPanel.getChildren().add(parent);
+			if (UserController.Cart.equals(null) || UserController.Cart.Products.size() == 0) {
+				addEmptyPage();
 			} else {
-				addOrders();
+				addOrder();
 			}
 
 		} catch (Exception e) {
@@ -64,23 +59,25 @@ public class Cart implements Initializable {
 		}
 	}
 
-	private void addOrders() throws Exception {
+	int i = 0;
+
+	private void addOrder() throws Exception {
 		long finalPrice = 0;
 		long basePrice = 0;
 		int fees = 0;
-		System.out.println(Order.Products.size());
-		int i = 0;
-		for (Product p : Order.Products) {
-			System.out.println(p);
+		System.out.println(UserController.Cart.Products.size());
+		i = 0;
+		for (Product p : UserController.Cart.Products) {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/CartEachProduct.fxml"));
 			Parent parent = loader.load();
 			CartEachProduct controller = loader.getController();
-			controller.getAmountLBL().setText(String.valueOf(Order.Amounts.get(i)));
+			controller.getAmountLBL().setText(String.valueOf(UserController.Cart.Amounts.get(i)));
 			controller.getBasePriceLBL().setText(String.valueOf(p.Price));
 			controller.getPercentageLBL().setText(String.valueOf(p.Percentage) + " %");
 			controller.getProductCategoryLBL().setText(p.Category);
 			controller.getProductIDLBL().setText(p.ID);
-
+			checkAmount(Integer.parseInt(controller.getAmountLBL().getText()), p.Amount,
+					controller.getDecreaseAmountBTN(), controller.getIncreaseAmountBTN());
 			Image image;
 			if (new File("src/pictures/Product Images/" + p.Category + "/" + p.Name + ".jpg").exists()) {
 				image = new Image(new FileInputStream(
@@ -90,15 +87,21 @@ public class Cart implements Initializable {
 			}
 			controller.getProductIMG().setImage(image);
 			controller.getProductNameLBL().setText(p.Name);
-			controller.getTotalPriceLBL().setText(String.valueOf(Product.getTotalValue(p, Order.Amounts.get(i))));
+			controller.getTotalPriceLBL()
+					.setText(String.valueOf(Product.getTotalValue(p, UserController.Cart.Amounts.get(i))));
 			controller.getSeeProductBTN().setOnAction(e -> buyPage(p, image));
 
 			controller.getDeleteProductBTN().setOnAction(e -> {
 				try {
-					Order.Products.remove(p);
-					Order = UserController.Cart;
+					UserController.Cart.Amounts.remove(UserController.Cart.Products.indexOf(p));
+					UserController.Cart.Products.remove(p);
+
 					ProductsListPanel.getChildren().clear();
-					addOrders();
+					if (UserController.Cart.Products.size() == 0) {
+						addEmptyPage();
+					} else {
+						addOrder();
+					}
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
@@ -109,16 +112,41 @@ public class Cart implements Initializable {
 						.setText(String.valueOf(Integer.parseInt(controller.getAmountLBL().getText()) + 1));
 				checkAmount(Integer.parseInt(controller.getAmountLBL().getText()), p.Amount,
 						controller.getDecreaseAmountBTN(), controller.getIncreaseAmountBTN());
+				UserController.Cart.Amounts.set(UserController.Cart.Products.indexOf(p),
+						Integer.parseInt(controller.getAmountLBL().getText()));
+				UserController.Cart.Amounts.set(UserController.Cart.Products.indexOf(p),
+						Integer.parseInt(controller.getAmountLBL().getText()));
+
+				ProductsListPanel.getChildren().clear();
+				try {
+					addOrder();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+
 			});
 			controller.getDecreaseAmountBTN().setOnAction(e -> {
 				controller.getAmountLBL()
 						.setText(String.valueOf(Integer.parseInt(controller.getAmountLBL().getText()) - 1));
 				checkAmount(Integer.parseInt(controller.getAmountLBL().getText()), p.Amount,
 						controller.getDecreaseAmountBTN(), controller.getIncreaseAmountBTN());
+				UserController.Cart.Amounts.set(UserController.Cart.Products.indexOf(p),
+						Integer.parseInt(controller.getAmountLBL().getText()));
+				UserController.Cart.Amounts.set(UserController.Cart.Products.indexOf(p),
+						Integer.parseInt(controller.getAmountLBL().getText()));
+
+				ProductsListPanel.getChildren().clear();
+				try {
+					addOrder();
+
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+
 			});
-			fees += Shipping.generateFee(Order.Amounts.get(i), UserController.customer.Mode);
+			fees += Shipping.generateFee(UserController.Cart.Amounts.get(i), UserController.customer.Mode);
 			basePrice += p.Price;
-			finalPrice += Product.getTotalValue(p, Order.Amounts.get(i));
+			finalPrice += Product.getTotalValue(p, UserController.Cart.Amounts.get(i));
 			ProductsListPanel.getChildren().add(parent);
 			i++;
 		}
@@ -127,8 +155,12 @@ public class Cart implements Initializable {
 		FinalPriceLBL.setText(String.valueOf(finalPrice));
 		SumOfDiscountsLBL.setText(String.valueOf((basePrice / (double) finalPrice) * 100));
 		Random random = new Random(System.currentTimeMillis());
-		LocalDate date = LocalDate.now().plusDays(1 + random.nextInt(5));
-		ShippingDateLBL.setText(date.toString());
+
+		if (ShippingDateLBL.getText().equals("-")) {
+			LocalDate date = LocalDate.now().plusDays(1 + random.nextInt(5));
+			ShippingDateLBL.setText(date.toString());
+		}
+
 	}
 
 	public void buyPage(Product p, Image image) {
@@ -227,6 +259,14 @@ public class Cart implements Initializable {
 		} else {
 			iButton.setDisable(true);
 		}
+
+	}
+
+	private void addEmptyPage() throws Exception {
+		FinalizeOrderBTN.getParent().setVisible(false);
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/CartEmpty.fxml"));
+		Parent parent = loader.load();
+		ProductsListPanel.getChildren().add(parent);
 
 	}
 
