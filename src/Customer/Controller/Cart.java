@@ -104,12 +104,18 @@ public class Cart implements Initializable {
 				}
 
 			});
-			controller.getIncreaseAmountBTN()
-					.setOnAction(e -> checkAmount(Integer.parseInt(controller.getAmountLBL().getText()), p.Amount,
-							controller.getDecreaseAmountBTN(), controller.getIncreaseAmountBTN()));
-			controller.getDecreaseAmountBTN()
-					.setOnAction(e -> checkAmount(Integer.parseInt(controller.getAmountLBL().getText()), p.Amount,
-							controller.getDecreaseAmountBTN(), controller.getIncreaseAmountBTN()));
+			controller.getIncreaseAmountBTN().setOnAction(e -> {
+				controller.getAmountLBL()
+						.setText(String.valueOf(Integer.parseInt(controller.getAmountLBL().getText()) + 1));
+				checkAmount(Integer.parseInt(controller.getAmountLBL().getText()), p.Amount,
+						controller.getDecreaseAmountBTN(), controller.getIncreaseAmountBTN());
+			});
+			controller.getDecreaseAmountBTN().setOnAction(e -> {
+				controller.getAmountLBL()
+						.setText(String.valueOf(Integer.parseInt(controller.getAmountLBL().getText()) - 1));
+				checkAmount(Integer.parseInt(controller.getAmountLBL().getText()), p.Amount,
+						controller.getDecreaseAmountBTN(), controller.getIncreaseAmountBTN());
+			});
 			fees += Shipping.generateFee(Order.Amounts.get(i), UserController.customer.Mode);
 			basePrice += p.Price;
 			finalPrice += Product.getTotalValue(p, Order.Amounts.get(i));

@@ -180,9 +180,6 @@ public class ProductsViewer implements Initializable {
 		SpecialProduct = ProductChecker.GetSpecialProducts();
 		addProducts(AllProducts);
 
-		MaxPriceSlider.setMin(10000);
-		MaxPriceSlider.setMax(230000000);
-
 		FilterBTN.setOnAction(e -> filter());
 		SearchBTN.setOnAction(e -> filter());
 	}
