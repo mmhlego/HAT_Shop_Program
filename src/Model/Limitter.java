@@ -7,7 +7,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.control.TextField;
 
 public class Limitter {
-
     public static void Limit(TextField tf, int maxLength, boolean Prevent) {
         tf.textProperty().addListener(new ChangeListener<String>() {
             @Override
