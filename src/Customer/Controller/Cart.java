@@ -1,24 +1,233 @@
 package Customer.Controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.ResourceBundle;
+
+import CommonPages.Controllers.MainStructure;
+import Controller.UserController;
+import DataController.ProductChecker;
+import Model.Order;
+import Model.Product;
+import Model.Shipping;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.cell.MapValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-public class Cart {
-    @FXML
-    private VBox ProductsListPanel;
-    @FXML
-    private Button FinalizeOrderBTN;
-    @FXML
-    private Label SumOfDiscountsLBL;
-    @FXML
-    private Label SumOfPricesLBL;
-    @FXML
-    private Label FinalPriceLBL;
-    @FXML
-    private Label ShippingDateLBL;
-    @FXML
-    private Label ShippingFeeLBL;
+public class Cart implements Initializable {
+	@FXML
+	private VBox ProductsListPanel;
+	@FXML
+	private Button FinalizeOrderBTN;
+	@FXML
+	private Label SumOfDiscountsLBL;
+	@FXML
+	private Label SumOfPricesLBL;
+	@FXML
+	private Label FinalPriceLBL;
+	@FXML
+	private Label ShippingDateLBL;
+	@FXML
+	private Label ShippingFeeLBL;
+	private boolean special = false;
+	Order Order;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		try {
+			Order = UserController.Cart;
+			if (Order.equals(null)) {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/CartEmpty.fxml"));
+				Parent parent = loader.load();
+				ProductsListPanel.getChildren().add(parent);
+			} else {
+				addOrders();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void addOrders() throws Exception {
+		long finalPrice = 0;
+		long basePrice = 0;
+		int fees = 0;
+		System.out.println(Order.Products.size());
+		int i = 0;
+		for (Product p : Order.Products) {
+			System.out.println(p);
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/CartEachProduct.fxml"));
+			Parent parent = loader.load();
+			CartEachProduct controller = loader.getController();
+			controller.getAmountLBL().setText(String.valueOf(Order.Amounts.get(i)));
+			controller.getBasePriceLBL().setText(String.valueOf(p.Price));
+			controller.getPercentageLBL().setText(String.valueOf(p.Percentage) + " %");
+			controller.getProductCategoryLBL().setText(p.Category);
+			controller.getProductIDLBL().setText(p.ID);
+
+			Image image;
+			if (new File("src/pictures/Product Images/" + p.Category + "/" + p.Name + ".jpg").exists()) {
+				image = new Image(new FileInputStream(
+						new File("src/pictures/Product Images/" + p.Category + "/" + p.Name + ".jpg")));
+			} else {
+				image = new Image(new FileInputStream(new File("src/pictures/Product Images/Product.png")));
+			}
+			controller.getProductIMG().setImage(image);
+			controller.getProductNameLBL().setText(p.Name);
+			controller.getTotalPriceLBL().setText(String.valueOf(Product.getTotalValue(p, Order.Amounts.get(i))));
+			controller.getSeeProductBTN().setOnAction(e -> buyPage(p, image));
+
+			controller.getDeleteProductBTN().setOnAction(e -> {
+				try {
+					Order.Products.remove(p);
+					Order = UserController.Cart;
+					ProductsListPanel.getChildren().clear();
+					addOrders();
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+
+			});
+			controller.getIncreaseAmountBTN().setOnAction(e -> {
+				controller.getAmountLBL()
+						.setText(String.valueOf(Integer.parseInt(controller.getAmountLBL().getText()) + 1));
+				checkAmount(Integer.parseInt(controller.getAmountLBL().getText()), p.Amount,
+						controller.getDecreaseAmountBTN(), controller.getIncreaseAmountBTN());
+			});
+			controller.getDecreaseAmountBTN().setOnAction(e -> {
+				controller.getAmountLBL()
+						.setText(String.valueOf(Integer.parseInt(controller.getAmountLBL().getText()) - 1));
+				checkAmount(Integer.parseInt(controller.getAmountLBL().getText()), p.Amount,
+						controller.getDecreaseAmountBTN(), controller.getIncreaseAmountBTN());
+			});
+			fees += Shipping.generateFee(Order.Amounts.get(i), UserController.customer.Mode);
+			basePrice += p.Price;
+			finalPrice += Product.getTotalValue(p, Order.Amounts.get(i));
+			ProductsListPanel.getChildren().add(parent);
+			i++;
+		}
+		ShippingFeeLBL.setText(String.valueOf(fees));
+		SumOfPricesLBL.setText(String.valueOf(basePrice));
+		FinalPriceLBL.setText(String.valueOf(finalPrice));
+		SumOfDiscountsLBL.setText(String.valueOf((basePrice / (double) finalPrice) * 100));
+		Random random = new Random(System.currentTimeMillis());
+		LocalDate date = LocalDate.now().plusDays(1 + random.nextInt(5));
+		ShippingDateLBL.setText(date.toString());
+	}
+
+	public void buyPage(Product p, Image image) {
+		ProductInformationPage c = (ProductInformationPage) MainStructure
+				.addPage("src/Customer/Visual/ProductInformationPage.fxml");
+		c.getBuyBTN().setOnAction(e -> {
+			c.getBuyBTN().setVisible(false);
+			c.getAddToCartGroup().setVisible(true);
+		});
+		c.getProductCategoryLBL().setText(p.Category);
+		c.getProductDescriptionTXT().setText(p.Description);
+		c.getProductIDLBL().setText(p.ID);
+		c.getProductIMG().setImage(image);
+		c.getProductNameLBL().setText(p.Name);
+		c.getProductPriceLBL().setText(String.valueOf(p.Price));
+		ObservableList<Map<String, Object>> items = FXCollections.<Map<String, Object>>observableArrayList();
+		for (int j = 0; j < p.Details.length; j++) {
+			Map<String, Object> item = new HashMap<>();
+			item.put("firstrow", p.Details[j][0]);
+			item.put("secondrow", p.Details[j][1]);
+			items.add(item);
+		}
+		c.getMColumn().setCellValueFactory(new MapValueFactory<String>("firstrow"));
+		c.getInformationColumn().setCellValueFactory(new MapValueFactory<String>("secondrow"));
+		c.getProductDetailsTable().setItems(items);
+		c.getSpecialTXT().setVisible(false);
+		showSpecialProduct(c.getSimilarProductsAnchor());
+		if (special) {
+			c.getSpecialTXT().setVisible(true);
+		}
+		c.getLoadMoreBTN().toFront();
+		c.getLoadMoreBTN().setOnAction(e -> {
+			ProductsViewer controller = (ProductsViewer) MainStructure
+					.addPage("src/Customer/Visual/ProductsViewer.fxml");
+			controller.getOnlyAmazingToggle().selectedProperty().setValue(true);
+			controller.filter();
+		});
+	}
+
+	Random random = new Random();
+
+	private void showSpecialProduct(AnchorPane pane) {
+		ArrayList<Product> specialProduct = new ArrayList<>();
+		for (int i = 0; i < 5; i++) {
+			specialProduct.add(ProductChecker.GetSpecialProducts()
+					.get(random.nextInt(ProductChecker.GetSpecialProducts().size())));
+		}
+		int i = 0;
+		for (Product product : specialProduct) {
+			try {
+				if (!product.equals(new Product())) {
+
+					FXMLLoader loader = new FXMLLoader(
+							this.getClass().getResource("../Components/ProductSmallView.fxml"));
+
+					Parent p = loader.load();
+					ProductSmallView s = loader.getController();
+					AnchorPane.setTopAnchor(p, ((double) 25));
+					AnchorPane.setLeftAnchor(p, ((double) (i) * 225 + 25 - 120));
+
+					Image image;
+					if (new File("src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")
+							.exists()) {
+						image = new Image(new FileInputStream(new File(
+								"src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")));
+					} else {
+						image = new Image(new FileInputStream(new File("src/pictures/Product Images/Product.png")));
+					}
+
+					s.getProductImage().setImage(image);
+					s.getProductName().setText(product.Name);
+					s.getProductPrice().setText(String.valueOf(product.Price));
+					s.getSpecialEvents().setText("کالای شگفت انگیز");
+					s.getSpecialEvents().setVisible(true);
+					p.setOnMouseClicked(e -> buyPage(product, image));
+					ProductSmallView smallView = loader.getController();
+					smallView.getBuyButton().setOnAction(e -> buyPage(product, image));
+					pane.getChildren().add(p);
+
+				}
+				i++;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private void checkAmount(int amount, int max, Button dButton, Button iButton) {
+		if (amount > 1) {
+			dButton.setDisable(false);
+		} else {
+			dButton.setDisable(true);
+		}
+		if (amount < max) {
+			iButton.setDisable(false);
+		} else {
+			iButton.setDisable(true);
+		}
+
+	}
 
 }
