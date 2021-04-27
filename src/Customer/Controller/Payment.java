@@ -56,10 +56,11 @@ public class Payment implements Initializable {
     @FXML
     private Label AmountLBL;
 
+    public String FinishedAlertText = "حساب با موفقیت شارژ شد";
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         LimitTextFieldPassToNext();
-        AmountLBL.setText("500000");
         RequestOTP.setOnAction((e) -> {
             SMSSender.SendOTP(UserController.customer.Phone);
         });
@@ -72,7 +73,7 @@ public class Payment implements Initializable {
                 Alert(AlertType.ERROR, "حروف تصویر نادرست است !");
             } else {
                 UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
-                Alert(AlertType.INFORMATION, "حساب با موفقیت شارژ شد");
+                Alert(AlertType.INFORMATION, FinishedAlertText);
             }
         });
     }
@@ -97,6 +98,10 @@ public class Payment implements Initializable {
         } else {
             return false;
         }
+    }
+
+    private void SetFinishedAlertText(String txt){
+        FinishedAlertText = txt;
     }
 
     private void Alert(AlertType AlertType, String Content) {
