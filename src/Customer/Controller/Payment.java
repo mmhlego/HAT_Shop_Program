@@ -10,6 +10,7 @@ import Model.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -53,9 +54,14 @@ public class Payment implements Initializable {
     public static String FinalPrice;
     public static String ShippingDate;
     public static String ShippingFee;
+    public String TRID;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        AmountLBL.setText(FinalPrice);
+        TRID = Transaction.GenerateID();
+        TransactionIDLBL.setText(TRID);
+
         Captcha captcha = new Captcha(300, 40, 7);
         CaptchaPanel.getChildren().add(captcha);
 
@@ -79,6 +85,8 @@ public class Payment implements Initializable {
                     DataAdder.AddTransaction(UserController.Cart.OwnerID, Long.parseLong(FinalPrice),
                             LocalDate.parse(ShippingDate), Transaction.GenerateID());
                     DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
+                    Alert(AlertType.INFORMATION, "پرداخت با موفقیت انجام شد.");
+                    ProceedBTN.getParent().getScene().getWindow().hide();
                 } else {
                     UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
                 }
@@ -87,8 +95,14 @@ public class Payment implements Initializable {
         });
 
         CancelBTN.setOnAction((e) -> {
-            CancelBTN.getParent().getScene().getWindow().hide();
-            DBConnector.stage.show();
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("آیا میخواهید فرآیند پرداخت را لغو کنید ؟");
+            alert.showAndWait();
+            if (alert.getResult() == ButtonType.OK) {
+                CancelBTN.getParent().getScene().getWindow().hide();
+                Alert(AlertType.INFORMATION, "پرداخت با امنیت کامل لغو شد");
+            }
         });
     }
 

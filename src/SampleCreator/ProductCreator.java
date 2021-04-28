@@ -256,6 +256,156 @@ public class ProductCreator {
 				Product.ParseToArray("[[نوع دیسک : ,DVD],[تعداد دیسک : ,2]]"), 230000, 0, Product.BOOK, 70,
 				Product.GenerateID());
 
+		Product P51 = new Product("Nokia 5.4", "گوشی موبایل «5.4» از سری محصولات جدید و خوش‌ساختی است که از سوی شرکت مطرح «نوکیا» (Nokia) روانه بازار شده است. صفحه‌نمایش این گوشی موبایل در اندازه 6.39 اینچ است و از فناوری IPS بهره می برد.", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.PHONE, amo, Product.GenerateID());
+
+		Product P52 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.PHONE, amo, Product.GenerateID());
+
+		Product P53 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.PHONE, amo, Product.GenerateID());
+
+		Product P54 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.PHONE, amo, Product.GenerateID());
+
+		Product P55 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.PHONE, amo, Product.GenerateID());
+
+		Product P56 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.PHONE, amo, Product.GenerateID());
+
+		Product P57 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.PHONE, amo, Product.GenerateID());
+
+		Product P58 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.PHONE, amo, Product.GenerateID());
+
+		Product P59 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.PHONE, amo, Product.GenerateID());
+
+		Product P60 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.PHONE, amo, Product.GenerateID());
+
+		Product P61 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.COMPUTER, amo, Product.GenerateID());
+
+		Product P62 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.COMPUTER, amo, Product.GenerateID());
+
+		Product P63 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.COMPUTER, amo, Product.GenerateID());
+
+		Product P64 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.COMPUTER, amo, Product.GenerateID());
+
+		Product P65 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.COMPUTER, amo, Product.GenerateID());
+
+		Product P66 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.COMPUTER, amo, Product.GenerateID());
+
+		Product P67 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.COMPUTER, amo, Product.GenerateID());
+
+		Product P68 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.COMPUTER, amo, Product.GenerateID());
+
+		Product P69 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.COMPUTER, amo, Product.GenerateID());
+
+		Product P70 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.COMPUTER, amo, Product.GenerateID());
+
+		Product P71 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.ACCESSORIES, amo, Product.GenerateID());
+
+		Product P72 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.ACCESSORIES, amo, Product.GenerateID());
+
+		Product P73 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.ACCESSORIES, amo, Product.GenerateID());
+
+		Product P74 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.ACCESSORIES, amo, Product.GenerateID());
+
+		Product P75 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.ACCESSORIES, amo, Product.GenerateID());
+
+		Product P76 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.ACCESSORIES, amo, Product.GenerateID());
+
+		Product P77 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.ACCESSORIES, amo, Product.GenerateID());
+
+		Product P78 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.ACCESSORIES, amo, Product.GenerateID());
+
+		Product P79 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.ACCESSORIES, amo, Product.GenerateID());
+
+		Product P80 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.ACCESSORIES, amo, Product.GenerateID());
+
+		Product P81 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.SUPERMARKET, amo, Product.GenerateID());
+
+		Product P82 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.SUPERMARKET, amo, Product.GenerateID());
+
+		Product P83 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.SUPERMARKET, amo, Product.GenerateID());
+
+		Product P84 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.SUPERMARKET, amo, Product.GenerateID());
+
+		Product P85 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.SUPERMARKET, amo, Product.GenerateID());
+
+		Product P86 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.SUPERMARKET, amo, Product.GenerateID());
+
+		Product P87 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.SUPERMARKET, amo, Product.GenerateID());
+
+		Product P88 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.SUPERMARKET, amo, Product.GenerateID());
+
+		Product P89 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.SUPERMARKET, amo, Product.GenerateID());
+
+		Product P90 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.SUPERMARKET, amo, Product.GenerateID());
+
+		Product P91 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
+				amo, Product.GenerateID());
+
+		Product P92 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
+				amo, Product.GenerateID());
+
+		Product P93 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
+				amo, Product.GenerateID());
+
+		Product P94 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
+				amo, Product.GenerateID());
+
+		Product P95 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
+				amo, Product.GenerateID());
+
+		Product P96 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
+				amo, Product.GenerateID());
+
+		Product P97 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
+				amo, Product.GenerateID());
+
+		Product P98 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
+				amo, Product.GenerateID());
+
+		Product P99 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
+				amo, Product.GenerateID());
+
+		Product P100 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
+				Product.BOOK, amo, Product.GenerateID());
+
 		DataAdder.AddProduct(P1);
 		DataAdder.AddProduct(P2);
 		DataAdder.AddProduct(P3);
