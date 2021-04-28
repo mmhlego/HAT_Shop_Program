@@ -9,9 +9,9 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		//long start = System.currentTimeMillis();
+		// long start = System.currentTimeMillis();
 		launch(args);
-		//PrintEstimatedTime(start);
+		// PrintEstimatedTime(start);
 	}
 
 	private static void PrintEstimatedTime(long start) {
@@ -44,9 +44,9 @@ public class Main extends Application {
 		});
 
 		thread.start();
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("LoginPage/View/FirstPage.fxml"));
 		// FXMLLoader loader = new
-		// FXMLLoader(this.getClass().getResource("LoginPage/View/FirstPage.fxml"));
-		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Customer/Visual/Payment.fxml"));
+		// FXMLLoader(this.getClass().getResource("Customer/Visual/Payment.fxml"));
 		/* Scene scene = new Scene(new Captcha(300, 40, 7)); */
 		Scene scene = new Scene(loader.load());
 		scene.setFill(Color.TRANSPARENT);
