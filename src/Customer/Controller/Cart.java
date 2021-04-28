@@ -139,9 +139,17 @@ public class Cart implements Initializable {
 
 			controller.getDeleteProductBTN().setOnAction(e -> {
 				try {
-					UserController.Cart.Amounts.remove(UserController.Cart.Products.indexOf(p));
-					UserController.Cart.Products.remove(p);
 
+					int j = 0;
+					for (Product x : UserController.Cart.Products) {
+						if (x.ID.equals(p.ID)) {
+							UserController.Cart.Amounts.remove(j);
+							UserController.Cart.Products.remove(j);
+							break;
+						}
+						j++;
+					}
+					UserController.UpdateCart();
 					ProductsListPanel.getChildren().clear();
 					if (UserController.Cart.Products.size() == 0) {
 						addEmptyPage();
@@ -158,11 +166,16 @@ public class Cart implements Initializable {
 						.setText(String.valueOf(Integer.parseInt(controller.getAmountLBL().getText()) + 1));
 				checkAmount(Integer.parseInt(controller.getAmountLBL().getText()), p.Amount,
 						controller.getDecreaseAmountBTN(), controller.getIncreaseAmountBTN());
-				UserController.Cart.Amounts.set(UserController.Cart.Products.indexOf(p),
-						Integer.parseInt(controller.getAmountLBL().getText()));
-				UserController.Cart.Amounts.set(UserController.Cart.Products.indexOf(p),
-						Integer.parseInt(controller.getAmountLBL().getText()));
+				int j = 0;
+				for (Product x : UserController.Cart.Products) {
+					if (x.ID.equals(p.ID)) {
+						UserController.Cart.Amounts.set(j, Integer.parseInt(controller.getAmountLBL().getText()));
+						break;
+					}
+					j++;
+				}
 
+				UserController.UpdateCart();
 				ProductsListPanel.getChildren().clear();
 				try {
 					addOrder();
@@ -176,11 +189,15 @@ public class Cart implements Initializable {
 						.setText(String.valueOf(Integer.parseInt(controller.getAmountLBL().getText()) - 1));
 				checkAmount(Integer.parseInt(controller.getAmountLBL().getText()), p.Amount,
 						controller.getDecreaseAmountBTN(), controller.getIncreaseAmountBTN());
-				UserController.Cart.Amounts.set(UserController.Cart.Products.indexOf(p),
-						Integer.parseInt(controller.getAmountLBL().getText()));
-				UserController.Cart.Amounts.set(UserController.Cart.Products.indexOf(p),
-						Integer.parseInt(controller.getAmountLBL().getText()));
-
+				int j = 0;
+				for (Product x : UserController.Cart.Products) {
+					if (x.ID.equals(p.ID)) {
+						UserController.Cart.Amounts.set(j, Integer.parseInt(controller.getAmountLBL().getText()));
+						break;
+					}
+					j++;
+				}
+				UserController.UpdateCart();
 				ProductsListPanel.getChildren().clear();
 				try {
 					addOrder();
@@ -210,6 +227,7 @@ public class Cart implements Initializable {
 	}
 
 	public void buyPage(Product p, Image image) {
+		ProductInformationPage.p = p;
 		ProductInformationPage c = (ProductInformationPage) MainStructure
 				.addPage("src/Customer/Visual/ProductInformationPage.fxml");
 		c.getBuyBTN().setOnAction(e -> {
