@@ -7,6 +7,8 @@ import com.jfoenix.controls.JFXButton;
 
 import Controller.UserController;
 import DataController.SMSSender;
+import DataController.UserUpdator;
+import Model.Captcha;
 import Model.Limitter;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,66 +19,58 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class Payment implements Initializable {
+
 	@FXML
 	private TextField CardNumberTF;
-
 	@FXML
 	private AnchorPane CaptchaPanel;
-
 	@FXML
 	private TextField CVV2TF;
-
 	@FXML
 	private TextField YearTF;
-
 	@FXML
 	private TextField MonthTF;
-
 	@FXML
 	private TextField PhoneTF;
-
 	@FXML
 	private JFXButton RequestOTP;
-
 	@FXML
 	private TextField OTPTF;
-
 	@FXML
 	private JFXButton ChangeCaptcha;
-
 	@FXML
 	private TextField CaptchaTF;
-
 	@FXML
 	private JFXButton CancelBTN;
-
 	@FXML
 	private JFXButton ProceedBTN;
-
 	@FXML
 	private Label TransactionIDLBL;
-
 	@FXML
 	private Label AmountLBL;
 
+	public String FinishedAlertText = "حساب با موفقیت شارژ شد";
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		Captcha captcha = new Captcha(300, 40, 7);
+		CaptchaPanel.getChildren().add(captcha);
 		LimitTextFieldPassToNext();
-		AmountLBL.setText("500000");
 		RequestOTP.setOnAction((e) -> {
 			SMSSender.SendOTP(UserController.customer.Phone);
 		});
 		ProceedBTN.setOnAction((e) -> {
-			/*
-			 * if (!IsAllFieldsComplete()) { Alert(AlertType.ERROR,
-			 * "بعضی از فیلد ها کامل نیستند !"); } else if
-			 * (!SMSSender.getOTP().equals(OTPTF.getText())) { Alert(AlertType.ERROR,
-			 * "رمز یک بار مصرف درست نیست !"); }else if
-			 * (!Captcha.captchaResult.equals(CaptchaTF.getText())) { Alert(AlertType.ERROR,
-			 * "حروف تصویر نادرست است !"); } else {
-			 * UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
-			 * Alert(AlertType.INFORMATION, "حساب با موفقیت شارژ شد"); }
-			 */});
+			if (!IsAllFieldsComplete()) {
+				Alert(AlertType.ERROR, "بعضی از فیلد ها کامل نیستند !");
+			} else if (!SMSSender.getOTP().equals(OTPTF.getText())) {
+				Alert(AlertType.ERROR, "رمز یک بار مصرف درست نیست !");
+			} else if (!captcha.getCaptchaResult().equals(CaptchaTF.getText())) {
+				Alert(AlertType.ERROR, "حروف تصویر نادرست است !");
+			} else {
+				UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
+				Alert(AlertType.INFORMATION, FinishedAlertText);
+			}
+		});
 	}
 
 	private long GetAmount() {

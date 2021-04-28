@@ -32,7 +32,7 @@ public class Cart implements Initializable {
 	@FXML
 	private VBox ProductsListPanel;
 	@FXML
-	private Button FinalizeOrderBTN;
+	private Button PayOrderFromPaymentBTN;
 	@FXML
 	private Label SumOfDiscountsLBL;
 	@FXML
@@ -43,6 +43,9 @@ public class Cart implements Initializable {
 	private Label ShippingDateLBL;
 	@FXML
 	private Label ShippingFeeLBL;
+	@FXML
+	private Button PayOrderFromValueBTN;
+
 	private boolean special = false;
 
 	@Override
@@ -262,7 +265,7 @@ public class Cart implements Initializable {
 	}
 
 	private void addEmptyPage() throws Exception {
-		FinalizeOrderBTN.getParent().setVisible(false);
+		PayOrderFromPaymentBTN.getParent().setVisible(false);
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/CartEmpty.fxml"));
 		Parent parent = loader.load();
 		ProductsListPanel.getChildren().add(parent);
