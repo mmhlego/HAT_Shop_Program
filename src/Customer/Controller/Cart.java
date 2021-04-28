@@ -266,7 +266,7 @@ public class Cart implements Initializable {
 	}
 
 	private void addEmptyPage() throws Exception {
-		FinalizeOrderBTN.getParent().setVisible(false);
+		PayOrderFromPaymentBTN.getParent().setVisible(false);
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/CartEmpty.fxml"));
 		Parent parent = loader.load();
 		ProductsListPanel.getChildren().add(parent);

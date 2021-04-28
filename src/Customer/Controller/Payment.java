@@ -16,43 +16,30 @@ import Model.*;
 public class Payment implements Initializable {
     @FXML
     private TextField CardNumberTF;
-
     @FXML
     private AnchorPane CaptchaPanel;
-
     @FXML
     private TextField CVV2TF;
-
     @FXML
     private TextField YearTF;
-
     @FXML
     private TextField MonthTF;
-
     @FXML
     private TextField PhoneTF;
-
     @FXML
     private JFXButton RequestOTP;
-
     @FXML
     private TextField OTPTF;
-
     @FXML
     private JFXButton ChangeCaptcha;
-
     @FXML
     private TextField CaptchaTF;
-
     @FXML
     private JFXButton CancelBTN;
-
     @FXML
     private JFXButton ProceedBTN;
-
     @FXML
     private Label TransactionIDLBL;
-
     @FXML
     private Label AmountLBL;
 
@@ -69,7 +56,7 @@ public class Payment implements Initializable {
                 Alert(AlertType.ERROR, "بعضی از فیلد ها کامل نیستند !");
             } else if (!SMSSender.getOTP().equals(OTPTF.getText())) {
                 Alert(AlertType.ERROR, "رمز یک بار مصرف درست نیست !");
-            }else if (!Captcha.captchaResult.equals(CaptchaTF.getText())) {
+            } else if (!Captcha.captchaResult.equals(CaptchaTF.getText())) {
                 Alert(AlertType.ERROR, "حروف تصویر نادرست است !");
             } else {
                 UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
@@ -100,7 +87,7 @@ public class Payment implements Initializable {
         }
     }
 
-    private void SetFinishedAlertText(String txt){
+    private void SetFinishedAlertText(String txt) {
         FinishedAlertText = txt;
     }
 
