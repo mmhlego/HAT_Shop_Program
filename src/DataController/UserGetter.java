@@ -85,9 +85,11 @@ public class UserGetter {
 		return null;
 	}
 
-	public static ResultSet GetShippingsDB(String OrderID) {
+	public static ResultSet GetShippingsDB(String OwnerID) {
 		try {
-			return DBConnector.RunCommand("SELECT * FROM Shipping WHERE OrderID=" + "\'" + OrderID + "\'");
+			return DBConnector
+					.RunCommand("SELECT * FROM Shipping WHERE OrderID=ANY( SELECT OrderID FROM `Orders` WHERE OwnerID='"
+							+ OwnerID + "' )");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

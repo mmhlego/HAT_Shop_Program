@@ -71,6 +71,10 @@ public class UserController {
 			AllOrders = UserGetter.ConvertOrderToArrayList(UserGetter.GetOrdersDB(customer.ID));
 			AllShippings = UserGetter.ConvertShippingToArrayList(UserGetter.GetShippingsDB(customer.ID));
 			AllTransactions = UserGetter.ConvertTransactionToArrayList(UserGetter.GetTransactionsDB(customer.ID));
+
+			System.out.println(AllOrders.size());
+			System.out.println(AllShippings.size());
+			System.out.println(AllTransactions.size());
 		} /*
 			 * else { AllOrders =
 			 * UserGetter.ConvertOrderToArrayList(UserGetter.GetOrdersDB()); AllShippings =
