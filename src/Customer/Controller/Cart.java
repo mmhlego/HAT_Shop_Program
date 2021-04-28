@@ -259,7 +259,6 @@ public class Cart implements Initializable {
 		} else {
 			iButton.setDisable(true);
 		}
-
 	}
 
 	private void addEmptyPage() throws Exception {

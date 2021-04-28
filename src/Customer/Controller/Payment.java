@@ -1,109 +1,111 @@
 package Customer.Controller;
 
 import java.net.URL;
-import java.util.*;
+import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
 import Controller.UserController;
-import DataController.*;
-import javafx.fxml.*;
-import javafx.scene.control.*;
+import DataController.SMSSender;
+import Model.Limitter;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import Model.*;
 
 public class Payment implements Initializable {
-    @FXML
-    private TextField CardNumberTF;
+	@FXML
+	private TextField CardNumberTF;
 
-    @FXML
-    private AnchorPane CaptchaPanel;
+	@FXML
+	private AnchorPane CaptchaPanel;
 
-    @FXML
-    private TextField CVV2TF;
+	@FXML
+	private TextField CVV2TF;
 
-    @FXML
-    private TextField YearTF;
+	@FXML
+	private TextField YearTF;
 
-    @FXML
-    private TextField MonthTF;
+	@FXML
+	private TextField MonthTF;
 
-    @FXML
-    private TextField PhoneTF;
+	@FXML
+	private TextField PhoneTF;
 
-    @FXML
-    private JFXButton RequestOTP;
+	@FXML
+	private JFXButton RequestOTP;
 
-    @FXML
-    private TextField OTPTF;
+	@FXML
+	private TextField OTPTF;
 
-    @FXML
-    private JFXButton ChangeCaptcha;
+	@FXML
+	private JFXButton ChangeCaptcha;
 
-    @FXML
-    private TextField CaptchaTF;
+	@FXML
+	private TextField CaptchaTF;
 
-    @FXML
-    private JFXButton CancelBTN;
+	@FXML
+	private JFXButton CancelBTN;
 
-    @FXML
-    private JFXButton ProceedBTN;
+	@FXML
+	private JFXButton ProceedBTN;
 
-    @FXML
-    private Label TransactionIDLBL;
+	@FXML
+	private Label TransactionIDLBL;
 
-    @FXML
-    private Label AmountLBL;
+	@FXML
+	private Label AmountLBL;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        LimitTextFieldPassToNext();
-        AmountLBL.setText("500000");
-        RequestOTP.setOnAction((e) -> {
-            SMSSender.SendOTP(UserController.customer.Phone);
-        });
-        ProceedBTN.setOnAction((e) -> {
-            if (!IsAllFieldsComplete()) {
-                Alert(AlertType.ERROR, "بعضی از فیلد ها کامل نیستند !");
-            } else if (!SMSSender.getOTP().equals(OTPTF.getText())) {
-                Alert(AlertType.ERROR, "رمز یک بار مصرف درست نیست !");
-            }else if (!Captcha.captchaResult.equals(CaptchaTF.getText())) {
-                Alert(AlertType.ERROR, "حروف تصویر نادرست است !");
-            } else {
-                UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
-                Alert(AlertType.INFORMATION, "حساب با موفقیت شارژ شد");
-            }
-        });
-    }
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		LimitTextFieldPassToNext();
+		AmountLBL.setText("500000");
+		RequestOTP.setOnAction((e) -> {
+			SMSSender.SendOTP(UserController.customer.Phone);
+		});
+		ProceedBTN.setOnAction((e) -> {
+			/*
+			 * if (!IsAllFieldsComplete()) { Alert(AlertType.ERROR,
+			 * "بعضی از فیلد ها کامل نیستند !"); } else if
+			 * (!SMSSender.getOTP().equals(OTPTF.getText())) { Alert(AlertType.ERROR,
+			 * "رمز یک بار مصرف درست نیست !"); }else if
+			 * (!Captcha.captchaResult.equals(CaptchaTF.getText())) { Alert(AlertType.ERROR,
+			 * "حروف تصویر نادرست است !"); } else {
+			 * UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
+			 * Alert(AlertType.INFORMATION, "حساب با موفقیت شارژ شد"); }
+			 */});
+	}
 
-    private long GetAmount() {
-        return Long.parseLong(AmountLBL.getText().split(" ")[0]);
-    }
+	private long GetAmount() {
+		return Long.parseLong(AmountLBL.getText().split(" ")[0]);
+	}
 
-    private void LimitTextFieldPassToNext() {
-        Limitter.Limit(CardNumberTF, 16, true);
-        Limitter.Limit(OTPTF, 6, true);
-        Limitter.Limit(CVV2TF, 5, true);
-        Limitter.Limit(MonthTF, 2, true);
-        Limitter.Limit(YearTF, 2, true);
-    }
+	private void LimitTextFieldPassToNext() {
+		Limitter.Limit(CardNumberTF, 16, true);
+		Limitter.Limit(OTPTF, 6, true);
+		Limitter.Limit(CVV2TF, 5, true);
+		Limitter.Limit(MonthTF, 2, true);
+		Limitter.Limit(YearTF, 2, true);
+	}
 
-    private boolean IsAllFieldsComplete() {
-        if (CardNumberTF.getText().length() == 16 && OTPTF.getText().length() == 6 && CVV2TF.getText().length() == 5
-                && MonthTF.getText().length() == 2 && YearTF.getText().length() == 2
-                && !CaptchaTF.getText().equals("")) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+	private boolean IsAllFieldsComplete() {
+		if (CardNumberTF.getText().length() == 16 && OTPTF.getText().length() == 6 && CVV2TF.getText().length() == 5
+				&& MonthTF.getText().length() == 2 && YearTF.getText().length() == 2
+				&& !CaptchaTF.getText().equals("")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-    private void Alert(AlertType AlertType, String Content) {
-        Alert alert = new Alert(AlertType);
-        alert.setHeaderText(null);
-        alert.setContentText(Content);
-        alert.show();
-    }
+	private void Alert(AlertType AlertType, String Content) {
+		Alert alert = new Alert(AlertType);
+		alert.setHeaderText(null);
+		alert.setContentText(Content);
+		alert.show();
+	}
 
 }
