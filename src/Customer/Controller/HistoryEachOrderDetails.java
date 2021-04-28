@@ -1,98 +1,110 @@
 package Customer.Controller;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class HistoryEachOrderDetails {
-    @FXML
-    private Label ShippingFeeLBL;
-    @FXML
-    private Label ShippingDateLBL;
-    @FXML
-    private Label ShippingIDLBL;
-    @FXML
-    private Label TransactionTotalPriceLBL;
-    @FXML
-    private Label TransactionDateLBL;
-    @FXML
-    private Label TransactionIDLBL;
-    @FXML
-    private Label OrderID;
-    @FXML
-    private Label StatusFinishedLBL;
-    @FXML
-    private Label StatusSendingLBL;
+	@FXML
+	private Label ShippingFeeLBL;
+	@FXML
+	private Label ShippingDateLBL;
+	@FXML
+	private Label ShippingIDLBL;
+	@FXML
+	private Label TransactionTotalPriceLBL;
+	@FXML
+	private Label TransactionDateLBL;
+	@FXML
+	private Label TransactionIDLBL;
+	@FXML
+	private Label OrderID;
+	@FXML
+	private Label StatusFinishedLBL;
+	@FXML
+	private Label StatusSendingLBL;
+	@FXML
+	private JFXButton viewProducts;
 
-    public Label getShippingFeeLBL() {
-        return ShippingFeeLBL;
-    }
+	public JFXButton getViewProducts() {
+		return viewProducts;
+	}
 
-    public void setShippingFeeLBL(Label shippingFeeLBL) {
-        ShippingFeeLBL = shippingFeeLBL;
-    }
+	public void setViewProducts(JFXButton viewProducts) {
+		this.viewProducts = viewProducts;
+	}
 
-    public Label getShippingDateLBL() {
-        return ShippingDateLBL;
-    }
+	public Label getShippingFeeLBL() {
+		return ShippingFeeLBL;
+	}
 
-    public void setShippingDateLBL(Label shippingDateLBL) {
-        ShippingDateLBL = shippingDateLBL;
-    }
+	public void setShippingFeeLBL(Label shippingFeeLBL) {
+		ShippingFeeLBL = shippingFeeLBL;
+	}
 
-    public Label getShippingIDLBL() {
-        return ShippingIDLBL;
-    }
+	public Label getShippingDateLBL() {
+		return ShippingDateLBL;
+	}
 
-    public void setShippingIDLBL(Label shippingIDLBL) {
-        ShippingIDLBL = shippingIDLBL;
-    }
+	public void setShippingDateLBL(Label shippingDateLBL) {
+		ShippingDateLBL = shippingDateLBL;
+	}
 
-    public Label getTransactionTotalPriceLBL() {
-        return TransactionTotalPriceLBL;
-    }
+	public Label getShippingIDLBL() {
+		return ShippingIDLBL;
+	}
 
-    public void setTransactionTotalPriceLBL(Label transactionTotalPriceLBL) {
-        TransactionTotalPriceLBL = transactionTotalPriceLBL;
-    }
+	public void setShippingIDLBL(Label shippingIDLBL) {
+		ShippingIDLBL = shippingIDLBL;
+	}
 
-    public Label getTransactionDateLBL() {
-        return TransactionDateLBL;
-    }
+	public Label getTransactionTotalPriceLBL() {
+		return TransactionTotalPriceLBL;
+	}
 
-    public void setTransactionDateLBL(Label transactionDateLBL) {
-        TransactionDateLBL = transactionDateLBL;
-    }
+	public void setTransactionTotalPriceLBL(Label transactionTotalPriceLBL) {
+		TransactionTotalPriceLBL = transactionTotalPriceLBL;
+	}
 
-    public Label getTransactionIDLBL() {
-        return TransactionIDLBL;
-    }
+	public Label getTransactionDateLBL() {
+		return TransactionDateLBL;
+	}
 
-    public void setTransactionIDLBL(Label transactionIDLBL) {
-        TransactionIDLBL = transactionIDLBL;
-    }
+	public void setTransactionDateLBL(Label transactionDateLBL) {
+		TransactionDateLBL = transactionDateLBL;
+	}
 
-    public Label getOrderID() {
-        return OrderID;
-    }
+	public Label getTransactionIDLBL() {
+		return TransactionIDLBL;
+	}
 
-    public void setOrderID(Label orderID) {
-        OrderID = orderID;
-    }
+	public void setTransactionIDLBL(Label transactionIDLBL) {
+		TransactionIDLBL = transactionIDLBL;
+	}
 
-    public Label getStatusFinishedLBL() {
-        return StatusFinishedLBL;
-    }
+	public Label getOrderID() {
+		return OrderID;
+	}
 
-    public void setStatusFinishedLBL(Label statusFinishedLBL) {
-        StatusFinishedLBL = statusFinishedLBL;
-    }
+	public void setOrderID(Label orderID) {
+		OrderID = orderID;
+	}
 
-    public Label getStatusSendingLBL() {
-        return StatusSendingLBL;
-    }
+	public Label getStatusFinishedLBL() {
+		return StatusFinishedLBL;
+	}
 
-    public void setStatusSendingLBL(Label statusSendingLBL) {
-        StatusSendingLBL = statusSendingLBL;
-    }
+	public void setStatusFinishedLBL(Label statusFinishedLBL) {
+		StatusFinishedLBL = statusFinishedLBL;
+	}
+
+	public Label getStatusSendingLBL() {
+		return StatusSendingLBL;
+	}
+
+	public void setStatusSendingLBL(Label statusSendingLBL) {
+		StatusSendingLBL = statusSendingLBL;
+	}
 
 }

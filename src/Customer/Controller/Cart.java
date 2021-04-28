@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.ResourceBundle;
+
 import CommonPages.Controllers.MainStructure;
 import Controller.UserController;
 import DataController.DBConnector;
@@ -265,10 +266,15 @@ public class Cart implements Initializable {
 	Random random = new Random();
 
 	private void showSpecialProduct(AnchorPane pane) {
-		ArrayList<Product> specialProduct = new ArrayList<>();
+		ArrayList<Product> specialProduct = new ArrayList<Product>();
+		ArrayList<Product> AllSpecialProducts = ProductChecker.GetSpecialProducts();
+
 		for (int i = 0; i < 5; i++) {
-			specialProduct.add(ProductChecker.GetSpecialProducts()
-					.get(random.nextInt(ProductChecker.GetSpecialProducts().size())));
+			int index = random.nextInt(AllSpecialProducts.size());
+			while (specialProduct.contains(AllSpecialProducts.get(index))) {
+				index = random.nextInt(AllSpecialProducts.size());
+			}
+			specialProduct.add(AllSpecialProducts.get(index));
 		}
 		int i = 0;
 		for (Product product : specialProduct) {
