@@ -2,17 +2,18 @@ package Customer.Controller;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.*;
-
+import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
-
 import Controller.UserController;
 import DataController.*;
-import javafx.fxml.*;
-import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.AnchorPane;
 import Model.*;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import Model.Order.OrderStatus;
 
 public class Payment implements Initializable {
@@ -45,6 +46,8 @@ public class Payment implements Initializable {
     @FXML
     private Label AmountLBL;
 
+    public String FinishedAlertText = "حساب با موفقیت شارژ شد";
+
     public static boolean TransactionMode = false;
 
     public static String FinalPrice;
@@ -53,6 +56,9 @@ public class Payment implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Captcha captcha = new Captcha(300, 40, 7);
+        CaptchaPanel.getChildren().add(captcha);
+
         LimitTextFieldPassToNext();
         RequestOTP.setOnAction((e) -> {
             SMSSender.SendOTP(UserController.customer.Phone);
@@ -62,7 +68,7 @@ public class Payment implements Initializable {
                 Alert(AlertType.ERROR, "بعضی از فیلد ها کامل نیستند !");
             } else if (!SMSSender.getOTP().equals(OTPTF.getText())) {
                 Alert(AlertType.ERROR, "رمز یک بار مصرف درست نیست !");
-            } else if (!Captcha.captchaResult.equals(CaptchaTF.getText())) {
+            } else if (!captcha.getCaptchaResult().equals(CaptchaTF.getText())) {
                 Alert(AlertType.ERROR, "حروف تصویر نادرست است !");
             } else {
                 if (TransactionMode) {

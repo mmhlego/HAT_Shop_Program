@@ -4,12 +4,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
-import javafx.stage.*;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static void main(String[] args) {
 		//long start = System.currentTimeMillis();
-
 		launch(args);
 		//PrintEstimatedTime(start);
 	}
@@ -44,8 +44,10 @@ public class Main extends Application {
 		});
 
 		thread.start();
-		// FXMLLoader loader = new FXMLLoader(this.getClass().getResource("LoginPage/View/FirstPage.fxml"));
+		// FXMLLoader loader = new
+		// FXMLLoader(this.getClass().getResource("LoginPage/View/FirstPage.fxml"));
 		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Customer/Visual/Payment.fxml"));
+		/* Scene scene = new Scene(new Captcha(300, 40, 7)); */
 		Scene scene = new Scene(loader.load());
 		scene.setFill(Color.TRANSPARENT);
 		primaryStage.initStyle(StageStyle.TRANSPARENT);
