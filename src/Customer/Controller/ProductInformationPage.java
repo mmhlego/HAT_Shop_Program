@@ -212,21 +212,31 @@ public class ProductInformationPage implements Initializable {
 		LoadMoreBTN = loadMoreBTN;
 	}
 
+	int AmountInsideCart = 0;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount, DecreaseBTN, IncreaseBTN);
 		if (p.Amount == 0) {
 			SelectedAmountLBL.setText("0");
 		}
+
+		int index = UserController.Cart.contains(p.ID);
+		if (index != -1) {
+			AmountInsideCart = UserController.Cart.Amounts.get(index);
+		}
+
 		// UserController.Cart.addProduct(p, amount);
 		IncreaseBTN.setOnAction(e -> {
 			SelectedAmountLBL.setText(String.valueOf(Integer.parseInt(SelectedAmountLBL.getText()) + 1));
-			checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount, DecreaseBTN, IncreaseBTN);
+			checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount - AmountInsideCart, DecreaseBTN,
+					IncreaseBTN);
 		});
 
 		DecreaseBTN.setOnAction(e -> {
 			SelectedAmountLBL.setText(String.valueOf(Integer.parseInt(SelectedAmountLBL.getText()) - 1));
-			checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount, DecreaseBTN, IncreaseBTN);
+			checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount - AmountInsideCart, DecreaseBTN,
+					IncreaseBTN);
 		});
 
 		AddToCartBTN.setOnAction(e -> {

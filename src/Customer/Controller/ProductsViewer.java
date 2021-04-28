@@ -298,8 +298,8 @@ public class ProductsViewer implements Initializable {
 		if (p.Amount == 0) {
 			c.getBuyBTN().setDisable(true);
 		}
-		c.getBuyBTN().setOnAction(e -> {
 
+		c.getBuyBTN().setOnAction(e -> {
 			c.getBuyBTN().setVisible(false);
 			c.getAddToCartGroup().setVisible(true);
 		});
@@ -310,6 +310,7 @@ public class ProductsViewer implements Initializable {
 		c.getProductIMG().setImage(image);
 		c.getProductNameLBL().setText(p.Name);
 		c.getProductPriceLBL().setText(String.valueOf(p.Price));
+
 		ObservableList<Map<String, Object>> items = FXCollections.<Map<String, Object>>observableArrayList();
 		for (int j = 0; j < p.Details.length; j++) {
 			Map<String, Object> item = new HashMap<>();
@@ -322,6 +323,7 @@ public class ProductsViewer implements Initializable {
 		c.getProductDetailsTable().setItems(items);
 		c.getSpecialTXT().setVisible(false);
 		showSpecialProduct(c.getSimilarProductsAnchor());
+
 		if (special) {
 			c.getSpecialTXT().setVisible(true);
 			c.getSpecialIMG().setVisible(true);
@@ -329,6 +331,7 @@ public class ProductsViewer implements Initializable {
 			c.getSpecialTXT().setVisible(false);
 			c.getSpecialIMG().setVisible(false);
 		}
+
 		c.getLoadMoreBTN().toFront();
 		c.getLoadMoreBTN().setOnAction(e -> {
 			ProductsViewer controller = (ProductsViewer) MainStructure
@@ -338,7 +341,7 @@ public class ProductsViewer implements Initializable {
 		});
 	}
 
-	Random random = new Random();
+	Random random = new Random(System.currentTimeMillis());
 
 	private void showSpecialProduct(AnchorPane pane) {
 		ArrayList<Product> specialProduct = new ArrayList<>();
