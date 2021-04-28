@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.ResourceBundle;
-
 import CommonPages.Controllers.MainStructure;
 import Controller.UserController;
 import DataController.DBConnector;
@@ -200,7 +199,6 @@ public class Cart implements Initializable {
 		SumOfPricesLBL.setText(String.valueOf(basePrice));
 		FinalPriceLBL.setText(String.valueOf(finalPrice));
 		SumOfDiscountsLBL.setText(String.valueOf(basePrice - finalPrice));
-		Random random = new Random(System.currentTimeMillis());
 
 		if (ShippingDateLBL.getText().equals("-")) {
 			LocalDate date = LocalDate.now().plusDays(5);

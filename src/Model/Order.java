@@ -99,6 +99,17 @@ public class Order {
 		CalculateTotalValue();
 	}
 
+	public int contains(String ProductID) {
+		int counter = 0;
+		for (Product p : Products) {
+			if (p.ID.equals(ProductID)) {
+				return counter;
+			}
+			counter++;
+		}
+		return -1;
+	}
+
 	public void PrintDetails() {
 		System.out.println("==================Order================");
 		System.out.println("owner: " + OwnerID);

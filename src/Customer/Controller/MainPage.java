@@ -191,11 +191,17 @@ public class MainPage implements Initializable {
 	private void addSpecialProducts() throws Exception {
 
 		ArrayList<Product> specialProduct = new ArrayList<Product>();
+		ArrayList<Product> AllSpecialProducts = ProductChecker.GetSpecialProducts();
+
 		for (int i = 0; i < 3; i++) {
-			specialProduct.add(ProductChecker.GetSpecialProducts()
-					.get(random.nextInt(ProductChecker.GetSpecialProducts().size())));
+			int index = random.nextInt(AllSpecialProducts.size());
+			while (specialProduct.contains(AllSpecialProducts.get(index))) {
+				index = random.nextInt(AllSpecialProducts.size());
+			}
+			specialProduct.add(AllSpecialProducts.get(index));
 		}
 		int i = 0;
+
 		for (Product product : specialProduct) {
 			try {
 				if (!product.equals(new Product())) {

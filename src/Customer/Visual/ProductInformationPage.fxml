@@ -12,13 +12,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.ProductInformationPage">
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.ProductInformationPage">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1150.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;">
          <children>
             <AnchorPane layoutX="705.0" layoutY="25.0" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
                <children>
-                  <ImageView fx:id="ProductIMG" fitHeight="340.0" fitWidth="340.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ProductIMG" fitHeight="340.0" fitWidth="340.0" layoutX="5.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="CROSSHAIR" />
+                     </cursor></ImageView>
                </children>
             </AnchorPane>
             <AnchorPane layoutX="25.0" layoutY="25.0" prefHeight="350.0" prefWidth="655.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
@@ -27,6 +30,9 @@
                      <font>
                         <Font name="B Koodak Bold" size="18.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <ImageView fitHeight="150.0" fitWidth="162.0" layoutX="78.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" />
                   <Label fx:id="ProductNameLBL" alignment="CENTER" layoutX="25.0" layoutY="10.0" minHeight="35.0" prefWidth="605.0" style="-fx-border-color: #769FCD; -fx-border-width: 0 0 2 0;" text="نام کالا" textFill="#1c7ce2">
@@ -64,7 +70,7 @@
                         <Font name="B Koodak Bold" size="16.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="SpecialIMG" fitHeight="80.0" fitWidth="80.0" layoutX="67.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="SpecialIMG" fitHeight="80.0" fitWidth="80.0" layoutX="67.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" visible="false" />
                   <Label fx:id="SpecialTXT" alignment="CENTER" layoutX="67.0" layoutY="175.0" prefHeight="40.0" prefWidth="80.0" text="پیشنهاد ویژه" textFill="RED" visible="false">
                      <font>
                         <Font name="B Kamran" size="22.0" />
@@ -76,17 +82,26 @@
                            <font>
                               <Font name="B Koodak Bold" size="18.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button fx:id="IncreaseBTN" layoutX="351.1000003814697" layoutY="3.100006103515625" maxHeight="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="86.0" style="-fx-background-color: #769FCD; -fx-background-radius: 5 0 0 5;" text="+" textFill="WHITE">
                            <font>
                               <Font name="B Koodak Bold" size="20.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Label fx:id="SelectedAmountLBL" alignment="CENTER" layoutX="437.1000003814697" layoutY="3.100006103515625" prefHeight="52.0" prefWidth="86.0" style="-fx-background-color: #F7FBFC; -fx-border-color: #769FCD; -fx-border-width: 1 0 1 0;" text="1" />
                         <Button fx:id="DecreaseBTN" layoutX="523.1000003814697" layoutY="3.100006103515625" maxHeight="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="86.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0  5 5 0;" text="-" textFill="WHITE">
                            <font>
                               <Font name="B Koodak Bold" size="20.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                   </Group>

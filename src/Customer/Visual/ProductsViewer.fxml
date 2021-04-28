@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;" stylesheets="@AllProducts.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.ProductsViewer">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #F7FBFC;" stylesheets="@AllProducts.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.ProductsViewer">
    <children>
       <ScrollPane hbarPolicy="NEVER" layoutX="350.0" layoutY="25.0" prefHeight="650.0" prefWidth="725.0" style="-fx-border-color: #F7FBFC; -fx-background-color: #F7FBFC;">
         <content>
-          <AnchorPane fx:id="ProductsPanel" minHeight="0.0" minWidth="0.0" prefHeight="645.0" prefWidth="725.0" style="-fx-background-color: #F7FBFC;" />
+          <AnchorPane fx:id="ProductsPanel" minHeight="645.0" minWidth="0.0" prefHeight="645.0" prefWidth="725.0" style="-fx-background-color: #F7FBFC;" />
         </content>
       </ScrollPane>
       <AnchorPane layoutX="25.0" layoutY="25.0" prefHeight="650.0" prefWidth="300.0" style="-fx-background-color: white; -fx-border-radius: 5; -fx-border-color: #769FCD;">
