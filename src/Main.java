@@ -44,10 +44,7 @@ public class Main extends Application {
 		});
 
 		thread.start();
-		// FXMLLoader loader = new
-		// FXMLLoader(this.getClass().getResource("LoginPage/View/FirstPage.fxml"));
-		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Customer/Visual/Payment.fxml"));
-		/* Scene scene = new Scene(new Captcha(300, 40, 7)); */
+		FXMLLoader loader = new FXMLLoader(this.getClass().getResource("LoginPage/View/FirstPage.fxml"));
 		Scene scene = new Scene(loader.load());
 		scene.setFill(Color.TRANSPARENT);
 		primaryStage.initStyle(StageStyle.TRANSPARENT);
