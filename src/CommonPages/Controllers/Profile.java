@@ -8,6 +8,7 @@ import CommonPages.Controllers.Component.ProfileContact;
 import CommonPages.Controllers.Component.ProfilePersonal;
 import Controller.UserController;
 import Controller.UserController.UserMode;
+import Model.Customer.CustomerMode;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -46,6 +47,9 @@ public class Profile implements Initializable {
 		backAnimation(AccountBTN);
 		backAnimation(ContactBTN);
 		if (UserController.Mode.equals(UserMode.Customer)) {
+			if (UserController.customer.Mode.equals(CustomerMode.PREMIUM)) {
+				PremiumLBL.setVisible(true);
+			}
 			p.getFirstNameLBL().setText(UserController.customer.FirstName);
 			p.getLastNameLBL().setText(UserController.customer.LastName);
 		} else if (UserController.Mode.equals(UserMode.Employee)) {
