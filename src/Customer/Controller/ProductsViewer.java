@@ -167,8 +167,8 @@ public class ProductsViewer implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		MaxPriceSlider.setMin(ProductChecker.GetMinValue() / 10000);
-		MaxPriceSlider.setMax(ProductChecker.GetMaxValue() / 10000);
-		MaxPriceSlider.setValue(ProductChecker.GetMaxValue() / 10000);
+		MaxPriceSlider.setMax(ProductChecker.GetMaxValue() / 10000 + 1);
+		MaxPriceSlider.setValue(ProductChecker.GetMaxValue() / 10000 + 1);
 		MaxPriceLBL.setText(String.valueOf((long) MaxPriceSlider.getValue() * 10000) + " تومان");
 		MaxPriceSlider.setOnMouseDragged(e -> {
 			MaxPriceLBL.setText(String.valueOf((long) MaxPriceSlider.getValue() * 10000) + " تومان");
@@ -215,7 +215,7 @@ public class ProductsViewer implements Initializable {
 					p.setOnMouseClicked(e -> buyPage(product, image));
 					controller.getBuyButton().setOnAction(e -> buyPage(product, image));
 					for (Product spProduct : SpecialProduct) {
-						if (product.equals(spProduct)) {
+						if (product.ID.equals(spProduct.ID)) {
 							controller.getSpecialEvents().setText("کالای شگفت انگیز");
 							controller.getSpecialEvents().setVisible(true);
 							special = true;
@@ -238,7 +238,8 @@ public class ProductsViewer implements Initializable {
 
 		for (Product product : FilteredProducts) {
 			if (product.Name.toLowerCase().contains(searchText)
-					|| product.Description.toLowerCase().contains(searchText)) {
+					|| product.Description.toLowerCase().contains(searchText)
+					|| product.ID.toLowerCase().contains(searchText)) {
 				ShowingProducts.add(product);
 			}
 		}
@@ -255,7 +256,7 @@ public class ProductsViewer implements Initializable {
 
 			if (product.Price <= (MaxPriceSlider.getValue() * 10000)) {
 
-				if (product.Amount >= 0 || !OnlyAvailableToggle.isSelected()) {
+				if ((product.Amount > 0 && OnlyAvailableToggle.isSelected()) || !OnlyAvailableToggle.isSelected()) {
 					switch (product.Category) {
 					case Product.ACCESSORIES:
 						if (AccessoriesCategoryToggle.isSelected()) {
@@ -291,12 +292,18 @@ public class ProductsViewer implements Initializable {
 	}
 
 	public void buyPage(Product p, Image image) {
+		ProductInformationPage.p = p;
 		ProductInformationPage c = (ProductInformationPage) MainStructure
 				.addPage("src/Customer/Visual/ProductInformationPage.fxml");
+		if (p.Amount == 0) {
+			c.getBuyBTN().setDisable(true);
+		}
 		c.getBuyBTN().setOnAction(e -> {
+
 			c.getBuyBTN().setVisible(false);
 			c.getAddToCartGroup().setVisible(true);
 		});
+
 		c.getProductCategoryLBL().setText(p.Category);
 		c.getProductDescriptionTXT().setText(p.Description);
 		c.getProductIDLBL().setText(p.ID);
@@ -317,6 +324,10 @@ public class ProductsViewer implements Initializable {
 		showSpecialProduct(c.getSimilarProductsAnchor());
 		if (special) {
 			c.getSpecialTXT().setVisible(true);
+			c.getSpecialIMG().setVisible(true);
+		} else {
+			c.getSpecialTXT().setVisible(false);
+			c.getSpecialIMG().setVisible(false);
 		}
 		c.getLoadMoreBTN().toFront();
 		c.getLoadMoreBTN().setOnAction(e -> {

@@ -240,9 +240,11 @@ public class MainPage implements Initializable {
 
 	private void ShowProduct(Product product, Image image) {
 		try {
+			ProductInformationPage.p = product;
 			FXMLLoader l = new FXMLLoader(getClass().getResource("../Visual/ProductsViewer.fxml"));
 			l.load();
 			ProductsViewer viewer = l.getController();
+
 			viewer.buyPage(product, image);
 		} catch (Exception er) {
 			er.printStackTrace();

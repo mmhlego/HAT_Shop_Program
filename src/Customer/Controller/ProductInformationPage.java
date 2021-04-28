@@ -3,7 +3,11 @@ package Customer.Controller;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
+
 import com.jfoenix.controls.JFXTextArea;
+
+import Controller.UserController;
+import Model.Product;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
@@ -53,6 +57,8 @@ public class ProductInformationPage implements Initializable {
 	private TableColumn<Map, String> InformationColumn;
 	@FXML
 	private TableColumn<Map, String> MColumn;
+
+	public static Product p;
 
 	public TableView<Map<String, Object>> getProductDetailsTable() {
 		return ProductDetailsTable;
@@ -208,7 +214,37 @@ public class ProductInformationPage implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount, DecreaseBTN, IncreaseBTN);
+		if (p.Amount == 0) {
+			SelectedAmountLBL.setText("0");
+		}
+		// UserController.Cart.addProduct(p, amount);
+		IncreaseBTN.setOnAction(e -> {
+			SelectedAmountLBL.setText(String.valueOf(Integer.parseInt(SelectedAmountLBL.getText()) + 1));
+			checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount, DecreaseBTN, IncreaseBTN);
+		});
 
+		DecreaseBTN.setOnAction(e -> {
+			SelectedAmountLBL.setText(String.valueOf(Integer.parseInt(SelectedAmountLBL.getText()) - 1));
+			checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount, DecreaseBTN, IncreaseBTN);
+		});
+
+		AddToCartBTN.setOnAction(e -> {
+			UserController.Cart.addProduct(p, Integer.parseInt(SelectedAmountLBL.getText()));
+			UserController.UpdateCart();
+		});
 	}
 
+	private void checkAmount(int amount, int max, Button dButton, Button iButton) {
+		if (amount > 1) {
+			dButton.setDisable(false);
+		} else {
+			dButton.setDisable(true);
+		}
+		if (amount < max) {
+			iButton.setDisable(false);
+		} else {
+			iButton.setDisable(true);
+		}
+	}
 }
