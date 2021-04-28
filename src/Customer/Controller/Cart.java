@@ -229,6 +229,9 @@ public class Cart implements Initializable {
 		ProductInformationPage.p = p;
 		ProductInformationPage c = (ProductInformationPage) MainStructure
 				.addPage("src/Customer/Visual/ProductInformationPage.fxml");
+		if (p.Amount == 0) {
+			c.getBuyBTN().setDisable(true);
+		}
 		c.getBuyBTN().setOnAction(e -> {
 			c.getBuyBTN().setVisible(false);
 			c.getAddToCartGroup().setVisible(true);
