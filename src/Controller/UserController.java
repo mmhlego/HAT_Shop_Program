@@ -50,7 +50,7 @@ public class UserController {
         LoadUserFullData();
     }
 
-    private static void LoadUserFullData() {
+    public static void LoadUserFullData() {
         if (Mode.equals(UserMode.Customer)) {
             Cart = UserGetter.GetCartDB(customer.ID);
             AllOrders = UserGetter.ConvertOrderToArrayList(UserGetter.GetOrdersDB(customer.ID));

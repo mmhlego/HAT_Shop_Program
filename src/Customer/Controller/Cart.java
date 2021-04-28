@@ -1,7 +1,6 @@
 package Customer.Controller;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,21 +11,34 @@ import java.util.ResourceBundle;
 
 import CommonPages.Controllers.MainStructure;
 import Controller.UserController;
+import DataController.DBConnector;
+import DataController.DataAdder;
+import DataController.DataUpdator;
 import DataController.ProductChecker;
+import DataController.UserUpdator;
+import Model.Order;
 import Model.Product;
 import Model.Shipping;
+import Model.Transaction;
+import Model.Order.OrderStatus;
+
+import java.io.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Cart implements Initializable {
 	@FXML
@@ -60,6 +72,38 @@ public class Cart implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		PayOrderFromPaymentBTN.setOnAction((e) -> {
+			Payment.FinalPrice = FinalPriceLBL.getText();
+			Payment.ShippingDate = ShippingDateLBL.getText();
+			Payment.ShippingFee = ShippingFeeLBL.getText();
+
+			DBConnector.stage.hide();
+			try {
+				FXMLLoader loader = new FXMLLoader(new File("src/Customer/Visual/Payment.fxml").toURI().toURL());
+
+				Scene scene = new Scene(loader.load());
+				scene.setFill(Color.TRANSPARENT);
+				Stage stage = new Stage(StageStyle.TRANSPARENT);
+				stage.setScene(scene);
+				stage.show();
+				Payment.TransactionMode = true;
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		});
+
+		PayOrderFromValueBTN.setOnAction((e) -> {
+			UserUpdator.UpdateValue(UserController.customer.Username, -Long.parseLong(FinalPriceLBL.getText()));
+			UserController.Cart.Status = OrderStatus.SENDING;
+			DataUpdator.UpdateOrderStatus(UserController.Cart);
+			DataAdder.AddShipping(UserController.Cart.OrderID, 0, Long.parseLong(ShippingFeeLBL.getText()),
+					LocalDate.parse(ShippingDateLBL.getText()), Shipping.GenerateID());
+			DataAdder.AddTransaction(UserController.Cart.OwnerID, Long.parseLong(FinalPriceLBL.getText()),
+					LocalDate.parse(ShippingDateLBL.getText()), Transaction.GenerateID());
+			DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
+			UserController.LoadUserFullData();
+		});
 	}
 
 	int i = 0;
@@ -266,7 +310,7 @@ public class Cart implements Initializable {
 	}
 
 	private void addEmptyPage() throws Exception {
-		FinalizeOrderBTN.getParent().setVisible(false);
+		PayOrderFromValueBTN.getParent().setVisible(false);
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/CartEmpty.fxml"));
 		Parent parent = loader.load();
 		ProductsListPanel.getChildren().add(parent);
