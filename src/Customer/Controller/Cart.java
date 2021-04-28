@@ -1,25 +1,43 @@
 package Customer.Controller;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.ResourceBundle;
 
 import CommonPages.Controllers.MainStructure;
 import Controller.UserController;
-import DataController.*;
-import Model.*;
+import DataController.DBConnector;
+import DataController.DataAdder;
+import DataController.DataUpdator;
+import DataController.ProductChecker;
+import DataController.UserUpdator;
+import Model.Order;
 import Model.Order.OrderStatus;
-
-import java.io.*;
-import javafx.collections.*;
-import javafx.fxml.*;
-import javafx.scene.*;
-import javafx.scene.control.*;
+import Model.Product;
+import Model.Shipping;
+import Model.Transaction;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.MapValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.stage.*;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Cart implements Initializable {
 	@FXML
@@ -173,7 +191,7 @@ public class Cart implements Initializable {
 
 			});
 			fees += Shipping.generateFee(UserController.Cart.Amounts.get(i), UserController.customer.Mode);
-			basePrice += p.Price;
+			basePrice += p.Price * UserController.Cart.Amounts.get(i);
 			finalPrice += Product.getTotalValue(p, UserController.Cart.Amounts.get(i));
 			ProductsListPanel.getChildren().add(parent);
 			i++;
@@ -181,11 +199,11 @@ public class Cart implements Initializable {
 		ShippingFeeLBL.setText(String.valueOf(fees));
 		SumOfPricesLBL.setText(String.valueOf(basePrice));
 		FinalPriceLBL.setText(String.valueOf(finalPrice));
-		SumOfDiscountsLBL.setText(String.valueOf((basePrice / (double) finalPrice) * 100));
+		SumOfDiscountsLBL.setText(String.valueOf(basePrice - finalPrice));
 		Random random = new Random(System.currentTimeMillis());
 
 		if (ShippingDateLBL.getText().equals("-")) {
-			LocalDate date = LocalDate.now().plusDays(1 + random.nextInt(5));
+			LocalDate date = LocalDate.now().plusDays(5);
 			ShippingDateLBL.setText(date.toString());
 		}
 
