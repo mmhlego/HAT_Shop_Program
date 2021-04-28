@@ -4,6 +4,9 @@ import java.sql.*;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Alert;
+
 public class UserUpdator {
 
     public static void Update() {
@@ -36,15 +39,37 @@ public class UserUpdator {
                     .RunCommand("SELECT Value FROM Customers WHERE Username=" + "\'" + Username + "\'");
             r.next();
             long CurrentValue = r.getLong(1);
-            long NewValue = CurrentValue + Amount;
-            PreparedStatement ps = DBConnector.Con.prepareStatement("UPDATE Customers SET Value=" + "\'" + NewValue
-                    + "\'" + "WHERE Username=" + "\'" + Username + "\'");
-            ps.executeUpdate();
+            long NewValue = CurrentValue;
+            if (Amount > 0) {
+                NewValue = CurrentValue + Amount;
+                PreparedStatement ps = DBConnector.Con.prepareStatement(
+                        "UPDATE Customers SET Value=" + NewValue + " WHERE Username=" + "\'" + Username + "\'");
+                ps.executeUpdate();
+                Alert(AlertType.INFORMATION, "حساب با موفقیت شارژ شد");
+            } else {
+                if (-Amount < CurrentValue) {
+                    NewValue = CurrentValue + Amount;
+                    PreparedStatement ps = DBConnector.Con.prepareStatement(
+                            "UPDATE Customers SET Value=" + NewValue + " WHERE Username=" + "\'" + Username + "\'");
+                    ps.executeUpdate();
+                    Alert(AlertType.INFORMATION, "پرداخت با موفقیت انجام شد");
+                } else {
+                    Alert(AlertType.ERROR, "اعتبار حساب کافی نیست !");
+                }
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static void Alert(AlertType AlertType, String Content) {
+        Alert alert = new Alert(AlertType);
+        alert.setHeaderText(null);
+        alert.setContentText(Content);
+        alert.show();
     }
 
 }

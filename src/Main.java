@@ -11,7 +11,6 @@ public class Main extends Application {
 		//long start = System.currentTimeMillis();
 
 		launch(args);
-
 		//PrintEstimatedTime(start);
 	}
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import Model.Order;
 
-public class DataUpdater {
+public class DataUpdator {
     public static void UpdateOrder(Order o) {
         try {
             UpdateOrder(o.GetProductIDs(), o.Amounts, o.TotalValue, o.OrderID);

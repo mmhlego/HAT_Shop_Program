@@ -1,6 +1,7 @@
 package Customer.Controller;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.*;
 
 import com.jfoenix.controls.JFXButton;
@@ -12,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import Model.*;
+import Model.Order.OrderStatus;
 
 public class Payment implements Initializable {
     @FXML
@@ -43,7 +45,11 @@ public class Payment implements Initializable {
     @FXML
     private Label AmountLBL;
 
-    public String FinishedAlertText = "حساب با موفقیت شارژ شد";
+    public static boolean TransactionMode = false;
+
+    public static String FinalPrice;
+    public static String ShippingDate;
+    public static String ShippingFee;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,9 +65,24 @@ public class Payment implements Initializable {
             } else if (!Captcha.captchaResult.equals(CaptchaTF.getText())) {
                 Alert(AlertType.ERROR, "حروف تصویر نادرست است !");
             } else {
-                UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
-                Alert(AlertType.INFORMATION, FinishedAlertText);
+                if (TransactionMode) {
+                    UserController.Cart.Status = OrderStatus.SENDING;
+                    DataUpdator.UpdateOrderStatus(UserController.Cart);
+                    DataAdder.AddShipping(UserController.Cart.OrderID, 0, Long.parseLong(ShippingFee),
+                            LocalDate.parse(ShippingDate), Shipping.GenerateID());
+                    DataAdder.AddTransaction(UserController.Cart.OwnerID, Long.parseLong(FinalPrice),
+                            LocalDate.parse(ShippingDate), Transaction.GenerateID());
+                    DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
+                } else {
+                    UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
+                }
+                UserController.LoadUserFullData();
             }
+        });
+
+        CancelBTN.setOnAction((e) -> {
+            CancelBTN.getParent().getScene().getWindow().hide();
+            DBConnector.stage.show();
         });
     }
 
@@ -87,15 +108,10 @@ public class Payment implements Initializable {
         }
     }
 
-    private void SetFinishedAlertText(String txt) {
-        FinishedAlertText = txt;
-    }
-
     private void Alert(AlertType AlertType, String Content) {
         Alert alert = new Alert(AlertType);
         alert.setHeaderText(null);
         alert.setContentText(Content);
         alert.show();
     }
-
 }
