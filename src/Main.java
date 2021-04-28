@@ -10,7 +10,8 @@ import javafx.stage.StageStyle;
 public class Main extends Application {
 	public static void main(String[] args) {
 		// long start = System.currentTimeMillis();
-		launch(args);
+		System.out.println(DBConnector.Connect());
+		// launch(args);
 		// PrintEstimatedTime(start);
 	}
 

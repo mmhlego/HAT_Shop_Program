@@ -256,155 +256,185 @@ public class ProductCreator {
 				Product.ParseToArray("[[نوع دیسک : ,DVD],[تعداد دیسک : ,2]]"), 230000, 0, Product.BOOK, 70,
 				Product.GenerateID());
 
-		/*Product P51 = new Product("Nokia 5.4", "گوشی موبایل «5.4» از سری محصولات جدید و خوش‌ساختی است که از سوی شرکت مطرح «نوکیا» (Nokia) روانه بازار شده است. صفحه‌نمایش این گوشی موبایل در اندازه 6.39 اینچ است و از فناوری IPS بهره می برد.", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
-				Product.PHONE, amo, Product.GenerateID());
-		
-		Product P52 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
-				Product.PHONE, amo, Product.GenerateID());
-		
-		Product P53 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
-				Product.PHONE, amo, Product.GenerateID());
-		
-		Product P54 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
-				Product.PHONE, amo, Product.GenerateID());
-		
-		Product P55 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
-				Product.PHONE, amo, Product.GenerateID());
-		
-		Product P56 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
-				Product.PHONE, amo, Product.GenerateID());
-		
-		Product P57 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
-				Product.PHONE, amo, Product.GenerateID());
-		
-		Product P58 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
-				Product.PHONE, amo, Product.GenerateID());
-		
-		Product P59 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
-				Product.PHONE, amo, Product.GenerateID());
-		
-		Product P60 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
-				Product.PHONE, amo, Product.GenerateID());
-		
+		Product P51 = new Product("Nokia 5.4",
+				"گوشی موبایل «5.4» از سری محصولات جدید و خوش‌ساختی است که از سوی شرکت مطرح «نوکیا» (Nokia) روانه بازار شده است. صفحه‌نمایش این گوشی موبایل در اندازه 6.39 اینچ است و از فناوری IPS بهره می برد.",
+				Product.ParseToArray(
+						"[[حافظه داخلی : ,128 گیگابایت],[شبکه های ارتباطی: , 2G/3G/4G],[دوربین‌های پشت گوشی : ,4 ماژول دوربین],[سیستم عامل : ,Android]]"),
+				4780000, 20, Product.PHONE, 150, Product.GenerateID());
+
+		Product P52 = new Product("Moto G 5G Plus",
+				"گوشی «Moto G 5G Plus» از سری محصولات شرکت مطرح موتورولا است که با پنل LTPS IPS و پشتیبانی از فناوری ارتباطی 5G روانه بازار شده است. نمایشگر Moto G 5G Plus از رزولوشن بالایی برخوردار است",
+				Product.ParseToArray(
+						"[[حافظه داخلی : ,128 گیگابایت],[شبکه های ارتباطی: , 2G/3G/4G/5G],[دوربین‌های پشت گوشی : ,4 ماژول دوربین],[سیستم عامل : ,Android]]"),
+				8449000, 10, Product.PHONE, 50, Product.GenerateID());
+
+		Product P53 = new Product("Samsung Galaxy Z Fold",
+				"گوشی موبایل سامسونگ مدل مدل Galaxy Z Fold2 5G SM-F916B تک سیم‌کارت ظرفیت 256 گیگابایت و رم 12 گیگابایت در ۵ آگوست 2020 به بازار عرضه شد تا تنوع محصولات سامسونگ را هرچه بیشتر کند. این گوشی تاشو طراحی نوینی دارد که آن را به محصولی خاص تبدیل کرده است.",
+				Product.ParseToArray(
+						"[[حافظه داخلی : ,256 گیگابایت],[شبکه های ارتباطی: , 2G/3G/4G/5G],[دوربین‌های پشت گوشی : ,3 ماژول دوربین],[سیستم عامل : ,Android]]"),
+				45900000, 0, Product.PHONE, 100, Product.GenerateID());
+
+		Product P54 = new Product("Galaxy Z Flip",
+				"گوشی موبایل «Galaxy Z Flip» در فوریه 2020 به بازار عرضه شد تا تنوع محصولات سامسونگ را هرچه بیشتر کند. این گوشی تاشو طراحی نوینی دارد که آن را به محصولی خاص تبدیل کرده است. نمایشگر این گوشی در زمان باز شدن 6.7 انیچ اندازه دارد",
+				Product.ParseToArray(
+						"[[حافظه داخلی : ,256 گیگابایت],[شبکه های ارتباطی: , 2G/3G/4G],[دوربین‌های پشت گوشی : ,2 ماژول دوربین],[سیستم عامل : ,Android]]"),
+				18599000, 10, Product.PHONE, 500, Product.GenerateID());
+
+		Product P55 = new Product("iPhone SE",
+				"شرکت اپل نسل دوم گوشی SEخود را در 15 آوریل 2020 معرفی کرد. این گوشی با بهره‌گیری از سخت‌افزار آیفون 11 و ابعاد جمع‌وجور به‌عنوان گوشی میان رده شرکت اپل روانه بازار شده است. قاب پشتی و جلویی آیفون SE از شیشه و فریم آن از آلومینیوم ساخته شده است.",
+				Product.ParseToArray(
+						"[[حافظه داخلی : ,128 گیگابایت],[شبکه های ارتباطی: , 2G/3G/4G],[دوربین‌های پشت گوشی : ,1 ماژول دوربین],[سیستم عامل : ,IOS]]"),
+				14189000, 10, Product.PHONE, 2, Product.GenerateID());
+
+		Product P56 = new Product("Redmi Note 9",
+				"نسل نهم از گوشی‌های Redmi Note خود را معرفی کرده است. گوشی « Redmi Note 9 » مانند نسخه‌های قبلی این سری از گوشی‌های شیائومی از صفحه‌نمایش بزرگ، باتری پرقدرت، طراحی جذاب دوربین و سخت‌افزار مناسب برای اجرای بازی برخوردار است.",
+				Product.ParseToArray(
+						"[[حافظه داخلی : ,128 گیگابایت],[شبکه های ارتباطی: , 2G/3G/4G],[دوربین‌های پشت گوشی : ,4 ماژول دوربین],[سیستم عامل : ,Android]]"),
+				4235000, 50, Product.PHONE, 9, Product.GenerateID());
+
+		Product P57 = new Product("Nokia TA",
+				"گوشی موبایل «7.2» از سری محصولات جدید و خوش‌ساختی است که از سوی شرکت مطرح «نوکیا» (Nokia) روانه بازار شده است. صفحه‌نمایش این گوشی موبایل در اندازه 6.3 اینچ است و از فناوری IPS بهره می برد.",
+				Product.ParseToArray(
+						"[[حافظه داخلی : ,128 گیگابایت],[شبکه های ارتباطی: , 2G/3G/4G],[دوربین‌های پشت گوشی : ,3 ماژول دوربین],[سیستم عامل : ,Android]]"),
+				5990000, 10, Product.PHONE, 18, Product.GenerateID());
+
+		Product P58 = new Product("Xiaomi Mi",
+				"گوشی «Mi 10» از سری محصولات شرکت مطرح شیائومی است که با پنل سوپرآمولد و پشتیبانی از فناوری ارتباطی 5G روانه بازار شده است. نمایشگر Mi 10 از رزولوشن بالایی برخوردار است",
+				Product.ParseToArray(
+						"[[حافظه داخلی : ,256 گیگابایت],[شبکه های ارتباطی: , 2G/3G/4G/5G],[دوربین‌های پشت گوشی : ,4 ماژول دوربین],[سیستم عامل : ,Android]]"),
+				21800000, 1, Product.PHONE, 300, Product.GenerateID());
+
+		Product P59 = new Product("Xiaomi Poco",
+				"پس از گذشت دو سال از معرفی نسخه اول Pocophone، شرکت شیائومی جانشین آن را با نام « Poco F2 Pro » معرفی کرد. این گوشی از یک صفحه‌نمایش سوپر آمولد با سایز 6.67 اینچ بهره می‌برد. این صفحه‌نمایش قاب جلویی را پوشانده و هیچ بریدگی‌ای در آن دیده نمی‌شود",
+				Product.ParseToArray(
+						"[[حافظه داخلی : ,128 گیگابایت],[شبکه های ارتباطی: , 2G/3G/4G/5G],[دوربین‌های پشت گوشی : ,4 ماژول دوربین],[سیستم عامل : ,Android]]"),
+				1710000, 2, Product.PHONE, 5, Product.GenerateID());
+
+		Product P60 = new Product("Xiaomi Mi 10T",
+				"گوشی موبایل شیائومی مدل Mi 10T PRO 5G M 2007J3SG دو سیم کارت ظرفیت 256 گیگابایت یکی از شگفت‌انگیزترین گوشی‌های کمپانی بزرگ شیائومی است که با رونمایی آن، همه افرادی که از طرفداران شیائومی هستند را شگفت‌زده کرده است",
+				Product.ParseToArray(
+						"[[حافظه داخلی : ,256 گیگابایت],[شبکه های ارتباطی: , 2G/3G/4G/5G],[دوربین‌های پشت گوشی : ,3 ماژول دوربین],[سیستم عامل : ,Android]]"),
+				14359000, 10, Product.PHONE, 300, Product.GenerateID());
+
 		Product P61 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.COMPUTER, amo, Product.GenerateID());
-		
+
 		Product P62 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.COMPUTER, amo, Product.GenerateID());
-		
+
 		Product P63 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.COMPUTER, amo, Product.GenerateID());
-		
+
 		Product P64 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.COMPUTER, amo, Product.GenerateID());
-		
+
 		Product P65 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.COMPUTER, amo, Product.GenerateID());
-		
+
 		Product P66 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.COMPUTER, amo, Product.GenerateID());
-		
+
 		Product P67 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.COMPUTER, amo, Product.GenerateID());
-		
+
 		Product P68 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.COMPUTER, amo, Product.GenerateID());
-		
+
 		Product P69 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.COMPUTER, amo, Product.GenerateID());
-		
+
 		Product P70 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.COMPUTER, amo, Product.GenerateID());
-		
+
 		Product P71 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.ACCESSORIES, amo, Product.GenerateID());
-		
+
 		Product P72 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.ACCESSORIES, amo, Product.GenerateID());
-		
+
 		Product P73 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.ACCESSORIES, amo, Product.GenerateID());
-		
+
 		Product P74 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.ACCESSORIES, amo, Product.GenerateID());
-		
+
 		Product P75 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.ACCESSORIES, amo, Product.GenerateID());
-		
+
 		Product P76 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.ACCESSORIES, amo, Product.GenerateID());
-		
+
 		Product P77 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.ACCESSORIES, amo, Product.GenerateID());
-		
+
 		Product P78 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.ACCESSORIES, amo, Product.GenerateID());
-		
+
 		Product P79 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.ACCESSORIES, amo, Product.GenerateID());
-		
+
 		Product P80 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.ACCESSORIES, amo, Product.GenerateID());
-		
+
 		Product P81 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.SUPERMARKET, amo, Product.GenerateID());
-		
+
 		Product P82 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.SUPERMARKET, amo, Product.GenerateID());
-		
+
 		Product P83 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.SUPERMARKET, amo, Product.GenerateID());
-		
+
 		Product P84 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.SUPERMARKET, amo, Product.GenerateID());
-		
+
 		Product P85 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.SUPERMARKET, amo, Product.GenerateID());
-		
+
 		Product P86 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.SUPERMARKET, amo, Product.GenerateID());
-		
+
 		Product P87 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.SUPERMARKET, amo, Product.GenerateID());
-		
+
 		Product P88 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.SUPERMARKET, amo, Product.GenerateID());
-		
+
 		Product P89 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.SUPERMARKET, amo, Product.GenerateID());
-		
+
 		Product P90 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
 				Product.SUPERMARKET, amo, Product.GenerateID());
-		
+
 		Product P91 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
 				amo, Product.GenerateID());
-		
+
 		Product P92 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
 				amo, Product.GenerateID());
-		
+
 		Product P93 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
 				amo, Product.GenerateID());
-		
+
 		Product P94 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
 				amo, Product.GenerateID());
-		
+
 		Product P95 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
 				amo, Product.GenerateID());
-		
+
 		Product P96 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
 				amo, Product.GenerateID());
-		
+
 		Product P97 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
 				amo, Product.GenerateID());
-		
+
 		Product P98 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
 				amo, Product.GenerateID());
-		
+
 		Product P99 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc, Product.BOOK,
 				amo, Product.GenerateID());
-		
+
 		Product P100 = new Product("", " ", Product.ParseToArray("[[d,v],[d,v],[d,v],[d,v]]"), price, perc,
-				Product.BOOK, amo, Product.GenerateID());*/
+				Product.BOOK, amo, Product.GenerateID());
 
 		DataAdder.AddProduct(P1);
 		DataAdder.AddProduct(P2);
