@@ -23,7 +23,7 @@
       <AnchorPane layoutX="25.0" layoutY="130.0" prefHeight="545.0" prefWidth="1030.0" style="-fx-background-color: white; -fx-border-color: #769FCD; -fx-background-radius: 10; -fx-border-radius: 10;" />
       <ScrollPane hbarPolicy="NEVER" layoutX="25.0" layoutY="130.0" prefHeight="545.0" prefWidth="1030.0" style="-fx-background-color: white; -fx-border-color: #769FCD; -fx-border-radius: 10; -fx-background-radius: 10;">
         <content>
-            <VBox maxWidth="1030.0" minHeight="540.0" minWidth="1030.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5;" />
+            <VBox fx:id="MainPanel" maxWidth="1030.0" minHeight="540.0" minWidth="1030.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5;" />
         </content>
       </ScrollPane>
    </children>

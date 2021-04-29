@@ -9,11 +9,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 public class SearchSortable implements Initializable {
 	@FXML
-	private AnchorPane MainPanel;
+	private TextField SearchTXF;
+
+	@FXML
+	private Button SearchBTN;
+	@FXML
+	private VBox MainPanel;
+
 	ArrayList<Customer> allCustomers;
 
 	@Override
@@ -23,7 +32,6 @@ public class SearchSortable implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	int i = 0;
