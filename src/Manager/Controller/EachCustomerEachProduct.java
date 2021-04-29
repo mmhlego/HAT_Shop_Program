@@ -1,97 +1,94 @@
 package Manager.Controller;
 
-import com.jfoenix.controls.JFXButton;
+import java.io.File;
+import java.io.FileInputStream;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+import CommonPages.Controllers.MainStructure;
+import Customer.Controller.ProductInformationPage;
+import DataController.ProductChecker;
+import Model.Product;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-public class EachCustomerEachProduct {
+public class EachCustomerEachProduct implements Initializable {
 
-    @FXML
-    private Label RegularLBL;
+	@FXML
+	private ImageView ProductIMG;
 
-    @FXML
-    private Label PremiumLBL;
+	@FXML
+	private Button SeeProductBTN;
 
-    @FXML
-    private Label BannedLBL;
+	@FXML
+	private Label TotalPriceLBL;
 
-    @FXML
-    private JFXButton CustomerOrderHistoryBTN;
+	@FXML
+	private Label BasePriceLBL;
 
-    @FXML
-    private JFXButton CustomerCartBTN;
+	@FXML
+	private Label PercentageLBL;
 
-    @FXML
-    private JFXButton CustomerInformationBTN;
+	@FXML
+	private Label ProductIDLBL;
 
-    @FXML
-    private Label CustomerIDLBL;
+	@FXML
+	private Label ProductNameLBL;
 
-    @FXML
-    private Label CustomerNameLBL;
+	@FXML
+	private Label ProductCategoryLBL;
 
-    public Label getRegularLBL() {
-        return RegularLBL;
-    }
+	@FXML
+	private Label AmountLBL;
+	private boolean special = false;
+	ArrayList<Product> SpecialProduct = new ArrayList<>();
 
-    public void setRegularLBL(Label regularLBL) {
-        RegularLBL = regularLBL;
-    }
+	public void LoadProduct(Product p, int amount) throws Exception {
+		for (Product spProduct : SpecialProduct) {
+			if (p.ID.equals(spProduct.ID)) {
 
-    public Label getPremiumLBL() {
-        return PremiumLBL;
-    }
+				special = true;
+			}
+		}
+		Image image;
+		if (new File("src/pictures/Product Images/" + p.Category + "/" + p.Name + ".jpg").exists()) {
+			image = new Image(
+					new FileInputStream(new File("src/pictures/Product Images/" + p.Category + "/" + p.Name + ".jpg")));
+		} else {
+			image = new Image(new FileInputStream(new File("src/pictures/Product Images/Product.png")));
+		}
+		AmountLBL.setText(String.valueOf(amount));
+		BasePriceLBL.setText(String.valueOf(p.Price));
+		PercentageLBL.setText(String.valueOf(p.Percentage) + " %");
+		ProductCategoryLBL.setText(p.Category);
+		ProductIDLBL.setText(p.ID);
+		ProductIMG.setImage(image);
+		ProductNameLBL.setText(p.Name);
+		TotalPriceLBL.setText(String.valueOf(Product.getTotalValue(p, amount)));
+		SeeProductBTN.setOnAction(e -> {
+			buyPage(p, image);
+		});
 
-    public void setPremiumLBL(Label premiumLBL) {
-        PremiumLBL = premiumLBL;
-    }
+	}
 
-    public Label getBannedLBL() {
-        return BannedLBL;
-    }
+	private void buyPage(Product product, Image image) {
 
-    public void setBannedLBL(Label bannedLBL) {
-        BannedLBL = bannedLBL;
-    }
+		ProductInformationPage.p = product;
+		ProductInformationPage c = (ProductInformationPage) MainStructure
+				.addPage("src/Customer/Visual/ProductInformationPage.fxml");
+		c.buyPage(product, image, special);
 
-    public JFXButton getCustomerOrderHistoryBTN() {
-        return CustomerOrderHistoryBTN;
-    }
+	}
 
-    public void setCustomerOrderHistoryBTN(JFXButton customerOrderHistoryBTN) {
-        CustomerOrderHistoryBTN = customerOrderHistoryBTN;
-    }
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		SpecialProduct = ProductChecker.GetSpecialProducts();
 
-    public JFXButton getCustomerCartBTN() {
-        return CustomerCartBTN;
-    }
-
-    public void setCustomerCartBTN(JFXButton customerCartBTN) {
-        CustomerCartBTN = customerCartBTN;
-    }
-
-    public JFXButton getCustomerInformationBTN() {
-        return CustomerInformationBTN;
-    }
-
-    public void setCustomerInformationBTN(JFXButton customerInformationBTN) {
-        CustomerInformationBTN = customerInformationBTN;
-    }
-
-    public Label getCustomerIDLBL() {
-        return CustomerIDLBL;
-    }
-
-    public void setCustomerIDLBL(Label customerIDLBL) {
-        CustomerIDLBL = customerIDLBL;
-    }
-
-    public Label getCustomerNameLBL() {
-        return CustomerNameLBL;
-    }
-
-    public void setCustomerNameLBL(Label customerNameLBL) {
-        CustomerNameLBL = customerNameLBL;
-    }
+	}
 
 }
