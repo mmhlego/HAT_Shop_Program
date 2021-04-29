@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import CommonPages.Controllers.MainStructure;
+import DataController.UserGetter;
 import Model.Customer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +19,6 @@ import javafx.scene.layout.VBox;
 public class SearchSortable implements Initializable {
 	@FXML
 	private TextField SearchTXF;
-
 	@FXML
 	private Button SearchBTN;
 	@FXML
@@ -28,6 +29,8 @@ public class SearchSortable implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
+			allCustomers = UserGetter.ConvertCustomersToArrayList(UserGetter.GetCustomersDB());
+			System.out.println(allCustomers.size());
 			ShowAllCustomers();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -38,7 +41,7 @@ public class SearchSortable implements Initializable {
 
 	private void ShowAllCustomers() throws Exception {
 		for (Customer customer : allCustomers) {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Visual/Components/EachCustomer.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/EachCustomer.fxml"));
 			Parent c = loader.load();
 			EachCustomer controller = loader.getController();
 			AnchorPane.setTopAnchor(c, (double) (35 + i * 115));
@@ -59,8 +62,18 @@ public class SearchSortable implements Initializable {
 				controller.getBannedLBL().setVisible(true);
 				break;
 			}
-
+			controller.getCustomerInformationBTN().setOnMouseClicked(e -> {
+				OpenProfile(customer);
+			});
+			MainPanel.getChildren().add(c);
 		}
+
+	}
+
+	private void OpenProfile(Customer c) {
+		EachUserProfile profile = (EachUserProfile) MainStructure
+				.addPage("src/Manager/Components/EachUserProfile.fxml");
+		profile.LoadProfileData(c);
 
 	}
 

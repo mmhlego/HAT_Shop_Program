@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -23,7 +24,10 @@
       <AnchorPane layoutX="25.0" layoutY="130.0" prefHeight="545.0" prefWidth="1030.0" style="-fx-background-color: white; -fx-border-color: #769FCD; -fx-background-radius: 10; -fx-border-radius: 10;" />
       <ScrollPane hbarPolicy="NEVER" layoutX="25.0" layoutY="130.0" prefHeight="545.0" prefWidth="1030.0" style="-fx-background-color: white; -fx-border-color: #769FCD; -fx-border-radius: 10; -fx-background-radius: 10;">
         <content>
-            <VBox maxWidth="1030.0" minHeight="540.0" minWidth="1030.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5;" />
+            <VBox fx:id="MainPanel" alignment="TOP_CENTER" maxWidth="1030.0" minHeight="540.0" minWidth="1030.0" spacing="25.0" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5;">
+               <padding>
+                  <Insets bottom="25.0" top="25.0" />
+               </padding></VBox>
         </content>
       </ScrollPane>
    </children>

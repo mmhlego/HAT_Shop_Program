@@ -11,34 +11,30 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="966.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controller.EachCustomer">
    <children>
-      <Group AnchorPane.rightAnchor="815.6">
-         <children>
-            <Label fx:id="RegularLBL" alignment="CENTER" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #B9D7EA; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20; -fx-border-color: #6887C5;" text="معمولی" textAlignment="CENTER" textFill="#6887c5" visible="false">
-               <font>
-                  <Font name="B Koodak Bold" size="24.0" />
-               </font>
-               <padding>
-                  <Insets right="20.0" />
-               </padding>
-            </Label>
-            <Label fx:id="PremiumLBL" alignment="CENTER" disable="true" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #F2C94C; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20;" text="پریمیوم" textAlignment="CENTER" textFill="#6887c5" visible="false">
-               <font>
-                  <Font name="B Koodak Bold" size="24.0" />
-               </font>
-               <padding>
-                  <Insets right="20.0" />
-               </padding>
-            </Label>
-            <Label fx:id="BannedLBL" alignment="CENTER" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #EB5757; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20;" text="بن شده" textAlignment="CENTER" textFill="WHITE" visible="false">
-               <font>
-                  <Font name="B Koodak Bold" size="24.0" />
-               </font>
-               <padding>
-                  <Insets right="20.0" />
-               </padding>
-            </Label>
-         </children>
-      </Group>
+      <Label fx:id="RegularLBL" alignment="CENTER" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #B9D7EA; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20; -fx-border-color: #6887C5;" text="معمولی" textAlignment="CENTER" textFill="#6887c5" visible="false">
+         <font>
+            <Font name="B Koodak Bold" size="24.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </Label>
+      <Label fx:id="PremiumLBL" alignment="CENTER" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #F2C94C; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20;" text="پریمیوم" textAlignment="CENTER" textFill="#6887c5" visible="false">
+         <font>
+            <Font name="B Koodak Bold" size="24.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </Label>
+      <Label fx:id="BannedLBL" alignment="CENTER" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #EB5757; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20;" text="بن شده" textAlignment="CENTER" textFill="WHITE" visible="false">
+         <font>
+            <Font name="B Koodak Bold" size="24.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </Label>
       <Group layoutX="866.0">
          <children>
             <JFXButton fx:id="CustomerOrderHistoryBTN" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #6887C5; -fx-border-color: #6887C5; -fx-background-radius: 0 20 20 0; -fx-border-radius: 0 20 20 0;" text=" ">

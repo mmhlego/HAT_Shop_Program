@@ -1,15 +1,23 @@
 package CommonPages.Controllers;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
-import java.util.*;
+import java.util.ResourceBundle;
+
 import Controller.UserController;
 import javafx.animation.TranslateTransition;
-import javafx.fxml.*;
-import javafx.scene.*;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.image.*;
-import javafx.scene.layout.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 public class MainStructure implements Initializable {
@@ -70,7 +78,7 @@ public class MainStructure implements Initializable {
 			AddButton("../../Customer/Visual/Cart.fxml", "سبد خرید", "cart", false);
 			AddButton("../../Customer/Visual/OrderHistory.fxml", "تاریخچه خرید", "OrderHistory", false);
 		} else if (UserController.Mode.equals(UserController.UserMode.Manager)) {
-			loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/MainPage.fxml"));
+			loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/SearchSortableList.fxml"));
 
 		} else {
 			loader2 = new FXMLLoader(this.getClass().getResource("../../Employee/Visual/MainPage.fxml"));
@@ -95,7 +103,7 @@ public class MainStructure implements Initializable {
 						new File(System.getProperty("user.dir") + "/src/pictures/icons/" + Image + ".png"))));
 			} catch (Exception e) {
 				System.out.println("Image not found (" + Image + ".png)");
-				//e.printStackTrace();
+				// e.printStackTrace();
 			}
 
 			SideBar.getChildren().add(root);
