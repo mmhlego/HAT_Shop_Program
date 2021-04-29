@@ -1,37 +1,97 @@
 package Manager.Controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 
 public class EachCustomerEachProduct {
 
     @FXML
-    private ImageView ProductIMG;
+    private Label RegularLBL;
 
     @FXML
-    private Button SeeProductBTN;
+    private Label PremiumLBL;
 
     @FXML
-    private Label TotalPriceLBL;
+    private Label BannedLBL;
 
     @FXML
-    private Label BasePriceLBL;
+    private JFXButton CustomerOrderHistoryBTN;
 
     @FXML
-    private Label PercentageLBL;
+    private JFXButton CustomerCartBTN;
 
     @FXML
-    private Label ProductIDLBL;
+    private JFXButton CustomerInformationBTN;
 
     @FXML
-    private Label ProductNameLBL;
+    private Label CustomerIDLBL;
 
     @FXML
-    private Label ProductCategoryLBL;
+    private Label CustomerNameLBL;
 
-    @FXML
-    private Label AmountLBL;
+    public Label getRegularLBL() {
+        return RegularLBL;
+    }
+
+    public void setRegularLBL(Label regularLBL) {
+        RegularLBL = regularLBL;
+    }
+
+    public Label getPremiumLBL() {
+        return PremiumLBL;
+    }
+
+    public void setPremiumLBL(Label premiumLBL) {
+        PremiumLBL = premiumLBL;
+    }
+
+    public Label getBannedLBL() {
+        return BannedLBL;
+    }
+
+    public void setBannedLBL(Label bannedLBL) {
+        BannedLBL = bannedLBL;
+    }
+
+    public JFXButton getCustomerOrderHistoryBTN() {
+        return CustomerOrderHistoryBTN;
+    }
+
+    public void setCustomerOrderHistoryBTN(JFXButton customerOrderHistoryBTN) {
+        CustomerOrderHistoryBTN = customerOrderHistoryBTN;
+    }
+
+    public JFXButton getCustomerCartBTN() {
+        return CustomerCartBTN;
+    }
+
+    public void setCustomerCartBTN(JFXButton customerCartBTN) {
+        CustomerCartBTN = customerCartBTN;
+    }
+
+    public JFXButton getCustomerInformationBTN() {
+        return CustomerInformationBTN;
+    }
+
+    public void setCustomerInformationBTN(JFXButton customerInformationBTN) {
+        CustomerInformationBTN = customerInformationBTN;
+    }
+
+    public Label getCustomerIDLBL() {
+        return CustomerIDLBL;
+    }
+
+    public void setCustomerIDLBL(Label customerIDLBL) {
+        CustomerIDLBL = customerIDLBL;
+    }
+
+    public Label getCustomerNameLBL() {
+        return CustomerNameLBL;
+    }
+
+    public void setCustomerNameLBL(Label customerNameLBL) {
+        CustomerNameLBL = customerNameLBL;
+    }
 
 }
