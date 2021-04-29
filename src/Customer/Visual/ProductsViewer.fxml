@@ -38,7 +38,7 @@
                         <Font name="B Nazanin" size="14.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox fx:id="AccessoriesCategoryToggle" checkedColor="#769fcd" layoutX="15.0" layoutY="45.0" prefHeight="20.0" prefWidth="220.0" selected="true" style="-fx-alignment: center;" text="لوازم جانبی تلفن" textAlignment="CENTER">
+                  <JFXCheckBox fx:id="AccessoriesCategoryToggle" checkedColor="#769fcd" layoutX="15.0" layoutY="45.0" prefHeight="20.0" prefWidth="220.0" selected="true" style="-fx-alignment: center;" text="لوازم جانبی" textAlignment="CENTER">
                      <font>
                         <Font name="B Nazanin" size="14.0" />
                      </font>
