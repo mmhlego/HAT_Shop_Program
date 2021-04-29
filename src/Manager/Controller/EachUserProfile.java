@@ -3,12 +3,15 @@ package Manager.Controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+
 import Model.Customer;
 import Model.Employee;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
 public class EachUserProfile implements Initializable {
@@ -17,40 +20,43 @@ public class EachUserProfile implements Initializable {
 	private ImageView BackBTN;
 
 	@FXML
-	private Label FirstNameLBL;
+	private TextField FirstNameLBL;
 
 	@FXML
-	private Label UsernameLBL;
+	private TextField UsernameLBL;
 
 	@FXML
-	private Label EmailLBL;
+	private TextField EmailLBL;
 
 	@FXML
 	private Label mode;
 
 	@FXML
-	private Label ModeLBL;
+	private TextField ModeLBL;
 
 	@FXML
-	private Label LastNameLBL;
+	private TextField LastNameLBL;
 
 	@FXML
-	private Label PhoneLBL;
+	private TextField PhoneLBL;
 
 	@FXML
-	private Label IDLBL;
+	private TextField IDLBL;
 
 	@FXML
 	private Group ValueGRP;
 
 	@FXML
-	private Label ValueLBL;
+	private TextField ValueLBL;
 
 	@FXML
 	private Group AddressGRP;
 
 	@FXML
-	private Label AddressLBL;
+	private TextField AddressLBL;
+
+	@FXML
+	private JFXButton EditUserInformationBTN;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

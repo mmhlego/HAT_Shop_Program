@@ -68,7 +68,6 @@ public class CustomerList implements Initializable {
 			});
 			MainPanel.getChildren().add(c);
 		}
-
 	}
 
 	private void OpenProfile(Customer c) {

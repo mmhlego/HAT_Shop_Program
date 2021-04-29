@@ -12,9 +12,7 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		// long start = System.currentTimeMillis();
 		launch(args);
-		// PrintEstimatedTime(start);
 	}
 
 	private static void PrintEstimatedTime(long start) {
@@ -33,6 +31,7 @@ public class Main extends Application {
 		Thread thread = new Thread(new Runnable() {
 			@Override
 			public void run() {
+				long start = System.currentTimeMillis();
 				try {
 					Thread.sleep(3000);
 				} catch (Exception e) {
@@ -43,6 +42,8 @@ public class Main extends Application {
 				}
 
 				System.out.println("Connected");
+				PrintEstimatedTime(start);
+
 				UserUpdator.Update();
 
 				Platform.runLater(new Runnable() {
