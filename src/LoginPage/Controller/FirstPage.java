@@ -1,7 +1,6 @@
 
 package LoginPage.Controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.animation.*;
@@ -9,8 +8,6 @@ import javafx.application.Platform;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.paint.Color;
-import javafx.stage.*;
 import javafx.util.Duration;
 
 public class FirstPage implements Initializable, Runnable {
