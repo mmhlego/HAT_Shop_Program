@@ -19,7 +19,7 @@
             <Insets right="20.0" />
          </padding>
       </Label>
-      <Label fx:id="PremiumLBL" alignment="CENTER" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #F2C94C; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20;" text="پریمیوم" textAlignment="CENTER" textFill="#6887c5">
+      <Label fx:id="PremiumLBL" alignment="CENTER" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #F2C94C; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20;" text="پریمیوم" textAlignment="CENTER" textFill="#6887c5" visible="false">
          <font>
             <Font name="B Koodak Bold" size="24.0" />
          </font>

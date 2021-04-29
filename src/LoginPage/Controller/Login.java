@@ -22,6 +22,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -37,7 +38,7 @@ public class Login implements Initializable {
 	@FXML
 	private TextField usernameField;
 	@FXML
-	private TextField passwordField;
+	private PasswordField passwordField;
 	@FXML
 	private JFXButton enterBTN;
 	@FXML
