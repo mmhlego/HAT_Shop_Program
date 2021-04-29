@@ -3,9 +3,7 @@ package Manager.Controller;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import CommonPages.Controllers.MainStructure;
-import DataController.UserGetter;
 import Model.Customer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-public class SearchSortable implements Initializable {
+public class EmployeeList implements Initializable {
 	@FXML
 	private TextField SearchTXF;
 	@FXML
@@ -28,13 +26,16 @@ public class SearchSortable implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		try {
-			allCustomers = UserGetter.ConvertCustomersToArrayList(UserGetter.GetCustomersDB());
-			System.out.println(allCustomers.size());
-			ShowAllCustomers();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
+		System.out.println("employee list");
+
+		//try {
+		//	allCustomers = UserGetter.ConvertCustomersToArrayList(UserGetter.GetCustomersDB());
+		//	System.out.println(allCustomers.size());
+		//	ShowAllCustomers();
+		//} catch (Exception e) {
+		//	e.printStackTrace();
+		//}
 	}
 
 	int i = 0;

@@ -1,6 +1,9 @@
+import java.io.IOException;
+
 import DataController.DBConnector;
 import DataController.UserUpdator;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -31,15 +34,23 @@ public class Main extends Application {
 			@Override
 			public void run() {
 				try {
-					Thread.sleep(1000);
-					System.out.println("Connecting ...");
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+					Thread.sleep(3000);
+				} catch (Exception e) {
 				}
 
-				if (DBConnector.Connect()) {
-					UserUpdator.Update();
+				while (!DBConnector.Connect()) {
+					System.out.println("Disconnected. Trying again . . .");
 				}
+
+				System.out.println("Connected");
+				UserUpdator.Update();
+
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+						OpenLoginPage(primaryStage);
+					}
+				});
 			}
 		});
 
@@ -50,5 +61,19 @@ public class Main extends Application {
 		primaryStage.initStyle(StageStyle.TRANSPARENT);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+	}
+
+	private void OpenLoginPage(Stage primaryStage) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPage/View/Login.fxml"));
+			primaryStage.close();
+			Stage SecondaryStage = new Stage(StageStyle.TRANSPARENT);
+			Scene scene = new Scene(loader.load());
+			SecondaryStage.setScene(scene);
+			scene.setFill(Color.TRANSPARENT);
+			SecondaryStage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

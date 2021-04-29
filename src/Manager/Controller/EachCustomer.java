@@ -4,7 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class EachCustomerEachProduct {
+public class EachCustomer {
 
     @FXML
     private Label RegularLBL;

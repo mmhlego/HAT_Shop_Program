@@ -78,7 +78,10 @@ public class MainStructure implements Initializable {
 			AddButton("../../Customer/Visual/Cart.fxml", "سبد خرید", "cart", false);
 			AddButton("../../Customer/Visual/OrderHistory.fxml", "تاریخچه خرید", "OrderHistory", false);
 		} else if (UserController.Mode.equals(UserController.UserMode.Manager)) {
-			loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/SearchSortableList.fxml"));
+			loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/CustomerList.fxml"));
+
+			AddButton("../../Manager/Visual/CustomerList.fxml", "لیست مشتریان", "", false);
+			AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "", false);
 
 		} else {
 			loader2 = new FXMLLoader(this.getClass().getResource("../../Employee/Visual/MainPage.fxml"));

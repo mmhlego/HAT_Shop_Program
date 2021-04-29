@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,71 +27,71 @@
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="FirstNameLBL" alignment="CENTER" layoutX="475.0" layoutY="90.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-" textFill="#769fcd">
+            <TextField fx:id="FirstNameLBL" alignment="CENTER" editable="false" layoutX="475.0" layoutY="90.0" prefHeight="40.0" prefWidth="300.0" promptText="-" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
-            </Label>
+            </TextField>
             <Label alignment="CENTER" layoutX="775.0" layoutY="170.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="نام کاربری" textFill="WHITE">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="UsernameLBL" alignment="CENTER" layoutX="475.0" layoutY="170.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-" textFill="#769fcd">
+            <TextField fx:id="UsernameLBL" alignment="CENTER" editable="false" layoutX="475.0" layoutY="170.0" prefHeight="40.0" prefWidth="300.0" promptText="-" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
-            </Label>
+            </TextField>
             <Label alignment="CENTER" layoutX="775.0" layoutY="250.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="پست الکترونیکی" textFill="WHITE">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="EmailLBL" alignment="CENTER" layoutX="475.0" layoutY="250.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-" textFill="#769fcd">
+            <TextField fx:id="EmailLBL" alignment="CENTER" editable="false" layoutX="475.0" layoutY="250.0" prefHeight="40.0" prefWidth="300.0" promptText="-" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
-            </Label>
+            </TextField>
             <Label fx:id="mode" alignment="CENTER" layoutX="775.0" layoutY="330.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="نوع حساب" textFill="WHITE">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="ModeLBL" alignment="CENTER" layoutX="475.0" layoutY="330.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-" textFill="#769fcd">
+            <TextField fx:id="ModeLBL" alignment="CENTER" editable="false" layoutX="475.0" layoutY="330.0" prefHeight="40.0" prefWidth="300.0" promptText="-" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
-            </Label>
+            </TextField>
             <Label alignment="CENTER" layoutX="325.0" layoutY="90.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="نام خانوادگی" textFill="WHITE">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="LastNameLBL" alignment="CENTER" layoutX="25.0" layoutY="90.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-" textFill="#769fcd">
+            <TextField fx:id="LastNameLBL" alignment="CENTER" editable="false" layoutX="25.0" layoutY="90.0" prefHeight="40.0" prefWidth="300.0" promptText="-" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
-            </Label>
+            </TextField>
             <Label alignment="CENTER" layoutX="325.0" layoutY="170.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="شماره تلفن" textFill="WHITE">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="PhoneLBL" alignment="CENTER" layoutX="25.0" layoutY="170.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-" textFill="#769fcd">
+            <TextField fx:id="PhoneLBL" alignment="CENTER" editable="false" layoutX="25.0" layoutY="170.0" prefHeight="40.0" prefWidth="300.0" promptText="-" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
-            </Label>
+            </TextField>
             <Label alignment="CENTER" layoutX="325.0" layoutY="250.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="شناسه کاربر" textFill="WHITE">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="IDLBL" alignment="CENTER" layoutX="25.0" layoutY="250.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-" textFill="#769fcd">
+            <TextField fx:id="IDLBL" alignment="CENTER" editable="false" layoutX="25.0" layoutY="250.0" prefHeight="40.0" prefWidth="300.0" promptText="-" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-">
                <font>
                   <Font name="B Koodak Bold" size="14.0" />
                </font>
-            </Label>
+            </TextField>
             <Group fx:id="ValueGRP" layoutX="25.0" layoutY="330.0">
                <children>
                   <Label alignment="CENTER" layoutX="300.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="اعتبار حساب" textFill="WHITE">
@@ -98,11 +99,11 @@
                         <Font name="B Koodak Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="ValueLBL" alignment="CENTER" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-" textFill="#769fcd">
+                  <TextField fx:id="ValueLBL" alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="300.0" promptText="-" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-">
                      <font>
                         <Font name="B Koodak Bold" size="14.0" />
                      </font>
-                  </Label>
+                  </TextField>
                </children>
             </Group>
             <Group fx:id="AddressGRP" layoutX="26.0" layoutY="410.0">
@@ -112,11 +113,11 @@
                         <Font name="B Koodak Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="AddressLBL" alignment="CENTER" prefHeight="40.0" prefWidth="750.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-" textFill="#769fcd">
+                  <TextField fx:id="AddressLBL" alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="750.0" promptText="-" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;" text="-">
                      <font>
                         <Font name="B Koodak Bold" size="14.0" />
                      </font>
-                  </Label>
+                  </TextField>
                </children>
             </Group>
             <JFXButton fx:id="EditUserInformationBTN" layoutX="25.0" layoutY="485.0" prefHeight="40.0" prefWidth="850.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10; -fx-border-radius: 10;" text="تغییر اطلاعات کاربر" textFill="WHITE">

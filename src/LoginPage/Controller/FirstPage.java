@@ -88,30 +88,30 @@ public class FirstPage implements Initializable, Runnable {
 				Thread thread = new Thread(new Runnable() {
 					@Override
 					public void run() {
-						try {
-							Thread.sleep(5000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						Platform.runLater(new Runnable() {
-							@Override
-							public void run() {
-								try {
-									FXMLLoader loader = new FXMLLoader(
-											getClass().getResource("../../LoginPage/View/Login.fxml"));
-									Stage PrimaryStage = ((Stage) engilshLBL.getScene().getWindow());
-									PrimaryStage.close();
-									Stage SecondaryStage = new Stage(StageStyle.TRANSPARENT);
-									Scene scene;
-									scene = new Scene(loader.load());
-									SecondaryStage.setScene(scene);
-									scene.setFill(Color.TRANSPARENT);
-									SecondaryStage.show();
-								} catch (IOException e) {
-									e.printStackTrace();
-								}
-							}
-						});
+						//try {
+						//	Thread.sleep(5000);
+						//} catch (InterruptedException e) {
+						//	e.printStackTrace();
+						//}
+						//Platform.runLater(new Runnable() {
+						//	@Override
+						//	public void run() {
+						//		try {
+						//			FXMLLoader loader = new FXMLLoader(
+						//					getClass().getResource("../../LoginPage/View/Login.fxml"));
+						//			Stage PrimaryStage = ((Stage) engilshLBL.getScene().getWindow());
+						//			PrimaryStage.close();
+						//			Stage SecondaryStage = new Stage(StageStyle.TRANSPARENT);
+						//			Scene scene;
+						//			scene = new Scene(loader.load());
+						//			SecondaryStage.setScene(scene);
+						//			scene.setFill(Color.TRANSPARENT);
+						//			SecondaryStage.show();
+						//		} catch (IOException e) {
+						//			e.printStackTrace();
+						//		}
+						//	}
+						//});
 					}
 				});
 				thread.start();

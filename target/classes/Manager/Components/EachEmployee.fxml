@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -45,6 +46,9 @@
                <padding>
                   <Insets left="20.0" />
                </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </JFXButton>
             <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="851.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
