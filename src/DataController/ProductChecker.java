@@ -1,9 +1,9 @@
 package DataController;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import Model.Product;
 
 public class ProductChecker {
@@ -104,6 +104,20 @@ public class ProductChecker {
 		return 0;
 	}
 
+	public static void AddProductAmount(String ID, int AddAmount) {
+		try {
+			ResultSet r = DBConnector.RunCommand("SELECT Amount FROM Products WHERE ID=" + "\'" + ID + "\'");
+			r.next();
+			int CurrentAmount = r.getInt(1);
+			int NewAmount = CurrentAmount + AddAmount;
+			PreparedStatement ps = DBConnector.Con
+					.prepareStatement("UPDATE Products SET Amount=" + NewAmount + " WHERE ID=" + "\'" + ID + "\'");
+			ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static boolean SpecialProduct(String ID) {
 		try {
 			ResultSet r = DBConnector
@@ -125,6 +139,16 @@ public class ProductChecker {
 			return true;
 		} else {
 			return false;
+		}
+	}
+
+	public static void ChangeProductPrice(String ID, long NewPrice) {
+		try {
+			PreparedStatement ps = DBConnector.Con
+					.prepareStatement("UPDATE Products SET Price=" + NewPrice + " WHERE ID=" + "\'" + ID + "\'");
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -160,4 +184,5 @@ public class ProductChecker {
 		}
 		return 0;
 	}
+
 }

@@ -3,7 +3,6 @@ package DataController;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import Model.Customer;
 import Model.Customer.CustomerMode;
 import Model.Employee;
@@ -70,6 +69,36 @@ public class UserGetter {
 				temp.add(c);
 			}
 		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
+
+	public static ArrayList<Employee> GetAllEmployees() {
+		ArrayList<Employee> temp = new ArrayList<Employee>();
+		try {
+			ResultSet r = DBConnector.RunCommand("SELECT * FROM Employees");
+			while (r.next()) {
+				Employee e = new Employee(r.getString(1), r.getString(2), r.getString(3), r.getString(4),
+						Employee.IntToMode(r.getInt(5)), r.getString(6), r.getString(7), r.getString(8));
+				temp.add(e);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return temp;
+	}
+
+	public static ArrayList<Employee> GetLowLevelEmployees() {
+		ArrayList<Employee> temp = new ArrayList<Employee>();
+		try {
+			ResultSet r = DBConnector.RunCommand("SELECT * FROM Employees WHERE Mode = 0 OR Mode = 1 OR Mode = 2");
+			while (r.next()) {
+				Employee e = new Employee(r.getString(1), r.getString(2), r.getString(3), r.getString(4),
+						Employee.IntToMode(r.getInt(5)), r.getString(6), r.getString(7), r.getString(8));
+				temp.add(e);
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return temp;
