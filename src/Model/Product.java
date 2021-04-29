@@ -8,7 +8,7 @@ public class Product {
 	public long Price;
 	public int Percentage, Amount;
 
-	public static final String PHONE = "Phone", ACCESSORIES = "PhoneAccessories", COMPUTER = "Computer", BOOK = "Book",
+	public static final String PHONE = "Phone", ACCESSORIES = "Accessories", COMPUTER = "Computer", BOOK = "Book",
 			SUPERMARKET = "SuperMarket";
 
 	public Product() {

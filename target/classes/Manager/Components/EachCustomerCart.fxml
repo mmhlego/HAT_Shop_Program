@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -24,7 +25,11 @@
             </ImageView>
             <ScrollPane hbarPolicy="NEVER" layoutX="25.0" layoutY="55.0" prefHeight="470.0" prefWidth="850.0" style="-fx-background-color: transparent;">
               <content>
-                  <VBox prefHeight="468.0" prefWidth="850.0" style="-fx-background-color: white;" />
+                  <VBox fx:id="ProductsPanel" prefHeight="468.0" prefWidth="850.0" spacing="25.0" style="-fx-background-color: white;">
+                     <padding>
+                        <Insets bottom="25.0" top="25.0" />
+                     </padding>
+                  </VBox>
               </content>
             </ScrollPane>
          </children>
