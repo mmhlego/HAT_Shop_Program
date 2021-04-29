@@ -1,15 +1,61 @@
 package Manager.Controller;
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+import DataController.UserGetter;
+import Model.Customer;
+import Model.Order;
+import Model.Shipping;
+import Model.Transaction;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-public class EachCustomerHistory {
+public class EachCustomerHistory implements Initializable {
 
-    @FXML
-    private ImageView BackBTN;
+	@FXML
+	private ImageView BackBTN;
 
-    @FXML
-    private VBox OrdersPanel;
+	@FXML
+	private VBox OrdersPanel;
+	ArrayList<Order> orders = new ArrayList<>();
+
+	private ArrayList<Shipping> shippings = new ArrayList<>();
+
+	private ArrayList<Transaction> transactions = new ArrayList<>();
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		BackBTN.setOnMouseClicked(e -> {
+			((AnchorPane) BackBTN.getParent().getParent().getParent()).getChildren()
+					.remove(BackBTN.getParent().getParent());
+		});
+	}
+
+	public void AddCustomersOrdersHistory(Customer c) throws Exception {
+		orders = UserGetter.ConvertOrderToArrayList(UserGetter.GetOrdersDB(c.ID));
+		shippings = UserGetter.ConvertShippingToArrayList(UserGetter.GetShippingsDB(c.ID));
+		transactions = UserGetter.ConvertTransactionToArrayList(UserGetter.GetTransactionsDB(c.ID));
+		System.out.println(orders.size());
+		System.out.println(shippings.size());
+		System.out.println(transactions.size());
+		int i = 0;
+		for (Order order : orders) {
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource("../Components/EachCustomerHistoryEachOrder.fxml"));
+			Parent parent = loader.load();
+			HistoryEachHistoryOrder controller = loader.getController();
+			controller.AddEachOrder(order, shippings.get(i), transactions.get(i));
+			OrdersPanel.getChildren().add(parent);
+			i++;
+		}
+
+	}
 
 }

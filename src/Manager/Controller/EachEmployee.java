@@ -1,97 +1,110 @@
 package Manager.Controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import com.jfoenix.controls.JFXButton;
+
+import CommonPages.Controllers.MainStructure;
+import Model.Employee;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-public class EachEmployee {
+public class EachEmployee implements Initializable {
 
-    @FXML
-    private Label RegularLBL;
+	@FXML
+	private Label RegularLBL;
 
-    @FXML
-    private Label PremiumLBL;
+	@FXML
+	private Label PremiumLBL;
 
-    @FXML
-    private Label BannedLBL;
+	@FXML
+	private Label BannedLBL;
 
-    @FXML
-    private JFXButton CustomerOrderHistoryBTN;
+	@FXML
+	private JFXButton EmployeeInformationBTN;
 
-    @FXML
-    private JFXButton CustomerCartBTN;
+	@FXML
+	private Label EmployeeIDLBL;
 
-    @FXML
-    private JFXButton CustomerInformationBTN;
+	@FXML
+	private Label EmployeeUsernameLBL;
 
-    @FXML
-    private Label CustomerIDLBL;
+	@FXML
+	private Label EmployeeRoleLBL;
 
-    @FXML
-    private Label CustomerNameLBL;
+	public Label getRegularLBL() {
+		return RegularLBL;
+	}
 
-    public Label getRegularLBL() {
-        return RegularLBL;
-    }
+	public void setRegularLBL(Label regularLBL) {
+		RegularLBL = regularLBL;
+	}
 
-    public void setRegularLBL(Label regularLBL) {
-        RegularLBL = regularLBL;
-    }
+	public Label getPremiumLBL() {
+		return PremiumLBL;
+	}
 
-    public Label getPremiumLBL() {
-        return PremiumLBL;
-    }
+	public void setPremiumLBL(Label premiumLBL) {
+		PremiumLBL = premiumLBL;
+	}
 
-    public void setPremiumLBL(Label premiumLBL) {
-        PremiumLBL = premiumLBL;
-    }
+	public Label getBannedLBL() {
+		return BannedLBL;
+	}
 
-    public Label getBannedLBL() {
-        return BannedLBL;
-    }
+	public void setBannedLBL(Label bannedLBL) {
+		BannedLBL = bannedLBL;
+	}
 
-    public void setBannedLBL(Label bannedLBL) {
-        BannedLBL = bannedLBL;
-    }
+	public JFXButton getEmployeeInformationBTN() {
+		return EmployeeInformationBTN;
+	}
 
-    public JFXButton getCustomerOrderHistoryBTN() {
-        return CustomerOrderHistoryBTN;
-    }
+	public void setEmployeeInformationBTN(JFXButton employeeInformationBTN) {
+		EmployeeInformationBTN = employeeInformationBTN;
+	}
 
-    public void setCustomerOrderHistoryBTN(JFXButton customerOrderHistoryBTN) {
-        CustomerOrderHistoryBTN = customerOrderHistoryBTN;
-    }
+	public Label getEmployeeIDLBL() {
+		return EmployeeIDLBL;
+	}
 
-    public JFXButton getCustomerCartBTN() {
-        return CustomerCartBTN;
-    }
+	public void setEmployeeIDLBL(Label employeeIDLBL) {
+		EmployeeIDLBL = employeeIDLBL;
+	}
 
-    public void setCustomerCartBTN(JFXButton customerCartBTN) {
-        CustomerCartBTN = customerCartBTN;
-    }
+	public Label getEmployeeUsernameLBL() {
+		return EmployeeUsernameLBL;
+	}
 
-    public JFXButton getCustomerInformationBTN() {
-        return CustomerInformationBTN;
-    }
+	public void setEmployeeUsernameLBL(Label employeeUsernameLBL) {
+		EmployeeUsernameLBL = employeeUsernameLBL;
+	}
 
-    public void setCustomerInformationBTN(JFXButton customerInformationBTN) {
-        CustomerInformationBTN = customerInformationBTN;
-    }
+	public Label getEmployeeRoleLBL() {
+		return EmployeeRoleLBL;
+	}
 
-    public Label getCustomerIDLBL() {
-        return CustomerIDLBL;
-    }
+	public void setEmployeeRoleLBL(Label employeeRoleLBL) {
+		EmployeeRoleLBL = employeeRoleLBL;
+	}
 
-    public void setCustomerIDLBL(Label customerIDLBL) {
-        CustomerIDLBL = customerIDLBL;
-    }
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
 
-    public Label getCustomerNameLBL() {
-        return CustomerNameLBL;
-    }
+	}
 
-    public void setCustomerNameLBL(Label customerNameLBL) {
-        CustomerNameLBL = customerNameLBL;
-    }
+	public void AddEmployee(Employee e) {
+		EmployeeIDLBL.setText(e.ID);
+		EmployeeRoleLBL.setText(String.valueOf(e.Mode));
+		EmployeeUsernameLBL.setText(e.Username);
+		EmployeeInformationBTN.setOnAction(ex -> {
+			EachUserProfile profile = (EachUserProfile) MainStructure
+					.addPage("src/Manager/Components/EachUserProfile.fxml");
+			profile.LoadProfileData(e);
+		});
+
+	}
 
 }

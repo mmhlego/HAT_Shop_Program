@@ -13,6 +13,7 @@ import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
 public class EachUserProfile implements Initializable {
 
@@ -60,7 +61,10 @@ public class EachUserProfile implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		BackBTN.setOnMouseClicked(e -> {
+			((AnchorPane) BackBTN.getParent().getParent().getParent()).getChildren()
+					.remove(BackBTN.getParent().getParent());
+		});
 	}
 
 	public void LoadProfileData(Customer c) {
@@ -73,6 +77,27 @@ public class EachUserProfile implements Initializable {
 		ModeLBL.setText(String.valueOf(c.Mode));
 		ValueLBL.setText(String.valueOf(c.Value));
 		AddressLBL.setText(c.Address);
+		EditUserInformationBTN.setOnAction(e -> {
+			FirstNameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			LastNameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			IDLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			PhoneLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			UsernameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			EmailLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			ModeLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			ValueLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			AddressLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			EditUserInformationBTN
+					.setText(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر") ? "ذخیره اطلاعات کاربر"
+							: "تغییر اطلاعات کاربر");
+			UpdateCustomerData();
+
+		});
+	}
+
+	private void UpdateCustomerData() {
+		// This Method Must Be written
+
 	}
 
 	public void LoadProfileData(Employee u) {
@@ -85,6 +110,25 @@ public class EachUserProfile implements Initializable {
 		ModeLBL.setText(String.valueOf(u.Mode));
 		AddressGRP.setVisible(false);
 		ValueGRP.setVisible(false);
+		EditUserInformationBTN.setOnAction(e -> {
+			FirstNameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			LastNameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			IDLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			PhoneLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			UsernameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			EmailLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			ModeLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			EditUserInformationBTN
+					.setText(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر") ? "ذخیره اطلاعات کاربر"
+							: "تغییر اطلاعات کاربر");
+			UpdateEmployeeData();
+
+		});
+	}
+
+	private void UpdateEmployeeData() {
+		// This Method Must Be written
+
 	}
 
 }

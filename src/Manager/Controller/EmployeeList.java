@@ -3,8 +3,8 @@ package Manager.Controller;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import CommonPages.Controllers.MainStructure;
-import Model.Customer;
+
+import Model.Employee;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,59 +22,43 @@ public class EmployeeList implements Initializable {
 	@FXML
 	private VBox MainPanel;
 
-	ArrayList<Customer> allCustomers;
+	ArrayList<Employee> allEmployees;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
 		System.out.println("employee list");
+		try {
+			/* allEmployees=UserGetter. */
+			ShowAllEmployees();
 
-		//try {
-		//	allCustomers = UserGetter.ConvertCustomersToArrayList(UserGetter.GetCustomersDB());
-		//	System.out.println(allCustomers.size());
-		//	ShowAllCustomers();
-		//} catch (Exception e) {
-		//	e.printStackTrace();
-		//}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// try {
+		// allCustomers =
+		// UserGetter.ConvertCustomersToArrayList(UserGetter.GetCustomersDB());
+		// System.out.println(allCustomers.size());
+		// ShowAllCustomers();
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// }
 	}
 
 	int i = 0;
 
-	private void ShowAllCustomers() throws Exception {
-		for (Customer customer : allCustomers) {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/EachCustomer.fxml"));
+	private void ShowAllEmployees() throws Exception {
+		for (Employee employee : allEmployees) {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/EachEmployee.fxml"));
 			Parent c = loader.load();
-			EachCustomer controller = loader.getController();
+			EachEmployee controller = loader.getController();
 			AnchorPane.setTopAnchor(c, (double) (35 + i * 115));
 			AnchorPane.setLeftAnchor(c, (double) 32);
-			controller.getCustomerIDLBL().setText(customer.ID);
-			controller.getCustomerNameLBL().setText(customer.FirstName + " " + customer.LastName);
-			switch (customer.Mode) {
-			case PREMIUM:
-				controller.getPremiumLBL().setVisible(true);
-				break;
-			case PREMIUMBANNED:
-				controller.getBannedLBL().setVisible(true);
-				break;
-			case REGULAR:
-				controller.getRegularLBL().setVisible(true);
-				break;
-			case REGULARBANNED:
-				controller.getBannedLBL().setVisible(true);
-				break;
-			}
-			controller.getCustomerInformationBTN().setOnMouseClicked(e -> {
-				OpenProfile(customer);
-			});
+			controller.AddEmployee(employee);
+
 			MainPanel.getChildren().add(c);
 		}
-
-	}
-
-	private void OpenProfile(Customer c) {
-		EachUserProfile profile = (EachUserProfile) MainStructure
-				.addPage("src/Manager/Components/EachUserProfile.fxml");
-		profile.LoadProfileData(c);
 
 	}
 
