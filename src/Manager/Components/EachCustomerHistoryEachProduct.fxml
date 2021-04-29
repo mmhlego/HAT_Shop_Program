@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="800.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: #6887C5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.HistoryEachProduct">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="850.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: #6887C5;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.HistoryEachProduct">
    <children>
-      <ImageView fx:id="ProductIMG" fitHeight="120.0" fitWidth="120.0" layoutX="660.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ProductIMG" fitHeight="120.0" fitWidth="120.0" layoutX="710.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../pictures/Product%20Images/Product.png" />
          </image>
       </ImageView>
-      <Button fx:id="SeeProductBTN" layoutX="341.0" layoutY="111.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: #769FCD;" text="مشاهده کالا" textFill="WHITE">
+      <Button fx:id="SeeProductBTN" layoutX="360.0" layoutY="111.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: #769FCD;" text="مشاهده کالا" textFill="WHITE">
          <font>
             <Font name="B Koodak Bold" size="16.0" />
          </font>
@@ -28,7 +28,7 @@
             <Font name="B Koodak Bold" size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="481.0" layoutY="41.0" prefHeight="35.0" prefWidth="140.0" text="شناسه کالا :">
+      <Label alignment="CENTER" layoutX="500.0" layoutY="41.0" prefHeight="35.0" prefWidth="140.0" text="شناسه کالا :">
          <font>
             <Font name="B Koodak Bold" size="16.0" />
          </font>
@@ -43,7 +43,7 @@
             <Font name="B Koodak Bold" size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="481.0" layoutY="6.0" prefHeight="35.0" prefWidth="140.0" text="نام کالا :">
+      <Label alignment="CENTER" layoutX="500.0" layoutY="6.0" prefHeight="35.0" prefWidth="140.0" text="نام کالا :">
          <font>
             <Font name="B Koodak Bold" size="16.0" />
          </font>
@@ -53,7 +53,7 @@
             <Font name="B Koodak Bold" size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="481.0" layoutY="76.0" prefHeight="35.0" prefWidth="140.0" text="دسته بندی کالا :">
+      <Label alignment="CENTER" layoutX="500.0" layoutY="76.0" prefHeight="35.0" prefWidth="140.0" text="دسته بندی کالا :">
          <font>
             <Font name="B Koodak Bold" size="16.0" />
          </font>
@@ -61,17 +61,17 @@
       <Label fx:id="TotalPriceLBL" alignment="CENTER" layoutX="31.0" layoutY="111.0" prefHeight="35.0" prefWidth="140.0" style="-fx-border-color: #769FCD; -fx-border-width: 2 0 0 0;" text="-" />
       <Label fx:id="BasePriceLBL" alignment="CENTER" layoutX="31.0" layoutY="6.0" prefHeight="35.0" prefWidth="140.0" text="-" />
       <Label fx:id="PercentageLBL" alignment="CENTER" layoutX="31.0" layoutY="41.0" prefHeight="35.0" prefWidth="140.0" text="-" />
-      <Label fx:id="ProductIDLBL" alignment="CENTER" layoutX="341.0" layoutY="41.0" prefHeight="35.0" prefWidth="140.0" text="-">
+      <Label fx:id="ProductIDLBL" alignment="CENTER" layoutX="360.0" layoutY="41.0" prefHeight="35.0" prefWidth="140.0" text="-">
          <font>
             <Font name="B Koodak Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="ProductNameLBL" alignment="CENTER" layoutX="341.0" layoutY="6.0" prefHeight="35.0" prefWidth="140.0" text="-">
+      <Label fx:id="ProductNameLBL" alignment="CENTER" layoutX="360.0" layoutY="6.0" prefHeight="35.0" prefWidth="140.0" text="-">
          <font>
             <Font name="B Koodak Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="ProductCategoryLBL" alignment="CENTER" layoutX="341.0" layoutY="76.0" prefHeight="35.0" prefWidth="140.0" text="-">
+      <Label fx:id="ProductCategoryLBL" alignment="CENTER" layoutX="360.0" layoutY="76.0" prefHeight="35.0" prefWidth="140.0" text="-">
          <font>
             <Font name="B Koodak Bold" size="16.0" />
          </font>
