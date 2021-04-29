@@ -66,6 +66,9 @@ public class CustomerList implements Initializable {
 			controller.getCustomerInformationBTN().setOnMouseClicked(e -> {
 				OpenProfile(customer);
 			});
+			controller.getCustomerCartBTN().setOnAction(e -> {
+				OpenCart(customer);
+			});
 			MainPanel.getChildren().add(c);
 		}
 	}
@@ -74,5 +77,15 @@ public class CustomerList implements Initializable {
 		EachUserProfile profile = (EachUserProfile) MainStructure
 				.addPage("src/Manager/Components/EachUserProfile.fxml");
 		profile.LoadProfileData(c);
+	}
+
+	private void OpenCart(Customer c) {
+		EachCustomerCart cart = (EachCustomerCart) MainStructure
+				.addPage("src/Manager/Components/EachCustomerCart.fxml");
+		try {
+			cart.LoadCustomerCart(c);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

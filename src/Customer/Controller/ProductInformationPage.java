@@ -13,6 +13,7 @@ import com.jfoenix.controls.JFXTextArea;
 
 import CommonPages.Controllers.MainStructure;
 import Controller.UserController;
+import Controller.UserController.UserMode;
 import DataController.ProductChecker;
 import Model.Product;
 import javafx.collections.FXCollections;
@@ -66,8 +67,10 @@ public class ProductInformationPage implements Initializable {
 	private AnchorPane SimilarProductsAnchor;
 	@FXML
 	private Button LoadMoreBTN;
+	@SuppressWarnings("rawtypes")
 	@FXML
 	private TableColumn<Map, String> InformationColumn;
+	@SuppressWarnings("rawtypes")
 	@FXML
 	private TableColumn<Map, String> MColumn;
 
@@ -81,19 +84,21 @@ public class ProductInformationPage implements Initializable {
 		ProductDetailsTable = productDetailsTable;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public TableColumn<Map, String> getInformationColumn() {
 		return InformationColumn;
 	}
 
-	public void setInformationColumn(TableColumn<Map, String> informationColumn) {
+	public void setInformationColumn(@SuppressWarnings("rawtypes") TableColumn<Map, String> informationColumn) {
 		InformationColumn = informationColumn;
 	}
 
+	@SuppressWarnings("rawtypes")
 	public TableColumn<Map, String> getMColumn() {
 		return MColumn;
 	}
 
-	public void setMColumn(TableColumn<Map, String> mColumn) {
+	public void setMColumn(@SuppressWarnings("rawtypes") TableColumn<Map, String> mColumn) {
 		MColumn = mColumn;
 	}
 
@@ -233,10 +238,12 @@ public class ProductInformationPage implements Initializable {
 		if (p.Amount == 0) {
 			SelectedAmountLBL.setText("0");
 		}
+		if (UserController.Mode.equals(UserMode.Customer)) {
 
-		int index = UserController.Cart.contains(p.ID);
-		if (index != -1) {
-			AmountInsideCart = UserController.Cart.Amounts.get(index);
+			int index = UserController.Cart.contains(p.ID);
+			if (index != -1) {
+				AmountInsideCart = UserController.Cart.Amounts.get(index);
+			}
 		}
 
 		// UserController.Cart.addProduct(p, amount);
