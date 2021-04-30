@@ -1,10 +1,10 @@
 package Manager.Controller;
 
 import java.net.URL;
+import java.sql.*;
 import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXButton;
-
+import DataController.DBConnector;
 import Model.Customer;
 import Model.Employee;
 import javafx.fxml.FXML;
@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -87,17 +89,13 @@ public class EachUserProfile implements Initializable {
 			ModeLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
 			ValueLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
 			AddressLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			if (EditUserInformationBTN.getText().equals("ذخیره اطلاعات کاربر")) {
+				UpdateCustomerData();
+			}
 			EditUserInformationBTN
 					.setText(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر") ? "ذخیره اطلاعات کاربر"
 							: "تغییر اطلاعات کاربر");
-			UpdateCustomerData();
-
 		});
-	}
-
-	private void UpdateCustomerData() {
-		// This Method Must Be written
-
 	}
 
 	public void LoadProfileData(Employee u) {
@@ -118,17 +116,48 @@ public class EachUserProfile implements Initializable {
 			UsernameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
 			EmailLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
 			ModeLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			if (EditUserInformationBTN.getText().equals("ذخیره اطلاعات کاربر")) {
+				UpdateEmployeeData();
+			}
 			EditUserInformationBTN
 					.setText(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر") ? "ذخیره اطلاعات کاربر"
 							: "تغییر اطلاعات کاربر");
-			UpdateEmployeeData();
-
 		});
 	}
 
-	private void UpdateEmployeeData() {
-		// This Method Must Be written
+	private void UpdateCustomerData() {
+		try {
+			PreparedStatement ps = DBConnector.Con.prepareStatement("UPDATE Customers SET FirstName=" + "\'"
+					+ FirstNameLBL.getText() + "\' , LastName=" + "\'" + LastNameLBL.getText() + "\' , Username=" + "\'"
+					+ UsernameLBL.getText() + "\' , Phone=" + "\'" + PhoneLBL.getText() + "\' , Email=" + "\'"
+					+ EmailLBL.getText() + "\' , Address=" + "\'" + AddressLBL.getText() + "\' , Value="
+					+ Long.parseLong(ValueLBL.getText()) + " WHERE ID=" + "\'" + IDLBL.getText() + "\'");
+			ps.executeUpdate();
+			Alert(AlertType.INFORMATION, "موفق", "اطلاعات کاربر با موفقیت به روزرسانی شد !");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
+	private void UpdateEmployeeData() {
+		try {
+			PreparedStatement ps = DBConnector.Con.prepareStatement("UPDATE Employees SET FirstName=" + "\'"
+					+ FirstNameLBL.getText() + "\' , LastName=" + "\'" + LastNameLBL.getText() + "\' , Username=" + "\'"
+					+ UsernameLBL.getText() + "\' , Phone=" + "\'" + PhoneLBL.getText() + "\' , Email=" + "\'"
+					+ EmailLBL.getText() + "\'" + " WHERE ID=" + "\'" + IDLBL.getText() + "\'");
+			ps.executeUpdate();
+			Alert(AlertType.INFORMATION, "موفق", "اطلاعات کاربر با موفقیت به روزرسانی شد !");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void Alert(AlertType AlertType, String Title, String Content) {
+		Alert alert = new Alert(AlertType);
+		alert.setTitle(Title);
+		alert.setHeaderText(null);
+		alert.setContentText(Content);
+		alert.show();
 	}
 
 }
