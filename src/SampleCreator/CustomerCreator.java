@@ -74,8 +74,7 @@ public class CustomerCreator {
 						random.nextInt(28) + 1);
 				shipping = new Shipping(orderId, 0, fee, localDate, Shipping.GenerateID());
 				DataAdder.AddShipping(shipping);
-				DataAdder.AddTransaction(
-						new Transaction(orderId, o.TotalValue + fee, localDate, Transaction.GenerateID()));
+				DataAdder.AddTransaction(new Transaction(id, o.TotalValue + fee, localDate, Transaction.GenerateID()));
 			}
 
 			for (int j = 0; j < random.nextInt(5); j++) {
@@ -88,8 +87,7 @@ public class CustomerCreator {
 						random.nextInt(28) + 1);
 				shipping = new Shipping(orderId, 1, fee, localDate, Shipping.GenerateID());
 				DataAdder.AddShipping(shipping);
-				DataAdder.AddTransaction(
-						new Transaction(orderId, o.TotalValue + fee, localDate, Transaction.GenerateID()));
+				DataAdder.AddTransaction(new Transaction(id, o.TotalValue + fee, localDate, Transaction.GenerateID()));
 			}
 
 			// DataAdder.AddOrder(OwnerID, Status, Products, Amounts, TotalValue, OrderID);

@@ -87,6 +87,7 @@ public class Cart implements Initializable {
 		});
 
 		PayOrderFromValueBTN.setOnAction((e) -> {
+			UserController.UpdateScreen();
 			UserUpdator.UpdateValue(UserController.customer.Username, -Long.parseLong(FinalPriceLBL.getText()));
 			UserController.Cart.Status = OrderStatus.SENDING;
 			DataUpdator.UpdateOrderStatus(UserController.Cart);

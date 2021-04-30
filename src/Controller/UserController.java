@@ -113,10 +113,8 @@ public class UserController {
 
 	public static Stage loadingStage;
 
-	private static void UpdateUserData() {
-		UpdateScreen();
+	public static void UpdateUserData() {
 		Thread thread = new Thread(new Runnable() {
-
 			@Override
 			public void run() {
 				DataUpdator.UpdateOrder(UserController.Cart);

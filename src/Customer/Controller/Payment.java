@@ -79,6 +79,7 @@ public class Payment implements Initializable {
 				Alert(AlertType.ERROR, "حروف تصویر نادرست است !");
 			} else {
 				if (TransactionMode) {
+					UserController.UpdateScreen();
 					UserController.Cart.Status = OrderStatus.SENDING;
 					DataUpdator.UpdateOrderStatus(UserController.Cart);
 					DataAdder.AddShipping(UserController.Cart.OrderID, 0, Long.parseLong(ShippingFee),
@@ -87,11 +88,12 @@ public class Payment implements Initializable {
 							LocalDate.parse(ShippingDate), Transaction.GenerateID());
 					DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
 					Alert(AlertType.INFORMATION, "پرداخت با موفقیت انجام شد.");
+					UserController.LoadUserFullData();
 					ProceedBTN.getParent().getScene().getWindow().hide();
 				} else {
 					UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
 				}
-				UserController.LoadUserFullData();
+				UserController.UpdateUserData();
 			}
 		});
 
