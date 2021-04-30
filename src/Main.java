@@ -1,4 +1,5 @@
 import java.io.IOException;
+
 import DataController.DBConnector;
 import DataController.UserUpdator;
 import javafx.application.Application;
@@ -13,9 +14,6 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 
-		//long start = System.currentTimeMillis();
-		//SampleCreator.Creator.CreateSamples(false, true, true);
-		//PrintEstimatedTime(start);
 	}
 
 	private static void PrintEstimatedTime(long start) {

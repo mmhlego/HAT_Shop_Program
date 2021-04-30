@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import DataController.UserGetter;
 import Model.Employee;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +30,7 @@ public class EmployeeList implements Initializable {
 
 		System.out.println("employee list");
 		try {
-			/* allEmployees=UserGetter. */
+			allEmployees = UserGetter.GetAllEmployees();
 			ShowAllEmployees();
 
 		} catch (Exception e) {
