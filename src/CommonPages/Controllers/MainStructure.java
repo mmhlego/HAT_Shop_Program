@@ -82,6 +82,7 @@ public class MainStructure implements Initializable {
 
 			AddButton("../../Manager/Visual/CustomerList.fxml", "لیست مشتریان", "", false);
 			AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "", false);
+			AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالاها", "", false);
 
 		} else {
 			loader2 = new FXMLLoader(this.getClass().getResource("../../Employee/Visual/MainPage.fxml"));
