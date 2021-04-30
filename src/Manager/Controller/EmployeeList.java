@@ -36,15 +36,6 @@ public class EmployeeList implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		// try {
-		// allCustomers =
-		// UserGetter.ConvertCustomersToArrayList(UserGetter.GetCustomersDB());
-		// System.out.println(allCustomers.size());
-		// ShowAllCustomers();
-		// } catch (Exception e) {
-		// e.printStackTrace();
-		// }
 	}
 
 	int i = 0;
