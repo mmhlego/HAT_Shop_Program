@@ -42,7 +42,7 @@
                   <Font name="B Koodak Bold" size="19.0" />
                </font>
             </Label>
-            <JFXButton fx:id="enterBTN" layoutX="199.0" layoutY="345.0" prefHeight="50.0" ripplerFill="#c41085" text="ورود" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="400.0">
+            <JFXButton fx:id="enterBTN" layoutX="199.0" layoutY="345.0" prefHeight="50.0" ripplerFill="#b9d7ea" text="ورود" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="400.0">
                <font>
                   <Font name="B Koodak Bold" size="20.0" />
                </font>

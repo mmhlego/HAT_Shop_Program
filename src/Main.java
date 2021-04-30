@@ -1,4 +1,5 @@
 import java.io.IOException;
+
 import DataController.DBConnector;
 import DataController.UserUpdator;
 import javafx.application.Application;

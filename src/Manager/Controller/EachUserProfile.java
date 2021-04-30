@@ -12,8 +12,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 public class EachUserProfile implements Initializable {
 
@@ -80,7 +83,10 @@ public class EachUserProfile implements Initializable {
 		EditUserInformationBTN.setOnAction(e -> {
 			FirstNameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
 			LastNameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
-			IDLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			Tooltip tooltip = new Tooltip("آیدی قابل تغییر نیست");
+			tooltip.setFont(Font.font("B Kamran", FontWeight.BOLD, 20));
+			tooltip.setAutoHide(false);
+			IDLBL.setTooltip(tooltip);
 			PhoneLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
 			UsernameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
 			EmailLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
@@ -113,7 +119,10 @@ public class EachUserProfile implements Initializable {
 		EditUserInformationBTN.setOnAction(e -> {
 			FirstNameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
 			LastNameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
-			IDLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
+			Tooltip tooltip = new Tooltip("آیدی قابل تغییر نیست");
+			tooltip.setAutoHide(false);
+			tooltip.setFont(Font.font("B Kamran", FontWeight.BOLD, 20));
+			IDLBL.setTooltip(tooltip);
 			PhoneLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
 			UsernameLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
 			EmailLBL.setEditable(EditUserInformationBTN.getText().equals("تغییر اطلاعات کاربر"));
