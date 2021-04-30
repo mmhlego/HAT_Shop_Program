@@ -1,5 +1,4 @@
 import java.io.IOException;
-
 import DataController.DBConnector;
 import DataController.UserUpdator;
 import javafx.application.Application;
@@ -12,11 +11,11 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static void main(String[] args) {
-		//launch(args);
+		launch(args);
 
-		long start = System.currentTimeMillis();
-		SampleCreator.Creator.CreateSamples(false, true, true);
-		PrintEstimatedTime(start);
+		//long start = System.currentTimeMillis();
+		//SampleCreator.Creator.CreateSamples(false, true, true);
+		//PrintEstimatedTime(start);
 	}
 
 	private static void PrintEstimatedTime(long start) {

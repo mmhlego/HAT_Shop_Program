@@ -40,8 +40,6 @@ public class ThirdRegisterPage implements Initializable {
 
         password.setOnKeyReleased((e) -> {
             int Strength = PasswordChecker.CheckStrength(PasswordChecker.Strength(password.getText()));
-            System.out.println(Strength);
-
             if (Strength == 0) {
                 PasswordStrengthProgress.getStylesheets().clear();
                 try {
