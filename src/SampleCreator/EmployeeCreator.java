@@ -10,7 +10,7 @@ import Model.Employee.EmployeeMode;
 public class EmployeeCreator {
 	private static Random random = new Random(System.currentTimeMillis());
 
-	public EmployeeCreator() {
+	public static void Create() {
 		ArrayList<Employee> employees = new ArrayList<>();
 		employees.add(new Employee("Pouya", "Afraz", "pouya", "pouya", EmployeeMode.ASSISTANT, "09222855759",
 				"pouyaafraz@gmail.com", Employee.GenerateID(EmployeeMode.ASSISTANT)));
@@ -80,7 +80,7 @@ public class EmployeeCreator {
 		return mail;
 	}
 
-	private String[] randomName() {
+	private static String[] randomName() {
 		String[] name = new String[2];
 		if (random.nextBoolean()) {
 			name[0] = englishFirstNames[random.nextInt(englishFirstNames.length)];
@@ -118,9 +118,8 @@ public class EmployeeCreator {
 		return phoneNumber;
 	}
 
-	private void addEmployee(Employee e) {
+	private static void addEmployee(Employee e) {
 		DataAdder.AddEmployee(e.FirstName, e.LastName, e.Username, e.Password, Employee.ModeToInt(e.Mode), e.Phone,
 				e.Email, e.ID);
-		// e.printDetails();
 	}
 }

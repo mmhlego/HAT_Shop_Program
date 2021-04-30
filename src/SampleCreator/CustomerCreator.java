@@ -48,9 +48,11 @@ public class CustomerCreator {
 			// .PrintDetails
 
 			// System.out.println(firstName + " " + lastName + " " + phoneNumber);
-			System.out.println(i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i
-					+ "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i
-					+ "\t" + i);
+			//System.out.println(i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i
+			//		+ "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i + "\t" + i
+			//		+ "\t" + i);
+			System.out.println("Created " + (i + 1) + " Customers");
+
 			DataAdder.AddCustomer(c);
 
 			if (random.nextBoolean()) {

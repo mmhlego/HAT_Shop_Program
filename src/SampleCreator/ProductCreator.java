@@ -597,6 +597,5 @@ public class ProductCreator {
 		DataAdder.AddProduct(P98);
 		DataAdder.AddProduct(P99);
 		DataAdder.AddProduct(P100);
-		System.out.println("Added");
 	}
 }
