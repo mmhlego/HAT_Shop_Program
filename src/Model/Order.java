@@ -133,26 +133,32 @@ public class Order {
 
 		public static int ModeToInt(OrderStatus u) {
 			switch (u) {
-			case PENDING:
-				return 0;
-			case SENDING:
-				return 1;
-			case FINISHED:
-				return 2;
+				case PENDING:
+					return 0;
+				case SENDING:
+					return 1;
+				case FINISHED:
+					return 2;
 			}
 			return -1;
 		}
 
 		public static OrderStatus IntToMode(int u) {
 			switch (u) {
-			case 0:
-				return OrderStatus.PENDING;
-			case 1:
-				return OrderStatus.SENDING;
-			case 2:
-				return OrderStatus.FINISHED;
+				case 0:
+					return OrderStatus.PENDING;
+				case 1:
+					return OrderStatus.SENDING;
+				case 2:
+					return OrderStatus.FINISHED;
 			}
 			return null;
+		}
+	}
+
+	public void BuyProducts() {
+		for (int i = 0; i < Products.size(); i++) {
+			ProductChecker.AddProductAmount(Products.get(i).ID, -Amounts.get(i));
 		}
 	}
 }

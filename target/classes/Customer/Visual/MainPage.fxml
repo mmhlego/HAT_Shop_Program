@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="MainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" styleClass="root" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.MainPage">
+<AnchorPane fx:id="MainPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" styleClass="root" stylesheets="@MainPage.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.MainPage">
    <children>
       <AnchorPane layoutX="7.0" layoutY="8.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="1080.0" styleClass="menu" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -75,7 +75,7 @@
             </AnchorPane>
             <AnchorPane id="second" fx:id="accessories" layoutX="236.0" layoutY="25.0" prefHeight="250.0" prefWidth="186.0" styleClass="categories">
                <children>
-                  <Label alignment="CENTER" prefHeight="80.0" prefWidth="186.0" text="لوازم جانبی موبایل">
+                  <Label alignment="CENTER" prefHeight="80.0" prefWidth="186.0" text="لوازم جانبی">
                      <font>
                         <Font name="B Kamran Bold" size="25.0" />
                      </font>

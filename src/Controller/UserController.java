@@ -108,7 +108,10 @@ public class UserController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
 
+	public static void HideLoading() {
+		loadingStage.hide();
 	}
 
 	public static Stage loadingStage;
@@ -119,8 +122,8 @@ public class UserController {
 			public void run() {
 				DataUpdator.UpdateOrder(UserController.Cart);
 				LoadUserFullData();
-				Platform.runLater(new Runnable() {
 
+				Platform.runLater(new Runnable() {
 					@Override
 					public void run() {
 						loadingStage.hide();

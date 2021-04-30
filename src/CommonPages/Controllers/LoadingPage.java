@@ -31,13 +31,13 @@ public class LoadingPage implements Initializable {
 							@Override
 							public void run() {
 								if (i % 4 == 0) {
-									connectLBL.setText("در حال اتصال");
+									connectLBL.setText("در حال بروزرسانی");
 								} else if (i % 4 == 1) {
-									connectLBL.setText("در حال اتصال .");
+									connectLBL.setText("در حال بروزرسانی .");
 								} else if (i % 4 == 2) {
-									connectLBL.setText("در حال اتصال ..");
+									connectLBL.setText("در حال بروزرسانی ..");
 								} else if (i % 4 == 3) {
-									connectLBL.setText("در حال اتصال ...");
+									connectLBL.setText("در حال بروزرسانی ...");
 								}
 								i++;
 							}

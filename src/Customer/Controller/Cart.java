@@ -90,13 +90,16 @@ public class Cart implements Initializable {
 			UserController.UpdateScreen();
 			UserUpdator.UpdateValue(UserController.customer.Username, -Long.parseLong(FinalPriceLBL.getText()));
 			UserController.Cart.Status = OrderStatus.SENDING;
+			UserController.Cart.BuyProducts();
 			DataUpdator.UpdateOrderStatus(UserController.Cart);
 			DataAdder.AddShipping(UserController.Cart.OrderID, 0, Long.parseLong(ShippingFeeLBL.getText()),
 					LocalDate.parse(ShippingDateLBL.getText()), Shipping.GenerateID());
 			DataAdder.AddTransaction(UserController.Cart.OwnerID, Long.parseLong(FinalPriceLBL.getText()),
 					LocalDate.parse(ShippingDateLBL.getText()), Transaction.GenerateID());
 			DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
+
 			UserController.LoadUserFullData();
+			UserController.HideLoading();
 		});
 	}
 

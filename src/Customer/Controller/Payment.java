@@ -81,6 +81,7 @@ public class Payment implements Initializable {
 				if (TransactionMode) {
 					UserController.UpdateScreen();
 					UserController.Cart.Status = OrderStatus.SENDING;
+					UserController.Cart.BuyProducts();
 					DataUpdator.UpdateOrderStatus(UserController.Cart);
 					DataAdder.AddShipping(UserController.Cart.OrderID, 0, Long.parseLong(ShippingFee),
 							LocalDate.parse(ShippingDate), Shipping.GenerateID());
@@ -88,7 +89,10 @@ public class Payment implements Initializable {
 							LocalDate.parse(ShippingDate), Transaction.GenerateID());
 					DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
 					Alert(AlertType.INFORMATION, "پرداخت با موفقیت انجام شد.");
+
 					UserController.LoadUserFullData();
+					UserController.HideLoading();
+
 					ProceedBTN.getParent().getScene().getWindow().hide();
 				} else {
 					UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
