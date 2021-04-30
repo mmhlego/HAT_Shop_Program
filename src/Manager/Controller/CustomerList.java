@@ -47,7 +47,8 @@ public class CustomerList implements Initializable {
 			AnchorPane.setTopAnchor(c, (double) (35 + i * 115));
 			AnchorPane.setLeftAnchor(c, (double) 32);
 			controller.getCustomerIDLBL().setText(customer.ID);
-			//controller.getCustomerNameLBL().setText(customer.FirstName + " " + customer.LastName);
+			// controller.getCustomerNameLBL().setText(customer.FirstName + " " +
+			// customer.LastName);
 			controller.getCustomerNameLBL().setText(customer.Username);
 			switch (customer.Mode) {
 			case PREMIUM:
@@ -69,6 +70,9 @@ public class CustomerList implements Initializable {
 			controller.getCustomerCartBTN().setOnAction(e -> {
 				OpenCart(customer);
 			});
+			controller.getCustomerOrderHistoryBTN().setOnAction(e -> {
+				OpenHistory(customer);
+			});
 			MainPanel.getChildren().add(c);
 		}
 	}
@@ -87,5 +91,16 @@ public class CustomerList implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void OpenHistory(Customer c) {
+		EachCustomerHistory history = (EachCustomerHistory) MainStructure
+				.addPage("src/Manager/Components/EachCustomerHistory.fxml");
+		try {
+			history.AddCustomersOrdersHistory(c);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 }
