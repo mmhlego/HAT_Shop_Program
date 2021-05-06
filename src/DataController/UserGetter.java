@@ -223,4 +223,27 @@ public class UserGetter {
 		return null;
 	}
 
+	public static Transaction GetTransactionByOrderID(String UserID, long OrderValue) {
+		try {
+			ResultSet r = DBConnector.RunCommand(
+					"SELECT * FROM Transactions WHERE FromID=" + "\'" + UserID + "\'" + " AND Value=" + OrderValue);
+			r.next();
+			return new Transaction(r.getString(1), r.getLong(2), r.getDate(4).toLocalDate(), r.getString(5));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public static Shipping GetShippingByOrderID(String OrderID) {
+		try {
+			ResultSet r = DBConnector.RunCommand("SELECT * FROM Shipping WHERE OrderID=" + "\'" + OrderID + "\'");
+			r.next();
+			return new Shipping(r.getString(1), r.getInt(2), r.getLong(3), r.getDate(4).toLocalDate(), r.getString(5));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

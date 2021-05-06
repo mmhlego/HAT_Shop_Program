@@ -38,6 +38,8 @@ public class SecondRegisterPage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        sendOTP.setCursor(Cursor.HAND);
+        check.setCursor(Cursor.HAND);
         backBTN.setCursor(Cursor.HAND);
         backBTN.setOnMouseClicked(e -> System.exit(0));
         Limitter.Limit(phoneNumber, 11, true);

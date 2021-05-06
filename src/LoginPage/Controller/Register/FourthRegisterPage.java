@@ -34,6 +34,7 @@ public class FourthRegisterPage implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         backBTN.setCursor(Cursor.HAND);
         backBTN.setOnMouseClicked(e -> System.exit(0));
+        nextStep.setCursor(Cursor.HAND);
         nextStep.setOnAction((e) -> {
             if (!IsAllFieldsComplete(firstName, lastName)) {
                 Alert(AlertType.ERROR, "بعضی از فیلد ها خالی هستند");
