@@ -106,8 +106,8 @@ public class UserGetter {
 
 	public static ResultSet GetOrdersDB(String OwnerID) {
 		try {
-			return DBConnector
-					.RunCommand("SELECT * FROM Orders WHERE OwnerID=" + "\'" + OwnerID + "\'" + " AND Status > 0");
+			return DBConnector.RunCommand("SELECT * FROM Orders WHERE OwnerID=" + "\'" + OwnerID + "\'"
+					+ " AND Status > 0 ORDER BY OrderID DESC");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -142,7 +142,7 @@ public class UserGetter {
 			return new Order(r.getString(1), OrderStatus.IntToMode(r.getInt(2)), Order.GetIDsProducts(r.getString(3)),
 					Order.GetIDsAmounts(r.getString(4)), r.getLong(5), r.getString(6));
 		} catch (Exception e) {
-			
+
 		}
 		return null;
 	}

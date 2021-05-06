@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -33,6 +34,9 @@
                            <font>
                               <Font name="B Koodak Bold" size="20.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
                      </children></VBox>
                   <VBox fx:id="imageBox" alignment="CENTER" prefHeight="60.0" prefWidth="60.0" styleClass="exit">

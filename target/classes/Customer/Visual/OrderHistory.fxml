@@ -6,7 +6,7 @@
 
 <ScrollPane hbarPolicy="NEVER" prefHeight="700.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.OrderHistory">
    <content>
-      <VBox fx:id="OrdersPanel" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1080.0" spacing="25.0" style="-fx-background-color: #F7FBFC;">
+      <VBox fx:id="OrdersPanel" alignment="TOP_CENTER" minHeight="695.0" minWidth="-Infinity" prefWidth="1080.0" spacing="25.0" style="-fx-background-color: #F7FBFC;">
          <padding>
             <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
          </padding>

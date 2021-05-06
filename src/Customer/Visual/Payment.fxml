@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1140.0" style="-fx-background-color: #00000030;" stylesheets="@Payment.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.Payment">
+<AnchorPane fx:id="BackPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1140.0" styleClass="BackPanel" stylesheets="@Payment.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.Payment">
    <children>
       <AnchorPane layoutX="25.0" layoutY="25.0" prefHeight="220.0" prefWidth="530.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: white; -fx-border-color: #6887C5;">
          <children>

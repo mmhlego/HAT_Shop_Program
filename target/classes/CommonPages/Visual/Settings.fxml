@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
@@ -16,11 +17,17 @@
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="AboutUsBTN" layoutY="82.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #B9D7EA; -fx-background-radius: 0 20 20 0;" text="درباره ما" textFill="WHITE">
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button disable="true" layoutY="134.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #B9D7EA; -fx-background-radius: 0 20 20 0;" text="-" textFill="WHITE" visible="false">
                <font>
@@ -38,6 +45,9 @@
                <image>
                   <Image url="@../../pictures/icons/Back.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </children>
       </AnchorPane>

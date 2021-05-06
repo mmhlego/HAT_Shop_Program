@@ -14,11 +14,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Region;
 
 public class Payment implements Initializable {
+	@FXML
+	private AnchorPane BackPanel;
 	@FXML
 	private TextField CardNumberTF;
 	@FXML
@@ -59,6 +64,8 @@ public class Payment implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		ApplyBlur();
+
 		AmountLBL.setText(FinalPrice);
 		TRID = Transaction.GenerateID();
 		TransactionIDLBL.setText(TRID);
@@ -111,6 +118,16 @@ public class Payment implements Initializable {
 				Alert(AlertType.INFORMATION, "پرداخت با امنیت کامل لغو شد");
 			}
 		});
+	}
+
+	private void ApplyBlur() {
+		//Region region = new Region();
+		//region.setPrefSize(1160, 700);
+		//region.setEffect(new GaussianBlur());
+		//BackPanel.getChildren().add(region);
+		//region.toBack();
+
+		BackPanel.setEffect(new BoxBlur(5, 5, 0));
 	}
 
 	private long GetAmount() {

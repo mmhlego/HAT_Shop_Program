@@ -43,6 +43,7 @@ public class OrderHistory implements Initializable {
 	private void AddOrdersToPage() throws Exception {
 		i = 0;
 		for (Order order : allOrders) {
+			System.out.println("Order #" + i);
 			Shipping shipping = allShippings.get(i);
 			Transaction transaction = allTransactions.get(i);
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/HistoryEachOrderDetails.fxml"));
