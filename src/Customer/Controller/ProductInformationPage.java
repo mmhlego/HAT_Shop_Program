@@ -309,13 +309,8 @@ public class ProductInformationPage implements Initializable {
 		getSpecialTXT().setVisible(false);
 		showSpecialProduct(getSimilarProductsAnchor());
 
-		if (special) {
-			getSpecialTXT().setVisible(true);
-			getSpecialIMG().setVisible(true);
-		} else {
-			getSpecialTXT().setVisible(false);
-			getSpecialIMG().setVisible(false);
-		}
+		getSpecialTXT().setVisible(special);
+		getSpecialIMG().setVisible(special);
 
 		getLoadMoreBTN().toFront();
 		getLoadMoreBTN().setOnAction(e -> {

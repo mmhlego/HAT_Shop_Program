@@ -20,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 
 public class ProductsViewer implements Initializable {
@@ -176,6 +177,12 @@ public class ProductsViewer implements Initializable {
 
 		FilterBTN.setOnAction(e -> filter());
 		SearchBTN.setOnAction(e -> filter());
+		SearchTXF.setOnKeyPressed(e -> {
+			if (e.getCode() == KeyCode.ENTER) {
+				filter();
+			}
+
+		});
 	}
 
 	private void addProducts(ArrayList<Product> products) {
