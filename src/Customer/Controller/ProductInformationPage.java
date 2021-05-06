@@ -235,6 +235,7 @@ public class ProductInformationPage implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (UserController.Mode.equals(UserMode.Customer)) {
+
             int index = UserController.Cart.contains(p.ID);
             if (index != -1) {
                 AmountInsideCart = UserController.Cart.Amounts.get(index);
@@ -243,7 +244,6 @@ public class ProductInformationPage implements Initializable {
 
         if (p.Amount - AmountInsideCart == 0) {
             SelectedAmountLBL.setText("0");
-            AddToCartBTN.setDisable(true);
         }
 
         // UserController.Cart.addProduct(p, amount);
@@ -287,6 +287,7 @@ public class ProductInformationPage implements Initializable {
     }
 
     public void buyPage(Product p, Image image, boolean special) {
+
         if (p.Amount == 0) {
             getBuyBTN().setDisable(true);
         }
@@ -316,13 +317,8 @@ public class ProductInformationPage implements Initializable {
         getSpecialTXT().setVisible(false);
         showSpecialProduct(getSimilarProductsAnchor());
 
-        if (special) {
-            getSpecialTXT().setVisible(true);
-            getSpecialIMG().setVisible(true);
-        } else {
-            getSpecialTXT().setVisible(false);
-            getSpecialIMG().setVisible(false);
-        }
+        getSpecialTXT().setVisible(special);
+        getSpecialIMG().setVisible(special);
 
         getLoadMoreBTN().toFront();
         getLoadMoreBTN().setOnAction(e -> {
@@ -384,6 +380,5 @@ public class ProductInformationPage implements Initializable {
                 e.printStackTrace();
             }
         }
-
     }
 }

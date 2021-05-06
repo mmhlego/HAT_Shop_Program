@@ -53,6 +53,7 @@ public class Cart implements Initializable {
 	private Button PayOrderFromValueBTN;
 	private boolean special = false;
 	ArrayList<Product> SpecialProduct = new ArrayList<>();
+	public static Stage pStage;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -81,8 +82,10 @@ public class Cart implements Initializable {
 				scene.setFill(Color.TRANSPARENT);
 				Stage stage = new Stage(StageStyle.TRANSPARENT);
 				stage.setScene(scene);
+				pStage = stage;
 				stage.show();
 				Payment.TransactionMode = true;
+
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
