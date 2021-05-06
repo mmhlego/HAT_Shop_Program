@@ -37,7 +37,8 @@ public class ThirdRegisterPage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        nextStep.setCursor(Cursor.HAND);
+        backBTN.setCursor(Cursor.HAND);
         password.setOnKeyReleased((e) -> {
             int Strength = PasswordChecker.CheckStrength(PasswordChecker.Strength(password.getText()));
             if (Strength == 0) {

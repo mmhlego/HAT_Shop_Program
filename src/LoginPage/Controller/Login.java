@@ -52,7 +52,8 @@ public class Login implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// DBConnector.CheckConnection(loginAnchor);
+		enterBTN.setCursor(Cursor.HAND);
+		CloseBTN.setCursor(Cursor.HAND);
 		Limitter.Limit(usernameField, 20, false);
 		Limitter.Limit(passwordField, 20, false);
 		plusImage.setCursor(Cursor.HAND);

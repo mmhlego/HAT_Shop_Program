@@ -35,6 +35,7 @@ public class FirstRegisterPage implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		sendOTP.setCursor(Cursor.HAND);
 		Limitter.Limit(phoneNumber, 11, true);
 		backBTN.setCursor(Cursor.HAND);
 		backBTN.setOnMouseClicked(e -> System.exit(0));

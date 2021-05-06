@@ -7,7 +7,6 @@ import com.jfoenix.controls.JFXButton;
 import Controller.UserController;
 import DataController.*;
 import Model.*;
-import Model.Transaction;
 import Model.Order.OrderStatus;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -56,6 +55,7 @@ public class Payment implements Initializable {
 	public static String ShippingDate;
 	public static String ShippingFee;
 	public String TRID;
+	Captcha captcha;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -63,8 +63,14 @@ public class Payment implements Initializable {
 		TRID = Transaction.GenerateID();
 		TransactionIDLBL.setText(TRID);
 
-		Captcha captcha = new Captcha(300, 40, 7);
+		captcha = new Captcha(300, 40, 7);
 		CaptchaPanel.getChildren().add(captcha);
+
+		ChangeCaptcha.setOnAction((e) -> {
+			CaptchaPanel.getChildren().clear();
+			captcha = new Captcha(300, 40, 7);
+			CaptchaPanel.getChildren().add(captcha);
+		});
 
 		LimitTextFieldPassToNext();
 		RequestOTP.setOnAction((e) -> {
