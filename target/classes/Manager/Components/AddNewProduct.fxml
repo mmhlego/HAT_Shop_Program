@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #00000020;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controller.AddNewProduct">
+<AnchorPane prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #00000020;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controller.AddNewProduct">
    <children>
       <AnchorPane layoutX="90.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: white; -fx-border-color: #6887C5;">
          <children>
@@ -104,7 +104,7 @@
                   </TextField>
                </children>
             </Group>
-            <JFXButton fx:id="EditUserInformationBTN" layoutX="25.0" layoutY="485.0" prefHeight="40.0" prefWidth="850.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10; -fx-border-radius: 10;" text="تغییر اطلاعات کاربر" textFill="WHITE">
+            <JFXButton fx:id="EditUserInformationBTN" layoutX="25.0" layoutY="485.0" prefHeight="40.0" prefWidth="850.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10; -fx-border-radius: 10;" text="تغییر اطلاعات کالا" textFill="WHITE">
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
