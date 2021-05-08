@@ -1,59 +1,72 @@
 package Manager.Controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import com.jfoenix.controls.JFXButton;
 
 import Model.Product;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
-public class AddNewProduct {
+public class AddNewProduct implements Initializable {
 
 	@FXML
 	private ImageView BackBTN;
 
 	@FXML
-	private TextField FirstNameLBL;
+	private TextField ProductNameTF;
 
 	@FXML
-	private TextField UsernameLBL;
-
-	@FXML
-	private TextField EmailLBL;
+	private TextField ProductPriceTF;
 
 	@FXML
 	private Label mode;
 
 	@FXML
-	private TextField ModeLBL;
+	private TextField ProductAmountTF;
 
 	@FXML
-	private TextField LastNameLBL;
+	private TextField ProductCategoryTF;
 
 	@FXML
-	private TextField PhoneLBL;
-
-	@FXML
-	private TextField IDLBL;
+	private TextField ProductPercentageTF;
 
 	@FXML
 	private Group ValueGRP;
 
 	@FXML
-	private TextField ValueLBL;
+	private TextField ProductIDTF;
 
 	@FXML
 	private Group AddressGRP;
 
 	@FXML
-	private TextField AddressLBL;
+	private TextField ProductDescriptionTF;
 
 	@FXML
 	private JFXButton EditUserInformationBTN;
 
-	public void addProductShow(Product p) {
+	@FXML
+	private Group AddressGRP1;
+
+	@FXML
+	private TextField ProductDetailsTF;
+
+	public void ShowAddNewProduct(Product product) {
+		BackBTN.setOnMouseClicked(e -> {
+			((AnchorPane) BackBTN.getParent().getParent().getParent()).getChildren()
+					.remove(BackBTN.getParent().getParent());
+		});
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
 
 	}
 

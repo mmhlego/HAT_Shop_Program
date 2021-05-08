@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import CommonPages.Controllers.MainStructure;
-import Customer.Controller.ProductInformationPage;
 import DataController.ProductChecker;
 import Model.Product;
 import javafx.fxml.FXML;
@@ -83,10 +82,9 @@ public class EachCustomerEachProduct implements Initializable {
 
 	private void buyPage(Product product, Image image) {
 
-		ProductInformationPage.p = product;
-		ProductInformationPage c = (ProductInformationPage) MainStructure
-				.addPage("src/Customer/Visual/ProductInformationPage.fxml");
-		c.buyPage(product, image, special);
+		ProductEditInformation c = (ProductEditInformation) MainStructure
+				.addPage("src/Manager/Visual/ProductEditInformation.fxml");
+		c.ShowProductInfo(product, image, special);
 
 	}
 }

@@ -22,6 +22,13 @@ public class EachCustomerCart implements Initializable {
 	private VBox ProductsPanel;
 
 	public void LoadCustomerCart(Customer c) throws Exception {
+		System.out.println("EachCustomerCart.initialize()");
+		System.out.println(BackBTN);
+		BackBTN.setOnMouseClicked(e -> {
+			((AnchorPane) BackBTN.getParent().getParent().getParent()).getChildren()
+					.remove(BackBTN.getParent().getParent());
+			System.out.println(1);
+		});
 		Order orders = UserGetter.GetCartDB(c.ID);
 		int i = 0;
 		for (Product p : orders.Products) {
@@ -35,11 +42,6 @@ public class EachCustomerCart implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		BackBTN.setOnMouseClicked(e -> {
-			((AnchorPane) BackBTN.getParent().getParent().getParent()).getChildren()
-					.remove(BackBTN.getParent().getParent());
-			System.out.println(1);
-		});
 
 	}
 
