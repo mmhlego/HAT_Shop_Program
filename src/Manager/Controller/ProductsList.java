@@ -39,7 +39,6 @@ public class ProductsList implements Initializable {
 				System.out.println(i++);
 				controller.AddProduct(p);
 				AddNewProductBTN.setOnAction(e -> {
-
 					AddNewProduct add = (AddNewProduct) MainStructure
 							.addPage("src/Manager/Components/AddNewProduct.fxml");
 				});

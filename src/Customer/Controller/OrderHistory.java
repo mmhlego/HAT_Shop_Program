@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import CommonPages.Controllers.MainStructure;
 import Controller.UserController;
+import DataController.UserGetter;
 import Model.Order;
 import Model.Order.OrderStatus;
 import Model.Shipping;
@@ -20,17 +21,11 @@ public class OrderHistory implements Initializable {
 	@FXML
 	private VBox OrdersPanel;
 	ArrayList<Order> allOrders = new ArrayList<>();
-	ArrayList<Shipping> allShippings = new ArrayList<>();
-	ArrayList<Transaction> allTransactions = new ArrayList<>();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		allOrders = UserController.AllOrders;
-		allShippings = UserController.AllShippings;
-		allTransactions = UserController.AllTransactions;
 		System.out.println(allOrders.size());
-		System.out.println(allShippings.size());
-		System.out.println(allTransactions.size());
 		try {
 			AddOrdersToPage();
 		} catch (Exception e) {
@@ -44,8 +39,8 @@ public class OrderHistory implements Initializable {
 		i = 0;
 		for (Order order : allOrders) {
 			System.out.println("Order #" + i);
-			Shipping shipping = allShippings.get(i);
-			Transaction transaction = allTransactions.get(i);
+			Shipping shipping = UserGetter.GetShippingByOrderID(order.OrderID);
+			Transaction transaction = UserGetter.GetTransactionByOrderID(order.OwnerID, order.TotalValue);
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/HistoryEachOrderDetails.fxml"));
 			Parent parent = loader.load();
 			HistoryEachOrderDetails c = loader.getController();
@@ -71,4 +66,5 @@ public class OrderHistory implements Initializable {
 		}
 
 	}
+
 }
