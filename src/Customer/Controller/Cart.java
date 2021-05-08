@@ -91,6 +91,7 @@ public class Cart implements Initializable {
 			}
 		});
 
+
 		PayOrderFromValueBTN.setOnAction((e) -> {
 			if (UserController.customer.Value >= Long.parseLong(FinalPriceLBL.getText())) {
 				UserController.UpdateScreen();
@@ -102,11 +103,12 @@ public class Cart implements Initializable {
 				DataAdder.AddShipping(UserController.Cart.OrderID, 0, Long.parseLong(ShippingFeeLBL.getText()),
 						LocalDate.parse(ShippingDateLBL.getText()), Shipping.GenerateID());
 				DataAdder.AddTransaction(UserController.Cart.OwnerID, Long.parseLong(FinalPriceLBL.getText()),
-						LocalDate.parse(ShippingDateLBL.getText()), Transaction.GenerateID());
+						LocalDate.parse(ShippingDateLBL.getText()), Payment.TRID);
 				DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
 
 				UserController.LoadUserFullData();
 				UserController.HideLoading();
+
 			} else {
 				Alert(AlertType.ERROR, "اعتبار حساب کافی نیست !");
 			}

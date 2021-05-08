@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="437.0" prefWidth="579.0" style="-fx-background-radius: 20; -fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.PaymentReciept">
+   <children>
+      <JFXTextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="59.0" layoutY="8.0" prefHeight="42.0" prefWidth="456.0" style="-jfx-focus-color: #6887c5; -jfx-unfocus-color: #6887c5; -fx-text-fill: #6887c5;" text="رسید پرداخت">
+         <font>
+            <Font name="B Koodak Bold" size="21.0" />
+         </font>
+      </JFXTextField>
+      <Label alignment="CENTER" layoutX="421.0" layoutY="77.0" prefHeight="30.0" prefWidth="96.0" text="نام پذیرنده : " textFill="#6887c5">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="156.0" layoutY="77.0" prefHeight="30.0" prefWidth="72.0" text="دیجی هت" textAlignment="RIGHT">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="367.0" layoutY="117.0" prefHeight="30.0" prefWidth="150.0" text="نام درخواست کننده : " textFill="#6887c5">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="NameLBL" alignment="CENTER" layoutX="59.0" layoutY="117.0" prefHeight="30.0" prefWidth="268.0" textAlignment="RIGHT">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="436.0" layoutY="160.0" prefHeight="30.0" prefWidth="79.0" text="از حساب : " textFill="#6887c5">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="CardLBL" alignment="CENTER" layoutX="96.0" layoutY="160.0" prefHeight="30.0" prefWidth="215.0">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="469.0" layoutY="203.0" prefHeight="30.0" prefWidth="44.0" text="مبلغ : " textFill="#6887c5">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="PriceLBL" alignment="CENTER" layoutX="123.0" layoutY="204.0" prefHeight="30.0" prefWidth="158.0">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="461.0" layoutY="244.0" prefHeight="30.0" prefWidth="61.0" text="تاریخ :" textFill="#6887c5">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="DateLBL" alignment="CENTER" layoutX="143.0" layoutY="244.0" prefHeight="30.0" prefWidth="121.0">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="395.0" layoutY="284.0" prefHeight="30.0" prefWidth="121.0" text="شناسه پرداخت : " textFill="#6887c5">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="TransactionLBL" alignment="CENTER" layoutX="86.0" layoutY="284.0" prefHeight="30.0" prefWidth="237.0">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="ConfirmBTN" layoutX="59.0" layoutY="344.0" prefHeight="42.0" prefWidth="456.0" ripplerFill="#58b23f" style="-fx-background-color: #6FCF97;" text="تایید" textFill="WHITE">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </JFXButton>
+      <Label alignment="CENTER" layoutX="294.0" layoutY="397.0" prefHeight="31.0" prefWidth="72.0" text="درگاه امن" textFill="#020303">
+         <font>
+            <Font name="B Kamran Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="267.0" layoutY="395.0" prefHeight="31.0" prefWidth="34.0" text=" دیجی" textFill="#e46666">
+         <font>
+            <Font name="B Kamran Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="249.0" layoutY="390.0" prefHeight="31.0" prefWidth="34.0" text=" هت" textFill="#769fcd">
+         <font>
+            <Font name="B Kamran Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="288.0" layoutY="205.0" text="تومان">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

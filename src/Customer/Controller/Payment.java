@@ -1,5 +1,6 @@
 package Customer.Controller;
 
+import java.io.File;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -9,16 +10,18 @@ import DataController.*;
 import Model.*;
 import Model.Order.OrderStatus;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.GaussianBlur;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Payment implements Initializable {
 	@FXML
@@ -56,10 +59,12 @@ public class Payment implements Initializable {
 
 	public static boolean TransactionMode = false;
 
+	public static String Card;
 	public static String FinalPrice;
 	public static String ShippingDate;
 	public static String ShippingFee;
-	public String TRID;
+	public static String TRID;
+	public static Stage stage;
 	Captcha captcha;
 
 	@Override
@@ -99,14 +104,28 @@ public class Payment implements Initializable {
 					DataAdder.AddShipping(UserController.Cart.OrderID, 0, Long.parseLong(ShippingFee),
 							LocalDate.parse(ShippingDate), Shipping.GenerateID());
 					DataAdder.AddTransaction(UserController.Cart.OwnerID, Long.parseLong(FinalPrice),
-							LocalDate.parse(ShippingDate), Transaction.GenerateID());
+							LocalDate.parse(ShippingDate), TransactionIDLBL.getText());
 					DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
-					Alert(AlertType.INFORMATION, "پرداخت با موفقیت انجام شد.");
-
+					Card = CardNumberTF.getText();
+					
 					UserController.LoadUserFullData();
 					UserController.HideLoading();
 
+					try {
+						stage = new Stage();
+						FXMLLoader loader = new FXMLLoader(
+								new File("src/Customer/Visual/PaymentReciept.fxml").toURI().toURL());
+						Scene scene = new Scene(loader.load());
+						scene.setFill(Color.TRANSPARENT);
+						stage.initStyle(StageStyle.TRANSPARENT);
+						stage.setScene(scene);
+						stage.show();
+					} catch (Exception ex) {
+						ex.printStackTrace();
+					}
+					
 					ProceedBTN.getParent().getScene().getWindow().hide();
+					Alert(AlertType.INFORMATION, "پرداخت با موفقیت انجام شد.");
 				} else {
 					UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
 				}
@@ -127,13 +146,7 @@ public class Payment implements Initializable {
 	}
 
 	private void ApplyBlur() {
-		//Region region = new Region();
-		//region.setPrefSize(1160, 700);
-		//region.setEffect(new GaussianBlur());
-		//BackPanel.getChildren().add(region);
-		//region.toBack();
-
-		BackPanel.setEffect(new BoxBlur(5, 5, 0));
+		
 	}
 
 	private long GetAmount() {
