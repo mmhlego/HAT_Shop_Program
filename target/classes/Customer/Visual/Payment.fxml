@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="BackPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1140.0" styleClass="BackPanel" stylesheets="@Payment.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.Payment">
+   <children>
+      <AnchorPane layoutX="25.0" layoutY="25.0" prefHeight="220.0" prefWidth="530.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: white; -fx-border-color: #6887C5;">
+         <children>
+            <JFXTextArea editable="false" focusColor="WHITE" focusTraversable="false" layoutX="20.0" layoutY="50.0" prefHeight="150.0" prefWidth="490.0" styleClass="TextArea" text="- اطلاعات کارت خود از قبیل شماره کارت، رمز دوم و تاریخ انقضا را وارد نمایید.&#10;- با زدن کلید &quot;درخواست رمز پویا&quot; کدی 6 رقمی به شماره تلفن شما ارسال خواهد شد. با وارد کردن آن میتوانید هویت خود را تایید کنید.&#10;- با بررسی اطلاعات پرداخت، بر روی کلید &quot;ادامه فرآیند خرید&quot; کلیک کرده و پرداخت &#10;خود را نهایی کنید. در صورت مغایرت اطلاعات موجود در صفحه، بر روی دکمه &quot;انصراف&quot; کلیک کرده و با پشتیبانی فروشگاه تماس حاصل فرمایید." unFocusColor="WHITE" wrapText="true">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </JFXTextArea>
+            <Label alignment="CENTER" layoutX="20.0" layoutY="15.0" prefHeight="30.0" prefWidth="490.0" style="-fx-border-color: #769FCD; -fx-border-width: 0 0 1 0;" text="مراحل پرداخت" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="585.0" layoutY="25.0" prefHeight="405.0" prefWidth="530.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: white; -fx-border-color: #6887C5;">
+         <children>
+            <TextField fx:id="CardNumberTF" alignment="CENTER" layoutX="70.0" layoutY="65.0" prefHeight="35.0" prefWidth="260.0" style="-fx-border-color: #769FCD; -fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: #F7FBFC;">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </TextField>
+            <AnchorPane fx:id="CaptchaPanel" layoutX="115.0" layoutY="285.0" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #D6E6F2;" />
+            <Label alignment="CENTER" layoutX="350.0" layoutY="65.0" prefHeight="35.0" prefWidth="110.0" text="شماره کارت :" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="20.0" layoutY="15.0" prefHeight="30.0" prefWidth="490.0" style="-fx-border-color: #769FCD; -fx-border-width: 0 0 1 0;" text="اطلاعات پرداخت" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="CVV2TF" alignment="CENTER" layoutX="70.0" layoutY="120.0" prefHeight="35.0" prefWidth="260.0" style="-fx-border-color: #769FCD; -fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: #F7FBFC;">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="350.0" layoutY="120.0" prefHeight="35.0" prefWidth="110.0" text="رمز دوم (CVV2) :" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="YearTF" alignment="CENTER" layoutX="70.0" layoutY="175.0" prefHeight="35.0" prefWidth="60.0" style="-fx-border-color: #769FCD; -fx-border-radius: 10 0 0 10; -fx-background-radius: 10 0 0 10; -fx-background-color: #F7FBFC;">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="130.0" layoutY="175.0" prefHeight="35.0" prefWidth="60.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0 10 10 0;" text="سال" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="MonthTF" alignment="CENTER" layoutX="210.0" layoutY="175.0" prefHeight="35.0" prefWidth="60.0" style="-fx-border-color: #769FCD; -fx-border-radius: 10 0 0 10; -fx-background-radius: 10 0 0 10; -fx-background-color: #F7FBFC;">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="270.0" layoutY="175.0" prefHeight="35.0" prefWidth="60.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0 10 10 0;" text="ماه" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="350.0" layoutY="175.0" prefHeight="35.0" prefWidth="110.0" text="تاریخ انقضا :" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="RequestOTP" layoutX="70.0" layoutY="230.0" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10 0 0 10;" text="درخواست" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Label alignment="CENTER" layoutX="350.0" layoutY="230.0" prefHeight="35.0" prefWidth="110.0" text="رمز پویا :" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="OTPTF" alignment="CENTER" layoutX="180.0" layoutY="230.0" prefHeight="35.0" prefWidth="150.0" style="-fx-border-color: #769FCD; -fx-border-radius: 0 10 10 0; -fx-background-radius: 0 10 10 0; -fx-background-color: #F7FBFC;">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </TextField>
+            <JFXButton fx:id="ChangeCaptcha" alignment="CENTER_RIGHT" layoutX="70.0" layoutY="345.0" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10 0 0 10;" text="    تعویض" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Label alignment="CENTER" layoutX="350.0" layoutY="345.0" prefHeight="35.0" prefWidth="110.0" text="کد امنیتی :" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="CaptchaTF" alignment="CENTER" layoutX="180.0" layoutY="345.0" prefHeight="35.0" prefWidth="150.0" style="-fx-border-color: #769FCD; -fx-border-radius: 0 10 10 0; -fx-background-radius: 0 10 10 0; -fx-background-color: #F7FBFC;">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </TextField>
+            <ImageView disable="true" fitHeight="30.0" fitWidth="30.0" layoutX="75.0" layoutY="347.5" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../pictures/icons/Refresh.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="CancelBTN" layoutX="585.0" layoutY="605.0" prefHeight="70.0" prefWidth="530.0" style="-fx-background-color: #EB5757; -fx-background-radius: 5; -fx-border-radius: 5;" text="انصراف" textFill="WHITE">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="ProceedBTN" layoutX="25.0" layoutY="605.0" prefHeight="70.0" prefWidth="530.0" style="-fx-background-color: #6FCF97; -fx-background-radius: 5; -fx-border-radius: 5;" text="ادامه فرآیند خرید" textFill="WHITE">
+         <font>
+            <Font name="B Koodak Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <AnchorPane layoutX="25.0" layoutY="265.0" prefHeight="315.0" prefWidth="530.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: white; -fx-border-color: #6887C5;">
+         <children>
+            <JFXTextArea editable="false" focusColor="WHITE" focusTraversable="false" layoutX="20.0" layoutY="50.0" prefHeight="245.0" prefWidth="490.0" styleClass="TextArea" text="1- شماره کارت: کدی 16 رقمی بوده و بر روی کارت درج شده است.&#10;2- کد CVV2: کدی 4 رقمی بوده و بر روی یا پشت کارت درج شده است.&#10;3- تاریخ انقضا: شامل دو بخش ماه و سال است و بر روی کارت درج شده است.&#10;4- رمز پویا: کدی 7 رقمی بوده کا با زدن کلید &quot;درخواست رمز پویا&quot; به شماره تلفن شما ارسال می شود.&#10;5- کد امنیتی: مجموعه ای از اعداد و حروف است و برای اطمینان از عدم انجام پرداخت &#10;توسط ربات ها است.&#10;6- برای جلوگیری از افشای رمز، از صفحه کلید امنیتی استفاده کنید.&#10;7- از صحت اطللاعات پرداخت از قبیل مبلغ، نام فروشگاه و ... اطمینان حاصل فرمایید.&#10;8- این درگاه با استفاده از پروتکل امن SSL به مشتریان خود خدمت رسانی میکند." unFocusColor="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </JFXTextArea>
+            <Label alignment="CENTER" layoutX="20.0" layoutY="15.0" prefHeight="30.0" prefWidth="490.0" style="-fx-border-color: #769FCD; -fx-border-width: 0 0 1 0;" text="راهنما و نکات امنیتی" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="585.0" layoutY="455.0" prefHeight="125.0" prefWidth="530.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: white; -fx-border-color: #6887C5;">
+         <children>
+            <Label fx:id="TransactionIDLBL" alignment="CENTER" layoutX="15.0" layoutY="62.0" prefHeight="45.0" prefWidth="250.0" text="-" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="15.0" layoutY="17.0" prefHeight="45.0" prefWidth="250.0" style="-fx-border-color: #6887C5; -fx-border-width: 0 0 1 0;" text="شناسه پرداخت :" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="AmountLBL" alignment="CENTER" layoutX="265.0" layoutY="62.0" prefHeight="45.0" prefWidth="250.0" style="-fx-border-color: #6887C5; -fx-border-width: 0 0 0 1;" text="-" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="265.0" layoutY="17.0" prefHeight="45.0" prefWidth="250.0" style="-fx-border-color: #6887C5; -fx-border-width: 0 0 1 1;" text="مبلغ پرداخت :" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

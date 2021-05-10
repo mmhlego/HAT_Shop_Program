@@ -90,7 +90,7 @@ public class MainStructure implements Initializable {
             AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "", false);
 
         } else {
-            loader2 = new FXMLLoader(this.getClass().getResource("../../Employee/Visual/MainPage.fxml"));
+            loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/EmployeeList.fxml"));
             if (UserController.employee.Mode.equals(EmployeeMode.ASSISTANT)) {
                 AddButton("../../Manager/Visual/CustomerList.fxml", "لیست مشتریان", "", false);
                 AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "", false);

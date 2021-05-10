@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import Controller.UserController;
 import DataController.UserGetter;
 import Model.Employee;
 import javafx.fxml.FXML;
@@ -30,7 +31,11 @@ public class EmployeeList implements Initializable {
 
 		System.out.println("employee list");
 		try {
-			allEmployees = UserGetter.GetAllEmployees();
+			if (UserController.Mode.equals(UserController.UserMode.Manager)) {
+				allEmployees = UserGetter.GetAllEmployees();
+			} else {
+				allEmployees = UserGetter.GetLowLevelEmployees();
+			}
 			ShowAllEmployees();
 
 		} catch (Exception e) {

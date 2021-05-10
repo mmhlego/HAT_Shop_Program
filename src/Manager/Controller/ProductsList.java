@@ -30,6 +30,7 @@ public class ProductsList implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
 			int i = 0;
+			MainPanel.getChildren().clear();
 			products = ProductChecker.LoadAllProducts();
 			for (Product p : products) {
 				FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../Components/EachProduct.fxml"));
@@ -38,10 +39,10 @@ public class ProductsList implements Initializable {
 				System.out.println(i++);
 				controller.AddProduct(p);
 				AddNewProductBTN.setOnAction(e -> {
-
 					AddNewProduct add = (AddNewProduct) MainStructure
 							.addPage("src/Manager/Components/AddNewProduct.fxml");
 				});
+
 				MainPanel.getChildren().add(parent);
 			}
 

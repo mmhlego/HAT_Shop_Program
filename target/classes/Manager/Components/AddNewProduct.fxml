@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #00000020;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controller.AddNewProduct">
+   <children>
+      <AnchorPane layoutX="90.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: white; -fx-border-color: #6887C5;">
+         <children>
+            <Label alignment="CENTER" layoutX="25.0" layoutY="15.0" prefHeight="40.0" prefWidth="850.0" style="-fx-border-color: #6887C5; -fx-border-width: 0 0 1 0;" text="افزودن کالای جدید" textFill="#6887c5">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font></Label>
+            <ImageView fx:id="BackBTN" fitHeight="40.0" fitWidth="40.0" layoutX="845.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../pictures/icons/Back.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="775.0" layoutY="90.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="نام کالا" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ProductNameTF" alignment="CENTER" layoutX="475.0" layoutY="90.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="775.0" layoutY="170.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="قیمت پایه" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ProductPriceTF" alignment="CENTER" layoutX="475.0" layoutY="170.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label fx:id="mode" alignment="CENTER" layoutX="775.0" layoutY="330.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="تعداد کالا" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ProductAmountTF" alignment="CENTER" layoutX="475.0" layoutY="330.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="325.0" layoutY="90.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="دسته بندی" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ProductCategoryTF" alignment="CENTER" layoutX="25.0" layoutY="90.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="325.0" layoutY="170.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="درصد تخفیف" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ProductPercentageTF" alignment="CENTER" layoutX="25.0" layoutY="170.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Group fx:id="ValueGRP" layoutX="25.0" layoutY="330.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="300.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="شناسه کالا" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="ProductIDTF" alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+                     <font>
+                        <Font name="B Koodak Bold" size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Group>
+            <Group fx:id="AddressGRP" layoutX="26.0" layoutY="410.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="749.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="توضیحات کالا" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="ProductDescriptionTF" alignment="CENTER" prefHeight="40.0" prefWidth="750.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+                     <font>
+                        <Font name="B Koodak Bold" size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Group>
+            <JFXButton fx:id="EditUserInformationBTN" layoutX="25.0" layoutY="485.0" prefHeight="40.0" prefWidth="850.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10; -fx-border-radius: 10;" text="تغییر اطلاعات کالا" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Group fx:id="AddressGRP1" layoutX="26.0" layoutY="250.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="749.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="مشخصات کالا" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="ProductDetailsTF" alignment="CENTER" prefHeight="40.0" prefWidth="750.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+                     <font>
+                        <Font name="B Koodak Bold" size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Group>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

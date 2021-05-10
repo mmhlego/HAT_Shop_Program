@@ -1,0 +1,40 @@
+.root{
+	-fx-background-color:white;
+}
+
+.menu{
+	-fx-background-color:#769FCD;
+}
+
+.logo{
+	-fx-text-fill:#ff0000;
+}
+
+.search{
+	-fx-background-color:#f0f0f1;
+	-fx-background-radius:5;
+}
+
+.box{
+	-fx-background-color:#ef394e;
+}
+
+.categories{
+	-fx-background-radius:20;
+}
+
+#first{
+	-fx-background-color:radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #F369FF70, #F369FF);
+}
+#second{
+	-fx-background-color:radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #BE7FFE70, #BE7FFE);
+}
+#third{
+	-fx-background-color:radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #FF434370, #FF4343);
+}
+#fourth{
+	-fx-background-color:radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #00D1FF70, #00D1FF);
+}
+#fifth{
+	-fx-background-color:radial-gradient(focus-distance 0% , center 50% 50% , radius 55% , #6AE75670, #6AE756);
+}

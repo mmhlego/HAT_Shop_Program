@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="966.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controller.EachCustomer">
+   <children>
+      <Label fx:id="RegularLBL" alignment="CENTER" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #B9D7EA; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20; -fx-border-color: #6887C5;" text="معمولی" textAlignment="CENTER" textFill="#6887c5" visible="false">
+         <font>
+            <Font name="B Koodak Bold" size="24.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </Label>
+      <Label fx:id="PremiumLBL" alignment="CENTER" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #F2C94C; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20;" text="پریمیوم" textAlignment="CENTER" textFill="#6887c5" visible="false">
+         <font>
+            <Font name="B Koodak Bold" size="24.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </Label>
+      <Label fx:id="BannedLBL" alignment="CENTER" prefHeight="80.0" prefWidth="150.0" style="-fx-background-color: #EB5757; -fx-border-radius: 20 0 0 20; -fx-background-radius: 20 0 0 20;" text="بن شده" textAlignment="CENTER" textFill="WHITE" visible="false">
+         <font>
+            <Font name="B Koodak Bold" size="24.0" />
+         </font>
+         <padding>
+            <Insets right="20.0" />
+         </padding>
+      </Label>
+      <Group layoutX="866.0">
+         <children>
+            <JFXButton fx:id="CustomerOrderHistoryBTN" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #6887C5; -fx-border-color: #6887C5; -fx-background-radius: 0 20 20 0; -fx-border-radius: 0 20 20 0;" text=" ">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="35.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../pictures/icons/OrderHistory.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Group>
+      <Group>
+         <children>
+            <JFXButton fx:id="CustomerCartBTN" layoutX="786.0" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #769FCD; -fx-border-color: #6887C5; -fx-background-radius: 0 20 20 0; -fx-border-radius: 0 20 20 0;" text=" ">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="821.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../pictures/icons/cart.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Group>
+      <Group layoutX="-106.0">
+         <children>
+            <JFXButton fx:id="CustomerInformationBTN" layoutX="816.0" prefHeight="80.0" prefWidth="100.0" style="-fx-background-color: #B9D7EA; -fx-border-color: #6887C5; -fx-background-radius: 0 20 20 0; -fx-border-radius: 0 20 20 0;" text=" ">
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <ImageView disable="true" fitHeight="50.0" fitWidth="50.0" layoutX="851.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../pictures/icons/Information.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Group>
+      <AnchorPane layoutX="123.0" prefHeight="80.0" prefWidth="607.0" style="-fx-background-color: #D6E6F2; -fx-border-color: #769FCD; -fx-background-radius: 20; -fx-border-radius: 20;">
+         <children>
+            <Group layoutX="352.0" layoutY="20.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="134.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0 10 10 0; -fx-border-radius: 0 10 10 0;" text="شناسه کاربری" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="CustomerIDLBL" alignment="CENTER" layoutX="-35.0" prefHeight="40.0" prefWidth="170.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10; -fx-border-color: #6887C5;" text="ایدی" textFill="#769fcd">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+            <Group layoutX="74.0" layoutY="20.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="116.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0 10 10 0; -fx-border-radius: 0 10 10 0;" text="نام کاربری" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="CustomerNameLBL" alignment="CENTER" layoutX="-54.0" prefHeight="40.0" prefWidth="170.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10; -fx-border-color: #6887C5;" text="نام" textFill="#769fcd">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,26 @@
+
+.anchor-pane{
+    -fx-background-color:#769FCD;
+    -fx-background-radius:20;
+}
+
+.fields{
+    -fx-background-color:white;
+    -fx-background-radius:200;
+}
+
+.anchor-pane #title{
+    -jfx-unfocus-color:#D6E6F2;
+    -jfx-focus-color:#D6E6F2;
+    -fx-text-fill:#D6E6F2;
+}
+
+.button{
+   -fx-background-color:D6E6F2;
+   -fx-text-fill:#769FCD;
+   -fx-background-radius:200;
+}
+
+.tags{
+    -fx-text-fill:#D6E6F2;
+}

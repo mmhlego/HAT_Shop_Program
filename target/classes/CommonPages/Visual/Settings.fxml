@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1140.0" style="-fx-background-color: #00000040;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CommonPages.Controllers.Settings">
+   <children>
+      <AnchorPane layoutX="395.0" layoutY="150.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" style="-fx-background-radius: 10; -fx-background-color: white;">
+         <children>
+            <Button fx:id="PersonalizationBTN" layoutY="30.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #B9D7EA; -fx-background-radius: 0 20 20 0;" text="شخصی سازی" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="AboutUsBTN" layoutY="82.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #B9D7EA; -fx-background-radius: 0 20 20 0;" text="درباره ما" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button disable="true" layoutY="134.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="95.0" style="-fx-background-color: #B9D7EA; -fx-background-radius: 0 20 20 0;" text="-" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+            </Button>
+            <Separator layoutX="10.0" layoutY="187.0" prefWidth="330.0" style="-fx-background-color: #769FCD;" />
+            <ScrollPane fx:id="ContentPane" hbarPolicy="NEVER" layoutX="20.0" layoutY="200.0" prefHeight="185.0" prefWidth="310.0" style="-fx-background-color: white;" />
+            <ImageView fitHeight="169.0" fitWidth="189.0" layoutX="91.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../pictures/icons/InsideSetting.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="BackBTN" fitHeight="30.0" fitWidth="30.0" layoutX="315.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../pictures/icons/Back.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

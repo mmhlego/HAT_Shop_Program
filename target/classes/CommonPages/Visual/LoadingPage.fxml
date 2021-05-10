@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1140.0" style="-fx-background-color: #00000050;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CommonPages.Controllers.LoadingPage">
+   <children>
+      <ProgressIndicator prefHeight="115.0" prefWidth="1140.0" />
+      <Label fx:id="connectLBL" alignment="CENTER" contentDisplay="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="139.0" prefWidth="400.0" text="در حال بروزرسانی اطلاعات . . . " textAlignment="CENTER">
+         <font>
+            <Font name="B Koodak Bold" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

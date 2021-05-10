@@ -1,0 +1,7 @@
+.TextArea .scroll-pane .content .text {
+    -fx-text-alignment: right;
+}
+
+.BackPanel {
+    -fx-background-color: #00000030;
+}
