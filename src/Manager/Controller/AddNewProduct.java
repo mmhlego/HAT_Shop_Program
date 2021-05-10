@@ -67,7 +67,10 @@ public class AddNewProduct implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		BackBTN.setOnMouseClicked(e -> {
+			((AnchorPane) BackBTN.getParent().getParent().getParent()).getChildren()
+					.remove(BackBTN.getParent().getParent());
+		});
 	}
 
 }
