@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="310.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CommonPages.Controllers.Component.SettingsAbout">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="310.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CommonPages.Controllers.Component.SettingsPersonalization">
    <children>
-      <JFXToggleButton disable="true" layoutX="45.0" layoutY="20.0" prefHeight="60.0" prefWidth="60.0" text=" " toggleColor="#769fcd" toggleLineColor="#b9d7ea">
+      <JFXToggleButton fx:id="ThemeToggleButton" focusTraversable="false" layoutX="45.0" layoutY="20.0" prefHeight="60.0" prefWidth="60.0" text=" " toggleColor="#769fcd" toggleLineColor="#b9d7ea">
          <font>
             <Font name="B Koodak Bold" size="16.0" />
          </font>
       </JFXToggleButton>
-      <JFXToggleButton disable="true" layoutX="45.0" layoutY="95.0" prefHeight="60.0" prefWidth="60.0" selected="true" text=" " toggleColor="#769fcd" toggleLineColor="#b9d7ea">
+      <JFXToggleButton fx:id="LanguageToggleButton" focusTraversable="false" layoutX="45.0" layoutY="95.0" prefHeight="60.0" prefWidth="60.0" selected="true" text=" " toggleColor="#769fcd" toggleLineColor="#b9d7ea">
          <font>
             <Font name="B Koodak Bold" size="16.0" />
          </font>

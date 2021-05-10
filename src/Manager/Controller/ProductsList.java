@@ -16,40 +16,40 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 public class ProductsList implements Initializable {
-	@FXML
-	private TextField SearchTXF;
-	@FXML
-	private Button SearchBTN;
-	@FXML
-	private VBox MainPanel;
-	@FXML
-	private Button AddNewProductBTN;
-	ArrayList<Product> products = new ArrayList<>();
+    @FXML
+    private TextField SearchTXF;
+    @FXML
+    private Button SearchBTN;
+    @FXML
+    private VBox MainPanel;
+    @FXML
+    private Button AddNewProductBTN;
+    ArrayList<Product> products = new ArrayList<>();
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		try {
-			int i = 0;
-			MainPanel.getChildren().clear();
-			products = ProductChecker.LoadAllProducts();
-			for (Product p : products) {
-				FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../Components/EachProduct.fxml"));
-				Parent parent = loader.load();
-				EachProduct controller = loader.getController();
-				System.out.println(i++);
-				controller.AddProduct(p);
-				AddNewProductBTN.setOnAction(e -> {
-					AddNewProduct add = (AddNewProduct) MainStructure
-							.addPage("src/Manager/Components/AddNewProduct.fxml");
-				});
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            int i = 0;
+            MainPanel.getChildren().clear();
+            products = ProductChecker.LoadAllProducts();
+            for (Product p : products) {
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../Components/EachProduct.fxml"));
+                Parent parent = loader.load();
+                EachProduct controller = loader.getController();
+                System.out.println(i++);
+                controller.AddProduct(p);
+                AddNewProductBTN.setOnAction(e -> {
 
-				MainPanel.getChildren().add(parent);
-			}
+                    MainStructure.addPage("src/Manager/Components/AddNewProduct.fxml");
+                });
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+                MainPanel.getChildren().add(parent);
+            }
 
-	}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }
