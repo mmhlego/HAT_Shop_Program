@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import DataController.UserGetter;
 import Model.Customer;
 import Model.Order;
+import Model.Shipping;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -40,8 +41,9 @@ public class EachCustomerHistory implements Initializable {
                     getClass().getResource("../Components/EachCustomerHistoryEachOrder.fxml"));
             Parent parent = loader.load();
             HistoryEachHistoryOrder controller = loader.getController();
-            controller.AddEachOrder(order, UserGetter.GetShippingByOrderID(order.OrderID),
-                    UserGetter.GetTransactionByOrderID(order.OwnerID, order.TotalValue));
+            Shipping shipping = UserGetter.GetShippingByOrderID(order.OrderID);
+            controller.AddEachOrder(order, shipping,
+                    UserGetter.GetTransactionByOrderID(order.OwnerID, order.TotalValue, shipping.Fee));
             OrdersPanel.getChildren().add(parent);
         }
     }

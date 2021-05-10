@@ -100,7 +100,8 @@ public class Cart implements Initializable {
                 DataUpdator.UpdateOrderStatus(UserController.Cart);
                 DataAdder.AddShipping(UserController.Cart.OrderID, 0, Long.parseLong(ShippingFeeLBL.getText()),
                         LocalDate.parse(ShippingDateLBL.getText()), Shipping.GenerateID());
-                DataAdder.AddTransaction(UserController.Cart.OwnerID, Long.parseLong(FinalPriceLBL.getText()),
+                DataAdder.AddTransaction(UserController.Cart.OwnerID,
+                        Long.parseLong(FinalPriceLBL.getText()) + Long.parseLong(ShippingFeeLBL.getText()),
                         LocalDate.parse(ShippingDateLBL.getText()), Payment.TRID);
                 DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
 

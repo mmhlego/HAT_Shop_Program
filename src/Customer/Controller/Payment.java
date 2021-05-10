@@ -103,8 +103,9 @@ public class Payment implements Initializable {
                     DataUpdator.UpdateOrderStatus(UserController.Cart);
                     DataAdder.AddShipping(UserController.Cart.OrderID, 0, Long.parseLong(ShippingFee),
                             LocalDate.parse(ShippingDate), Shipping.GenerateID());
-                    DataAdder.AddTransaction(UserController.Cart.OwnerID, Long.parseLong(FinalPrice),
-                            LocalDate.parse(ShippingDate), TransactionIDLBL.getText());
+                    DataAdder.AddTransaction(UserController.Cart.OwnerID,
+                            Long.parseLong(FinalPrice) + Long.parseLong(ShippingFee), LocalDate.parse(ShippingDate),
+                            TransactionIDLBL.getText());
                     DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
                     Card = CardNumberTF.getText();
 
