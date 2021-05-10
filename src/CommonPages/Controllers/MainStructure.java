@@ -181,6 +181,11 @@ public class MainStructure implements Initializable {
             RemoveLastPage();
         }
 
+        if (!overlay) {
+            MainPanel.getChildren().clear();
+            MainPanel.getChildren().add(root);
+        }
+
         if (isSideOpen) {
             CloseSidebar();
         }
