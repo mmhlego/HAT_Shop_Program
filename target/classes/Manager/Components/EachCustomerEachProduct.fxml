@@ -14,6 +14,9 @@
          <image>
             <Image url="@../../pictures/Product%20Images/Product.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor>
       </ImageView>
       <Button fx:id="SeeProductBTN" layoutX="360.0" layoutY="111.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="280.0" style="-fx-background-color: #769FCD;" text="مشاهده کالا" textFill="WHITE">
          <font>

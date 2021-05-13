@@ -31,7 +31,15 @@ public class CustomerList implements Initializable {
 		try {
 			allCustomers = UserGetter.ConvertCustomersToArrayList(UserGetter.GetCustomersDB());
 			System.out.println(allCustomers.size());
-			ShowAllCustomers();
+			ShowAllCustomers(allCustomers);
+			SearchBTN.setOnAction(e -> {
+				try {
+					search(SearchTXF.getText());
+					System.out.println(1);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -39,8 +47,25 @@ public class CustomerList implements Initializable {
 
 	int i = 0;
 
-	private void ShowAllCustomers() throws Exception {
+	private void search(String s) throws Exception {
+		ArrayList<Customer> searchResult = new ArrayList<>();
 		for (Customer customer : allCustomers) {
+			if (customer.Address.contains(s) || customer.Email.contains(s) || customer.FirstName.contains(s)
+					|| customer.ID.contains(s) || customer.LastName.contains(s) || customer.Phone.contains(s)
+					|| customer.Username.contains(s) || String.valueOf(customer.Mode).contains(s)
+					|| String.valueOf(customer.Value).contains(s)) {
+				searchResult.add(customer);
+			}
+		}
+		MainPanel.getChildren().clear();
+		System.out.println(searchResult.size());
+		i = 0;
+		ShowAllCustomers(searchResult);
+
+	}
+
+	private void ShowAllCustomers(ArrayList<Customer> customers) throws Exception {
+		for (Customer customer : customers) {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/EachCustomer.fxml"));
 			Parent c = loader.load();
 			EachCustomer controller = loader.getController();

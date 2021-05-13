@@ -36,17 +36,38 @@ public class EmployeeList implements Initializable {
 			} else {
 				allEmployees = UserGetter.GetLowLevelEmployees();
 			}
-			ShowAllEmployees();
+			ShowAllEmployees(allEmployees);
+			SearchBTN.setOnAction(e -> {
+				try {
+					search(SearchTXF.getText());
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			});
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	private void search(String s) throws Exception {
+		ArrayList<Employee> searchResult = new ArrayList<>();
+		for (Employee employee : allEmployees) {
+			if (employee.Email.contains(s) || employee.FirstName.contains(s) || employee.ID.contains(s)
+					|| employee.LastName.contains(s) || String.valueOf(employee.Mode).contains(s)
+					|| employee.Phone.contains(s) || employee.Username.contains(s)) {
+				searchResult.add(employee);
+			}
+		}
+		i = 0;
+		MainPanel.getChildren().clear();
+		ShowAllEmployees(searchResult);
+	}
+
 	int i = 0;
 
-	private void ShowAllEmployees() throws Exception {
-		for (Employee employee : allEmployees) {
+	private void ShowAllEmployees(ArrayList<Employee> e) throws Exception {
+		for (Employee employee : e) {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/EachEmployee.fxml"));
 			Parent c = loader.load();
 			EachEmployee controller = loader.getController();

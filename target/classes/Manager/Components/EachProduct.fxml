@@ -9,12 +9,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="966.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: #6887C5;" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controller.EachProduct">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="966.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: #6887C5;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controller.EachProduct">
    <children>
       <ImageView fx:id="ProductIMG" fitHeight="120.0" fitWidth="120.0" layoutX="832.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../pictures/Product%20Images/Product.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor>
       </ImageView>
       <Group fx:id="SeeProductBTN" layoutX="15.0" layoutY="15.0">
          <children>
@@ -30,11 +33,17 @@
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
             <Label alignment="CENTER" focusTraversable="false" layoutY="60.0" prefHeight="30.0" prefWidth="120.0" text=" اطلاعات کالا" textFill="WHITE">
                <font>
                   <Font name="B Koodak Bold" size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
          </children>
       </Group>
