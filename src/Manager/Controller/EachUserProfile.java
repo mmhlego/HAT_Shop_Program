@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import DataController.DBConnector;
+import DataController.UserUpdator;
 import Model.Customer;
 import Model.Employee;
 import Model.Customer.CustomerMode;
@@ -79,12 +80,14 @@ public class EachUserProfile implements Initializable {
         if (CustomerMode.ModeToInt(c.Mode) <= 1) {
             BanUserBTN.setVisible(true);
             BanUserBTN.setOnMouseClicked(e -> {
-                // Ban customer
+                UserUpdator.ChangeStatus(IDLBL.getText(), 2);
+                Alert(AlertType.INFORMATION, "موفق", "کاربر مورد نظر مسدود شد");
             });
         } else {
             UnbanUserBTN.setVisible(true);
             UnbanUserBTN.setOnMouseClicked(e -> {
-                // Unban customer
+                UserUpdator.ChangeStatus(IDLBL.getText(), -2);
+                Alert(AlertType.INFORMATION, "موفق", "کاربر مورد نظر رفع مسدودیت شد");
             });
         }
 
@@ -123,7 +126,8 @@ public class EachUserProfile implements Initializable {
 
         FireEmployeeBTN.setVisible(true);
         FireEmployeeBTN.setOnMouseClicked(e -> {
-            // Fire employee
+            UserUpdator.FireEmployee(IDLBL.getText());
+            Alert(AlertType.INFORMATION, "کارمند مورد نظر با موفقیت حذف شد", "موفق");
         });
 
         EditUserInformationBTN.setOnAction(e -> {

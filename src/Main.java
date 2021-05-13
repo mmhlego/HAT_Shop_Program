@@ -12,8 +12,6 @@ import javafx.stage.StageStyle;
 public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
-
-        //SampleCreator.Creator.CreateSamples(false, true, true);
     }
 
     private static void PrintEstimatedTime(long start) {
