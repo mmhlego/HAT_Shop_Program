@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
@@ -31,11 +32,11 @@
                   <AnchorPane layoutX="25.0" layoutY="25.0" prefHeight="350.0" prefWidth="655.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="162.0" layoutX="78.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="ProductNameLBL" alignment="CENTER" layoutX="25.0" layoutY="10.0" minHeight="35.0" prefWidth="605.0" style="-fx-border-color: #769FCD; -fx-border-width: 0 0 2 0;" text="نام کالا" textFill="#1c7ce2">
+                        <JFXTextField fx:id="ProductNameLBL" alignment="CENTER" focusColor="#1c7ce2" layoutX="24.0" layoutY="23.0" prefHeight="36.0" prefWidth="607.0" style="-fx-text-fill: #1c7ce2;" text="نام کالا" unFocusColor="#1c7ce2">
                            <font>
                               <Font name="B Koodak Bold" size="18.0" />
                            </font>
-                        </Label>
+                        </JFXTextField>
                         <Label alignment="CENTER" layoutX="491.0" layoutY="75.0" prefHeight="60.0" prefWidth="140.0" text="قیمت :">
                            <font>
                               <Font name="B Koodak Bold" size="16.0" />
@@ -51,12 +52,12 @@
                               <Font name="B Koodak Bold" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="ProductPriceLBL" alignment="CENTER" editable="false" layoutX="351.0" layoutY="75.0" prefHeight="60.0" prefWidth="140.0" style="-fx-border-color: white; -fx-background-color: white;" text="-">
+                        <TextField fx:id="ProductPriceLBL" alignment="CENTER" layoutX="351.0" layoutY="75.0" prefHeight="60.0" prefWidth="140.0" style="-fx-border-color: white; -fx-background-color: white;" text="-">
                            <font>
                               <Font name="B Koodak Bold" size="16.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="ProductCategoryLBL" alignment="CENTER" editable="false" layoutX="351.0" layoutY="135.0" prefHeight="60.0" prefWidth="140.0" style="-fx-border-color: white; -fx-background-color: white;" text="-">
+                        <TextField fx:id="ProductCategoryLBL" alignment="CENTER" layoutX="351.0" layoutY="135.0" prefHeight="60.0" prefWidth="140.0" style="-fx-border-color: white; -fx-background-color: white;" text="-">
                            <font>
                               <Font name="B Koodak Bold" size="16.0" />
                            </font>
@@ -93,15 +94,15 @@
                   </AnchorPane>
                   <AnchorPane layoutX="25.0" layoutY="400.0" prefHeight="350.0" prefWidth="1030.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
                      <children>
-                        <JFXTextArea fx:id="ProductDescriptionTXT" editable="false" focusColor="#769fcd" focusTraversable="false" layoutX="20.0" layoutY="25.0" maxWidth="990.0" minWidth="990.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="990.0" unFocusColor="#769fcd">
+                        <JFXTextArea fx:id="ProductDescriptionTXT" focusColor="#769fcd" focusTraversable="false" layoutX="20.0" layoutY="25.0" maxWidth="990.0" minWidth="990.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="100.0" prefWidth="990.0" unFocusColor="#769fcd">
                            <font>
                               <Font name="B Koodak Bold" size="16.0" />
                            </font>
                         </JFXTextArea>
-                        <TableView fx:id="ProductDetailsTable" layoutX="265.0" layoutY="175.0" prefHeight="150.0" prefWidth="500.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5;" stylesheets="@ProductInformationPage.css">
+                        <TableView fx:id="ProductDetailsTable" editable="true" layoutX="265.0" layoutY="175.0" prefHeight="150.0" prefWidth="500.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5;" stylesheets="@ProductInformationPage.css">
                           <columns>
-                            <TableColumn id="Col2" fx:id="InformationColumn" editable="false" prefWidth="255.46664428710938" sortable="false" style="-fx-alingment: center;" text="اطلاعات" />
-                            <TableColumn id="Col1" fx:id="MColumn" editable="false" minWidth="0.0" prefWidth="250.13330078125" sortable="false" style="-fx-alingment: center;" text="مشخصه" />
+                            <TableColumn id="Col2" fx:id="InformationColumn" prefWidth="255.46664428710938" sortable="false" style="-fx-alingment: center;" text="اطلاعات" />
+                            <TableColumn id="Col1" fx:id="MColumn" minWidth="0.0" prefWidth="250.13330078125" sortable="false" style="-fx-alingment: center;" text="مشخصه" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
