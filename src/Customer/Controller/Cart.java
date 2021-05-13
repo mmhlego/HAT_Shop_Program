@@ -2,6 +2,7 @@ package Customer.Controller;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -24,9 +25,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -100,8 +101,7 @@ public class Cart implements Initializable {
                 DataUpdator.UpdateOrderStatus(UserController.Cart);
                 DataAdder.AddShipping(UserController.Cart.OrderID, 0, Long.parseLong(ShippingFeeLBL.getText()),
                         LocalDate.parse(ShippingDateLBL.getText()), Shipping.GenerateID());
-                DataAdder.AddTransaction(UserController.Cart.OwnerID,
-                        Long.parseLong(FinalPriceLBL.getText()) + Long.parseLong(ShippingFeeLBL.getText()),
+                DataAdder.AddTransaction(UserController.Cart.OwnerID, Long.parseLong(FinalPriceLBL.getText()),
                         LocalDate.parse(ShippingDateLBL.getText()), Payment.TRID);
                 DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
 
@@ -111,6 +111,14 @@ public class Cart implements Initializable {
             } else {
                 Alert(AlertType.ERROR, "اعتبار حساب کافی نیست !");
             }
+            try {
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Visual/Cart.fxml"));
+                MainStructure.main.getChildren().add(loader.load());
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
         });
     }
 
