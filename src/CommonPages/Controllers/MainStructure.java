@@ -92,19 +92,18 @@ public class MainStructure implements Initializable {
         } else {
             loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/EmployeeList.fxml"));
             if (UserController.employee.Mode.equals(EmployeeMode.ASSISTANT)) {
-                AddButton("../../Manager/Visual/CustomerList.fxml", "لیست مشتریان", "", false);
-                AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "", false);
-                AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "", false);
+                AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "EmployeeList", false);
+                AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "AllProducts", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.ACCOUNTANT)) {
-                AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "", false);
-                AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "", false);
+                AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "EmployeeList", false);
+                AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "AllProducts", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.QUALITYCONTROL)) {
-                AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "", false);
+                AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "EmployeeList", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.REGULAR)) {
-                AddButton("../../Manager/Visual/CustomerList.fxml", "لیست مشتریان", "", false);
-                AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "", false);
+                AddButton("../../Manager/Visual/CustomerList.fxml", "لیست مشتریان", "CustomerList", false);
+                AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "AllProducts", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.SUPPLIER)) {
-                AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "", false);
+                AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "AllProducts", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.STOREKEEPER)) {
 
             }
