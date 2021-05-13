@@ -115,10 +115,9 @@ public class ProductEditInformation implements Initializable {
 		AddToAmountBTN.setOnAction((e) -> {
 			if (AddToAmountLBL.getText().equals("")) {
 				Alert(AlertType.ERROR, "عددی را وارد نمایید", "خطا");
-			}else if(Integer.parseInt(AddToAmountLBL.getText()) < 0){
+			} else if (Integer.parseInt(AddToAmountLBL.getText()) < 0) {
 				Alert(AlertType.ERROR, "عدد وارد شده نمیتواند منفی باشد ! ", "خطا");
-			} 
-			else {
+			} else {
 				ProductAmountLBL.setText(Integer.toString(
 						(Integer.parseInt(ProductAmountLBL.getText()) + Integer.parseInt(AddToAmountLBL.getText()))));
 				AddToAmountLBL.setText("");
@@ -127,7 +126,14 @@ public class ProductEditInformation implements Initializable {
 
 		EditProductDataBTN.setOnAction((e) -> {
 			try {
-				PreparedStatement ps = DBConnector.Con.prepareStatement("UPDATE Products SET");
+				PreparedStatement ps = DBConnector.Con.prepareStatement("UPDATE Products SET Name=" + "\'"
+						+ ProductNameLBL.getText() + "\'" + ", Description=" + "\'" + ProductDescriptionTXT.getText()
+						+ "\'" + ", Price=" + Long.parseLong(ProductPriceLBL.getText()) + ", Category=" + "\'"
+						+ ProductCategoryLBL.getText() + "\'" + ", Amount="
+						+ Integer.parseInt(ProductAmountLBL.getText()) + " WHERE ID=" + "\'" + ProductIDLBL.getText()
+						+ "\'");
+				ps.executeUpdate();
+				Alert(AlertType.INFORMATION, "اطلاعات کالا با موفقیت تغییر یافت", "موفق");
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
