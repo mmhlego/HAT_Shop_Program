@@ -127,7 +127,7 @@ public class EachUserProfile implements Initializable {
         FireEmployeeBTN.setVisible(true);
         FireEmployeeBTN.setOnMouseClicked(e -> {
             UserUpdator.FireEmployee(IDLBL.getText());
-            Alert(AlertType.INFORMATION, "کارمند مورد نظر با موفقیت حذف شد", "موفق");
+            Alert(AlertType.INFORMATION, "موفق", "کارمند مورد نظر با موفقیت حدف شد");
         });
 
         EditUserInformationBTN.setOnAction(e -> {
