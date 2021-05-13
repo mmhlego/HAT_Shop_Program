@@ -20,7 +20,7 @@
                   <Font name="B Koodak Bold" size="20.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="60.0" layoutY="77.0" prefHeight="30.0" prefWidth="180.0" text="دیجی هت" textAlignment="RIGHT">
+            <Label alignment="CENTER" layoutX="60.0" layoutY="77.0" prefHeight="30.0" prefWidth="250.0" text="دیجی هت" textAlignment="RIGHT">
                <font>
                   <Font name="B Koodak Bold" size="20.0" />
                </font>
@@ -30,7 +30,7 @@
                   <Font name="B Koodak Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="NameLBL" alignment="CENTER" layoutX="60.0" layoutY="117.0" prefHeight="30.0" prefWidth="180.0" textAlignment="RIGHT">
+            <Label fx:id="NameLBL" alignment="CENTER" layoutX="60.0" layoutY="117.0" prefHeight="30.0" prefWidth="250.0" textAlignment="RIGHT">
                <font>
                   <Font name="B Koodak Bold" size="20.0" />
                </font>
@@ -40,7 +40,7 @@
                   <Font name="B Koodak Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="CardLBL" alignment="CENTER" layoutX="60.0" layoutY="160.0" prefHeight="30.0" prefWidth="180.0">
+            <Label fx:id="CardLBL" alignment="CENTER" layoutX="60.0" layoutY="160.0" prefHeight="30.0" prefWidth="250.0">
                <font>
                   <Font name="B Koodak Bold" size="20.0" />
                </font>
@@ -50,7 +50,7 @@
                   <Font name="B Koodak Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="PriceLBL" alignment="CENTER" layoutX="98.0" layoutY="204.0" prefHeight="30.0" prefWidth="142.0">
+            <Label fx:id="PriceLBL" alignment="CENTER" layoutX="98.0" layoutY="204.0" prefHeight="30.0" prefWidth="210.0">
                <font>
                   <Font name="B Koodak Bold" size="20.0" />
                </font>
@@ -60,7 +60,7 @@
                   <Font name="B Koodak Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="DateLBL" alignment="CENTER" layoutX="60.0" layoutY="244.0" prefHeight="30.0" prefWidth="180.0">
+            <Label fx:id="DateLBL" alignment="CENTER" layoutX="60.0" layoutY="244.0" prefHeight="30.0" prefWidth="250.0">
                <font>
                   <Font name="B Koodak Bold" size="20.0" />
                </font>
@@ -70,7 +70,7 @@
                   <Font name="B Koodak Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="TransactionLBL" alignment="CENTER" layoutX="60.0" layoutY="284.0" prefHeight="30.0" prefWidth="180.0">
+            <Label fx:id="TransactionLBL" alignment="CENTER" layoutX="60.0" layoutY="284.0" prefHeight="30.0" prefWidth="250.0">
                <font>
                   <Font name="B Koodak Bold" size="20.0" />
                </font>
