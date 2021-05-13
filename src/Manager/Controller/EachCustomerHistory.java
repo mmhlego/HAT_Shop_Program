@@ -35,7 +35,6 @@ public class EachCustomerHistory implements Initializable {
 
     public void AddCustomersOrdersHistory(Customer c) throws Exception {
         orders = UserGetter.ConvertOrderToArrayList(UserGetter.GetOrdersDB(c.ID));
-        System.out.println(orders.size());
         for (Order order : orders) {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("../Components/EachCustomerHistoryEachOrder.fxml"));
