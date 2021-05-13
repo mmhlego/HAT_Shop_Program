@@ -23,127 +23,133 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 public class Profile implements Initializable {
-	@FXML
-	private Label PremiumLBL;
-	@FXML
-	private Button PersonalBTN;
-	@FXML
-	private Button ContactBTN;
-	@FXML
-	private Button AccountBTN;
-	@FXML
-	private ScrollPane ContentPane;
-	@FXML
-	private ImageView BackBTN;
+    @FXML
+    private Label PremiumLBL;
+    @FXML
+    private Button PersonalBTN;
+    @FXML
+    private Button ContactBTN;
+    @FXML
+    private Button AccountBTN;
+    @FXML
+    private ScrollPane ContentPane;
+    @FXML
+    private ImageView BackBTN;
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		BackBTN.setOnMouseClicked(e -> {
-			((AnchorPane) ((AnchorPane) ((AnchorPane) BackBTN.getParent()).getParent()).getParent()).getChildren()
-					.remove((((AnchorPane) ((AnchorPane) BackBTN.getParent()).getParent())));
-		});
-		ProfilePersonal p = (ProfilePersonal) loadPage("../Visual/Component/ProfilePersonal.fxml");
-		goAnimation(PersonalBTN);
-		backAnimation(AccountBTN);
-		backAnimation(ContactBTN);
-		if (UserController.Mode.equals(UserMode.Customer)) {
-			if (UserController.customer.Mode.equals(CustomerMode.PREMIUM)) {
-				PremiumLBL.setVisible(true);
-			}
-			p.getFirstNameLBL().setText(UserController.customer.FirstName);
-			p.getLastNameLBL().setText(UserController.customer.LastName);
-		} else if (UserController.Mode.equals(UserMode.Employee)) {
-			p.getFirstNameLBL().setText(UserController.employee.FirstName);
-			p.getLastNameLBL().setText(UserController.employee.LastName);
-		} else if (UserController.Mode.equals(UserMode.Manager)) {
-			p.getFirstNameLBL().setText(UserController.manager.FirstName);
-			p.getLastNameLBL().setText(UserController.manager.LastName);
-		}
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        BackBTN.setOnMouseClicked(e -> {
+            ((AnchorPane) ((AnchorPane) ((AnchorPane) BackBTN.getParent()).getParent()).getParent()).getChildren()
+                    .remove((((AnchorPane) ((AnchorPane) BackBTN.getParent()).getParent())));
+        });
+        ProfilePersonal p = (ProfilePersonal) loadPage("../Visual/Component/ProfilePersonal.fxml");
+        goAnimation(PersonalBTN);
+        backAnimation(AccountBTN);
+        backAnimation(ContactBTN);
+        if (UserController.Mode.equals(UserMode.Customer)) {
+            if (UserController.customer.Mode.equals(CustomerMode.PREMIUM)) {
+                PremiumLBL.setVisible(true);
+            }
+            p.getFirstNameLBL().setText(UserController.customer.FirstName);
+            p.getLastNameLBL().setText(UserController.customer.LastName);
+        } else if (UserController.Mode.equals(UserMode.Employee)) {
+            p.getFirstNameLBL().setText(UserController.employee.FirstName);
+            p.getLastNameLBL().setText(UserController.employee.LastName);
+        } else if (UserController.Mode.equals(UserMode.Manager)) {
+            p.getFirstNameLBL().setText(UserController.manager.FirstName);
+            p.getLastNameLBL().setText(UserController.manager.LastName);
+        }
 
-		PersonalBTN.setOnAction(e -> {
-			ProfilePersonal personal = (ProfilePersonal) loadPage("../Visual/Component/ProfilePersonal.fxml");
-			goAnimation(PersonalBTN);
-			backAnimation(AccountBTN);
-			backAnimation(ContactBTN);
-			if (UserController.Mode.equals(UserMode.Customer)) {
-				personal.getFirstNameLBL().setText(UserController.customer.FirstName);
-				personal.getLastNameLBL().setText(UserController.customer.LastName);
-			} else if (UserController.Mode.equals(UserMode.Employee)) {
-				personal.getFirstNameLBL().setText(UserController.employee.FirstName);
-				personal.getLastNameLBL().setText(UserController.employee.LastName);
-			} else if (UserController.Mode.equals(UserMode.Manager)) {
-				personal.getFirstNameLBL().setText(UserController.manager.FirstName);
-				personal.getLastNameLBL().setText(UserController.manager.LastName);
-			}
-		});
+        PersonalBTN.setOnAction(e -> {
+            ProfilePersonal personal = (ProfilePersonal) loadPage("../Visual/Component/ProfilePersonal.fxml");
+            goAnimation(PersonalBTN);
+            backAnimation(AccountBTN);
+            backAnimation(ContactBTN);
+            if (UserController.Mode.equals(UserMode.Customer)) {
+                personal.getFirstNameLBL().setText(UserController.customer.FirstName);
+                personal.getLastNameLBL().setText(UserController.customer.LastName);
+            } else if (UserController.Mode.equals(UserMode.Employee)) {
+                personal.getFirstNameLBL().setText(UserController.employee.FirstName);
+                personal.getLastNameLBL().setText(UserController.employee.LastName);
+            } else if (UserController.Mode.equals(UserMode.Manager)) {
+                personal.getFirstNameLBL().setText(UserController.manager.FirstName);
+                personal.getLastNameLBL().setText(UserController.manager.LastName);
+            }
+        });
 
-		AccountBTN.setOnAction(e -> {
-			ProfileAccount account = (ProfileAccount) loadPage("../Visual/Component/ProfileAccount.fxml");
-			goAnimation(AccountBTN);
-			backAnimation(ContactBTN);
-			backAnimation(PersonalBTN);
-			if (UserController.Mode.equals(UserMode.Customer)) {
-				account.getIDLBL().setText(UserController.customer.ID);
-				account.getModeLBL().setText(String.valueOf(UserController.customer.Mode));
-				account.getUsernameLBL().setText(UserController.customer.Username);
-			} else if (UserController.Mode.equals(UserMode.Employee)) {
-				account.getIDLBL().setText(UserController.employee.ID);
-				account.getModeLBL().setText(String.valueOf(UserController.employee.Mode));
-				account.getUsernameLBL().setText(UserController.employee.Username);
-			} else if (UserController.Mode.equals(UserMode.Manager)) {
-				account.getIDLBL().setVisible(false);
-				account.getModeLBL().setVisible(false);
-				account.getUsernameLBL().setText(UserController.manager.Username);
-			}
-		});
+        AccountBTN.setOnAction(e -> {
+            ProfileAccount account = (ProfileAccount) loadPage("../Visual/Component/ProfileAccount.fxml");
+            goAnimation(AccountBTN);
+            backAnimation(ContactBTN);
+            backAnimation(PersonalBTN);
+            if (UserController.Mode.equals(UserMode.Customer)) {
+                account.getIDLBL().setText(UserController.customer.ID);
+                account.getModeLBL().setText(String.valueOf(UserController.customer.Mode));
+                account.getUsernameLBL().setText(UserController.customer.Username);
+            } else if (UserController.Mode.equals(UserMode.Employee)) {
+                account.getIDLBL().setText(UserController.employee.ID);
+                account.getModeLBL().setText(String.valueOf(UserController.employee.Mode));
+                account.getUsernameLBL().setText(UserController.employee.Username);
+            } else if (UserController.Mode.equals(UserMode.Manager)) {
+                account.getIDTitleLBL().setVisible(false);
+                account.getIDLBL().setVisible(false);
+                account.getModeTitleLBL().setVisible(false);
+                account.getModeLBL().setVisible(false);
+                account.getUsernameLBL().setText(UserController.manager.Username);
+            }
+        });
 
-		ContactBTN.setOnAction(e -> {
-			ProfileContact contact = (ProfileContact) loadPage("../Visual/Component/ProfileContact.fxml");
-			goAnimation(ContactBTN);
-			backAnimation(AccountBTN);
-			backAnimation(PersonalBTN);
-			if (UserController.Mode.equals(UserMode.Customer)) {
-				contact.getMailLBL().setText(UserController.customer.Email);
-				contact.getPhoneLBL().setText(UserController.customer.Phone);
-			} else if (UserController.Mode.equals(UserMode.Employee)) {
-				contact.getMailLBL().setText(UserController.employee.Email);
-				contact.getPhoneLBL().setText(UserController.employee.Phone);
-			} else if (UserController.Mode.equals(UserMode.Manager)) {
-				contact.getMailLBL().setText(UserController.manager.Email);
-				contact.getPhoneLBL().setText(UserController.manager.Phone);
-			}
-		});
-	}
+        ContactBTN.setOnAction(e -> {
+            ProfileContact contact = (ProfileContact) loadPage("../Visual/Component/ProfileContact.fxml");
 
-	private Object loadPage(String fxml) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
-			ContentPane.setContent(loader.load());
-			return loader.getController();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
+            goAnimation(ContactBTN);
+            backAnimation(AccountBTN);
+            backAnimation(PersonalBTN);
 
-	private void goAnimation(Button b) {
-		KeyValue value1 = new KeyValue(b.styleProperty(),
-				"-fx-background-color:#769FCD;-fx-background-radius: 0 20 20 0;");
-		KeyValue value2 = new KeyValue(b.prefWidthProperty(), 105);
-		KeyFrame frame = new KeyFrame(Duration.seconds(0.5), value1, value2);
-		Timeline timeline = new Timeline(frame);
-		timeline.play();
+            if (UserController.Mode.equals(UserMode.Customer)) {
+                contact.getMailLBL().setText(UserController.customer.Email);
+                contact.getPhoneLBL().setText(UserController.customer.Phone);
+            } else if (UserController.Mode.equals(UserMode.Employee)) {
+                contact.getMailLBL().setText(UserController.employee.Email);
+                contact.getPhoneLBL().setText(UserController.employee.Phone);
+            } else if (UserController.Mode.equals(UserMode.Manager)) {
+                contact.getMailLBL().setText(UserController.manager.Email);
+                contact.getPhoneLBL().setText(UserController.manager.Phone);
+            }
+        });
 
-	}
+        System.out.println(UserController.Mode);
+    }
 
-	private void backAnimation(Button b) {
-		KeyValue value1 = new KeyValue(b.styleProperty(),
-				"-fx-background-color: #B9D7EA;-fx-background-radius: 0 20 20 0;");
-		KeyValue value2 = new KeyValue(b.prefWidthProperty(), 95);
-		KeyFrame frame = new KeyFrame(Duration.seconds(0.5), value1, value2);
-		Timeline timeline = new Timeline(frame);
-		timeline.play();
+    private Object loadPage(String fxml) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            ContentPane.setContent(loader.load());
+            return loader.getController();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-	}
+    private void goAnimation(Button b) {
+        KeyValue value1 = new KeyValue(b.styleProperty(),
+                "-fx-background-color:#769FCD;-fx-background-radius: 0 20 20 0;");
+        KeyValue value2 = new KeyValue(b.prefWidthProperty(), 105);
+        KeyFrame frame = new KeyFrame(Duration.seconds(0.5), value1, value2);
+        Timeline timeline = new Timeline(frame);
+        timeline.play();
+
+    }
+
+    private void backAnimation(Button b) {
+        KeyValue value1 = new KeyValue(b.styleProperty(),
+                "-fx-background-color: #B9D7EA;-fx-background-radius: 0 20 20 0;");
+        KeyValue value2 = new KeyValue(b.prefWidthProperty(), 95);
+        KeyFrame frame = new KeyFrame(Duration.seconds(0.5), value1, value2);
+        Timeline timeline = new Timeline(frame);
+        timeline.play();
+
+    }
 
 }
