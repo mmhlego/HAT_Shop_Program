@@ -16,40 +16,76 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 public class ProductsList implements Initializable {
-    @FXML
-    private TextField SearchTXF;
-    @FXML
-    private Button SearchBTN;
-    @FXML
-    private VBox MainPanel;
-    @FXML
-    private Button AddNewProductBTN;
-    ArrayList<Product> products = new ArrayList<>();
+	@FXML
+	private TextField SearchTXF;
+	@FXML
+	private Button SearchBTN;
+	@FXML
+	private VBox MainPanel;
+	@FXML
+	private Button AddNewProductBTN;
+	ArrayList<Product> products = new ArrayList<>();
+	int i = 0;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        try {
-            int i = 0;
-            MainPanel.getChildren().clear();
-            products = ProductChecker.LoadAllProducts();
-            for (Product p : products) {
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../Components/EachProduct.fxml"));
-                Parent parent = loader.load();
-                EachProduct controller = loader.getController();
-                System.out.println(i++);
-                controller.AddProduct(p);
-                AddNewProductBTN.setOnAction(e -> {
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		try {
 
-                    MainStructure.addPage("src/Manager/Components/AddNewProduct.fxml");
-                });
+			MainPanel.getChildren().clear();
+			products = ProductChecker.LoadAllProducts();
+			show(products);
+			SearchBTN.setOnAction(e -> {
+				try {
+					search(SearchTXF.getText());
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			});
 
-                MainPanel.getChildren().add(parent);
-            }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+	}
 
-    }
+	private void search(String s) throws Exception {
+		ArrayList<Product> searchResult = new ArrayList<>();
+		for (Product product : products) {
+			if (String.valueOf(product.Amount).contains(s) || product.Category.contains(s)
+					|| product.Description.contains(s) || product.ID.contains(s) || product.Name.contains(s)
+					|| String.valueOf(product.Percentage).contains(s) || String.valueOf(product.Price).contains(s)) {
+				searchResult.add(product);
+			} else {
+				for (int i = 0; i < product.Details.length; i++) {
+					for (int j = 0; j < product.Details[i].length; j++) {
+						if (product.Details[i][j].contains(s)) {
+							searchResult.add(product);
+						}
+					}
+				}
+			}
+		}
+		MainPanel.getChildren().clear();
+		i = 0;
+		show(searchResult);
+
+	}
+
+	private void show(ArrayList<Product> pr) throws Exception {
+		for (Product p : pr) {
+			FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../Components/EachProduct.fxml"));
+			Parent parent = loader.load();
+			EachProduct controller = loader.getController();
+			System.out.println(i++);
+			controller.AddProduct(p);
+			AddNewProductBTN.setOnAction(e -> {
+
+				MainStructure.addPage("src/Manager/Components/AddNewProduct.fxml");
+			});
+
+			MainPanel.getChildren().add(parent);
+		}
+
+	}
 
 }

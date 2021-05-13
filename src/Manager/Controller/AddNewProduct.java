@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -59,10 +60,7 @@ public class AddNewProduct implements Initializable {
 	private TextField ProductDetailsTF;
 
 	public void ShowAddNewProduct(Product product) {
-		BackBTN.setOnMouseClicked(e -> {
-			((AnchorPane) BackBTN.getParent().getParent().getParent()).getChildren()
-					.remove(BackBTN.getParent().getParent());
-		});
+
 	}
 
 	@Override
@@ -71,6 +69,10 @@ public class AddNewProduct implements Initializable {
 			((AnchorPane) BackBTN.getParent().getParent().getParent()).getChildren()
 					.remove(BackBTN.getParent().getParent());
 		});
+		Tooltip tooltip = new Tooltip("Avalible Categories: " + Product.ACCESSORIES + " ," + Product.BOOK + " ,"
+				+ Product.COMPUTER + " ," + Product.PHONE + " ," + Product.SUPERMARKET);
+		tooltip.setAutoHide(false);
+		ProductCategoryTF.setTooltip(tooltip);
 	}
 
 }
