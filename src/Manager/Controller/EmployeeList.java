@@ -39,7 +39,7 @@ public class EmployeeList implements Initializable {
 			ShowAllEmployees(allEmployees);
 			SearchBTN.setOnAction(e -> {
 				try {
-					search(SearchTXF.getText());
+					search(SearchTXF.getText().toLowerCase());
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
@@ -53,9 +53,10 @@ public class EmployeeList implements Initializable {
 	private void search(String s) throws Exception {
 		ArrayList<Employee> searchResult = new ArrayList<>();
 		for (Employee employee : allEmployees) {
-			if (employee.Email.contains(s) || employee.FirstName.contains(s) || employee.ID.contains(s)
-					|| employee.LastName.contains(s) || String.valueOf(employee.Mode).contains(s)
-					|| employee.Phone.contains(s) || employee.Username.contains(s)) {
+			if (employee.Email.toLowerCase().contains(s) || employee.FirstName.toLowerCase().contains(s)
+					|| employee.ID.toLowerCase().contains(s) || employee.LastName.toLowerCase().contains(s)
+					|| String.valueOf(employee.Mode).toLowerCase().contains(s)
+					|| employee.Phone.toLowerCase().contains(s) || employee.Username.toLowerCase().contains(s)) {
 				searchResult.add(employee);
 			}
 		}

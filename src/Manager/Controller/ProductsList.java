@@ -36,7 +36,7 @@ public class ProductsList implements Initializable {
 			show(products);
 			SearchBTN.setOnAction(e -> {
 				try {
-					search(SearchTXF.getText());
+					search(SearchTXF.getText().toLowerCase());
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
@@ -51,9 +51,11 @@ public class ProductsList implements Initializable {
 	private void search(String s) throws Exception {
 		ArrayList<Product> searchResult = new ArrayList<>();
 		for (Product product : products) {
-			if (String.valueOf(product.Amount).contains(s) || product.Category.contains(s)
-					|| product.Description.contains(s) || product.ID.contains(s) || product.Name.contains(s)
-					|| String.valueOf(product.Percentage).contains(s) || String.valueOf(product.Price).contains(s)) {
+			if (String.valueOf(product.Amount).toLowerCase().contains(s) || product.Category.toLowerCase().contains(s)
+					|| product.Description.toLowerCase().contains(s) || product.ID.toLowerCase().contains(s)
+					|| product.Name.toLowerCase().contains(s)
+					|| String.valueOf(product.Percentage).toLowerCase().contains(s)
+					|| String.valueOf(product.Price).toLowerCase().contains(s)) {
 				searchResult.add(product);
 			} else {
 				for (int i = 0; i < product.Details.length; i++) {
