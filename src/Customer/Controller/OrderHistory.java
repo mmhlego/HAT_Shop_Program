@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Label;
+
 import CommonPages.Controllers.MainStructure;
 import Controller.UserController;
 import DataController.UserGetter;
@@ -15,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class OrderHistory implements Initializable {
@@ -37,6 +40,18 @@ public class OrderHistory implements Initializable {
 
     private void AddOrdersToPage() throws Exception {
         i = 0;
+        if (allOrders.size() == 0) {
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/OrderEmpty.fxml"));
+                OrdersPanel.getChildren().add(loader.load());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return;
+        }
+
         for (Order order : allOrders) {
             System.out.println("Order #" + i);
             Shipping shipping = UserGetter.GetShippingByOrderID(order.OrderID);

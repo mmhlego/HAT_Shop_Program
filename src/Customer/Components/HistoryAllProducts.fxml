@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -22,6 +23,9 @@
                <image>
                   <Image url="@../../pictures/icons/Back.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <ScrollPane hbarPolicy="NEVER" layoutX="24.0" layoutY="51.0" prefHeight="420.0" prefWidth="850.0" style="-fx-background-color: white;">
                <content>

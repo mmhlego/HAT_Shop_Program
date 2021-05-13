@@ -8,6 +8,7 @@ import Controller.UserController;
 import DataController.DataAdder;
 import Model.*;
 import Model.Customer.CustomerMode;
+import Model.Order.OrderStatus;
 import javafx.fxml.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
@@ -55,11 +56,16 @@ public class FifthRegisterPage implements Initializable {
             } else {
                 UserEmail = emailField.getText();
                 UserAddress = addressField.getText();
+
+                String ID = Customer.GenerateID();
+
                 DataAdder.AddCustomer(FourthRegisterPage.UserFirstName, FourthRegisterPage.UserLastName,
                         ThirdRegisterPage.UserUsername, ThirdRegisterPage.UserPassword, SecondRegisterPage.UserPhone,
                         FifthRegisterPage.UserEmail, FifthRegisterPage.UserAddress, 0,
-                        CustomerMode.ModeToInt(CustomerMode.REGULAR), Customer.GenerateID());
-                        UserController.SetCurrentUser(ThirdRegisterPage.UserUsername);
+                        CustomerMode.ModeToInt(CustomerMode.REGULAR), ID);
+                DataAdder.AddOrder(new Order(ID, Order.GenerateID(), OrderStatus.PENDING));
+
+                UserController.SetCurrentUser(ThirdRegisterPage.UserUsername);
                 try {
                     ((Stage) registerBTN.getScene().getWindow()).close();
                     FXMLLoader loader = new FXMLLoader(

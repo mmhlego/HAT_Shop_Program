@@ -54,6 +54,9 @@
                <image>
                   <Image url="@../../pictures/icons/Information.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </children>
       </Group>
