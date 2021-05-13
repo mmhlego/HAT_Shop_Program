@@ -34,7 +34,7 @@ public class CustomerList implements Initializable {
 			ShowAllCustomers(allCustomers);
 			SearchBTN.setOnAction(e -> {
 				try {
-					search(SearchTXF.getText());
+					search(SearchTXF.getText().toLowerCase());
 					System.out.println(1);
 				} catch (Exception e1) {
 					e1.printStackTrace();
@@ -50,10 +50,12 @@ public class CustomerList implements Initializable {
 	private void search(String s) throws Exception {
 		ArrayList<Customer> searchResult = new ArrayList<>();
 		for (Customer customer : allCustomers) {
-			if (customer.Address.contains(s) || customer.Email.contains(s) || customer.FirstName.contains(s)
-					|| customer.ID.contains(s) || customer.LastName.contains(s) || customer.Phone.contains(s)
-					|| customer.Username.contains(s) || String.valueOf(customer.Mode).contains(s)
-					|| String.valueOf(customer.Value).contains(s)) {
+			if (customer.Address.toLowerCase().contains(s) || customer.Email.toLowerCase().contains(s)
+					|| customer.FirstName.toLowerCase().contains(s) || customer.ID.toLowerCase().contains(s)
+					|| customer.LastName.toLowerCase().contains(s) || customer.Phone.toLowerCase().contains(s)
+					|| customer.Username.toLowerCase().contains(s)
+					|| String.valueOf(customer.Mode).toLowerCase().contains(s)
+					|| String.valueOf(customer.Value).toLowerCase().contains(s)) {
 				searchResult.add(customer);
 			}
 		}
