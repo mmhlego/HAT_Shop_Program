@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: #00000020;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controller.AddNewEmployee">
+   <children>
+      <AnchorPane layoutX="90.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: white; -fx-border-color: #6887C5;">
+         <children>
+            <Label alignment="CENTER" layoutX="25.0" layoutY="15.0" prefHeight="40.0" prefWidth="850.0" style="-fx-border-color: #6887C5; -fx-border-width: 0 0 1 0;" text="استخدام کارمند جدید" textFill="#6887c5">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font></Label>
+            <ImageView fx:id="BackBTN" fitHeight="40.0" fitWidth="40.0" layoutX="845.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../pictures/icons/Back.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="775.0" layoutY="90.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="نام" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="EmployeeFirstNameTF" alignment="CENTER" layoutX="475.0" layoutY="90.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="325.0" layoutY="90.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="نام خانوادگی" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="EmployeeLastNameTF" alignment="CENTER" layoutX="25.0" layoutY="90.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="775.0" layoutY="170.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="نام کاربری" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="EmployeeUsernameTF" alignment="CENTER" layoutX="475.0" layoutY="170.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="325.0" layoutY="170.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="گذرواژه" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="EmployyeePasswordTF" alignment="CENTER" layoutX="25.0" layoutY="170.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="775.0" layoutY="250.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="شماره تلفن" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="EmployeePhoneTF" alignment="CENTER" layoutX="475.0" layoutY="250.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="325.0" layoutY="250.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="پست الکترونیکی" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="EmployeeEMailTF" alignment="CENTER" layoutX="25.0" layoutY="250.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <JFXButton fx:id="AddEmployeeBTN" layoutX="25.0" layoutY="485.0" prefHeight="40.0" prefWidth="850.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10; -fx-border-radius: 10;" text="افزودن کارمند" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Label alignment="CENTER" layoutX="775.0" layoutY="330.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="سطح دسترسی" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="EmployeeAccessLevelTF" alignment="CENTER" layoutX="475.0" layoutY="330.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="325.0" layoutY="330.0" prefHeight="40.0" prefWidth="100.0" style="-fx-border-color: #769FCD; -fx-background-color: #769FCD; -fx-background-radius: 0 10  10 0; -fx-border-radius: 0 10 10 0;" text="شناسه کارمند" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="EmployeeIDTF" alignment="CENTER" editable="false" layoutX="25.0" layoutY="330.0" prefHeight="40.0" prefWidth="300.0" style="-fx-border-color: #769FCD; -fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10;">
+               <font>
+                  <Font name="B Koodak Bold" size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
