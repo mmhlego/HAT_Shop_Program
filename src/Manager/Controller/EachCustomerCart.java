@@ -16,30 +16,35 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class EachCustomerCart implements Initializable {
-    @FXML
-    private ImageView BackBTN;
-    @FXML
-    private VBox ProductsPanel;
+	@FXML
+	private ImageView BackBTN;
+	@FXML
+	private VBox ProductsPanel;
 
-    public void LoadCustomerCart(Customer c) throws Exception {
-        BackBTN.setOnMouseClicked(e -> {
-            ((AnchorPane) BackBTN.getParent().getParent().getParent()).getChildren()
-                    .remove(BackBTN.getParent().getParent());
-        });
-        Order orders = UserGetter.GetCartDB(c.ID);
-        int i = 0;
-        for (Product p : orders.Products) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/EachCustomerEachProduct.fxml"));
-            Parent parent = loader.load();
-            EachCustomerEachProduct controller = loader.getController();
-            controller.LoadProduct(p, orders.Amounts.get(i));
-            ProductsPanel.getChildren().add(parent);
-        }
-    }
+	public void LoadCustomerCart(Customer c) throws Exception {
+		BackBTN.setOnMouseClicked(e -> {
+			((AnchorPane) BackBTN.getParent().getParent().getParent()).getChildren()
+					.remove(BackBTN.getParent().getParent());
+		});
+		Order orders = UserGetter.GetCartDB(c.ID);
+		if (orders.Products.size() == 0) {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/NoResults.fxml"));
+			ProductsPanel.getChildren().add(loader.load());
 
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
+		}
+		int i = 0;
+		for (Product p : orders.Products) {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/EachCustomerEachProduct.fxml"));
+			Parent parent = loader.load();
+			EachCustomerEachProduct controller = loader.getController();
+			controller.LoadProduct(p, orders.Amounts.get(i));
+			ProductsPanel.getChildren().add(parent);
+		}
+	}
 
-    }
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+
+	}
 
 }
