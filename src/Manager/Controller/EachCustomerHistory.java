@@ -17,12 +17,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class EachCustomerHistory implements Initializable {
-
     @FXML
     private ImageView BackBTN;
-
     @FXML
     private VBox OrdersPanel;
+
     ArrayList<Order> orders = new ArrayList<>();
 
     @Override
@@ -35,6 +34,12 @@ public class EachCustomerHistory implements Initializable {
 
     public void AddCustomersOrdersHistory(Customer c) throws Exception {
         orders = UserGetter.ConvertOrderToArrayList(UserGetter.GetOrdersDB(c.ID));
+
+        if (orders.size() == 0) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/NoResults.fxml"));
+            OrdersPanel.getChildren().add(loader.load());
+        }
+
         for (Order order : orders) {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("../Components/EachCustomerHistoryEachOrder.fxml"));

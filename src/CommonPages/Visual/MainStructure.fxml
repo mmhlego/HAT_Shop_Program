@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,8 +17,14 @@
                      <image>
                         <Image url="@../../pictures/icons/menu.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </VBox>
          </children></VBox>
       <VBox fx:id="imageBox" alignment="CENTER" layoutX="1053.0" layoutY="555.0" prefHeight="60.0" prefWidth="60.0" styleClass="exit" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -25,8 +32,14 @@
             <ImageView fx:id="img" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../pictures/icons/exit.png" />
-               </image></ImageView>
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ImageView>
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </VBox>
    </children>
 </AnchorPane>

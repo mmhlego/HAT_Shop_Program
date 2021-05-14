@@ -21,6 +21,9 @@
                            <font>
                               <Font name="B Koodak Bold" size="20.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Label>
                      </children></VBox>
                   <VBox fx:id="SideBar1" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="60.0" styleClass="sideBar" />

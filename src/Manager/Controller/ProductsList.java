@@ -24,6 +24,9 @@ public class ProductsList implements Initializable {
     private VBox MainPanel;
     @FXML
     private Button AddNewProductBTN;
+    @FXML
+    private Button RefreshPageBTN;
+
     ArrayList<Product> products = new ArrayList<>();
     int i = 0;
 
@@ -45,6 +48,9 @@ public class ProductsList implements Initializable {
             e.printStackTrace();
         }
 
+        RefreshPageBTN.setOnMouseClicked(e -> {
+            //TODO refresh page
+        });
     }
 
     private void search(String s) throws Exception {

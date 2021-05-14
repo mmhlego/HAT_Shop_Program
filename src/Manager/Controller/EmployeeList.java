@@ -26,6 +26,8 @@ public class EmployeeList implements Initializable {
     private VBox MainPanel;
     @FXML
     private Button AddNewEmployeeBTN;
+    @FXML
+    private Button RefreshPageBTN;
 
     ArrayList<Employee> allEmployees;
 
@@ -53,6 +55,10 @@ public class EmployeeList implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        RefreshPageBTN.setOnMouseClicked(e -> {
+            //TODO refresh page
+        });
     }
 
     private void search(String s) throws Exception {

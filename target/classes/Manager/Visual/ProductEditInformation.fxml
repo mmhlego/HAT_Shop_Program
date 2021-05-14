@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controller.ProductEditInformation">
+<AnchorPane xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controller.ProductEditInformation">
    <children>
       <ScrollPane hbarPolicy="NEVER" layoutY="0.6000000238418579" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0">
         <content>
@@ -52,12 +52,12 @@
                               <Font name="B Koodak Bold" size="16.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="ProductPriceLBL" alignment="CENTER" layoutX="351.0" layoutY="75.0" prefHeight="60.0" prefWidth="140.0" style="-fx-border-color: white; -fx-background-color: white;" text="-">
+                        <TextField fx:id="ProductPriceLBL" alignment="CENTER" layoutX="351.0" layoutY="75.0" prefHeight="60.0" prefWidth="140.0" style="-fx-border-color: white; -fx-background-color: white; -fx-border-color: #769FCD; -fx-border-width: 0 0 1 0;" text="-">
                            <font>
                               <Font name="B Koodak Bold" size="16.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="ProductCategoryLBL" alignment="CENTER" layoutX="351.0" layoutY="135.0" prefHeight="60.0" prefWidth="140.0" style="-fx-border-color: white; -fx-background-color: white;" text="-">
+                        <TextField fx:id="ProductCategoryLBL" alignment="CENTER" layoutX="351.0" layoutY="135.0" prefHeight="60.0" prefWidth="140.0" style="-fx-border-color: white; -fx-background-color: white; -fx-border-color: #769FCD; -fx-border-width: 0 0 1 0;" text="-">
                            <font>
                               <Font name="B Koodak Bold" size="16.0" />
                            </font>
@@ -90,6 +90,14 @@
                               <TextField fx:id="AddToAmountLBL" alignment="CENTER" layoutX="170.0" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 0 10 10 0; -fx-border-radius: 0 10 10 0; -fx-border-color: #769FCD;" />
                            </children>
                         </Group>
+                        <Button fx:id="DeleteProductBTN" layoutX="25.0" layoutY="200.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="290.0" style="-fx-background-color: #E46666; -fx-background-radius: 10; -fx-border-radius: 10;" text="حذف کالا" textFill="WHITE">
+                           <font>
+                              <Font name="B Koodak Bold" size="18.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="25.0" layoutY="400.0" prefHeight="350.0" prefWidth="1030.0" style="-fx-border-color: #769FCD; -fx-border-radius: 5; -fx-background-color: white;">
