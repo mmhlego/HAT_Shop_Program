@@ -246,4 +246,32 @@ public class UserGetter {
         return null;
     }
 
+    public static int GetNumberOfCustomers() {
+        int count = 0;
+        try {
+            ResultSet r = DBConnector.RunCommand("SELECT * FROM Customers");
+            while (r.next()) {
+                count++;
+            }
+            return count;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static int GetNumberOfEmployees() {
+        int count = 0;
+        try {
+            ResultSet r = DBConnector.RunCommand("SELECT * FROM Employees");
+            while (r.next()) {
+                count++;
+            }
+            return count;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 }
