@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-
-import Customer.Controller.Cart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -73,6 +71,30 @@ public class UserUpdator {
         alert.setHeaderText(null);
         alert.setContentText(Content);
         alert.show();
+    }
+
+    public static void ChangeStatus(String ID, int Change) {
+        try {
+            ResultSet r = DBConnector.RunCommand("SELECT AccountMode FROM Customers WHERE ID =" + "\'" + ID + "\'");
+            r.next();
+            int CurrentStatus = r.getInt(1);
+            int NewStatus = CurrentStatus + Change;
+            PreparedStatement ps = DBConnector.Con.prepareStatement(
+                    "UPDATE Customers SET AccountMode =" + NewStatus + " WHERE ID =" + "\'" + ID + "\'");
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void FireEmployee(String ID) {
+        try {
+            PreparedStatement ps = DBConnector.Con
+                    .prepareStatement("DELETE FROM Employees WHERE ID=" + "\'" + ID + "\'");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
