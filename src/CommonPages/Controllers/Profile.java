@@ -86,16 +86,32 @@ public class Profile implements Initializable {
                 account.getIDLBL().setText(UserController.customer.ID);
                 account.getModeLBL().setText(String.valueOf(UserController.customer.Mode));
                 account.getUsernameLBL().setText(UserController.customer.Username);
+                account.getChargeBalanceBTN().setOnMouseClicked(e2 -> {
+                    //TODO
+                });
+                if (!UserController.customer.Mode.equals(CustomerMode.REGULAR)) {
+                    account.getUpgradeAccountBTN().setVisible(false);
+                    ((AnchorPane) account.getUpgradeAccountBTN().getParent()).setPrefHeight(180);
+                }
+                account.getUpgradeAccountBTN().setOnMouseClicked(e2 -> {
+                    //TODO
+                });
             } else if (UserController.Mode.equals(UserMode.Employee)) {
                 account.getIDLBL().setText(UserController.employee.ID);
                 account.getModeLBL().setText(String.valueOf(UserController.employee.Mode));
                 account.getUsernameLBL().setText(UserController.employee.Username);
+                account.getChargeBalanceBTN().setVisible(false);
+                account.getUpgradeAccountBTN().setVisible(false);
+                ((AnchorPane) account.getUpgradeAccountBTN().getParent()).setPrefHeight(180);
             } else if (UserController.Mode.equals(UserMode.Manager)) {
                 account.getIDTitleLBL().setVisible(false);
                 account.getIDLBL().setVisible(false);
                 account.getModeTitleLBL().setVisible(false);
                 account.getModeLBL().setVisible(false);
                 account.getUsernameLBL().setText(UserController.manager.Username);
+                account.getChargeBalanceBTN().setVisible(false);
+                account.getUpgradeAccountBTN().setVisible(false);
+                ((AnchorPane) account.getUpgradeAccountBTN().getParent()).setPrefHeight(180);
             }
         });
 
@@ -117,8 +133,6 @@ public class Profile implements Initializable {
                 contact.getPhoneLBL().setText(UserController.manager.Phone);
             }
         });
-
-        System.out.println(UserController.Mode);
     }
 
     private Object loadPage(String fxml) {
@@ -149,7 +163,5 @@ public class Profile implements Initializable {
         KeyFrame frame = new KeyFrame(Duration.seconds(0.5), value1, value2);
         Timeline timeline = new Timeline(frame);
         timeline.play();
-
     }
-
 }

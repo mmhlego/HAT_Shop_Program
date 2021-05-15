@@ -1,24 +1,40 @@
 package CommonPages.Controllers.Component;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class ProfileAccount {
-
     @FXML
     private Label UsernameLBL;
-
     @FXML
     private Label ModeTitleLBL;
-
     @FXML
     private Label ModeLBL;
-
     @FXML
     private Label IDTitleLBL;
-
     @FXML
     private Label IDLBL;
+    @FXML
+    private Button ChargeBalanceBTN;
+    @FXML
+    private Button UpgradeAccountBTN;
+
+    public Button getChargeBalanceBTN() {
+        return ChargeBalanceBTN;
+    }
+
+    public void setChargeBalanceBTN(Button chargeBalanceBTN) {
+        ChargeBalanceBTN = chargeBalanceBTN;
+    }
+
+    public Button getUpgradeAccountBTN() {
+        return UpgradeAccountBTN;
+    }
+
+    public void setUpgradeAccountBTN(Button upgradeAccountBTN) {
+        UpgradeAccountBTN = upgradeAccountBTN;
+    }
 
     public Label getUsernameLBL() {
         return UsernameLBL;
