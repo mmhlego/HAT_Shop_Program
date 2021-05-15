@@ -81,6 +81,7 @@ public class EachUserProfile implements Initializable {
 		Tooltip tooltip = new Tooltip(CustomerMode.REGULAR + " ," + CustomerMode.PREMIUM + " ,"
 				+ CustomerMode.REGULARBANNED + " ," + CustomerMode.PREMIUMBANNED);
 		tooltip.setAutoHide(false);
+		tooltip.setFont(Font.font("B Kamran", FontWeight.BOLD, 20));
 		ModeLBL.setText(String.valueOf(c.Mode));
 		ModeLBL.setTooltip(tooltip);
 		ValueLBL.setText(String.valueOf(c.Value));
