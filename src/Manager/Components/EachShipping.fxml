@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox style="-fx-background-color: #D6E6F2; -fx-border-color: #769FCD; -fx-background-radius: 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controller.EachShipping">
+   <children>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="980.0" spacing="50.0">
+         <children>
+            <Group>
+               <children>
+                  <Label fx:id="ShippingStatusLBL" alignment="CENTER" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10; -fx-border-color: #6887C5;" text="-" textFill="#769fcd">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="160.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0 10 10 0; -fx-border-radius: 0 10 10 0;" text="وضعیت مرسوله" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+            <Group>
+               <children>
+                  <Label fx:id="ShippingFeeLBL" alignment="CENTER" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10; -fx-border-color: #6887C5;" text="-" textFill="#769fcd">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="160.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0 10 10 0; -fx-border-radius: 0 10 10 0;" text="هزینه مرسوله" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+            <Group>
+               <children>
+                  <Label fx:id="ShippingOrderIDLBL" alignment="CENTER" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10; -fx-border-color: #6887C5;" text="-" textFill="#769fcd">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="160.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0 10 10 0; -fx-border-radius: 0 10 10 0;" text="شناسه سفارش" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="980.0" spacing="50.0">
+         <children>
+            <Group>
+               <children>
+                  <Label fx:id="ShippingIDLBL" alignment="CENTER" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10; -fx-border-color: #6887C5;" text="-" textFill="#769fcd">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="160.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0 10 10 0; -fx-border-radius: 0 10 10 0;" text="شناسه مرسوله" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+            <Group>
+               <children>
+                  <Label fx:id="ShippingDateLBL" alignment="CENTER" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10; -fx-border-color: #6887C5;" text="-" textFill="#769fcd">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="160.0" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0 10 10 0; -fx-border-radius: 0 10 10 0;" text="زمان ارسال" textFill="WHITE">
+                     <font>
+                        <Font name="B Koodak Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
+         </children>
+      </HBox>
+   </children>
+</VBox>

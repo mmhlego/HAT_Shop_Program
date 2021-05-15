@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="980.0" spacing="150.0" style="-fx-background-color: #D6E6F2; -fx-border-color: #769FCD; -fx-background-radius: 20; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Controller.EachProductAmount">
+   <children>
+      <Group>
+         <children>
+            <Label fx:id="ProductAmountLBL" alignment="CENTER" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10; -fx-border-color: #6887C5;" text="-" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="230.0" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0 10 10 0; -fx-border-radius: 0 10 10 0;" text="تعداد باقیمانده از کالا" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
+      <Group>
+         <children>
+            <Label fx:id="ProductNameLBL" alignment="CENTER" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #F7FBFC; -fx-background-radius: 10 0 0 10; -fx-border-radius: 10 0 0 10; -fx-border-color: #6887C5;" text="-" textFill="#769fcd">
+               <font>
+                  <Font name="B Koodak Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="230.0" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #769FCD; -fx-background-radius: 0 10 10 0; -fx-border-radius: 0 10 10 0;" text="نام کالا" textFill="WHITE">
+               <font>
+                  <Font name="B Koodak Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Group>
+   </children>
+</HBox>
