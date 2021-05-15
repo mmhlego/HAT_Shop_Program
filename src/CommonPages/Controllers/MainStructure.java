@@ -109,7 +109,7 @@ public class MainStructure implements Initializable {
             }
         }
 
-        AddButton("../../CommonPages/Visual/Settings.fxml", "تنضیمات", "Settings", true);
+        AddButton("../../CommonPages/Visual/Settings.fxml", "تنظیمات", "Settings", true);
 
         try {
             MainPanel.getChildren().add(loader2.load());
