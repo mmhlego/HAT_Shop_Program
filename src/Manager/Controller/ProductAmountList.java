@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-public class ProductPriceList implements Initializable {
+public class ProductAmountList implements Initializable {
 	@FXML
 	private TextField SearchTXF;
 	@FXML
