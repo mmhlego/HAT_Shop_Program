@@ -88,10 +88,10 @@ public class MainStructure implements Initializable {
             AddButton("../../Manager/Visual/CustomerList.fxml", "لیست مشتریان", "CustomerList", false);
             AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "EmployeeList", false);
             AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "AllProducts", false);
-
         } else {
             loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/EmployeeList.fxml"));
             if (UserController.employee.Mode.equals(EmployeeMode.ASSISTANT)) {
+                AddButton("../../Manager/Visual/CustomerList.fxml", "لیست مشتریان", "CustomerList", false);
                 AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "EmployeeList", false);
                 AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "AllProducts", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.ACCOUNTANT)) {

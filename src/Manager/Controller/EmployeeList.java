@@ -18,90 +18,84 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 public class EmployeeList implements Initializable {
-	@FXML
-	private TextField SearchTXF;
-	@FXML
-	private Button SearchBTN;
-	@FXML
-	private VBox MainPanel;
-	@FXML
-	private Button AddNewEmployeeBTN;
-	@FXML
-	private Button RefreshPageBTN;
+    @FXML
+    private TextField SearchTXF;
+    @FXML
+    private Button SearchBTN;
+    @FXML
+    private VBox MainPanel;
+    @FXML
+    private Button AddNewEmployeeBTN;
+    @FXML
+    private Button RefreshPageBTN;
 
-	ArrayList<Employee> allEmployees;
+    ArrayList<Employee> allEmployees;
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		AddNewEmployeeBTN.setOnMouseClicked(e -> {
-			MainStructure.addPage("src/Manager/Components/AddNewEmployee.fxml");
-		});
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        AddNewEmployeeBTN.setOnMouseClicked(e -> {
+            MainStructure.addPage("src/Manager/Components/AddNewEmployee.fxml");
+        });
 
-		try {
-			if (UserController.Mode.equals(UserController.UserMode.Manager)) {
-				allEmployees = UserGetter.GetAllEmployees();
-			} else {
-				allEmployees = UserGetter.GetLowLevelEmployees();
-			}
-			ShowAllEmployees(allEmployees);
-			RefreshPageBTN.setOnAction(e -> {
-				try {
-					search(SearchTXF.getText().toLowerCase());
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			});
-			SearchBTN.setOnAction(e -> {
-				try {
-					search(SearchTXF.getText().toLowerCase());
-				} catch (Exception e1) {
-					e1.printStackTrace();
-				}
-			});
+        try {
+            if (UserController.Mode.equals(UserController.UserMode.Manager)) {
+                allEmployees = UserGetter.GetAllEmployees();
+            } else {
+                allEmployees = UserGetter.GetLowLevelEmployees();
+            }
+            ShowAllEmployees(allEmployees);
+            RefreshPageBTN.setOnAction(e -> {
+                try {
+                    search(SearchTXF.getText().toLowerCase());
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            });
+            SearchBTN.setOnAction(e -> {
+                try {
+                    search(SearchTXF.getText().toLowerCase());
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            });
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-		RefreshPageBTN.setOnMouseClicked(e -> {
-			// TODO refresh page
-		});
-	}
+    private void search(String s) throws Exception {
+        ArrayList<Employee> searchResult = new ArrayList<>();
+        for (Employee employee : allEmployees) {
+            if (employee.Email.toLowerCase().contains(s) || employee.FirstName.toLowerCase().contains(s)
+                    || employee.ID.toLowerCase().contains(s) || employee.LastName.toLowerCase().contains(s)
+                    || String.valueOf(employee.Mode).toLowerCase().contains(s)
+                    || employee.Phone.toLowerCase().contains(s) || employee.Username.toLowerCase().contains(s)) {
+                searchResult.add(employee);
+            }
+        }
+        i = 0;
+        MainPanel.getChildren().clear();
+        if (searchResult.size() == 0) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/NoResults.fxml"));
+            MainPanel.getChildren().add(loader.load());
+        } else {
+            ShowAllEmployees(searchResult);
+        }
+    }
 
-	private void search(String s) throws Exception {
-		ArrayList<Employee> searchResult = new ArrayList<>();
-		for (Employee employee : allEmployees) {
-			if (employee.Email.toLowerCase().contains(s) || employee.FirstName.toLowerCase().contains(s)
-					|| employee.ID.toLowerCase().contains(s) || employee.LastName.toLowerCase().contains(s)
-					|| String.valueOf(employee.Mode).toLowerCase().contains(s)
-					|| employee.Phone.toLowerCase().contains(s) || employee.Username.toLowerCase().contains(s)) {
-				searchResult.add(employee);
-			}
-		}
-		i = 0;
-		MainPanel.getChildren().clear();
-		if (searchResult.size() == 0) {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/NoResults.fxml"));
-			MainPanel.getChildren().add(loader.load());
-		} else {
-			ShowAllEmployees(searchResult);
-		}
-	}
+    int i = 0;
 
-	int i = 0;
+    private void ShowAllEmployees(ArrayList<Employee> e) throws Exception {
+        for (Employee employee : e) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/EachEmployee.fxml"));
+            Parent c = loader.load();
+            EachEmployee controller = loader.getController();
+            AnchorPane.setTopAnchor(c, (double) (35 + i * 115));
+            AnchorPane.setLeftAnchor(c, (double) 32);
+            controller.AddEmployee(employee);
 
-	private void ShowAllEmployees(ArrayList<Employee> e) throws Exception {
-		for (Employee employee : e) {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("../Components/EachEmployee.fxml"));
-			Parent c = loader.load();
-			EachEmployee controller = loader.getController();
-			AnchorPane.setTopAnchor(c, (double) (35 + i * 115));
-			AnchorPane.setLeftAnchor(c, (double) 32);
-			controller.AddEmployee(employee);
-
-			MainPanel.getChildren().add(c);
-		}
-
-	}
-
+            MainPanel.getChildren().add(c);
+        }
+    }
 }
