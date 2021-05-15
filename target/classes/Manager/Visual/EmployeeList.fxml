@@ -27,7 +27,7 @@
          <children>
             <AnchorPane>
                <children>
-                  <TextField fx:id="SearchTXF1" alignment="CENTER" layoutX="50.0" layoutY="20.0" prefHeight="40.0" prefWidth="500.0" style="-fx-border-color: #769FCD; -fx-border-radius: 0 10 10 0; -fx-background-radius: 0 10 10 0; -fx-background-color: #F7FBFC;" />
+                  <TextField fx:id="SearchTXF" alignment="CENTER" layoutX="50.0" layoutY="20.0" prefHeight="40.0" prefWidth="500.0" style="-fx-border-color: #769FCD; -fx-border-radius: 0 10 10 0; -fx-background-radius: 0 10 10 0; -fx-background-color: #F7FBFC;" />
                   <Button fx:id="SearchBTN" layoutY="20.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="50.0" style="-fx-background-color: #769FCD; -fx-background-radius: 10 0 0 10;" textAlignment="CENTER" />
                   <ImageView disable="true" fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
