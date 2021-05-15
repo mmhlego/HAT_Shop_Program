@@ -50,6 +50,10 @@ public class CustomerList implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        RefreshPageBTN.setOnMouseClicked(e -> {
+            //TODO refresh page
+        });
     }
 
     int i = 0;

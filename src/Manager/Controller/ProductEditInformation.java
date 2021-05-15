@@ -6,18 +6,22 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
+import Controller.UserController;
+import Controller.UserController.UserMode;
 import DataController.DBConnector;
+import Model.Employee.EmployeeMode;
 import Model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -87,24 +91,17 @@ public class ProductEditInformation implements Initializable {
         ProductIDLBL.setText(p.ID);
         ProductNameLBL.setText(p.Name);
         ProductPriceLBL.setText(String.valueOf(p.Price));
+
         /*
          * SpecialIMG.setVisible(special); SpecialTXT.setVisible(special);
          */
         DeleteProductBTN.setOnMouseClicked(e -> {
-            try {
-                PreparedStatement ps = DBConnector.Con
-                        .prepareStatement("DELETE FROM Products WHERE ID=" + "\'" + ProductIDLBL.getText() + "\'");
-                ps.executeUpdate();
-                Alert(AlertType.INFORMATION, "کالای مورد نظر با موفقیت حذف شد", "موفق");
-            } catch (Exception e1) {
-                e1.printStackTrace();
-            }
+            // TODO Delete Product
         });
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         AddToAmountBTN.setOnAction((e) -> {
             if (AddToAmountLBL.getText().equals("")) {
                 Alert(AlertType.ERROR, "عددی را وارد نمایید", "خطا");
@@ -116,6 +113,16 @@ public class ProductEditInformation implements Initializable {
                 AddToAmountLBL.setText("");
             }
         });
+
+        if (UserController.Mode.equals(UserMode.Employee)
+                && UserController.employee.Mode.equals(EmployeeMode.ACCOUNTANT)) {
+            ProductCategoryLBL.setEditable(false);
+            ProductDescriptionTXT.setEditable(false);
+            ProductIDLBL.setEditable(false);
+            ProductAmountLBL.setEditable(false);
+            AddToAmountBTN.setDisable(true);
+
+        }
 
         EditProductDataBTN.setOnAction((e) -> {
             try {

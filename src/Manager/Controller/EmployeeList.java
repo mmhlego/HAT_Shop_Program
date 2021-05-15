@@ -8,6 +8,7 @@ import CommonPages.Controllers.MainStructure;
 import Controller.UserController;
 import DataController.UserGetter;
 import Model.Employee;
+import Model.Employee.EmployeeMode;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -41,7 +42,12 @@ public class EmployeeList implements Initializable {
             if (UserController.Mode.equals(UserController.UserMode.Manager)) {
                 allEmployees = UserGetter.GetAllEmployees();
             } else {
-                allEmployees = UserGetter.GetLowLevelEmployees();
+
+                if (UserController.employee.Mode.equals(EmployeeMode.QUALITYCONTROL))
+                    allEmployees = UserGetter.GetLowLevelEmployees();
+                else {
+                    allEmployees = UserGetter.GetAllEmployees();
+                }
             }
             ShowAllEmployees(allEmployees);
             RefreshPageBTN.setOnAction(e -> {
