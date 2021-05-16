@@ -10,6 +10,8 @@ import javafx.scene.control.Alert.AlertType;
 
 public class UserUpdator {
 
+    public static boolean IsBalanceEnough = false;
+
     public static void Update() {
         UpdateShippingAndOrder(GetPastDate(10));
     }
@@ -48,13 +50,15 @@ public class UserUpdator {
                 ps.executeUpdate();
                 Alert(AlertType.INFORMATION, "حساب با موفقیت شارژ شد");
             } else {
-                if (-Amount < CurrentValue) {
+                if (-Amount <= CurrentValue) {
                     NewValue = CurrentValue + Amount;
                     PreparedStatement ps = DBConnector.Con.prepareStatement(
                             "UPDATE Customers SET Value=" + NewValue + " WHERE Username=" + "\'" + Username + "\'");
                     ps.executeUpdate();
+                    IsBalanceEnough = true;
                     Alert(AlertType.INFORMATION, "پرداخت با موفقیت انجام شد");
                 } else {
+                    IsBalanceEnough = false;
                     Alert(AlertType.ERROR, "اعتبار حساب کافی نیست !");
                 }
             }
