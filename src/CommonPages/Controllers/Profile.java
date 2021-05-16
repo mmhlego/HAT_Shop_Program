@@ -15,15 +15,12 @@ import Model.Customer.CustomerMode;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.event.EventDispatchChain;
-import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextInputDialog;
@@ -33,10 +30,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Callback;
 import javafx.util.Duration;
 
-public class Profile <R> extends Object implements Initializable , EventTarget {
+public class Profile implements Initializable {
     @FXML
     private Label PremiumLBL;
     @FXML
@@ -219,11 +215,5 @@ public class Profile <R> extends Object implements Initializable , EventTarget {
         KeyFrame frame = new KeyFrame(Duration.seconds(0.5), value1, value2);
         Timeline timeline = new Timeline(frame);
         timeline.play();
-    }
-
-    @Override
-    public EventDispatchChain buildEventDispatchChain(EventDispatchChain tail) {
-        // TODO Auto-generated method stub
-        return null;
     }
 }
