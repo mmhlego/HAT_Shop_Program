@@ -97,4 +97,14 @@ public class UserUpdator {
         }
     }
 
+    public static void MakePremium(String Username) {
+        try {
+            PreparedStatement ps = DBConnector.Con.prepareStatement(
+                    "UPDATE Customers SET AccountMode=1 WHERE Username=" + "\'" + Username + "\'");
+                    ps.executeUpdate();
+                    Alert(AlertType.INFORMATION, "حساب شما با موفقیت پریمیوم شد (برای اعمال تغییرات یکبار از حساب خود خارج سپس وارد شوید)");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

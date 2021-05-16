@@ -1,13 +1,15 @@
 package CommonPages.Controllers;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import CommonPages.Controllers.Component.ProfileAccount;
 import CommonPages.Controllers.Component.ProfileContact;
 import CommonPages.Controllers.Component.ProfilePersonal;
 import Controller.UserController;
 import Controller.UserController.UserMode;
+import Customer.Controller.Payment;
+import DataController.UserUpdator;
 import Model.Customer.CustomerMode;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -15,11 +17,18 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class Profile implements Initializable {
@@ -35,6 +44,11 @@ public class Profile implements Initializable {
     private ScrollPane ContentPane;
     @FXML
     private ImageView BackBTN;
+
+    public static Stage pStage;
+
+    public static boolean ChargeEntered;
+    public static String ChargeAmount;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -87,14 +101,47 @@ public class Profile implements Initializable {
                 account.getModeLBL().setText(String.valueOf(UserController.customer.Mode));
                 account.getUsernameLBL().setText(UserController.customer.Username);
                 account.getChargeBalanceBTN().setOnMouseClicked(e2 -> {
-                    //TODO
+                    TextInputDialog td = new TextInputDialog();
+                    td.setTitle("مبلغ شارژ را وارد نمایید");
+                    td.setHeaderText(null);
+                    td.setContentText(" : مبلغ");
+                    td.showAndWait();
+                    if (td.getEditor().getText().equals("")) {
+                        Alert alert = new Alert(AlertType.ERROR);
+                        alert.setHeaderText(null);
+                        alert.setTitle("خطا");
+                        alert.setContentText("مبلغی را وارد کنید !");
+                        alert.show();
+                    } else if (!td.getEditor().getText().equals("")) {
+                        ChargeAmount = td.getEditor().getText();
+                        ChargeEntered = true;
+                    }
+                    if (ChargeEntered) {
+                        try {
+                            
+                            FXMLLoader loader = new FXMLLoader(
+                                    new File("src/Customer/Visual/Payment.fxml").toURI().toURL());
+                            
+                            Scene scene = new Scene(loader.load());
+                            scene.setFill(Color.TRANSPARENT);
+                            Stage stage = new Stage(StageStyle.TRANSPARENT);
+                            stage.setScene(scene);
+                            pStage = stage;
+                            stage.show();
+                            Payment.TransactionMode = false;
+
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }
+                    }
                 });
                 if (!UserController.customer.Mode.equals(CustomerMode.REGULAR)) {
                     account.getUpgradeAccountBTN().setVisible(false);
                     ((AnchorPane) account.getUpgradeAccountBTN().getParent()).setPrefHeight(180);
                 }
                 account.getUpgradeAccountBTN().setOnMouseClicked(e2 -> {
-                    //TODO
+                    UserUpdator.UpdateValue(UserController.customer.Username, -1000000);
+                    UserUpdator.MakePremium(UserController.customer.Username);
                 });
             } else if (UserController.Mode.equals(UserMode.Employee)) {
                 account.getIDLBL().setText(UserController.employee.ID);

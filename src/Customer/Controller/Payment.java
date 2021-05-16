@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 
 import CommonPages.Controllers.MainStructure;
+import CommonPages.Controllers.Profile;
 import Controller.UserController;
 import DataController.DataAdder;
 import DataController.DataUpdator;
@@ -81,8 +82,11 @@ public class Payment implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ApplyBlur();
-
+    
         AmountLBL.setText(FinalPrice);
+        if (Profile.ChargeEntered) {
+            AmountLBL.setText(Profile.ChargeAmount);
+        }
         TRID = Transaction.GenerateID();
         TransactionIDLBL.setText(TRID);
 
@@ -137,16 +141,24 @@ public class Payment implements Initializable {
 
                     ProceedBTN.getParent().getScene().getWindow().hide();
                     Alert(AlertType.INFORMATION, "پرداخت با موفقیت انجام شد.");
-                } else {
-                    UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
-                }
-                UserController.UpdateUserData();
-                try {
+                    UserController.UpdateUserData();
+                    try {
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../Visual/Cart.fxml"));
-                    MainStructure.main.getChildren().add(loader.load());
-                } catch (IOException e1) {
-                    e1.printStackTrace();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("../Visual/Cart.fxml"));
+                        MainStructure.main.getChildren().add(loader.load());
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+                } else {
+                    Profile.ChargeEntered = false;
+                    ProceedBTN.getParent().getScene().getWindow().hide();
+                    UserController.customer.Value += GetAmount();
+                    Alert alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("اطلاعات");
+                    alert.setHeaderText(null);
+                    alert.setContentText("اعتبار فعلی حساب : " + UserController.customer.Value);
+                    alert.show();
+                    UserUpdator.UpdateValue(UserController.customer.Username, GetAmount());
                 }
             }
         });
@@ -160,6 +172,7 @@ public class Payment implements Initializable {
                 CancelBTN.getParent().getScene().getWindow().hide();
                 Alert(AlertType.INFORMATION, "پرداخت با امنیت کامل لغو شد");
             }
+            Profile.ChargeEntered = false;
         });
     }
 
