@@ -55,6 +55,7 @@ public class TransactionList implements Initializable {
 			});
 			RefreshPageBTN.setOnAction(e -> {
 				try {
+					AllTransactions = UserGetter.ConvertTransactionToArrayList(UserGetter.GetTransactionsDB());
 					search(SearchTXF.getText().toLowerCase());
 				} catch (Exception e1) {
 					e1.printStackTrace();

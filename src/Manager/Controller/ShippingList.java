@@ -67,6 +67,7 @@ public class ShippingList implements Initializable {
 			});
 			RefreshPageBTN.setOnAction(e -> {
 				try {
+					AllShippings = UserGetter.ConvertShippingToArrayList(UserGetter.GetShippingsDB());
 					search(SearchTXF.getText().toLowerCase());
 				} catch (Exception e1) {
 					e1.printStackTrace();
