@@ -47,7 +47,6 @@ public class Profile implements Initializable {
     private ImageView BackBTN;
 
     public static Stage pStage;
-
     public static boolean ChargeEntered;
     public static String ChargeAmount;
 

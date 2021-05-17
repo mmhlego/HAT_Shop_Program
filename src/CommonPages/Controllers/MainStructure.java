@@ -126,12 +126,14 @@ public class MainStructure implements Initializable {
         }
     }
 
-    private void OpenLoginPage() {
-        ((Stage) MainPanel.getParent().getScene().getWindow()).close();
+    public static void OpenLoginPage() {
+        ((Stage) main.getParent().getScene().getWindow()).close();
 
         try {
             Stage LoginPAge = new Stage();
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../../LoginPage/View/Login.fxml"));
+            FXMLLoader loader = new FXMLLoader(
+                    new File(System.getProperty("user.dir") + "/src/LoginPage/View/Login.fxml").toURI().toURL());
+            //FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../../LoginPage/View/Login.fxml"));
             Scene scene = new Scene(loader.load());
             scene.setFill(Color.TRANSPARENT);
             LoginPAge.initStyle(StageStyle.TRANSPARENT);

@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+
+import CommonPages.Controllers.MainStructure;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -74,7 +76,7 @@ public class UserUpdator {
         Alert alert = new Alert(AlertType);
         alert.setHeaderText(null);
         alert.setContentText(Content);
-        alert.show();
+        alert.showAndWait();
     }
 
     public static void ChangeStatus(String ID, int Change) {
@@ -103,10 +105,12 @@ public class UserUpdator {
 
     public static void MakePremium(String Username) {
         try {
-            PreparedStatement ps = DBConnector.Con.prepareStatement(
-                    "UPDATE Customers SET AccountMode=1 WHERE Username=" + "\'" + Username + "\'");
-                    ps.executeUpdate();
-                    Alert(AlertType.INFORMATION, "حساب شما با موفقیت پریمیوم شد (برای اعمال تغییرات یکبار از حساب خود خارج سپس وارد شوید)");
+            PreparedStatement ps = DBConnector.Con
+                    .prepareStatement("UPDATE Customers SET AccountMode=1 WHERE Username=" + "\'" + Username + "\'");
+            ps.executeUpdate();
+            Alert(AlertType.INFORMATION,
+                    "حساب شما با موفقیت پریمیوم شد (برای اعمال تغییرات یکبار از حساب خود خارج سپس وارد شوید)");
+            MainStructure.OpenLoginPage();
         } catch (SQLException e) {
             e.printStackTrace();
         }
