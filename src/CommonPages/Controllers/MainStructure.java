@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -162,31 +163,50 @@ public class MainStructure implements Initializable {
             label.setPrefWidth(190);
 
             sideBarController.getSideBar().getChildren().add(label);
+
+            Runnable r = new Runnable() {
+                @Override
+                public void run() {
+                    DeselectAll();
+                    SelectBTN(root, label);
+                }
+            };
+
             root.setOnMouseClicked(e -> {
                 OpenMenuItem(fxml, overlay);
+                r.run();
             });
+
             label.setOnMouseClicked(e -> {
                 OpenMenuItem(fxml, overlay);
+                r.run();
             });
+
+            root.setOnMouseEntered(e -> r.run());
+            label.setOnMouseEntered(e -> r.run());
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void OpenMenuItem(String fxml, boolean overlay) {
-        // if (HasOverlay && overlay) {
-        // RemoveLastPage();
-        // } else if (!overlay) {
-        // RemoveLastPage();
-        // }
-        //
-        // HasOverlay = overlay;
+    private void SelectBTN(VBox box, Label label) {
+        box.setStyle("-fx-background-color:#6887C5;");
+        label.setStyle(
+                "-fx-alignment:center; -fx-font-family: 'B Koodak'; -fx-font-size: 20px; -fx-text-fill: white; -fx-cursor: hand; -fx-background-color:#6887C5; ");
+    }
 
-        if (HasOverlay) {
-            RemoveLastPage();
+    private void DeselectAll() {
+        for (Node n : SideBar.getChildren()) {
+            n.setStyle("-fx-background-color:transparent;");
         }
+        for (Node n : sideBarController.getSideBar().getChildren()) {
+            n.setStyle(
+                    "-fx-alignment:center; -fx-font-family: 'B Koodak'; -fx-font-size: 20px; -fx-text-fill: white; -fx-cursor: hand; -fx-background-color:transparent; ");
+        }
+    }
 
+    private void OpenMenuItem(String fxml, boolean overlay) {
         if (!overlay) {
             MainPanel.getChildren().clear();
             MainPanel.getChildren().add(root);
@@ -197,23 +217,6 @@ public class MainStructure implements Initializable {
         }
 
         sideClickAction(fxml);
-    }
-
-    private void RemoveLastPage() {
-        try {
-            HasOverlay = false;
-
-            int len = MainPanel.getChildren().size();
-
-            if (MainPanel.getChildren().indexOf(root) == len - 1) {
-                MainPanel.getChildren().remove(len - 2);
-            } else {
-                MainPanel.getChildren().remove(len - 1);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public static Object addPage(String url) {
