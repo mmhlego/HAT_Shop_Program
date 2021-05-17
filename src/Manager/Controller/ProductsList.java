@@ -54,10 +54,6 @@ public class ProductsList implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        RefreshPageBTN.setOnMouseClicked(e -> {
-            //TODO refresh page
-        });
     }
 
     private void search(String s) throws Exception {
