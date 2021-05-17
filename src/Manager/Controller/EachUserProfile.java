@@ -169,7 +169,8 @@ public class EachUserProfile implements Initializable {
 					+ FirstNameLBL.getText() + "\' , LastName=" + "\'" + LastNameLBL.getText() + "\' , Username=" + "\'"
 					+ UsernameLBL.getText() + "\' , Phone=" + "\'" + PhoneLBL.getText() + "\' , Email=" + "\'"
 					+ EmailLBL.getText() + "\' , Address=" + "\'" + AddressLBL.getText() + "\' , Value="
-					+ Long.parseLong(ValueLBL.getText()) + " WHERE ID=" + "\'" + IDLBL.getText() + "\'");
+					+ Long.parseLong(ValueLBL.getText()) + " , AccountMode=" + StringModeToIntMode(
+							ModeLBL.getText()) + " WHERE ID=" + "\'" + IDLBL.getText() + "\'");
 			ps.executeUpdate();
 			Alert(AlertType.INFORMATION, "موفق", "اطلاعات کاربر با موفقیت به روزرسانی شد !");
 		} catch (SQLException e) {
@@ -182,7 +183,7 @@ public class EachUserProfile implements Initializable {
 			PreparedStatement ps = DBConnector.Con.prepareStatement("UPDATE Employees SET FirstName=" + "\'"
 					+ FirstNameLBL.getText() + "\' , LastName=" + "\'" + LastNameLBL.getText() + "\' , Username=" + "\'"
 					+ UsernameLBL.getText() + "\' , Phone=" + "\'" + PhoneLBL.getText() + "\' , Email=" + "\'"
-					+ EmailLBL.getText() + "\'" + " WHERE ID=" + "\'" + IDLBL.getText() + "\'");
+					+ EmailLBL.getText() + "\'" + " , Mode=" + StringModeToIntMode2(ModeLBL.getText()) +  " WHERE ID=" + "\'" + IDLBL.getText() + "\'");
 			ps.executeUpdate();
 			Alert(AlertType.INFORMATION, "موفق", "اطلاعات کاربر با موفقیت به روزرسانی شد !");
 		} catch (SQLException e) {
@@ -198,4 +199,37 @@ public class EachUserProfile implements Initializable {
 		alert.show();
 	}
 
+	private static int StringModeToIntMode(String CustomerMode) {
+		switch (CustomerMode) {
+			case "REGULAR":
+				return 0;
+			case "PREMIUM":
+				return 1;
+			case "REGULARBANNED":
+				return 2;
+			case "PREMIUMBANNED":
+				return 3;
+			default:
+				return -1;
+		}
+	}
+
+	private static int StringModeToIntMode2(String EmployeeMode) {
+		switch (EmployeeMode) {
+			case "ASSISTANT":
+				return 0;
+			case "ACCOUNTANT":
+				return 1;
+			case "QUALITYCONTROL":
+				return 2;
+			case "REGULAR":
+				return 3;
+			case "SUPPLIER":
+				return 4;
+			case "STOREKEEPER":
+				return 5;
+			default:
+				return -1;
+		}
+	}
 }
