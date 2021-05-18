@@ -33,356 +33,234 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class ProductInformationPage implements Initializable {
-	@FXML
-	private ImageView ProductIMG;
-	@FXML
-	private Button BuyBTN;
-	@FXML
-	private Label ProductNameLBL;
-	@FXML
-	private Label ProductPriceLBL;
-	@FXML
-	private Label ProductCategoryLBL;
-	@FXML
-	private Label ProductIDLBL;
-	@FXML
-	private ImageView SpecialIMG;
-	@FXML
-	private Label SpecialTXT;
-	@FXML
-	private Group AddToCartGroup;
-	@FXML
-	private Group FinishedGroup;
-	@FXML
-	private Button AddToCartBTN;
-	@FXML
-	private Button IncreaseBTN;
-	@FXML
-	private Label SelectedAmountLBL;
-	@FXML
-	private Button DecreaseBTN;
-	@FXML
-	private JFXTextArea ProductDescriptionTXT;
-	@FXML
-	private TableView<Map<String, Object>> ProductDetailsTable;
-	@FXML
-	private AnchorPane SimilarProductsAnchor;
-	@FXML
-	private Button LoadMoreBTN;
-	@SuppressWarnings("rawtypes")
-	@FXML
-	private TableColumn<Map, String> InformationColumn;
-	@SuppressWarnings("rawtypes")
-	@FXML
-	private TableColumn<Map, String> MColumn;
+    @FXML
+    private ImageView ProductIMG;
 
-	public static Product p;
+    @FXML
+    private Button BuyBTN;
 
-	public TableView<Map<String, Object>> getProductDetailsTable() {
-		return ProductDetailsTable;
-	}
+    @FXML
+    private Label ProductNameLBL;
 
-	public void setProductDetailsTable(TableView<Map<String, Object>> productDetailsTable) {
-		ProductDetailsTable = productDetailsTable;
-	}
+    @FXML
+    private Label ProductPriceLBL;
 
-	@SuppressWarnings("rawtypes")
-	public TableColumn<Map, String> getInformationColumn() {
-		return InformationColumn;
-	}
+    @FXML
+    private Label ProductCategoryLBL;
 
-	public void setInformationColumn(@SuppressWarnings("rawtypes") TableColumn<Map, String> informationColumn) {
-		InformationColumn = informationColumn;
-	}
+    @FXML
+    private Label ProductIDLBL;
 
-	@SuppressWarnings("rawtypes")
-	public TableColumn<Map, String> getMColumn() {
-		return MColumn;
-	}
+    @FXML
+    private ImageView SpecialIMG;
 
-	public void setMColumn(@SuppressWarnings("rawtypes") TableColumn<Map, String> mColumn) {
-		MColumn = mColumn;
-	}
+    @FXML
+    private Label SpecialTXT;
 
-	public ImageView getProductIMG() {
-		return ProductIMG;
-	}
+    @FXML
+    private Group AddToCartGroup;
 
-	public void setProductIMG(ImageView productIMG) {
-		ProductIMG = productIMG;
-	}
+    @FXML
+    private Button AddToCartBTN;
 
-	public Button getBuyBTN() {
-		return BuyBTN;
-	}
+    @FXML
+    private Button IncreaseBTN;
 
-	public void setBuyBTN(Button buyBTN) {
-		BuyBTN = buyBTN;
-	}
+    @FXML
+    private Label SelectedAmountLBL;
 
-	public Label getProductNameLBL() {
-		return ProductNameLBL;
-	}
+    @FXML
+    private Button DecreaseBTN;
 
-	public void setProductNameLBL(Label productNameLBL) {
-		ProductNameLBL = productNameLBL;
-	}
+    @FXML
+    private JFXTextArea ProductDescriptionTXT;
 
-	public Label getProductPriceLBL() {
-		return ProductPriceLBL;
-	}
+    @FXML
+    private TableView<Map<String, Object>> ProductDetailsTable;
 
-	public void setProductPriceLBL(Label productPriceLBL) {
-		ProductPriceLBL = productPriceLBL;
-	}
+    @FXML
+    private AnchorPane SimilarProductsAnchor;
 
-	public Label getProductCategoryLBL() {
-		return ProductCategoryLBL;
-	}
+    @SuppressWarnings("rawtypes")
+    @FXML
+    private TableColumn<Map, String> InformationColumn;
 
-	public void setProductCategoryLBL(Label productCategoryLBL) {
-		ProductCategoryLBL = productCategoryLBL;
-	}
+    @SuppressWarnings("rawtypes")
+    @FXML
+    private TableColumn<Map, String> MColumn;
 
-	public Label getProductIDLBL() {
-		return ProductIDLBL;
-	}
+    @FXML
+    private Button LoadMoreBTN;
 
-	public void setProductIDLBL(Label productIDLBL) {
-		ProductIDLBL = productIDLBL;
-	}
+    @FXML
+    private Group FinishedGroup;
 
-	public ImageView getSpecialIMG() {
-		return SpecialIMG;
-	}
+    public Product p;
 
-	public void setSpecialIMG(ImageView specialIMG) {
-		SpecialIMG = specialIMG;
-	}
+    int AmountInsideCart = 0;
 
-	public Label getSpecialTXT() {
-		return SpecialTXT;
-	}
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        IncreaseBTN.setOnAction(e -> {
+            SelectedAmountLBL.setText(String.valueOf(Integer.parseInt(SelectedAmountLBL.getText()) + 1));
+            checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount - AmountInsideCart, DecreaseBTN,
+                    IncreaseBTN);
+        });
 
-	public void setSpecialTXT(Label specialTXT) {
-		SpecialTXT = specialTXT;
-	}
+        DecreaseBTN.setOnAction(e -> {
+            SelectedAmountLBL.setText(String.valueOf(Integer.parseInt(SelectedAmountLBL.getText()) - 1));
+            checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount - AmountInsideCart, DecreaseBTN,
+                    IncreaseBTN);
+        });
 
-	public Group getAddToCartGroup() {
-		return AddToCartGroup;
-	}
+        AddToCartBTN.setOnAction(e -> {
+            UserController.Cart.addProduct(p, Integer.parseInt(SelectedAmountLBL.getText()));
+            UserController.UpdateCart();
+        });
 
-	public void setAddToCartGroup(Group addToCartGroup) {
-		AddToCartGroup = addToCartGroup;
-	}
+        //checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount - AmountInsideCart, DecreaseBTN,
+        //        IncreaseBTN);
 
-	public Button getAddToCartBTN() {
-		return AddToCartBTN;
-	}
+        //CheckSpecial();
+    }
 
-	public void setAddToCartBTN(Button addToCartBTN) {
-		AddToCartBTN = addToCartBTN;
-	}
+    private void checkAmount(int amount, int max, Button dButton, Button iButton) {
+        if (amount == 0) {
+            SelectedAmountLBL.setText("0");
+            AddToCartBTN.setDisable(true);
+            BuyBTN.setText("");
+            FinishedGroup.setVisible(true);
+        } else {
+            FinishedGroup.setVisible(false);
+        }
 
-	public Button getIncreaseBTN() {
-		return IncreaseBTN;
-	}
+        if (amount > 1) {
+            dButton.setDisable(false);
+        } else {
+            dButton.setDisable(true);
+        }
+        if (amount < max) {
+            iButton.setDisable(false);
+        } else {
+            iButton.setDisable(true);
+        }
 
-	public void setIncreaseBTN(Button increaseBTN) {
-		IncreaseBTN = increaseBTN;
-	}
+        CheckSpecial();
+    }
 
-	public Label getSelectedAmountLBL() {
-		return SelectedAmountLBL;
-	}
+    public void buyPage(Product p, Image image) {
+        this.p = p;
 
-	public void setSelectedAmountLBL(Label selectedAmountLBL) {
-		SelectedAmountLBL = selectedAmountLBL;
-	}
+        if (UserController.Mode.equals(UserMode.Customer)) {
+            int index = UserController.Cart.contains(p.ID);
+            if (index != -1) {
+                AmountInsideCart = UserController.Cart.Amounts.get(index);
+            }
+        }
 
-	public Button getDecreaseBTN() {
-		return DecreaseBTN;
-	}
+        if (p.Amount - AmountInsideCart == 0) {
+            SelectedAmountLBL.setText("0");
+        }
 
-	public void setDecreaseBTN(Button decreaseBTN) {
-		DecreaseBTN = decreaseBTN;
-	}
+        if (p.Amount == 0) {
+            BuyBTN.setDisable(true);
+        }
 
-	public JFXTextArea getProductDescriptionTXT() {
-		return ProductDescriptionTXT;
-	}
+        BuyBTN.setOnAction(e -> {
+            BuyBTN.setVisible(false);
+            AddToCartGroup.setVisible(true);
+        });
 
-	public void setProductDescriptionTXT(JFXTextArea productDescriptionTXT) {
-		ProductDescriptionTXT = productDescriptionTXT;
-	}
+        ProductCategoryLBL.setText(p.Category);
+        ProductDescriptionTXT.setText(p.Description);
+        ProductIDLBL.setText(p.ID);
+        ProductIMG.setImage(image);
+        ProductNameLBL.setText(p.Name);
+        ProductPriceLBL.setText(String.valueOf(p.Price));
 
-	public AnchorPane getSimilarProductsAnchor() {
-		return SimilarProductsAnchor;
-	}
+        ObservableList<Map<String, Object>> items = FXCollections.<Map<String, Object>>observableArrayList();
+        for (int j = 0; j < p.Details.length; j++) {
+            Map<String, Object> item = new HashMap<>();
+            item.put("firstrow", p.Details[j][0]);
+            item.put("secondrow", p.Details[j][1]);
+            items.add(item);
+        }
 
-	public void setSimilarProductsAnchor(AnchorPane similarProductsAnchor) {
-		SimilarProductsAnchor = similarProductsAnchor;
-	}
+        MColumn.setCellValueFactory(new MapValueFactory<String>("firstrow"));
+        InformationColumn.setCellValueFactory(new MapValueFactory<String>("secondrow"));
+        ProductDetailsTable.setItems(items);
+        showSpecialProduct(SimilarProductsAnchor);
 
-	public Button getLoadMoreBTN() {
-		return LoadMoreBTN;
-	}
+        LoadMoreBTN.toFront();
+        LoadMoreBTN.setOnAction(e -> {
+            ProductsViewer controller = (ProductsViewer) MainStructure
+                    .addPage("src/Customer/Visual/ProductsViewer.fxml");
+            controller.getOnlyAmazingToggle().selectedProperty().setValue(true);
+            controller.filter();
+        });
 
-	public void setLoadMoreBTN(Button loadMoreBTN) {
-		LoadMoreBTN = loadMoreBTN;
-	}
+        checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount - AmountInsideCart, DecreaseBTN,
+                IncreaseBTN);
 
-	int AmountInsideCart = 0;
+        CheckSpecial();
+    }
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		if (UserController.Mode.equals(UserMode.Customer)) {
+    private void CheckSpecial() {
+        boolean special = p.IsSpecial();
+        SpecialIMG.setVisible(special);
+        SpecialTXT.setVisible(special);
+    }
 
-			int index = UserController.Cart.contains(p.ID);
-			if (index != -1) {
-				AmountInsideCart = UserController.Cart.Amounts.get(index);
-			}
-		}
+    Random random = new Random(System.currentTimeMillis());
 
-		if (p.Amount - AmountInsideCart == 0) {
-			SelectedAmountLBL.setText("0");
-		}
+    private void showSpecialProduct(AnchorPane pane) {
+        ArrayList<Product> specialProduct = new ArrayList<Product>();
+        ArrayList<Product> AllSpecialProducts = ProductChecker.GetSpecialProducts();
 
-		// UserController.Cart.addProduct(p, amount);
-		IncreaseBTN.setOnAction(e -> {
-			SelectedAmountLBL.setText(String.valueOf(Integer.parseInt(SelectedAmountLBL.getText()) + 1));
-			checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount - AmountInsideCart, DecreaseBTN,
-					IncreaseBTN);
-		});
+        for (int i = 0; i < 5; i++) {
+            int index = random.nextInt(AllSpecialProducts.size());
+            while (specialProduct.contains(AllSpecialProducts.get(index))) {
+                index = random.nextInt(AllSpecialProducts.size());
+            }
+            specialProduct.add(AllSpecialProducts.get(index));
+        }
+        int i = 0;
+        for (Product product : specialProduct) {
+            try {
+                if (!product.equals(new Product())) {
 
-		DecreaseBTN.setOnAction(e -> {
-			SelectedAmountLBL.setText(String.valueOf(Integer.parseInt(SelectedAmountLBL.getText()) - 1));
-			checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount - AmountInsideCart, DecreaseBTN,
-					IncreaseBTN);
-		});
+                    FXMLLoader loader = new FXMLLoader(
+                            this.getClass().getResource("../Components/ProductSmallView.fxml"));
 
-		AddToCartBTN.setOnAction(e -> {
-			UserController.Cart.addProduct(p, Integer.parseInt(SelectedAmountLBL.getText()));
-			UserController.UpdateCart();
-		});
+                    Parent p = loader.load();
+                    ProductSmallView s = loader.getController();
+                    AnchorPane.setTopAnchor(p, ((double) 25));
+                    AnchorPane.setLeftAnchor(p, ((double) (i) * 225 + 25 - 120));
 
-		checkAmount(Integer.parseInt(SelectedAmountLBL.getText()), p.Amount - AmountInsideCart, DecreaseBTN,
-				IncreaseBTN);
-	}
+                    Image image;
+                    if (new File("src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")
+                            .exists()) {
+                        image = new Image(new FileInputStream(new File(
+                                "src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")));
+                    } else {
+                        image = new Image(new FileInputStream(new File("src/pictures/Product Images/Product.png")));
+                    }
 
-	private void checkAmount(int amount, int max, Button dButton, Button iButton) {
-		if (amount == 0) {
-			SelectedAmountLBL.setText("0");
-			AddToCartBTN.setDisable(true);
-			BuyBTN.setText("");
-			FinishedGroup.setVisible(true);
-		}
+                    s.getProductImage().setImage(image);
+                    s.getProductName().setText(product.Name);
+                    s.getProductPrice().setText(String.valueOf(product.Price));
+                    s.getSpecialEvents().setText("کالای شگفت انگیز");
+                    s.getSpecialEvents().setVisible(true);
+                    p.setOnMouseClicked(e -> buyPage(product, image));
+                    ProductSmallView smallView = loader.getController();
+                    smallView.getBuyButton().setOnAction(e -> buyPage(product, image));
+                    pane.getChildren().add(p);
 
-		if (amount > 1) {
-			dButton.setDisable(false);
-		} else {
-			dButton.setDisable(true);
-		}
-		if (amount < max) {
-			iButton.setDisable(false);
-		} else {
-			iButton.setDisable(true);
-		}
-	}
-
-	public void buyPage(Product p, Image image, boolean special) {
-
-		if (p.Amount == 0) {
-			getBuyBTN().setDisable(true);
-		}
-
-		getBuyBTN().setOnAction(e -> {
-			getBuyBTN().setVisible(false);
-			getAddToCartGroup().setVisible(true);
-		});
-
-		getProductCategoryLBL().setText(p.Category);
-		getProductDescriptionTXT().setText(p.Description);
-		getProductIDLBL().setText(p.ID);
-		getProductIMG().setImage(image);
-		getProductNameLBL().setText(p.Name);
-		getProductPriceLBL().setText(String.valueOf(p.Price));
-
-		ObservableList<Map<String, Object>> items = FXCollections.<Map<String, Object>>observableArrayList();
-		for (int j = 0; j < p.Details.length; j++) {
-			Map<String, Object> item = new HashMap<>();
-			item.put("firstrow", p.Details[j][0]);
-			item.put("secondrow", p.Details[j][1]);
-			items.add(item);
-		}
-		getMColumn().setCellValueFactory(new MapValueFactory<String>("firstrow"));
-		getInformationColumn().setCellValueFactory(new MapValueFactory<String>("secondrow"));
-		getProductDetailsTable().setItems(items);
-		getSpecialTXT().setVisible(false);
-		showSpecialProduct(getSimilarProductsAnchor());
-
-		System.out.println(special);
-		getSpecialTXT().setVisible(special);
-		getSpecialIMG().setVisible(special);
-		getLoadMoreBTN().toFront();
-		getLoadMoreBTN().setOnAction(e -> {
-			ProductsViewer controller = (ProductsViewer) MainStructure
-					.addPage("src/Customer/Visual/ProductsViewer.fxml");
-			controller.getOnlyAmazingToggle().selectedProperty().setValue(true);
-			controller.filter();
-		});
-	}
-
-	Random random = new Random(System.currentTimeMillis());
-
-	private void showSpecialProduct(AnchorPane pane) {
-		ArrayList<Product> specialProduct = new ArrayList<Product>();
-		ArrayList<Product> AllSpecialProducts = ProductChecker.GetSpecialProducts();
-
-		for (int i = 0; i < 5; i++) {
-			int index = random.nextInt(AllSpecialProducts.size());
-			while (specialProduct.contains(AllSpecialProducts.get(index))) {
-				index = random.nextInt(AllSpecialProducts.size());
-			}
-			specialProduct.add(AllSpecialProducts.get(index));
-		}
-		int i = 0;
-		for (Product product : specialProduct) {
-			try {
-				if (!product.equals(new Product())) {
-
-					FXMLLoader loader = new FXMLLoader(
-							this.getClass().getResource("../Components/ProductSmallView.fxml"));
-
-					Parent p = loader.load();
-					ProductSmallView s = loader.getController();
-					AnchorPane.setTopAnchor(p, ((double) 25));
-					AnchorPane.setLeftAnchor(p, ((double) (i) * 225 + 25 - 120));
-
-					Image image;
-					if (new File("src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")
-							.exists()) {
-						image = new Image(new FileInputStream(new File(
-								"src/pictures/Product Images/" + product.Category + "/" + product.Name + ".jpg")));
-					} else {
-						image = new Image(new FileInputStream(new File("src/pictures/Product Images/Product.png")));
-					}
-
-					s.getProductImage().setImage(image);
-					s.getProductName().setText(product.Name);
-					s.getProductPrice().setText(String.valueOf(product.Price));
-					s.getSpecialEvents().setText("کالای شگفت انگیز");
-					s.getSpecialEvents().setVisible(true);
-					p.setOnMouseClicked(e -> buyPage(product, image, true));
-					ProductSmallView smallView = loader.getController();
-					smallView.getBuyButton().setOnAction(e -> buyPage(product, image, true));
-					pane.getChildren().add(p);
-
-				}
-				i++;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+                }
+                i++;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

@@ -9,6 +9,7 @@ import CommonPages.Controllers.Component.*;
 import Controller.UserController;
 import Controller.UserController.UserMode;
 import Customer.Controller.Payment;
+import DataController.UserGetter;
 import DataController.UserUpdator;
 import Model.Customer.CustomerMode;
 import javafx.animation.KeyFrame;
@@ -99,7 +100,8 @@ public class Profile implements Initializable {
                 account.getIDLBL().setText(UserController.customer.ID);
                 account.getModeLBL().setText(String.valueOf(UserController.customer.Mode));
                 account.getUsernameLBL().setText(UserController.customer.Username);
-                account.getAccountValueLBL().setText(Long.toString(UserController.customer.Value) + " ریال");
+                account.getAccountValueLBL()
+                        .setText(Long.toString(UserGetter.GetCustomerValue(UserController.customer.ID)) + " ریال");
                 account.getChargeBalanceBTN().setOnMouseClicked(e2 -> {
                     TextInputDialog td = new TextInputDialog();
                     td.setTitle("مبلغ شارژ را وارد نمایید");
@@ -119,7 +121,6 @@ public class Profile implements Initializable {
                         }
                         if (ChargeEntered) {
                             try {
-
                                 FXMLLoader loader = new FXMLLoader(
                                         new File("src/Customer/Visual/Payment.fxml").toURI().toURL());
 

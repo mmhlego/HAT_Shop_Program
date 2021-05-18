@@ -55,7 +55,6 @@ public class Cart implements Initializable {
 
     public long TotalPaymentValue = 0;
 
-    private boolean special = false;
     ArrayList<Product> SpecialProduct = new ArrayList<>();
     public static Stage pStage;
 
@@ -208,14 +207,8 @@ public class Cart implements Initializable {
                 } catch (Exception e1) {
                     e1.printStackTrace();
                 }
-
             });
-            for (Product spProduct : SpecialProduct) {
-                if (p.ID.equals(spProduct.ID)) {
 
-                    special = true;
-                }
-            }
             controller.getDecreaseAmountBTN().setOnAction(e -> {
                 controller.getAmountLBL()
                         .setText(String.valueOf(Integer.parseInt(controller.getAmountLBL().getText()) - 1));
@@ -262,10 +255,10 @@ public class Cart implements Initializable {
 
     private void buyPage(Product product, Image image) {
 
-        ProductInformationPage.p = product;
+        //ProductInformationPage.p = product;
         ProductInformationPage c = (ProductInformationPage) MainStructure
                 .addPage("src/Customer/Visual/ProductInformationPage.fxml");
-        c.buyPage(product, image, special);
+        c.buyPage(product, image);
 
     }
 

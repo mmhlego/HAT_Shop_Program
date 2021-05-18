@@ -118,7 +118,7 @@ public class MainStructure implements Initializable {
                 AddButton("../../Manager/Visual/CustomerList.fxml", "لیست مشتریان", "CustomerList", false);
                 AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "AllProducts", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.SUPPLIER)) {
-                loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/AllProducts.fxml"));
+                loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/ProductsList.fxml"));
 
                 AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "AllProducts", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.STOREKEEPER)) {

@@ -224,10 +224,6 @@ public class UserGetter {
     }
 
     public static Transaction GetTransactionByOrderID(String UserID, long Value, long Fee) {
-
-        System.out.println("SELECT * FROM Transactions WHERE FromID=" + "\'" + UserID + "\'" + " AND ( Value=" + Value
-                + " OR Value=" + (Value + Fee) + ")");
-
         try {
             ResultSet r = DBConnector.RunCommand("SELECT * FROM Transactions WHERE FromID=" + "\'" + UserID + "\'"
                     + " AND ( Value=" + Value + " OR Value=" + (Value + Fee) + ")");
@@ -278,4 +274,14 @@ public class UserGetter {
         return 0;
     }
 
+    public static long GetCustomerValue(String CustomerID) {
+        try {
+            ResultSet r = DBConnector.RunCommand("SELECT Value FROM Customers WHERE ID=" + "\'" + CustomerID + "\'");
+            r.next();
+            return r.getLong(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 }
