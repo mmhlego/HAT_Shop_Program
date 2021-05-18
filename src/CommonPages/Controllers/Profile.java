@@ -4,9 +4,8 @@ import java.io.File;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import CommonPages.Controllers.Component.ProfileAccount;
-import CommonPages.Controllers.Component.ProfileContact;
-import CommonPages.Controllers.Component.ProfilePersonal;
+
+import CommonPages.Controllers.Component.*;
 import Controller.UserController;
 import Controller.UserController.UserMode;
 import Customer.Controller.Payment;
@@ -100,6 +99,7 @@ public class Profile implements Initializable {
                 account.getIDLBL().setText(UserController.customer.ID);
                 account.getModeLBL().setText(String.valueOf(UserController.customer.Mode));
                 account.getUsernameLBL().setText(UserController.customer.Username);
+                account.getAccountValueLBL().setText(Long.toString(UserController.customer.Value) + " ریال");
                 account.getChargeBalanceBTN().setOnMouseClicked(e2 -> {
                     TextInputDialog td = new TextInputDialog();
                     td.setTitle("مبلغ شارژ را وارد نمایید");
@@ -153,6 +153,8 @@ public class Profile implements Initializable {
                 account.getUsernameLBL().setText(UserController.employee.Username);
                 account.getChargeBalanceBTN().setVisible(false);
                 account.getUpgradeAccountBTN().setVisible(false);
+                account.getAccountValueLBL().setVisible(false);
+                account.getAccountValueTitle().setVisible(false);
                 ((AnchorPane) account.getUpgradeAccountBTN().getParent()).setPrefHeight(180);
             } else if (UserController.Mode.equals(UserMode.Manager)) {
                 account.getIDTitleLBL().setVisible(false);
@@ -162,6 +164,8 @@ public class Profile implements Initializable {
                 account.getUsernameLBL().setText(UserController.manager.Username);
                 account.getChargeBalanceBTN().setVisible(false);
                 account.getUpgradeAccountBTN().setVisible(false);
+                account.getAccountValueLBL().setVisible(false);
+                account.getAccountValueTitle().setVisible(false);
                 ((AnchorPane) account.getUpgradeAccountBTN().getParent()).setPrefHeight(180);
             }
         });

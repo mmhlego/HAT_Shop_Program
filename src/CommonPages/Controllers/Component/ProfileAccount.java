@@ -19,9 +19,29 @@ public class ProfileAccount {
     private Button ChargeBalanceBTN;
     @FXML
     private Button UpgradeAccountBTN;
+    @FXML
+    private Label AccountValueTitle;
+    @FXML
+    private Label AccountValueLBL;
 
     public Button getChargeBalanceBTN() {
         return ChargeBalanceBTN;
+    }
+
+    public Label getAccountValueTitle() {
+        return AccountValueTitle;
+    }
+
+    public void setAccountValueTitle(Label accountValueTitle) {
+        AccountValueTitle = accountValueTitle;
+    }
+
+    public Label getAccountValueLBL() {
+        return AccountValueLBL;
+    }
+
+    public void setAccountValueLBL(Label accountValueLBL) {
+        AccountValueLBL = accountValueLBL;
     }
 
     public void setChargeBalanceBTN(Button chargeBalanceBTN) {
