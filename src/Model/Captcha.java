@@ -65,7 +65,7 @@ public class Captcha extends AnchorPane {
     }
 
     private void fontChange(Label t) {
-        t.setFont(Font.font(r.nextInt(10) + 20));
+        t.setFont(Font.font(r.nextInt(12) + 18));
     }
 
     private void textRotate(Label t) {
@@ -74,20 +74,19 @@ public class Captcha extends AnchorPane {
 
     private void textTranslate(Label t) {
         int boundX = r.nextInt((int) ((y) - (t.getFont().getSize())) - 10);
-        int boundY = (int) (r.nextInt((int) ((x / count) - (2 * t.getWidth()))) + t.getWidth()) + 5;
+        int boundY = (int) (r.nextInt((int) ((x / count) - (2 * t.getWidth())) - 5) + t.getWidth()) + 5;
         AnchorPane.setTopAnchor(t, (double) boundX);
         AnchorPane.setLeftAnchor(t, (double) boundY);
         t.setTextFill(Color.rgb(r.nextInt(156), r.nextInt(156), r.nextInt(156)));
-
     }
 
     private void drawings() {
         for (int i = 0; i < r.nextInt(3) + 1; i++) {
             Line line = new Line();
-            line.setStartX(r.nextDouble() * x);
+            line.setStartX(r.nextDouble() * x / 2);
             line.setStartY(r.nextDouble() * y);
             line.setEndY(r.nextDouble() * y);
-            line.setEndX(r.nextDouble() * x);
+            line.setEndX(r.nextDouble() * x / 2 + x / 2);
             line.setStroke(Color.rgb(r.nextInt(100), r.nextInt(100), r.nextInt(100)));
             this.getChildren().add(line);
             line.toFront();

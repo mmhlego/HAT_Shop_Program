@@ -20,7 +20,6 @@ import Model.Order.OrderStatus;
 import Model.Product;
 import Model.Shipping;
 import Model.Transaction;
-import Model.Customer.CustomerMode;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;

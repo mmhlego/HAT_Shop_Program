@@ -148,6 +148,7 @@ public class MainStructure implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("../Visual/Component/SidePic.fxml"));
             VBox root = loader.load();
+            root.setCursor(Cursor.HAND);
 
             try {
                 ((ImageView) root.getChildren().get(0)).setImage(new Image(new FileInputStream(
