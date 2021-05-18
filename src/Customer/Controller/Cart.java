@@ -19,6 +19,8 @@ import Model.Order;
 import Model.Order.OrderStatus;
 import Model.Product;
 import Model.Shipping;
+import Model.Transaction;
+import Model.Customer.CustomerMode;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -51,6 +53,9 @@ public class Cart implements Initializable {
     private Label ShippingFeeLBL;
     @FXML
     private Button PayOrderFromValueBTN;
+
+    public long TotalPaymentValue = 0;
+
     private boolean special = false;
     ArrayList<Product> SpecialProduct = new ArrayList<>();
     public static Stage pStage;
@@ -70,7 +75,7 @@ public class Cart implements Initializable {
         }
 
         PayOrderFromPaymentBTN.setOnAction((e) -> {
-            Payment.FinalPrice = FinalPriceLBL.getText();
+            Payment.FinalPrice = Long.toString(TotalPaymentValue);
             Payment.ShippingDate = ShippingDateLBL.getText();
             Payment.ShippingFee = ShippingFeeLBL.getText();
 
@@ -101,13 +106,12 @@ public class Cart implements Initializable {
                 DataUpdator.UpdateOrderStatus(UserController.Cart);
                 DataAdder.AddShipping(UserController.Cart.OrderID, 0, Long.parseLong(ShippingFeeLBL.getText()),
                         LocalDate.parse(ShippingDateLBL.getText()), Shipping.GenerateID());
-                DataAdder.AddTransaction(UserController.Cart.OwnerID, Long.parseLong(FinalPriceLBL.getText()),
-                        LocalDate.parse(ShippingDateLBL.getText()), Payment.TRID);
+                DataAdder.AddTransaction(UserController.Cart.OwnerID, TotalPaymentValue,
+                        LocalDate.parse(ShippingDateLBL.getText()).minusDays(5), Transaction.GenerateID());
                 DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
 
                 UserController.LoadUserFullData();
                 UserController.HideLoading();
-
             } else {
                 Alert(AlertType.ERROR, "اعتبار حساب کافی نیست !");
             }
@@ -118,7 +122,6 @@ public class Cart implements Initializable {
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
-
         });
     }
 
@@ -243,6 +246,10 @@ public class Cart implements Initializable {
             ProductsListPanel.getChildren().add(parent);
             i++;
         }
+
+        TotalPaymentValue = fees + finalPrice;
+        System.out.println(TotalPaymentValue);
+
         ShippingFeeLBL.setText(String.valueOf(fees));
         SumOfPricesLBL.setText(String.valueOf(basePrice));
         FinalPriceLBL.setText(String.valueOf(finalPrice));
@@ -252,7 +259,6 @@ public class Cart implements Initializable {
             LocalDate date = LocalDate.now().plusDays(5);
             ShippingDateLBL.setText(date.toString());
         }
-
     }
 
     private void buyPage(Product product, Image image) {

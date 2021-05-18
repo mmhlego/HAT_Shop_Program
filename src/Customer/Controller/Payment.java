@@ -81,8 +81,6 @@ public class Payment implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ApplyBlur();
-    
         AmountLBL.setText(FinalPrice);
         if (Profile.ChargeEntered) {
             AmountLBL.setText(Profile.ChargeAmount);
@@ -90,12 +88,12 @@ public class Payment implements Initializable {
         TRID = Transaction.GenerateID();
         TransactionIDLBL.setText(TRID);
 
-        captcha = new Captcha(300, 40, 7);
+        captcha = new Captcha(280, 40, 6);
         CaptchaPanel.getChildren().add(captcha);
 
         ChangeCaptcha.setOnAction((e) -> {
             CaptchaPanel.getChildren().clear();
-            captcha = new Captcha(300, 40, 7);
+            captcha = new Captcha(280, 40, 6);
             CaptchaPanel.getChildren().add(captcha);
         });
 
@@ -119,7 +117,7 @@ public class Payment implements Initializable {
                     DataAdder.AddShipping(UserController.Cart.OrderID, 0, Long.parseLong(ShippingFee),
                             LocalDate.parse(ShippingDate), Shipping.GenerateID());
                     DataAdder.AddTransaction(UserController.Cart.OwnerID, Long.parseLong(FinalPrice),
-                            LocalDate.parse(ShippingDate), TransactionIDLBL.getText());
+                            LocalDate.parse(ShippingDate).minusDays(5), TransactionIDLBL.getText());
                     DataAdder.AddOrder(new Order(UserController.customer.ID, Order.GenerateID(), OrderStatus.PENDING));
                     Card = CardNumberTF.getText();
 
@@ -174,10 +172,6 @@ public class Payment implements Initializable {
             }
             Profile.ChargeEntered = false;
         });
-    }
-
-    private void ApplyBlur() {
-
     }
 
     private long GetAmount() {

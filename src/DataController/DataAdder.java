@@ -166,5 +166,4 @@ public class DataAdder {
         AddOrder(o.OwnerID, Order.OrderStatus.ModeToInt(o.Status), o.GetProductIDs(), o.Amounts, o.TotalValue,
                 o.OrderID);
     }
-
 }

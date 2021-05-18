@@ -107,7 +107,7 @@ public class UserGetter {
     public static ResultSet GetOrdersDB(String OwnerID) {
         try {
             return DBConnector.RunCommand("SELECT * FROM Orders WHERE OwnerID=" + "\'" + OwnerID + "\'"
-                    + " AND Status > 0 ORDER BY OrderID DESC");
+                    + " AND Status > 0 ORDER BY Status ASC , OrderID DESC");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -224,6 +224,10 @@ public class UserGetter {
     }
 
     public static Transaction GetTransactionByOrderID(String UserID, long Value, long Fee) {
+
+        System.out.println("SELECT * FROM Transactions WHERE FromID=" + "\'" + UserID + "\'" + " AND ( Value=" + Value
+                + " OR Value=" + (Value + Fee) + ")");
+
         try {
             ResultSet r = DBConnector.RunCommand("SELECT * FROM Transactions WHERE FromID=" + "\'" + UserID + "\'"
                     + " AND ( Value=" + Value + " OR Value=" + (Value + Fee) + ")");

@@ -9,8 +9,8 @@ public class SMSSender {
     private static String OTP;
 
     public static void SendSMS(String phone, String Text) {
-        // MailSender.SendEmail("mmhlegoautosmssender@gmail.com", phone, OTP);
-        Alert(AlertType.INFORMATION, Text);
+        MailSender.SendEmail("mmhlegoautosmssender@gmail.com", phone, OTP);
+        //Alert(AlertType.INFORMATION, Text);
     }
 
     private static void Alert(AlertType AlertType, String Content) {
