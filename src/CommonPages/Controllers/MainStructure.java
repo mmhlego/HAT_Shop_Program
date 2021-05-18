@@ -93,24 +93,37 @@ public class MainStructure implements Initializable {
             AddButton("../../Manager/Visual/ShippingList.fxml", "لیست ارسالات ", "AllShippings", false);
         } else {
             loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/EmployeeList.fxml"));
+
             if (UserController.employee.Mode.equals(EmployeeMode.ASSISTANT)) {
+                loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/EmployeeList.fxml"));
+
                 AddButton("../../Manager/Visual/CustomerList.fxml", "لیست مشتریان", "CustomerList", false);
                 AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "EmployeeList", false);
                 AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "AllProducts", false);
                 AddButton("../../Manager/Visual/TransactionList.fxml", "لیست تبادلات", "AllTransactions", false);
                 AddButton("../../Manager/Visual/ShippingList.fxml", "لیست ارسالات ", "AllShippings", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.ACCOUNTANT)) {
+                loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/TransactionList.fxml"));
+
                 AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "EmployeeList", false);
                 AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "AllProducts", false);
                 AddButton("../../Manager/Visual/TransactionList.fxml", "لیست تبادلات", "AllTransactions", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.QUALITYCONTROL)) {
+                loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/EmployeeList.fxml"));
+
                 AddButton("../../Manager/Visual/EmployeeList.fxml", "لیست کارکنان", "EmployeeList", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.REGULAR)) {
+                loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/CustomerList.fxml"));
+
                 AddButton("../../Manager/Visual/CustomerList.fxml", "لیست مشتریان", "CustomerList", false);
                 AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "AllProducts", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.SUPPLIER)) {
+                loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/AllProducts.fxml"));
+
                 AddButton("../../Manager/Visual/ProductsList.fxml", "لیست کالا ها", "AllProducts", false);
             } else if (UserController.employee.Mode.equals(EmployeeMode.STOREKEEPER)) {
+                loader2 = new FXMLLoader(this.getClass().getResource("../../Manager/Visual/ProductAmountList.fxml"));
+
                 AddButton("../../Manager/Visual/ProductAmountList.fxml", "مقدار کالا ها", "AllProductsAmounts", false);
                 AddButton("../../Manager/Visual/TransactionList.fxml", "لیست تبادلات", "AllTransactions", false);
                 AddButton("../../Manager/Visual/ShippingList.fxml", "لیست ارسالات ", "AllShippings", false);
