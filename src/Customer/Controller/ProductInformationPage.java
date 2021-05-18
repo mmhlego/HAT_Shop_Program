@@ -52,6 +52,8 @@ public class ProductInformationPage implements Initializable {
 	@FXML
 	private Group AddToCartGroup;
 	@FXML
+	private Group FinishedGroup;
+	@FXML
 	private Button AddToCartBTN;
 	@FXML
 	private Button IncreaseBTN;
@@ -272,6 +274,8 @@ public class ProductInformationPage implements Initializable {
 		if (amount == 0) {
 			SelectedAmountLBL.setText("0");
 			AddToCartBTN.setDisable(true);
+			BuyBTN.setText("");
+			FinishedGroup.setVisible(true);
 		}
 
 		if (amount > 1) {

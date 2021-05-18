@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Customer.Controller.ProductInformationPage">
@@ -143,6 +144,17 @@
                   </Button>
                </children></AnchorPane>
             <AnchorPane layoutY="790.0" prefHeight="270.0" prefWidth="26.0" style="-fx-background-color: #F7FBFC; -fx-border-color: #769FCD; -fx-border-width: 0 1 0 0;" />
+            <Group fx:id="FinishedGroup" layoutX="190.0" layoutY="305.0">
+               <children>
+                  <Line endX="100.0" layoutY="20.5" startX="-100.0" />
+                  <Line endX="100.0" layoutX="320.0" layoutY="20.5" startX="-100.0" />
+                  <Label layoutX="132.5" text="تمام شد">
+                     <font>
+                        <Font name="B Kamran Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Group>
          </children></AnchorPane>
   </content>
 </ScrollPane>

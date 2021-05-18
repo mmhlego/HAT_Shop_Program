@@ -2,6 +2,7 @@ package DataController;
 
 import java.util.Random;
 
+import Controller.UserController;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
@@ -9,8 +10,8 @@ public class SMSSender {
     private static String OTP;
 
     public static void SendSMS(String phone, String Text) {
-        // MailSender.SendEmail("mmhlegoautosmssender@gmail.com", phone, OTP);
-        Alert(AlertType.INFORMATION, Text);
+        MailSender.SendEmail("mmhlegoautosmssender@gmail.com", phone, OTP);
+        Alert(AlertType.INFORMATION, "******* رمز یکبار مصرف به شماره تلفن" + UserController.customer.Phone.substring(7, 11) + "ارسال شد" );
     }
 
     private static void Alert(AlertType AlertType, String Content) {

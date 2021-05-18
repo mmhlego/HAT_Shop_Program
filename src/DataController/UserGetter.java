@@ -107,7 +107,7 @@ public class UserGetter {
     public static ResultSet GetOrdersDB(String OwnerID) {
         try {
             return DBConnector.RunCommand("SELECT * FROM Orders WHERE OwnerID=" + "\'" + OwnerID + "\'"
-                    + " AND Status > 0 ORDER BY OrderID DESC");
+                    + " AND Status > 0 ORDER BY OrderID ASC");
         } catch (Exception e) {
             e.printStackTrace();
         }
