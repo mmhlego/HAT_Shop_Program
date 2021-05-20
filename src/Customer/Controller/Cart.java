@@ -164,7 +164,6 @@ public class Cart implements Initializable {
 
             controller.getDeleteProductBTN().setOnAction(e -> {
                 try {
-
                     int j = 0;
                     for (Product x : UserController.Cart.Products) {
                         if (x.ID.equals(p.ID)) {
@@ -174,6 +173,7 @@ public class Cart implements Initializable {
                         }
                         j++;
                     }
+
                     UserController.UpdateCart();
                     ProductsListPanel.getChildren().clear();
                     if (UserController.Cart.Products.size() == 0) {

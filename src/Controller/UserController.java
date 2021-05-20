@@ -149,6 +149,7 @@ public class UserController {
     }
 
     public static void UpdateCart() {
+        UserController.Cart.CalculateTotalValue();
         UpdateScreen();
         Thread thread = new Thread(new Runnable() {
 
