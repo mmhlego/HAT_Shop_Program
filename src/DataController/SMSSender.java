@@ -9,7 +9,7 @@ public class SMSSender {
     private static String OTP;
 
     public static void SendSMS(String phone, String Text) {
-        MailSender.SendEmail("mmhlegoautosmssender@gmail.com", phone, OTP);
+        MailSender.SendEmail("mmhlegoautosmssender@gmail.com", phone, "Your OTP: " + OTP);
         Alert(AlertType.INFORMATION, " رمز یکبار مصرف به شماره تلفن" + ProtectedPhone(phone) + "ارسال شد");
     }
 
